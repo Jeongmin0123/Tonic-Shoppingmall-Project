@@ -2,23 +2,25 @@
 --		 mno     VARCHAR(10) PRIMARY KEY, 
 --       mname   VARCHAR(10) NOT NULL, 
 --       mgender VARCHAR(10) NOT NULL,
---       mbirth  VARCHAR(10) NOT NULL,
+--       mbirth  VARCHAR(8) NOT NULL,
 --       maddr   VARCHAR(20),
 --       mtel    VARCHAR(13) UNIQUE NOT  NULL,
 --       memail  VARCHAR(30) UNIQUE NOT NULL,
 --       id      VARCHAR(15) UNIQUE NOT NULL
 --);
+--CREATE SEQUENCE member_seq;
 
 --CREATE TABLE emp (
 --		 eno     VARCHAR(10) PRIMARY KEY, 
 --       ename   VARCHAR(10) NOT NULL, 
 --       egender VARCHAR(10) NOT NULL,
---       ebirth  VARCHAR(10) NOT NULL,
+--       ebirth  VARCHAR(8) NOT NULL,
 --       eaddr   VARCHAR(20),
 --       etel    VARCHAR(13) UNIQUE NOT NULL,
 --       eemail  VARCHAR(30) UNIQUE NOT NULL,
 --       id      VARCHAR(15) UNIQUE NOT NULL
 --);
+-- CREATE SEQUENCE emp_seq;
 
 --CREATE TABLE loginfo (
 --		log_code VARCHAR(10) PRIMARY KEY,
@@ -30,8 +32,8 @@
 --		nidx    VARCHAR(10) PRIMARY KEY,
 --		nititle VARCHAR(20) NOT NULL,
 --		ncont   VARCHAR(50) NOT NULL
---		
 --);
+--CREATE SEQUENCE notice_seq;
 
 --상품 DB 
 --CREATE TABLE vita (
@@ -44,7 +46,8 @@
 --		v_origin  VARCHAR(10) NOT NULL,
 --		v_manuf   VARCHAR(10) NOT NULL,
 --		v_sales   NUMBER(10)  NOT NULL,
---		v_stock   NUMBER(10)  NOT NULL
+--		v_stock   NUMBER(10)  NOT NULL,
+--      상품이미지 추가 칼럼?
 --);
 --CREATE TABLE lact (
 --		l_no      VARCHAR(10) PRIMARY KEY,
@@ -56,7 +59,8 @@
 --		l_origin  VARCHAR(10) NOT NULL,
 --		l_manuf   VARCHAR(10) NOT NULL,
 --		l_sales   NUMBER(10)  NOT NULL,
---		l_stock   NUMBER(10)  NOT NULL
+--		l_stock   NUMBER(10)  NOT NULL,
+--      상품이미지 추가 칼럼?
 --);
 --CREATE TABLE eyes (
 --		e_no      VARCHAR(10) PRIMARY KEY,
@@ -68,7 +72,8 @@
 --		e_origin  VARCHAR(10) NOT NULL,
 --		e_manuf   VARCHAR(10) NOT NULL,
 --		e_sales   NUMBER(10)  NOT NULL,
---		e_stock   NUMBER(10)  NOT NULL
+--		e_stock   NUMBER(10)  NOT NULL,
+--      상품이미지 추가 칼럼?
 --);
         
         
