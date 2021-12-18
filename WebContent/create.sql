@@ -8,7 +8,8 @@
 --       memail  VARCHAR(30) UNIQUE NOT NULL,
 --       id      VARCHAR(15) UNIQUE NOT NULL
 --);
---CREATE SEQUENCE member_seq;
+--CREATE SEQUENCE member_seq; 시퀀스를 어떻게 하기로 결정이 안 났다.
+
 
 --CREATE TABLE emp (
 --		 eno     VARCHAR(10) PRIMARY KEY, 
@@ -20,7 +21,8 @@
 --       eemail  VARCHAR(30) UNIQUE NOT NULL,
 --       id      VARCHAR(15) UNIQUE NOT NULL
 --);
--- CREATE SEQUENCE emp_seq;
+-- CREATE SEQUENCE emp_seq; 시퀀스를 어떻게 하기로 결정이 안 났다.
+
 
 --CREATE TABLE loginfo (
 --		log_code VARCHAR(10) PRIMARY KEY,
@@ -28,12 +30,14 @@
 --		pw       VARCHAR(15) UNIQUE NOT NULL
 --);
 
+
 --CREATE TABLE notice (
 --		nidx    VARCHAR(10) PRIMARY KEY,
 --		nititle VARCHAR(20) NOT NULL,
 --		ncont   VARCHAR(50) NOT NULL
 --);
---CREATE SEQUENCE notice_seq;
+--CREATE SEQUENCE notice_seq; 시퀀스를 어떻게 하기로 결정이 안 났다.
+
 
 --상품 DB 
 --CREATE TABLE vita (
@@ -49,6 +53,7 @@
 --		v_stock   NUMBER(10)  NOT NULL,
 --      상품이미지 추가 칼럼?
 --);
+
 --CREATE TABLE lact (
 --		l_no      VARCHAR(10) PRIMARY KEY,
 --		l_name    VARCHAR(20) UNIQUE NOT NULL,
@@ -62,6 +67,7 @@
 --		l_stock   NUMBER(10)  NOT NULL,
 --      상품이미지 추가 칼럼?
 --);
+
 --CREATE TABLE eyes (
 --		e_no      VARCHAR(10) PRIMARY KEY,
 --		e_name    VARCHAR(20) UNIQUE NOT NULL,
