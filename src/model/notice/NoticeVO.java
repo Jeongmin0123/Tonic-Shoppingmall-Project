@@ -7,10 +7,10 @@ package model.notice;
   · 내용 = ncont // notice + contents
 */
 public class NoticeVO {
+	private String id;
 	private int nidx;
 	private String ntitle;
 	private String ncont;
-	private String id;
 
 	public int getNidx() {
 		return nidx;

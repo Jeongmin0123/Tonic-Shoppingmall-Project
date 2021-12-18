@@ -35,6 +35,7 @@
 --		nidx    VARCHAR(10) PRIMARY KEY,
 --		nititle VARCHAR(20) NOT NULL,
 --		ncont   VARCHAR(50) NOT NULL
+--		id      VARCHAR(15) UNIQUE NOT NULL,
 --);
 --CREATE SEQUENCE notice_seq; 시퀀스를 어떻게 하기로 결정이 안 났다.
 
