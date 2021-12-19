@@ -12,21 +12,21 @@ public class EmpDAO {
 	PreparedStatement pstmt;
 	ResultSet rs;
 	
-	String sql_insert = "INSERT INTO emp VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+	String sql_insert = "INSERT INTO emp VALUES(emp_seq.NEXTVAL, ?, ?, ?, ?, ?, ?, ?)";
 	String sql_checkId = "SELECT * FROM emp WHERE id=?";
 	
 	public boolean insert(EmpVO emp) {
 		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_insert);
-			pstmt.setString(1, emp.getEno());
-		    pstmt.setString(2, emp.getEname());
-			pstmt.setString(3, emp.getEgender());
-			pstmt.setInt(4, emp.getEbirth());
-			pstmt.setString(5, emp.getEaddr());
-			pstmt.setString(6, emp.getEtel());
-			pstmt.setString(7, emp.getEemail());
-			pstmt.setString(8, emp.getId());
+		//  pstmt.setString(1, emp.getEno()); 시퀀스로 변경
+		    pstmt.setString(1, emp.getEname());
+			pstmt.setString(2, emp.getEgender());
+			pstmt.setInt(3, emp.getEbirth());
+			pstmt.setString(4, emp.getEaddr());
+			pstmt.setString(5, emp.getEtel());
+			pstmt.setString(6, emp.getEemail());
+			pstmt.setString(7, emp.getId());
 			pstmt.executeUpdate();
 		} catch(SQLException e) {
 			System.out.println("EmpDAO insert() 문제발생!");

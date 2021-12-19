@@ -12,21 +12,21 @@ public class MemberDAO {
 	PreparedStatement pstmt;
 	ResultSet rs;
 	
-	String sql_insertM = "INSERT INTO member VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+	String sql_insertM = "INSERT INTO member VALUES(, ?, ?, ?, ?, ?, ?, ?)";
 	String sql_selectOne = "SELECT * FROM member WHERE id=?";
 	
 	public boolean insert(MemberVO member) {
 		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_insertM);
-			pstmt.setString(1, member.getMno());     // 시퀀스로 변경예정
-		    pstmt.setString(2, member.getMname());
-			pstmt.setString(3, member.getMgender());
-			pstmt.setInt(4, member.getMbirth());
-			pstmt.setString(5, member.getMaddr());
-			pstmt.setString(6, member.getMtel());
-			pstmt.setString(7, member.getMemail());
-			pstmt.setString(8, member.getId());
+			// pstmt.setString(1, member.getMno()); 시퀀스로 변경예정
+		    pstmt.setString(1, member.getMname());
+			pstmt.setString(2, member.getMgender());
+			pstmt.setInt(3, member.getMbirth());
+			pstmt.setString(4, member.getMaddr());
+			pstmt.setString(5, member.getMtel());
+			pstmt.setString(6, member.getMemail());
+			pstmt.setString(7, member.getId());
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("MemberDAO insert() 문제발생!");
