@@ -5,7 +5,7 @@ public class EmpVO {
 	private String eno;     // 예) EMP001 ??
 	private String ename;   
 	private String egender; 
-	private int ebirth;     // 예) 950410 ??
+	private String ebirth;  // 예) 950410 ??
 	private String eaddr;   
 	private String etel;    
 	private String eemail;  
@@ -30,10 +30,10 @@ public class EmpVO {
 	public void setEgender(String egender) {
 		this.egender = egender;
 	}
-	public int getEbirth() {
+	public String getEbirth() {
 		return ebirth;
 	}
-	public void setEbirth(int ebirth) {
+	public void setEbirth(String ebirth) {
 		this.ebirth = ebirth;
 	}
 	public String getEaddr() {

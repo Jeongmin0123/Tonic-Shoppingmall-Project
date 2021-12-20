@@ -12,14 +12,14 @@ public class LogInfoDAO {
 	PreparedStatement pstmt;
 	ResultSet rs;
 	
+//	String sql_select = "SELECT * FROM loginfo WHERE id=? AND pw=?";
 	String sql_checkID = "SELECT * FROM loginfo WHERE id=?";
 	String sql_insertL = "INSERT INTO loginfo VALUES(?, ?, ?)";
-	String sql_select = "SELECT * FROM loginfo WHERE id=? AND pw=?";
-	String sql_deleteL = "DELETE FROM loginfo WHERE id=? AND pw=?";
 	String sql_isExistID = "SELECT * FROM loginfo WHERE id=?";
+	String sql_deleteL = "DELETE FROM loginfo WHERE id=? AND pw=?";
 	
 	public boolean checkID(LogInfoVO log) {
-	//  로그인 중복여부를 반환하는 메서드
+	//  로그인 성공여부를 반환하는 메서드
 		con = JDBCUtil.connect(); // Connection 타입
 		try {
 			pstmt = con.prepareStatement(sql_checkID);
@@ -33,30 +33,13 @@ public class LogInfoDAO {
 				}
 			}
 		} catch(SQLException e) {
-			System.out.println("LogInfoDAO checkID() 문제발생!!");
+			System.out.println("LogInfoDAO checkID() 문제발생");
 			e.printStackTrace();
 			return false;
 		} finally {
 			JDBCUtil.disconnect(pstmt, con); 
 		}
 		return false;
-	}
-	
-//  isExistID, 해당 ID가 존재하는가
-	public boolean isExistID(String id) {
-		con = JDBCUtil.connect();
-		boolean result = false;
-		try {
-			pstmt = con.prepareStatement(sql_isExistID);
-			pstmt.setString(1, id);
-			rs = pstmt.executeQuery();
-			result = rs.next(); 
-		} catch(Exception e) {
-			e.printStackTrace();
-		} finally {
-			JDBCUtil.disconnect(pstmt, con);
-		}
-		return result;
 	}
 	
 	public boolean insert(LogInfoVO log) {
@@ -77,6 +60,23 @@ public class LogInfoDAO {
 		return true;
 	}
 	
+//  isExistID, 해당 ID가 존재하는가 == 중복확인 구현
+	public boolean isExistID(String id) {
+		con = JDBCUtil.connect();
+		boolean result = false;
+		try {
+			pstmt = con.prepareStatement(sql_isExistID);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			result = rs.next(); 
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.disconnect(pstmt, con);
+		}
+		return result;
+	}
+	
 //  delete(ID, PW)
 	public boolean delete(String id, String pw) {
 		con = JDBCUtil.connect();
@@ -94,24 +94,4 @@ public class LogInfoDAO {
 		}
 		return result;
 	}	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }

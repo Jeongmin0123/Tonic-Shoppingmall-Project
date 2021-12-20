@@ -13,7 +13,7 @@ public class NoticeDAO {
 	PreparedStatement pstmt;
 	ResultSet rs;
 
-	String sql_insertN = "INSERT INTO notice VALUES(?, ?, ?, ?)"; 
+	String sql_insertN = "INSERT INTO notice VALUES(notice_seq.NEXTVAL, ?, ?, ?)"; 
 	String sql_selectOne="SELECT * FROM member WHERE id = ?";
 	String sql_deleteN = "DELETE FROM notice WHERE nidx = ?"; 
 	String sql_selectAll = "SELECT * FROM notice WHERE rownum<=? ORDER BY nidx DESC"; 
@@ -22,10 +22,10 @@ public class NoticeDAO {
 		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_insertN);
-			pstmt.setInt(1, notice.getNidx());
-			pstmt.setString(2, notice.getNtitle());
-			pstmt.setString(3, notice.getNcont());
-			pstmt.setString(4, notice.getId());
+		//	pstmt.setInt(1, notice.getNidx());
+			pstmt.setString(1, notice.getNtitle());
+			pstmt.setString(2, notice.getNcont());
+			pstmt.setString(3, notice.getId());
 			pstmt.executeUpdate();
 		} catch(SQLException e) {
 			System.out.println("NoticeDAO insert() 문제 발생!");

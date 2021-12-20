@@ -5,7 +5,7 @@ public class MemberVO {
 	private String mno;     // 예) MEM001 ??
 	private String mname;   
 	private String mgender; 
-	private int mbirth;     // 예) 950410 ??
+	private String mbirth;     // 예) 950410 ??
 	private String maddr;   
 	private String mtel;    
 	private String memail;  
@@ -30,10 +30,10 @@ public class MemberVO {
 	public void setMgender(String mgender) {
 		this.mgender = mgender;
 	}
-	public int getMbirth() {
+	public String getMbirth() {
 		return mbirth;
 	}
-	public void setMbirth(int mbirth) {
+	public void setMbirth(String mbirth) {
 		this.mbirth = mbirth;
 	}
 	public String getMaddr() {
