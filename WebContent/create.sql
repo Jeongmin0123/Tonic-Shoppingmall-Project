@@ -1,5 +1,5 @@
 --CREATE TABLE member (
---		 mno     VARCHAR(10) PRIMARY KEY, 
+--		 mno     VARCHAR(10) PRIMARY KEY 시퀀스로 변경, 삭제 예정(12.18)
 --       mname   VARCHAR(10) NOT NULL, 
 --       mgender VARCHAR(10) NOT NULL,
 --       mbirth  VARCHAR(8) NOT NULL,
@@ -8,11 +8,10 @@
 --       memail  VARCHAR(30) UNIQUE NOT NULL,
 --       id      VARCHAR(15) UNIQUE NOT NULL
 --);
---CREATE SEQUENCE member_seq; 시퀀스를 어떻게 하기로 결정이 안 났다.
-
+--CREATE SEQUENCE member_seq; 
 
 --CREATE TABLE emp (
---		 eno     VARCHAR(10) PRIMARY KEY, 
+--		 eno     VARCHAR(10) PRIMARY KEY 시퀀스로 변경, 삭제 예정(12.18)
 --       ename   VARCHAR(10) NOT NULL, 
 --       egender VARCHAR(10) NOT NULL,
 --       ebirth  VARCHAR(8) NOT NULL,
@@ -21,7 +20,7 @@
 --       eemail  VARCHAR(30) UNIQUE NOT NULL,
 --       id      VARCHAR(15) UNIQUE NOT NULL
 --);
--- CREATE SEQUENCE emp_seq; 시퀀스를 어떻게 하기로 결정이 안 났다.
+-- CREATE SEQUENCE emp_seq; 
 
 
 --CREATE TABLE loginfo (
@@ -37,7 +36,7 @@
 --		ncont   VARCHAR(50) NOT NULL
 --		id      VARCHAR(15) UNIQUE NOT NULL,
 --);
---CREATE SEQUENCE notice_seq; 시퀀스를 어떻게 하기로 결정이 안 났다.
+--CREATE SEQUENCE notice_seq; 
 
 
 --상품 DB 

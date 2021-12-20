@@ -39,7 +39,6 @@ public class EmpDAO {
 	}
 	
 	public boolean checkId(EmpVO emp) {
-//      로그인 성공여부를 반환하는 메서드
 		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_checkId);

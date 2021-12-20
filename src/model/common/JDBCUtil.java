@@ -25,8 +25,9 @@ public class JDBCUtil {
 	
 	public static void disconnect(PreparedStatement pstmt, Connection con) {
 		try {
-			pstmt.close();
-			con.close();
+		//	if (rs != null) rs.close();
+			if (pstmt != null) pstmt.close();
+			if (con != null) con.close();
 		} catch (SQLException e) {
 			System.out.println("데이터베이스 연결 해제에 실패하였습니다.");
 			e.printStackTrace();

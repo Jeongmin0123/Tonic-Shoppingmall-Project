@@ -15,7 +15,7 @@ public class NoticeDAO {
 
 	String sql_insertN = "INSERT INTO notice VALUES(?, ?, ?, ?)"; 
 	String sql_selectOne="SELECT * FROM member WHERE id = ?";
-	String sql_delete = "DELETE FROM notice WHERE nidx = ?"; // 해당 게시글의 작성자만이 삭제가능
+	String sql_deleteN = "DELETE FROM notice WHERE nidx = ?"; 
 	String sql_selectAll = "SELECT * FROM notice WHERE rownum<=? ORDER BY nidx DESC"; 
 	
 	public boolean insert(NoticeVO notice) {
@@ -64,7 +64,7 @@ public class NoticeDAO {
 		try {
 			pstmt = con.prepareStatement(sql_selectAll);
 			pstmt.setInt(1, count); 
-			rs=pstmt.executeQuery();
+			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				NoticeSet nset = new NoticeSet();
 				NoticeVO nvo = new NoticeVO();
@@ -88,7 +88,7 @@ public class NoticeDAO {
 	public boolean delete(NoticeVO notice) {
 		con = JDBCUtil.connect();
 		try {
-			pstmt = con.prepareStatement(sql_delete);
+			pstmt = con.prepareStatement(sql_deleteN);
 			pstmt.setInt(1, notice.getNidx());
 			pstmt.executeUpdate();
 		} catch(SQLException e) {
