@@ -18,7 +18,7 @@ public class EmpDAO {
 	String sql_updateE = "UPDATE emp SET ename=?, ebirth=?, eaddr=?, eemail=? WHERE id=?";
 	String sql_checkID = "SELECT * FROM emp WHERE id=?";
 	
-	public boolean insert(EmpVO emp) {
+	public boolean insertEmp(EmpVO emp) {
 		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_insertE);
@@ -43,43 +43,42 @@ public class EmpDAO {
 	
 //  모델에서 멤버DAO랑 관리자DAO에서 selectOne 메서드 로그인 성공여부를 받는 게 아니라 
 //	객체를 받아야함(그래야지 객체를 들고 돌아다니기 가능)
-	public EmpVO select(String id) {
+	public EmpVO selectEmp(String id) {
+		EmpVO emp = null;
+		
 		con = JDBCUtil.connect();
-		EmpVO vo = null;
 		try {
 			pstmt = con.prepareStatement(sql_selectE);
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				vo = new EmpVO();
-				vo.setEno(rs.getString("eno"));
-				vo.setEname(rs.getString("ename"));
-				vo.setEgender(rs.getString("egender"));
-				vo.setEbirth(rs.getString("ebirth"));
-				vo.setEaddr(rs.getString("eaddr"));
-				vo.setEtel(rs.getString("etel"));
-				vo.setEemail(rs.getString("eemail"));
-				vo.setId(rs.getString("id"));
+				emp = new EmpVO();
+				emp.setEname(rs.getString("ename"));
+				emp.setEgender(rs.getString("egender"));
+				emp.setEbirth(rs.getString("ebirth"));
+				emp.setEaddr(rs.getString("eaddr"));
+				emp.setEtel(rs.getString("etel"));
+				emp.setEemail(rs.getString("eemail"));
+				emp.setId(rs.getString("id"));
 			}
 		} catch (SQLException e) {
 			System.out.println("EmpDAO select() 문제발생");
 			e.printStackTrace();
-		//	return vo;
 		} finally {
 			JDBCUtil.disconnect(pstmt, con);
 		}
-		return vo;
+		return emp;
 	}
-//	update(회원정보)
-	public void update(MemberVO member) {
+//	update(관리자정보)
+	public void updateEmp(EmpVO emp) {
 		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_updateE);
-			pstmt.setString(1, member.getMname());
-            pstmt.setString(2, member.getMbirth());
-            pstmt.setString(3, member.getMaddr());
-            pstmt.setString(4, member.getMemail());
-            pstmt.setString(5, member.getId());
+			pstmt.setString(1, emp.getEname());
+            pstmt.setString(2, emp.getEbirth());
+            pstmt.setString(3, emp.getEaddr());
+            pstmt.setString(4, emp.getEemail());
+            pstmt.setString(5, emp.getId());
             pstmt.executeUpdate();
 		} catch(Exception e) {
 			e.printStackTrace();

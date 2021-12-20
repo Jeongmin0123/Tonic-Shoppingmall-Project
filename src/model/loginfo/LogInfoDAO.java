@@ -13,20 +13,20 @@ public class LogInfoDAO {
 	ResultSet rs;
 	
 //	String sql_select = "SELECT * FROM loginfo WHERE id=? AND pw=?";
-	String sql_checkID = "SELECT * FROM loginfo WHERE id=?";
+	String sql_checkID = "SELECT pw FROM loginfo WHERE id=?";
 	String sql_insertL = "INSERT INTO loginfo VALUES(?, ?, ?)";
 	String sql_isExistID = "SELECT * FROM loginfo WHERE id=?";
 	String sql_deleteL = "DELETE FROM loginfo WHERE id=? AND pw=?";
 	
-	public boolean checkID(LogInfoVO log) {
+	public boolean checkID(String id, String pw) {
 	//  로그인 성공여부를 반환하는 메서드
+		ResultSet rs = null;
 		con = JDBCUtil.connect(); // Connection 타입
 		try {
 			pstmt = con.prepareStatement(sql_checkID);
 			pstmt.setString(1, log.getId());
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				System.out.println("이미 존재하는 ID입니다.");
 				if(rs.getString("pw").equals(log.getPw())) {
 					System.out.println("성공");
 					return true;
@@ -41,8 +41,8 @@ public class LogInfoDAO {
 		}
 		return false;
 	}
-	
-	public boolean insert(LogInfoVO log) {
+//  삭제 고려 중
+	public boolean insertLogInfo(LogInfoVO log) {
 		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_insertL);
@@ -60,7 +60,7 @@ public class LogInfoDAO {
 		return true;
 	}
 	
-//  isExistID, 해당 ID가 존재하는가 == 중복확인 구현
+//  isExistID, 해당 ID가 존재하는가 
 	public boolean isExistID(String id) {
 		con = JDBCUtil.connect();
 		boolean result = false;
@@ -78,7 +78,7 @@ public class LogInfoDAO {
 	}
 	
 //  delete(ID, PW)
-	public boolean delete(String id, String pw) {
+	public boolean deleteLogInfo(String id, String pw) {
 		con = JDBCUtil.connect();
 		boolean result = false;
 		

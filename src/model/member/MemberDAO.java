@@ -21,7 +21,7 @@ public class MemberDAO {
 	String sql_deleteM = "DELETE FROM member WHERE id=?";
 //	String sql_deleteL = "DELETE FROM member WHERE id=? AND pw=?";
 	
-	public boolean insert(MemberVO member) {
+	public boolean insertMember(MemberVO member) {
 		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_insertM);
@@ -46,7 +46,7 @@ public class MemberDAO {
 	
 //  모델에서 멤버DAO랑 관리자DAO에서 selectOne 메서드 로그인 성공여부를 받는 게 아니라 
 //	객체를 받아야함(그래야지 객체를 들고 돌아다니기 가능)
-	public MemberVO select(String id) {
+	public MemberVO selectMember(String id) {
 		con = JDBCUtil.connect();
 		MemberVO vo = null;
 		try {
@@ -55,7 +55,6 @@ public class MemberDAO {
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				vo = new MemberVO();
-				vo.setMno(rs.getString("mno"));
 				vo.setMname(rs.getString("mname"));
 				vo.setMgender(rs.getString("mgender"));
 				vo.setMbirth(rs.getString("mbirth"));
@@ -94,7 +93,7 @@ public class MemberDAO {
 	}
 	
 //	update(회원정보)
-	public void update(MemberVO member) {
+	public void updateMember(MemberVO member) {
 		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_updateM);

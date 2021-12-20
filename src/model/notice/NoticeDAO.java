@@ -16,9 +16,9 @@ public class NoticeDAO {
 	String sql_insertN = "INSERT INTO notice VALUES(notice_seq.NEXTVAL, ?, ?, ?)"; 
 	String sql_selectOne="SELECT * FROM member WHERE id = ?";
 	String sql_deleteN = "DELETE FROM notice WHERE nidx = ?"; 
-	String sql_selectAll = "SELECT * FROM notice WHERE rownum<=? ORDER BY nidx DESC"; 
+	String sql_selectAll = "SELECT * FROM notice ORDER BY nidx DESC"; 
 	
-	public boolean insert(NoticeVO notice) {
+	public boolean insertNotice(NoticeVO notice) {
 		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_insertN);
@@ -58,15 +58,13 @@ public class NoticeDAO {
 */
 	
 //  공지사항 게시물 구현 더 공부해서 완성하기.
-	public ArrayList<NoticeVO> selectAll(int count){ // 몇개의 글을 볼수있는지에 대한 정보를 받아옴
+	public ArrayList<NoticeVO> selectAll(){ // 몇개의 글을 볼수있는지에 대한 정보를 받아옴
 		ArrayList<NoticeVO> datas = new ArrayList<NoticeVO>();
 		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_selectAll);
-			pstmt.setInt(1, count); 
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-			//	NoticeSet nset = new NoticeSet();
 				NoticeVO nvo = new NoticeVO();
 				
 				nvo.setNidx(rs.getInt("nidx")); // 시퀀스 ?? 
@@ -85,7 +83,7 @@ public class NoticeDAO {
 		return datas;
 	}
 //  어떤 조건을 주고 삭제를 허용한다. 수정 중	
-	public boolean delete(NoticeVO notice) {
+	public boolean deleteNotice(NoticeVO notice) {
 		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_deleteN);
