@@ -13,14 +13,15 @@ public class EmpDAO {
 	PreparedStatement pstmt;
 	ResultSet rs;
 	
-	String sql_insert = "INSERT INTO emp VALUES('EMP' || emp_seq.NEXTVAL, ?, ?, ?, ?, ?, ?, ?)";
+	String sql_insertE = "INSERT INTO emp VALUES('EMP' || emp_seq.NEXTVAL, ?, ?, ?, ?, ?, ?, ?)";
 	String sql_selectE = "SELECT * FROM emp WHERE id=?";
+	String sql_updateE = "UPDATE emp SET ename=?, ebirth=?, eaddr=?, eemail=? WHERE id=?";
 	String sql_checkID = "SELECT * FROM emp WHERE id=?";
 	
 	public boolean insert(EmpVO emp) {
 		con = JDBCUtil.connect();
 		try {
-			pstmt = con.prepareStatement(sql_insert);
+			pstmt = con.prepareStatement(sql_insertE);
 		//  pstmt.setString(1, emp.getEno()); 시퀀스로 변경
 		    pstmt.setString(1, emp.getEname());
 			pstmt.setString(2, emp.getEgender());
@@ -39,6 +40,7 @@ public class EmpDAO {
 		}
 		return true;
 	}
+	
 //  모델에서 멤버DAO랑 관리자DAO에서 selectOne 메서드 로그인 성공여부를 받는 게 아니라 
 //	객체를 받아야함(그래야지 객체를 들고 돌아다니기 가능)
 	public EmpVO select(String id) {
@@ -68,8 +70,24 @@ public class EmpDAO {
 		}
 		return vo;
 	}
-
-//  ??
+//	update(회원정보)
+	public void update(MemberVO member) {
+		con = JDBCUtil.connect();
+		try {
+			pstmt = con.prepareStatement(sql_updateE);
+			pstmt.setString(1, member.getMname());
+            pstmt.setString(2, member.getMbirth());
+            pstmt.setString(3, member.getMaddr());
+            pstmt.setString(4, member.getMemail());
+            pstmt.setString(5, member.getId());
+            pstmt.executeUpdate();
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.disconnect(pstmt, con);
+		}
+	}
+	
 	public boolean checkID(EmpVO emp) {
 		con = JDBCUtil.connect();
 		try {

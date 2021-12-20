@@ -58,15 +58,15 @@ public class NoticeDAO {
 */
 	
 //  공지사항 게시물 구현 더 공부해서 완성하기.
-	public ArrayList<NoticeSet> selectAll(int count){ // 몇개의 글을 볼수있는지에 대한 정보를 받아옴
-		ArrayList<NoticeSet> datas = new ArrayList<NoticeSet>();
+	public ArrayList<NoticeVO> selectAll(int count){ // 몇개의 글을 볼수있는지에 대한 정보를 받아옴
+		ArrayList<NoticeVO> datas = new ArrayList<NoticeVO>();
 		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_selectAll);
 			pstmt.setInt(1, count); 
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				NoticeSet nset = new NoticeSet();
+			//	NoticeSet nset = new NoticeSet();
 				NoticeVO nvo = new NoticeVO();
 				
 				nvo.setNidx(rs.getInt("nidx")); // 시퀀스 ?? 
@@ -74,7 +74,7 @@ public class NoticeDAO {
 				nvo.setNcont(rs.getString("ncont"));
 				nvo.setId(rs.getString("id"));
 				
-				datas.add(nset);
+				datas.add(nvo);
 			}
 		} catch (SQLException e) {
 			System.out.println("BoardDAO selectAll()에서 문제발생!");
@@ -84,7 +84,7 @@ public class NoticeDAO {
 		}		
 		return datas;
 	}
-	
+//  어떤 조건을 주고 삭제를 허용한다. 수정 중	
 	public boolean delete(NoticeVO notice) {
 		con = JDBCUtil.connect();
 		try {
