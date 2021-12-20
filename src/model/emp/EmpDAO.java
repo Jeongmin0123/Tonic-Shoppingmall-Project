@@ -61,7 +61,7 @@ public class EmpDAO {
 				emp.setEemail(rs.getString("eemail"));
 				emp.setId(rs.getString("id"));
 			}
-		} catch (SQLException e) {
+		} catch(SQLException e) {
 			System.out.println("EmpDAO select() 문제발생");
 			e.printStackTrace();
 		} finally {
@@ -87,6 +87,7 @@ public class EmpDAO {
 		}
 	}
 	
+	// 수정해야합니다.
 	public boolean checkID(EmpVO emp) {
 		con = JDBCUtil.connect();
 		try {

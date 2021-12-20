@@ -47,36 +47,37 @@ public class MemberDAO {
 //  모델에서 멤버DAO랑 관리자DAO에서 selectOne 메서드 로그인 성공여부를 받는 게 아니라 
 //	객체를 받아야함(그래야지 객체를 들고 돌아다니기 가능)
 	public MemberVO selectMember(String id) {
+		MemberVO member = null;
+		
 		con = JDBCUtil.connect();
-		MemberVO vo = null;
 		try {
 			pstmt = con.prepareStatement(sql_selectM);
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				vo = new MemberVO();
-				vo.setMname(rs.getString("mname"));
-				vo.setMgender(rs.getString("mgender"));
-				vo.setMbirth(rs.getString("mbirth"));
-				vo.setMaddr(rs.getString("maddr"));
-				vo.setMtel(rs.getString("mtel"));
-				vo.setMemail(rs.getString("memail"));
-				vo.setId(rs.getString("id"));
+				member = new MemberVO();
+				member.setMname(rs.getString("mname"));
+				member.setMgender(rs.getString("mgender"));
+				member.setMbirth(rs.getString("mbirth"));
+				member.setMaddr(rs.getString("maddr"));
+				member.setMtel(rs.getString("mtel"));
+				member.setMemail(rs.getString("memail"));
+				member.setId(rs.getString("id"));
 			}
-		} catch (SQLException e) {
+		} catch(SQLException e) {
 			System.out.println("MemberDAO select() 문제발생");
 			e.printStackTrace();
-		//	return vo;
 		} finally {
 			JDBCUtil.disconnect(pstmt, con);
 		}
-		return vo;
+		return member;
 	}
 	
 //  findIDbyTel, 전화번호로 ID 찾기
 	public String findIDbyTel(String tel) { 
-		con = JDBCUtil.connect();
 		String id = null;
+		
+		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_findIDbyTel);
 			pstmt.setString(1, tel);
@@ -112,11 +113,11 @@ public class MemberDAO {
 	
 //  delete(ID) 아직 수정 중
 //	public boolean delete(String id) {
-	public boolean delete(String id, String pw) {
+	public boolean deleteMember(String id, String pw) {
 	//  SQL : selectPW, deleteM
-		ResultSet rs = null;
-		boolean result = false; // 삭제 성공 == true, 메세지 반환
 		String LogInfopw = null; // loginfo 테이블의 비밀번호를 넣을 변수
+		boolean result = false;  // 삭제 성공 == true, 메세지 반환
+		ResultSet rs = null;
 		
 		con = JDBCUtil.connect();
 		try { 

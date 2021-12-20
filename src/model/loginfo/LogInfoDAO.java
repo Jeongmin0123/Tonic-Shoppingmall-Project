@@ -13,33 +13,40 @@ public class LogInfoDAO {
 	ResultSet rs;
 	
 //	String sql_select = "SELECT * FROM loginfo WHERE id=? AND pw=?";
-	String sql_checkID = "SELECT pw FROM loginfo WHERE id=?";
+	String sql_checkLogin = "SELECT pw FROM loginfo WHERE id=?";
 	String sql_insertL = "INSERT INTO loginfo VALUES(?, ?, ?)";
 	String sql_isExistID = "SELECT * FROM loginfo WHERE id=?";
 	String sql_deleteL = "DELETE FROM loginfo WHERE id=? AND pw=?";
 	
-	public boolean checkID(String id, String pw) {
+	public boolean checkLogin(String id, String pw) {
 	//  로그인 성공여부를 반환하는 메서드
+		String LogInfopw = null; // loginfo 테이블의 pw를 넣을 변수
 		ResultSet rs = null;
+		
 		con = JDBCUtil.connect(); // Connection 타입
 		try {
-			pstmt = con.prepareStatement(sql_checkID);
-			pstmt.setString(1, log.getId());
+			pstmt = con.prepareStatement(sql_checkLogin);
+			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				if(rs.getString("pw").equals(log.getPw())) {
-					System.out.println("성공");
+				LogInfopw = rs.getString("pw");
+				if(rs.getString("pw").equals(pw)) {
+					System.out.println("로그인 성공");
 					return true;
+				} else { // 비밀번호가 다를 때
+					System.out.println("비밀번호가 일치하지 않습니다.");
+					return false;
 				}
+			} else { // 비밀번호가 없을 때
+				return false; 
 			}
 		} catch(SQLException e) {
-			System.out.println("LogInfoDAO checkID() 문제발생");
+			System.out.println("LogInfoDAO checkLogin() 문제발생");
 			e.printStackTrace();
 			return false;
 		} finally {
 			JDBCUtil.disconnect(pstmt, con); 
-		}
-		return false;
+		} 
 	}
 //  삭제 고려 중
 	public boolean insertLogInfo(LogInfoVO log) {
@@ -62,8 +69,9 @@ public class LogInfoDAO {
 	
 //  isExistID, 해당 ID가 존재하는가 
 	public boolean isExistID(String id) {
-		con = JDBCUtil.connect();
 		boolean result = false;
+		
+		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_isExistID);
 			pstmt.setString(1, id);
@@ -71,6 +79,7 @@ public class LogInfoDAO {
 			result = rs.next(); 
 		} catch(Exception e) {
 			e.printStackTrace();
+			return false;
 		} finally {
 			JDBCUtil.disconnect(pstmt, con);
 		}
