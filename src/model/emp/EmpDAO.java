@@ -62,7 +62,7 @@ public class EmpDAO {
 		} catch (SQLException e) {
 			System.out.println("EmpDAO select() 문제발생");
 			e.printStackTrace();
-			return vo;
+		//	return vo;
 		} finally {
 			JDBCUtil.disconnect(pstmt, con);
 		}

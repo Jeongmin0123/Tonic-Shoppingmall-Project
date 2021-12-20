@@ -30,7 +30,7 @@ public class MemberDAO {
 			pstmt.setString(5, member.getMtel());
 			pstmt.setString(6, member.getMemail());
 			pstmt.setString(7, member.getId());
-			pstmt.executeUpdate(); // 영향을 받은 행수 반환 메서드
+			pstmt.executeUpdate(); // 영향을 받은 행 수 반환 메서드
 		} catch (SQLException e) {
 			System.out.println("MemberDAO insert() 문제발생");
 			e.printStackTrace();
@@ -63,7 +63,7 @@ public class MemberDAO {
 		} catch (SQLException e) {
 			System.out.println("MemberDAO select() 문제발생");
 			e.printStackTrace();
-			return vo;
+		//	return vo;
 		} finally {
 			JDBCUtil.disconnect(pstmt, con);
 		}
