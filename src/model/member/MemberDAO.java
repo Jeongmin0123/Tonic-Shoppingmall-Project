@@ -44,11 +44,13 @@ public class MemberDAO {
 		}
 		return true;
 	}
-	
+
 //  모델에서 멤버DAO랑 관리자DAO에서 selectOne 메서드 로그인 성공여부를 받는 게 아니라 
 //	객체를 받아야함(그래야지 객체를 들고 돌아다니기 가능)
+//  selectMember()
+//  String sql_selectM = "SELECT * FROM member WHERE id=? and pw=?";
+//  수정내용: loginfo 테이블 삭제로 쿼리문에 "and pw=?" 추가
 	public MemberVO selectMember(String id, String pw) {
-	//  String sql_selectM = "SELECT * FROM member WHERE id=? and pw=?";
 		MemberVO member = null;
 		
 		con = JDBCUtil.connect();
@@ -78,7 +80,7 @@ public class MemberDAO {
 	
 //  findIDbyTel, 전화번호로 ID 찾기
 	public String findIDbyTel(String tel) { 
-		String id = null;
+		String findID = null;
 		
 		con = JDBCUtil.connect();
 		try {
@@ -86,18 +88,22 @@ public class MemberDAO {
 			pstmt.setString(1, tel);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				id = rs.getString("id");
+				findID = rs.getString("id");
 			}
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(pstmt, con);
 		}
-		return id;
+		return findID;
 	}
 	
 //	update(회원정보)
-	public void updateMember(MemberVO member) {
+//	String sql_updateM = "UPDATE member SET mname=?, mbirth=?, maddr=?, memail=? WHERE mno=?";
+//  수정내용: WHERE절을 id가 아닌 mno로 변경
+	public boolean updateMember(MemberVO member) {
+		int result = 0;
+		
 		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_updateM);
@@ -105,13 +111,14 @@ public class MemberDAO {
             pstmt.setString(2, member.getMbirth());
             pstmt.setString(3, member.getMaddr());
             pstmt.setString(4, member.getMemail());
-            pstmt.setString(5, member.getId());
-            pstmt.executeUpdate();
+            pstmt.setString(5, member.getMno());
+            result = pstmt.executeUpdate(); // 잘 수행되었다면 1이 들어간다. 
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(pstmt, con);
 		}
+		return result == 1; // 제대로 수정이 되었다면 true(1), 안됐다면 false(0)
 	}
 	
 //  delete(ID) 아직 수정 중
