@@ -13,11 +13,14 @@ public class MemberDAO {
 	PreparedStatement pstmt;
 	ResultSet rs;
 	
-	String sql_insertM = "INSERT INTO member VALUES('MEM' || LPAD(mem_seq.NEXTVAL, 3, 0), ?, ?, ?, ?, ?, ?, ?, ?)"; // insertMember()
+	String sql_insertM = "INSERT INTO member VALUES"
+			+ "('MEM' || LPAD(mem_seq.NEXTVAL, 3, 0),?,?,?,?,?,?,?,?,?,?,?)"; // insertMember()
 	String sql_selectM = "SELECT * FROM member WHERE id=? and pw=?"; // selectMember()
 	String sql_findIDbyTel = "SELECT id FROM member WHERE tel=?"; // findIDbyTel()
-	String sql_selectForUp = "SELECT * FROM MEMBER WHERE id=? AND pw=?";                      // updateMember()
-	String sql_updateM = "UPDATE member SET mname=?, mbirth=?, maddr=?, memail=? WHERE id=?"; // updateMember()
+//	String sql_selectForUp = "SELECT * FROM MEMBER WHERE id=? AND pw=?"; // updateMember()
+	String sql_updateM = "UPDATE member SET mname=?, mbirth=?, "
+			+ "maddr_zipcode=?, maddr_street=?, maddr_detail=?, maddr_etc=?, "
+			+ "memail=? WHERE id=?"; // updateMember()
 	String sql_getMemberList = "SELECT * FROM member"; // getMemberList()
 	String sql_selectPW = "SELECT pw FROM member WHERE id=?";     // deleteMember()
 	String sql_deleteM = "DELETE FROM member WHERE id=? AND pw=?"; // deleteMember()
@@ -32,9 +35,12 @@ public class MemberDAO {
 		    pstmt.setString(3, member.getMname());
 			pstmt.setString(4, member.getMgender());
 			pstmt.setString(5, member.getMbirth());
-			pstmt.setString(6, member.getMaddr());
-			pstmt.setString(7, member.getMtel());
-			pstmt.setString(8, member.getMemail());
+			pstmt.setString(6, member.getMaddr_zipcode());
+			pstmt.setString(7, member.getMaddr_street());
+			pstmt.setString(8, member.getMaddr_detail());
+			pstmt.setString(9, member.getMaddr_etc());
+			pstmt.setString(10, member.getMtel());
+			pstmt.setString(11, member.getMemail());
 			pstmt.executeUpdate(); // 영향을 받은 행 수 반환 메서드
 		} catch (SQLException e) {
 			System.out.println("MemberDAO insertMember() 에러");
@@ -67,7 +73,10 @@ public class MemberDAO {
 				member.setMname(rs.getString("mname"));
 				member.setMgender(rs.getString("mgender"));
 				member.setMbirth(rs.getString("mbirth"));
-				member.setMaddr(rs.getString("maddr"));
+				member.setMaddr_zipcode(rs.getString("maddr_zipcode"));
+				member.setMaddr_street(rs.getString("maddr_street"));
+				member.setMaddr_detail(rs.getString("maddr_detail"));
+				member.setMaddr_etc(rs.getString("maddr_etc"));
 				member.setMtel(rs.getString("mtel"));
 				member.setMemail(rs.getString("memail"));
 			}
@@ -101,9 +110,11 @@ public class MemberDAO {
 		return findID;
 	}
 	
-//	update(회원정보)
-//	String sql_updateM = "UPDATE member SET mname=?, mbirth=?, maddr=?, memail=? WHERE mno=?";
-//  수정내용: WHERE절을 id가 아닌 mno로 변경
+//	update(회원정보) 수정 중
+//	String sql_updateM = "UPDATE member SET mname=?, mbirth=?,"
+//				+ "maddr_zipcode=?, maddr_street=?, maddr_detail=?, maddr_etc=?, "
+//				+ "memail=? WHERE id=?"; // updateMember()
+//  수정내용: WHERE절 id
 	public boolean updateMember(MemberVO member) {
 		int result = 0;
 		
@@ -112,10 +123,15 @@ public class MemberDAO {
 			pstmt = con.prepareStatement(sql_updateM);
 			pstmt.setString(1, member.getMname());
             pstmt.setString(2, member.getMbirth());
-            pstmt.setString(3, member.getMaddr());
-            pstmt.setString(4, member.getMemail());
-            pstmt.setString(5, member.getMno());
-            result = pstmt.executeUpdate(); // 잘 수행되었다면 1이 들어간다. 
+//          pstmt.setString(3, member.getMaddr_zipcode()+" "
+//          		+member.getMaddr_street()+" "+member.getMaddr_detail());
+            pstmt.setString(3, member.getMaddr_zipcode());
+            pstmt.setString(4, member.getMaddr_street());
+            pstmt.setString(5, member.getMaddr_detail());
+            pstmt.setString(6, member.getMaddr_etc());
+            pstmt.setString(7, member.getMemail());
+            pstmt.setString(8, member.getMid());
+            result = pstmt.executeUpdate(); 
 		} catch(Exception e) {
 			System.out.println("MemberDAO updateMember() 에러");
 			e.printStackTrace();
@@ -153,7 +169,10 @@ public class MemberDAO {
 				member.setMname(rs.getString("mname"));
 				member.setMgender(rs.getString("mgender"));
 				member.setMbirth(rs.getString("mbirth"));
-				member.setMaddr(rs.getString("maddr"));
+				member.setMaddr_zipcode(rs.getString("maddr_zipcode"));
+				member.setMaddr_street(rs.getString("maddr_street"));
+				member.setMaddr_detail(rs.getString("maddr_detail"));
+				member.setMaddr_etc(rs.getString("maddr_etc"));
 				member.setMtel(rs.getString("mtel"));
 				member.setMemail(rs.getString("memail"));
 				

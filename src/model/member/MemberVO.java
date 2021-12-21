@@ -8,7 +8,10 @@ public class MemberVO {
 	private String mname;   
 	private String mgender; 
 	private String mbirth;     // 예) 950410 ??
-	private String maddr;   
+	private String maddr_zipcode;   
+	private String maddr_street;   
+	private String maddr_detail;   
+	private String maddr_etc;   
 	private String mtel;    
 	private String memail;  
 	
@@ -49,11 +52,29 @@ public class MemberVO {
 	public void setMbirth(String mbirth) {
 		this.mbirth = mbirth;
 	}
-	public String getMaddr() {
-		return maddr;
+	public String getMaddr_zipcode() {
+		return maddr_zipcode;
 	}
-	public void setMaddr(String maddr) {
-		this.maddr = maddr;
+	public void setMaddr_zipcode(String maddr_zipcode) {
+		this.maddr_zipcode = maddr_zipcode;
+	}
+	public String getMaddr_street() {
+		return maddr_street;
+	}
+	public void setMaddr_street(String maddr_street) {
+		this.maddr_street = maddr_street;
+	}
+	public String getMaddr_detail() {
+		return maddr_detail;
+	}
+	public void setMaddr_detail(String maddr_detail) {
+		this.maddr_detail = maddr_detail;
+	}
+	public String getMaddr_etc() {
+		return maddr_etc;
+	}
+	public void setMaddr_etc(String maddr_etc) {
+		this.maddr_etc = maddr_etc;
 	}
 	public String getMtel() {
 		return mtel;
@@ -69,7 +90,9 @@ public class MemberVO {
 	}
 	@Override
 	public String toString() {
-		return "MemberVO [mno=" + mno + ", mid=" + mid + ", mpw=" + mpw + ", mname=" + mname + ", mgender=" + mgender + ", mbirth=" + mbirth + ", maddr="
-				+ maddr + ", mtel=" + mtel + ", memail=" + memail + "]";
+		return "MemberVO [mno="+mno+", mid="+mid+",mpw="+mpw+", mname="+mname
+				+", mgender="+mgender+", mbirth="+mbirth+", maddr_zipcode="+maddr_zipcode
+				+", maddr_street="+maddr_street+", maddr_detail="+maddr_detail+", maddr_etc="
+				+maddr_etc+", mtel="+mtel+", memail="+memail+"]";
 	}
 }
