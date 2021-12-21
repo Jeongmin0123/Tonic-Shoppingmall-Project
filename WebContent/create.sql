@@ -12,19 +12,23 @@ INSERT INTO EXAM VALUES('MEM' || LPAD(EX_FOR_SEQ.NEXTVAL, 3, 0), 'KIM');
 SELECT * FROM EXAM;
 SELECT * FROM USER_SEQUENCES;
 
+ASC EXAM;
+DESC EXAM;
+
 DROP TABLE EXAM;
 DROP SEQUENCE EX_FOR_SEQ;
 
 
 --CREATE TABLE member (
 --		 mno     VARCHAR(15) PRIMARY KEY 시퀀스로 변경, 삭제 예정(12.18)
+--       mid     VARCHAR(15) UNIQUE NOT NULL
+--       mpw     VARCHAR(15) NOT NULL
 --       mname   VARCHAR(15) NOT NULL, 
 --       mgender VARCHAR(10) NOT NULL,
 --       mbirth  VARCHAR(15) NOT NULL,
 --       maddr   VARCHAR(20),
 --       mtel    VARCHAR(15) UNIQUE NOT  NULL,
 --       memail  VARCHAR(40) UNIQUE NOT NULL,
---       id      VARCHAR(15) UNIQUE NOT NULL
 --);
 
 --CREATE SEQUENCE member_seq
@@ -35,13 +39,14 @@ DROP SEQUENCE EX_FOR_SEQ;
 
 --CREATE TABLE emp (
 --		 eno     VARCHAR(15) PRIMARY KEY 시퀀스로 변경, 삭제 예정(12.18)
+--       eid     VARCHAR(15) UNIQUE NOT NULL
+--       epw     VARCHAR(15) NOT NULL
 --       ename   VARCHAR(15) NOT NULL, 
 --       egender VARCHAR(10) NOT NULL,
 --       ebirth  VARCHAR(15) NOT NULL,
 --       eaddr   VARCHAR(30),
 --       etel    VARCHAR(15) UNIQUE NOT NULL,
 --       eemail  VARCHAR(40) UNIQUE NOT NULL,
---       id      VARCHAR(15) UNIQUE NOT NULL
 --);
 
 --CREATE SEQUENCE emp_seq; 
@@ -56,15 +61,15 @@ DROP SEQUENCE EX_FOR_SEQ;
 --		pw       VARCHAR(15) UNIQUE NOT NULL
 --);
 
-
-CREATE TABLE notice (
-		nidx    VARCHAR(10) PRIMARY KEY,
-		nititle VARCHAR(20) NOT NULL,
-		ncont   CLOB NOT NULL, // VARCHAR --> CLOB
-		id      VARCHAR(15) UNIQUE NOT NULL,
-);
-CREATE SEQUENCE notice_seq; 
-
+--CREATE TABLE notice (
+--		nidx    NUMBER PRIMARY KEY,
+--		nititle VARCHAR(20) NOT NULL,
+--		ncont   VARCHAR(2000) NOT NULL, // ncont   CLOB NOT NULL,
+--		writer      VARCHAR(15) UNIQUE NOT NULL
+--);
+--CREATE SEQUENCE notice_seq; 
+--SELECT * FROM notice;
+--DROP TABLE notice;
 
 --상품 DB 
 --CREATE TABLE vita (
