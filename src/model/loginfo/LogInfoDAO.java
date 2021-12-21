@@ -21,7 +21,6 @@ public class LogInfoDAO {
 	public boolean checkLogin(String id, String pw) {
 	//  로그인 성공여부를 반환하는 메서드
 		String LogInfopw = null; // loginfo 테이블의 pw를 넣을 변수
-		ResultSet rs = null;
 		
 		con = JDBCUtil.connect(); // Connection 타입
 		try {
@@ -45,7 +44,7 @@ public class LogInfoDAO {
 			e.printStackTrace();
 			return false;
 		} finally {
-			JDBCUtil.disconnect(pstmt, con); 
+			JDBCUtil.disconnect(rs, pstmt, con); 
 		} 
 	}
 //  삭제 고려 중
@@ -81,7 +80,7 @@ public class LogInfoDAO {
 			e.printStackTrace();
 			return false;
 		} finally {
-			JDBCUtil.disconnect(pstmt, con);
+			JDBCUtil.disconnect(rs, pstmt, con);
 		}
 		return result;
 	}
