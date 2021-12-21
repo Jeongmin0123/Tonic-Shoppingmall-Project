@@ -13,89 +13,125 @@ public class NoticeDAO {
 	PreparedStatement pstmt;
 	ResultSet rs;
 
-	String sql_insertN = "INSERT INTO notice VALUES(notice_seq.NEXTVAL, ?, ?, ?)"; 
-	String sql_selectOne="SELECT * FROM member WHERE id = ?";
+	String sql_insertN = "INSERT INTO notice VALUES(LPAD(notice_seq.NEXTVAL, 2, 0), ?, ?, ?)"; 
+	String sql_selectAll = "SELECT * FROM notice";
+	String sql_selectOne = "SELECT * FROM notice WHERE nidx=?";
+	String sql_updateN = "UPDATE notice SET ntitle=?, ncont=? WHERE nidx=?";
 	String sql_deleteN = "DELETE FROM notice WHERE nidx = ?"; 
-	String sql_selectAll = "SELECT * FROM notice ORDER BY nidx DESC"; 
 	
 	public boolean insertNotice(NoticeVO notice) {
+		int result = 0;
+		
 		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_insertN);
-		//	pstmt.setInt(1, notice.getNidx());
+		//	pstmt.setString(1, notice.getNidx());
 			pstmt.setString(1, notice.getNtitle());
 			pstmt.setString(2, notice.getNcont());
-			pstmt.setString(3, notice.getId());
-			pstmt.executeUpdate();
+			pstmt.setString(3, notice.getWriter()); // 작성자에 관리자를 어떻게 넣어야 되나.
+			result = pstmt.executeUpdate();
 		} catch(SQLException e) {
-			System.out.println("NoticeDAO insert() 문제 발생!");
+			System.out.println("NoticeDAO insertNotice() 에러");
 			e.printStackTrace();
 			return false;
 		} finally {
 			JDBCUtil.disconnect(pstmt, con);
 		}
-		return true;
+		return result == 1;
 	}
-/*  내가 아직 이해를 못한 것 같다.
-	public boolean selectOne(NoticeVO notice) {
-		con = JDBCUtil.connect();
-		try {
-			pstmt = con.prepareStatement(sql_selectOne);
-			pstmt.setString(1, notice.getId());
-			rs = pstmt.executeQuery();
-			if(rs.next()) {
-				System.out.println("존재하는 ID입니다.");
-			}
-		} catch(SQLException e) {
-			System.out.println("MemberDAO selectOne() 문제발생!");
-			e.printStackTrace();
-			return false;
-		} finally {
-			JDBCUtil.disconnect(pstmt, con);
-		}
-		return false;
-	}
-*/
-	
-//  공지사항 게시물 구현 더 공부해서 완성하기.
-	public ArrayList<NoticeVO> selectAll(){ // 몇개의 글을 볼수있는지에 대한 정보를 받아옴
-		ArrayList<NoticeVO> datas = new ArrayList<NoticeVO>();
+
+//  공지사항 가져오기 메서드
+//  String sql_selectAll = "SELECT * FROM notice";
+//  수정내용: 뷰단에서 구분하기 쉽도록 nlist, notice 변수명 변경, 인자값 삭제
+	public ArrayList<NoticeVO> selectAll() {
+		ArrayList<NoticeVO> nlist = new ArrayList<NoticeVO>();
+		NoticeVO notice = null;
+		
 		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_selectAll);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				NoticeVO nvo = new NoticeVO();
+				notice = new NoticeVO();
+				notice.setNidx(rs.getInt("nidx"));
+				notice.setNtitle(rs.getString("ntitle"));
+				notice.setNcont(rs.getString("ncont"));
+				notice.setWriter(rs.getString("writer"));
 				
-				nvo.setNidx(rs.getInt("nidx")); // 시퀀스 ?? 
-				nvo.setNtitle(rs.getString("ntitle"));
-				nvo.setNcont(rs.getString("ncont"));
-				nvo.setId(rs.getString("id"));
-				
-				datas.add(nvo);
+				nlist.add(notice);
 			}
-		} catch (SQLException e) {
-			System.out.println("BoardDAO selectAll()에서 문제발생!");
+		} catch(Exception e) {
+			System.out.println("NoticeDAO selectAll() 에러");
 			e.printStackTrace();
 		} finally {
-			JDBCUtil.disconnect(pstmt, con);
-		}		
-		return datas;
+			JDBCUtil.disconnect(rs, pstmt, con);
+		}
+		return nlist.isEmpty()? null : nlist;
 	}
-//  관리자인지 확인하고 삭제를 허용한다. 수정 중	
-	public boolean deleteNotice(NoticeVO notice) {
+	
+//	공지사항 본문, 필요한 메서드인 걸 어필한다!
+//  String sql_selectOne = "SELECT * FROM notice WHERE nidx=?";
+	public NoticeVO selectOne(int index) {
+		NoticeVO notice = null;
+		
 		con = JDBCUtil.connect();
 		try {
-			pstmt = con.prepareStatement(sql_deleteN);
-			pstmt.setInt(1, notice.getNidx());
-			pstmt.executeUpdate();
-		} catch(SQLException e) {
-			System.out.println("NoticeDAO delete() 문제 발생!");
+			pstmt = con.prepareStatement(sql_selectOne);
+			pstmt.setInt(1, index);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				notice = new NoticeVO();
+				notice.setNidx(rs.getInt("nidx"));
+				notice.setNtitle(rs.getString("ntitle"));
+				notice.setNcont(rs.getString("ncont"));
+				notice.setWriter(rs.getString("writer"));
+			}
+		} catch(Exception e) {
+			System.out.println("NoticeDAO selectOne() 에러");
 			e.printStackTrace();
-			return false;
+		} finally {
+			JDBCUtil.disconnect(rs, pstmt, con);
+		}
+		return notice;
+	}
+	
+//  공지사항 수정
+//  String sql_updateN = "UPDATE notice SET ntitle=?, ncont=? WHERE nidx=?";
+	public boolean updateNotice(int index, String upTitle, String upCont) {
+		int result = 0;
+		
+		con = JDBCUtil.connect();
+		try {
+			pstmt = con.prepareStatement(sql_updateN);
+			pstmt.setString(1, upTitle);
+			pstmt.setString(2, upCont);
+			pstmt.setInt(3, index);
+			result = pstmt.executeUpdate();
+		} catch(Exception e) {
+			System.out.println("NoticeDAO updateNotice() 에러");
+			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(pstmt, con);
 		}
-		return true;
+		return result == 1;
+	}
+	
+//  관리자인지 확인하고 삭제를 허용한다. 수정 중	
+//	String sql_deleteN = "DELETE FROM notice WHERE nidx = ?"; 
+	public boolean deleteNotice(int index) {
+		int result = 0;
+		
+		con = JDBCUtil.connect();
+		try {
+			pstmt = con.prepareStatement(sql_deleteN);
+			pstmt.setInt(1, index);
+			result = pstmt.executeUpdate();
+		} catch(SQLException e) {
+			System.out.println("NoticeDAO deleteNotice() 에러");
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.disconnect(rs, pstmt, con);
+		}
+		return result == 1;
 	}
 }
