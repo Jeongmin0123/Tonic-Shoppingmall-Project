@@ -14,8 +14,9 @@ public class MemberDAO {
 	ResultSet rs;
 	
 	String sql_insertM = "INSERT INTO member VALUES('MEM'||mem_seq.NEXTVAL, ?, ?, ?, ?, ?, ?, ?)";
-	String sql_selectM = "SELECT * FROM member WHERE id=?";
+	String sql_selectM = "SELECT * FROM member WHERE id=? and pw=?";
 	String sql_findIDbyTel = "SELECT id FROM member WHERE tel=?";
+	String sql_selectForUp = "SELECT * FROM MEMBER WHERE id=? AND pw=?";
 	String sql_updateM = "UPDATE member SET mname=?, mbirth=?, maddr=?, memail=? WHERE id=?";
 	String sql_selectPW = "SELECT pw FROM loginfo WHERE id=?";
 	String sql_deleteM = "DELETE FROM member WHERE id=?";
@@ -46,13 +47,15 @@ public class MemberDAO {
 	
 //  모델에서 멤버DAO랑 관리자DAO에서 selectOne 메서드 로그인 성공여부를 받는 게 아니라 
 //	객체를 받아야함(그래야지 객체를 들고 돌아다니기 가능)
-	public MemberVO selectMember(String id) {
+	public MemberVO selectMember(String id, String pw) {
+	//  String sql_selectM = "SELECT * FROM member WHERE id=? and pw=?";
 		MemberVO member = null;
 		
 		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_selectM);
 			pstmt.setString(1, id);
+			pstmt.setString(2, pw);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				member = new MemberVO();

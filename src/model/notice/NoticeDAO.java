@@ -82,7 +82,7 @@ public class NoticeDAO {
 		}		
 		return datas;
 	}
-//  어떤 조건을 주고 삭제를 허용한다. 수정 중	
+//  관리자인지 확인하고 삭제를 허용한다. 수정 중	
 	public boolean deleteNotice(NoticeVO notice) {
 		con = JDBCUtil.connect();
 		try {
