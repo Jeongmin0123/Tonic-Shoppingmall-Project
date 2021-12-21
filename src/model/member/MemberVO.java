@@ -3,13 +3,14 @@ package model.member;
 public class MemberVO {
 	// 속성(칼럼)
 	private String mno;     // 예) MEM001 ??
+	private String mid;      
+	private String mpw;      
 	private String mname;   
 	private String mgender; 
 	private String mbirth;     // 예) 950410 ??
 	private String maddr;   
 	private String mtel;    
 	private String memail;  
-	private String id;      
 	
 	// getter, setter
 	public String getMno() {
@@ -17,6 +18,18 @@ public class MemberVO {
 	}
 	public void setMno(String mno) {
 		this.mno = mno;
+	}
+	public String getMid() {
+		return mid;
+	}
+	public void setMid(String mid) {
+		this.mid = mid;
+	}
+	public String getMpw() {
+		return mpw;
+	}
+	public void setMpw(String mpw) {
+		this.mpw = mpw;
 	}
 	public String getMname() {
 		return mname;
@@ -54,15 +67,9 @@ public class MemberVO {
 	public void setMemail(String memail) {
 		this.memail = memail;
 	}
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
 	@Override
 	public String toString() {
-		return "MemberVO [mno=" + mno + ", mname=" + mname + ", mgender=" + mgender + ", mbirth=" + mbirth + ", maddr="
-				+ maddr + ", mtel=" + mtel + ", memail=" + memail + ", id=" + id + "]";
+		return "MemberVO [mno=" + mno + ", mid=" + mid + ", mpw=" + mpw + ", mname=" + mname + ", mgender=" + mgender + ", mbirth=" + mbirth + ", maddr="
+				+ maddr + ", mtel=" + mtel + ", memail=" + memail + "]";
 	}
 }
