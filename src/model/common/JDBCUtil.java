@@ -3,6 +3,7 @@ package model.common;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class JDBCUtil {
@@ -25,7 +26,17 @@ public class JDBCUtil {
 	
 	public static void disconnect(PreparedStatement pstmt, Connection con) {
 		try {
-		//	if (rs != null) rs.close();
+			if (pstmt != null) pstmt.close();
+			if (con != null) con.close();
+		} catch (SQLException e) {
+			System.out.println("데이터베이스 연결 해제에 실패하였습니다.");
+			e.printStackTrace();
+		}
+	}
+//  disconenct 오버로딩 추가
+	public static void disconnect(ResultSet rs, PreparedStatement pstmt, Connection con) {
+		try {
+			if (rs != null) rs.close();
 			if (pstmt != null) pstmt.close();
 			if (con != null) con.close();
 		} catch (SQLException e) {
