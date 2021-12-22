@@ -9,6 +9,10 @@ import java.util.ArrayList;
 import model.common.JDBCUtil; // JDBCUtil(), disconnect() 메서드 
 
 public class MemberDAO {
+	private MemberDAO(){}
+	private static MemberDAO memberDAO = new MemberDAO();
+	public static MemberDAO getInstance() {return memberDAO;}
+	
 	Connection con;
 	PreparedStatement pstmt;
 	ResultSet rs;

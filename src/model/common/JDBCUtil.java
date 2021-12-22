@@ -33,7 +33,7 @@ public class JDBCUtil {
 			e.printStackTrace();
 		}
 	}
-//  disconenct 오버로딩 추가
+//  disconnect 오버로딩 추가
 	public static void disconnect(ResultSet rs, PreparedStatement pstmt, Connection con) {
 		try {
 			if (rs != null) rs.close();

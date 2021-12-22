@@ -9,6 +9,6 @@ public class test_JH_eclipse2 {
         System.out.println("도전");
         
         System.out.println("24시간이 지나면 커밋을 위해 토큰을 새로 만들어줘야 한다.");
-        // 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
+        // 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
 	}
 }

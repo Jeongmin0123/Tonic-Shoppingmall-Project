@@ -6,9 +6,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import model.common.JDBCUtil; // JDBCUtil(), disconnect() 메서드
+import model.member.MemberDAO;
 import model.member.MemberVO;
 
 public class EmpDAO {
+	private EmpDAO(){}
+	private static EmpDAO EmpDAO = new EmpDAO();
+	public static EmpDAO getInstance() {return EmpDAO;}
+	
 	Connection con;
 	PreparedStatement pstmt;
 	ResultSet rs;
