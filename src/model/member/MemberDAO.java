@@ -10,8 +10,10 @@ import model.common.JDBCUtil; // JDBCUtil(), disconnect() 메서드
 
 public class MemberDAO {
 	private MemberDAO(){}
-	private static MemberDAO memberDAO = new MemberDAO();
-	public static MemberDAO getInstance() {return memberDAO;}
+	private static MemberDAO MemberIns = new MemberDAO();
+	public static MemberDAO getInstance() {return MemberIns;}
+//  MemberDAO member = new MemberDAO();
+//  MemberDAO MemberIns = MemberDAO.getInstance();
 	
 	Connection con;
 	PreparedStatement pstmt;
@@ -27,6 +29,7 @@ public class MemberDAO {
 			+ "memail=? WHERE id=?"; // updateMember()
 	String sql_getMemberList = "SELECT * FROM member"; // getMemberList()
 	String sql_selectPW = "SELECT pw FROM member WHERE id=?";     // deleteMember()
+	String sql_isExistID = "SELECT * FROM member WHERE id=?";
 	String sql_deleteM = "DELETE FROM member WHERE id=? AND pw=?"; // deleteMember()
 	
 	public boolean insertMember(MemberVO member) {
@@ -190,6 +193,25 @@ public class MemberDAO {
 		}
 		return mlist.isEmpty()? null : mlist;
 	}	
+	
+//  isExistID, 해당 ID가 존재하는가 
+//  String sql_isExistID = "SELECT * FROM member WHERE id=?";
+	public boolean isExistID(String id) {
+		int result = 0;
+		
+		con = JDBCUtil.connect();
+		try {
+			pstmt = con.prepareStatement(sql_isExistID);
+			pstmt.setString(1, id);
+			result = pstmt.executeUpdate();
+		} catch(Exception e) {
+			System.out.println("MemberDAO isExistID() 에러");
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.disconnect(pstmt, con);
+		}
+		return result==1;
+	}
 	
 //  delete(ID) 아직 수정 중
 //	String sql_selectPW = "SELECT pw FROM member WHERE id=?";    

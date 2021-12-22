@@ -2,12 +2,12 @@ package model.member;
 
 public class MemberVO {
 	// 속성(칼럼)
-	private String mno;     // 예) MEM001 ??
+	private String mno;           
 	private String mid;      
 	private String mpw;      
 	private String mname;   
 	private String mgender; 
-	private String mbirth;     // 예) 950410 ??
+	private String mbirth;     
 	private String maddr_zipcode;   
 	private String maddr_street;   
 	private String maddr_detail;   
