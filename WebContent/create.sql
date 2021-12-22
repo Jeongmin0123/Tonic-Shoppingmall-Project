@@ -20,18 +20,18 @@ DROP SEQUENCE EX_FOR_SEQ;
 
 
 --CREATE TABLE member (
---		 mno     VARCHAR(15) PRIMARY KEY 시퀀스로 변경, 삭제 예정(12.18)
---       mid     VARCHAR(15) UNIQUE NOT NULL
---       mpw     VARCHAR(15) NOT NULL
---       mname   VARCHAR(15) NOT NULL, 
---       mgender VARCHAR(10) NOT NULL,
---       mbirth  VARCHAR(15) NOT NULL,
---       maddr_zipcode VARCHAR(15) NOT NULL,
---		 maddr_street  VARCHAR(30) NOT NULL,
---		 maddr_detail  VARCHAR(30) NOT NULL,
---		 maddr_etc     VARCHAR(30),
---       mtel    VARCHAR(15) UNIQUE NOT  NULL,
---       memail  VARCHAR(50) UNIQUE NOT NULL,
+--	mno     VARCHAR(15) PRIMARY KEY 시퀀스로 변경, 삭제 예정(12.18)
+--	mid     VARCHAR(15) UNIQUE NOT NULL
+--	mpw     VARCHAR(15) NOT NULL
+--	mname   VARCHAR(15) NOT NULL, 
+--	mgender VARCHAR(10) NOT NULL,
+--	mbirth  VARCHAR(15) NOT NULL,
+--	maddr_zipcode VARCHAR(15) NOT NULL,
+--	maddr_street  VARCHAR(30) NOT NULL,
+--	maddr_detail  VARCHAR(30) NOT NULL,
+--	maddr_etc     VARCHAR(30),
+--	mtel    VARCHAR(15) UNIQUE NOT  NULL,
+--	memail  VARCHAR(50) UNIQUE NOT NULL,
 --);
 
 --CREATE SEQUENCE member_seq
@@ -41,15 +41,15 @@ DROP SEQUENCE EX_FOR_SEQ;
 
 
 --CREATE TABLE emp (
---		 eno     VARCHAR(15) PRIMARY KEY 시퀀스로 변경, 삭제 예정(12.18)
---       eid     VARCHAR(15) UNIQUE NOT NULL
---       epw     VARCHAR(15) NOT NULL
---       ename   VARCHAR(15) NOT NULL, 
---       egender VARCHAR(10) NOT NULL,
---       ebirth  VARCHAR(15) NOT NULL,
---       eaddr   VARCHAR(50) NOT NULL,
---       etel    VARCHAR(15) UNIQUE NOT NULL,
---       eemail  VARCHAR(50) UNIQUE NOT NULL,
+--	eno     VARCHAR(15) PRIMARY KEY 시퀀스로 변경, 삭제 예정(12.18)
+--	eid     VARCHAR(15) UNIQUE NOT NULL
+--	epw     VARCHAR(15) NOT NULL
+--	ename   VARCHAR(15) NOT NULL, 
+--	egender VARCHAR(10) NOT NULL,
+--	ebirth  VARCHAR(15) NOT NULL,
+--	eaddr   VARCHAR(50) NOT NULL,
+--	etel    VARCHAR(15) UNIQUE NOT NULL,
+--	eemail  VARCHAR(50) UNIQUE NOT NULL,
 --);
 
 --CREATE SEQUENCE emp_seq; 
@@ -59,16 +59,16 @@ DROP SEQUENCE EX_FOR_SEQ;
 
 --삭제 예정
 --CREATE TABLE loginfo (
---		log_code VARCHAR(10) PRIMARY KEY,
---		id       VARCHAR(15) UNIQUE NOT NULL,
---		pw       VARCHAR(15) UNIQUE NOT NULL
+--	log_code VARCHAR(10) PRIMARY KEY,
+--	id       VARCHAR(15) UNIQUE NOT NULL,
+--	pw       VARCHAR(15) UNIQUE NOT NULL
 --);
 
 --CREATE TABLE notice (
---		nidx    NUMBER PRIMARY KEY,
---		nititle VARCHAR(20) NOT NULL,
---		ncont   VARCHAR(2000) NOT NULL, // ncont CLOB NOT NULL,
---		writer  VARCHAR(15) UNIQUE NOT NULL
+--	nidx    NUMBER PRIMARY KEY,
+--	nititle VARCHAR(20) NOT NULL,
+--	ncont   VARCHAR(2000) NOT NULL, // ncont CLOB NOT NULL,
+--	writer  VARCHAR(15) UNIQUE NOT NULL
 --);
 --CREATE SEQUENCE notice_seq; 
 --SELECT * FROM notice;
@@ -124,6 +124,13 @@ DROP SEQUENCE EX_FOR_SEQ;
 --  ++상품이미지 추가 칼럼?
 --);
         
+--고객문의 테이블 
+--CREATE TABLE contact (
+--	msgno    VARCHAR(10) PRIMARY KEY,
+--	msgname  VARCHAR(20) NOT NULL,
+--	msgemail VARCHAR(50) NOT NULL,
+--	msgtext  VARCHAR(2000) NOT NULL
+--)
         
         
         
