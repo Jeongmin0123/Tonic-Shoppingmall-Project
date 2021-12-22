@@ -10,7 +10,7 @@ public class NoticeVO {
 	private int nidx;
 	private String ntitle;
 	private String ncont;
-	private String id;
+	private String writer; // EMP 테이블 ename 참조키??
 
 	public int getNidx() {
 		return nidx;
@@ -30,10 +30,10 @@ public class NoticeVO {
 	public void setNcont(String ncont) {
 		this.ncont = ncont;
 	}
-	public String getId() {
-		return id;
+	public String getWriter() {
+		return writer;
 	}
-	public void setId(String id) {
-		this.id = id;
-	}	
+	public void setWriter(String writer) {
+		this.writer = writer;
+	}
 }

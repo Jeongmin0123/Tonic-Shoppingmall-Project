@@ -4,32 +4,53 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
-import model.common.JDBCUtil; // JDBCUtil(), disconnect() 메서드
+import model.common.JDBCUtil; // JDBCUtil(), disconnect() 메서드 
 
 public class MemberDAO {
+	private MemberDAO(){}
+	private static MemberDAO MemberIns = new MemberDAO();
+	public static MemberDAO getInstance() {return MemberIns;}
+//  MemberDAO member = new MemberDAO();
+//  MemberDAO MemberIns = MemberDAO.getInstance();
+	
 	Connection con;
 	PreparedStatement pstmt;
 	ResultSet rs;
 	
-	String sql_insert = "INSERT INTO member VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
-	String sql_checkId = "SELECT * FROM member WHERE id=?";
+	String sql_insertM = "INSERT INTO member VALUES"
+			+ "('MEM' || LPAD(mem_seq.NEXTVAL, 3, 0),?,?,?,?,?,?,?,?,?,?,?)"; // insertMember()
+	String sql_selectM = "SELECT * FROM member WHERE id=? and pw=?"; // selectMember()
+	String sql_findIDbyTel = "SELECT id FROM member WHERE tel=?"; // findIDbyTel()
+//	String sql_selectForUp = "SELECT * FROM MEMBER WHERE id=? AND pw=?"; // updateMember()
+	String sql_updateM = "UPDATE member SET mname=?, mbirth=?, "
+			+ "maddr_zipcode=?, maddr_street=?, maddr_detail=?, maddr_etc=?, "
+			+ "memail=? WHERE id=?"; // updateMember()
+	String sql_getMemberList = "SELECT * FROM member"; // getMemberList()
+	String sql_selectPW = "SELECT pw FROM member WHERE id=?";     // deleteMember()
+	String sql_isExistID = "SELECT * FROM member WHERE id=?";
+	String sql_deleteM = "DELETE FROM member WHERE id=? AND pw=?"; // deleteMember()
 	
-	public boolean insert(MemberVO mem) {
+	public boolean insertMember(MemberVO member) {
 		con = JDBCUtil.connect();
 		try {
-			pstmt = con.prepareStatement(sql_insert);
-			pstmt.setString(1, mem.getMno());
-		    pstmt.setString(2, mem.getMname());
-			pstmt.setString(3, mem.getMgender());
-			pstmt.setInt(4, mem.getMbirth());
-			pstmt.setString(5, mem.getMaddr());
-			pstmt.setString(6, mem.getMtel());
-			pstmt.setString(7, mem.getMemail());
-			pstmt.setString(8, mem.getId());
-			pstmt.executeUpdate();
+			pstmt = con.prepareStatement(sql_insertM);
+		//  pstmt.setString(1, member.getMno()); "MEM" + 시퀀스
+			pstmt.setString(1, member.getMid());
+			pstmt.setString(2, member.getMpw());
+		    pstmt.setString(3, member.getMname());
+			pstmt.setString(4, member.getMgender());
+			pstmt.setString(5, member.getMbirth());
+			pstmt.setString(6, member.getMaddr_zipcode());
+			pstmt.setString(7, member.getMaddr_street());
+			pstmt.setString(8, member.getMaddr_detail());
+			pstmt.setString(9, member.getMaddr_etc());
+			pstmt.setString(10, member.getMtel());
+			pstmt.setString(11, member.getMemail());
+			pstmt.executeUpdate(); // 영향을 받은 행 수 반환 메서드
 		} catch (SQLException e) {
-			System.out.println("MemberDAO insert() 문제발생!");
+			System.out.println("MemberDAO insertMember() 에러");
 			e.printStackTrace();
 			return false;
 		} finally {
@@ -37,24 +58,190 @@ public class MemberDAO {
 		}
 		return true;
 	}
-	
-	public boolean checkId(MemberVO mem) {
-		// 로그인 성공여부를 반환하는 메서드
+
+//  모델에서 멤버DAO랑 관리자DAO에서 selectOne 메서드 로그인 성공여부를 받는 게 아니라 
+//	객체를 받아야함(그래야지 객체를 들고 돌아다니기 가능)
+//  selectMember()
+//  String sql_selectM = "SELECT * FROM member WHERE id=? and pw=?";
+//  수정내용: loginfo 테이블 삭제로 쿼리문에 "and pw=?" 추가
+	public MemberVO selectMember(String id, String pw) {
+		MemberVO member = null;
+		
 		con = JDBCUtil.connect();
 		try {
-			pstmt = con.prepareStatement(sql_checkId);
-			pstmt.setString(1, mem.getId());
+			pstmt = con.prepareStatement(sql_selectM);
+			pstmt.setString(1, id);
+			pstmt.setString(2, pw);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				System.out.println("이미 존재하는 ID입니다.");
+				member = new MemberVO();
+				member.setMid(rs.getString("mid"));
+				member.setMpw(rs.getString("mpw"));
+				member.setMname(rs.getString("mname"));
+				member.setMgender(rs.getString("mgender"));
+				member.setMbirth(rs.getString("mbirth"));
+				member.setMaddr_zipcode(rs.getString("maddr_zipcode"));
+				member.setMaddr_street(rs.getString("maddr_street"));
+				member.setMaddr_detail(rs.getString("maddr_detail"));
+				member.setMaddr_etc(rs.getString("maddr_etc"));
+				member.setMtel(rs.getString("mtel"));
+				member.setMemail(rs.getString("memail"));
 			}
 		} catch(SQLException e) {
-			System.out.println("MemberDAO sql_checkId() 문제발생!");
+			System.out.println("MemberDAO selectMember() 에러");
 			e.printStackTrace();
-			return false;
+		} finally {
+			JDBCUtil.disconnect(rs, pstmt, con);
+		}
+		return member;
+	}
+	
+//  findIDbyTel, 전화번호로 ID 찾기
+	public String findIDbyTel(String tel) { 
+		String findID = null;
+		
+		con = JDBCUtil.connect();
+		try {
+			pstmt = con.prepareStatement(sql_findIDbyTel);
+			pstmt.setString(1, tel);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				findID = rs.getString("mid");
+			}
+		} catch(Exception e) {
+			System.out.println("MemberDAO findIDbyTel() 에러");
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.disconnect(rs, pstmt, con);
+		}
+		return findID;
+	}
+	
+//	update(회원정보) 수정 중
+//	String sql_updateM = "UPDATE member SET mname=?, mbirth=?,"
+//				+ "maddr_zipcode=?, maddr_street=?, maddr_detail=?, maddr_etc=?, "
+//				+ "memail=? WHERE id=?"; // updateMember()
+//  수정내용: WHERE절 id
+	public boolean updateMember(MemberVO member) {
+		int result = 0;
+		
+		con = JDBCUtil.connect();
+		try {
+			pstmt = con.prepareStatement(sql_updateM);
+			pstmt.setString(1, member.getMname());
+            pstmt.setString(2, member.getMbirth());
+//          pstmt.setString(3, member.getMaddr_zipcode()+" "
+//          		+member.getMaddr_street()+" "+member.getMaddr_detail());
+            pstmt.setString(3, member.getMaddr_zipcode());
+            pstmt.setString(4, member.getMaddr_street());
+            pstmt.setString(5, member.getMaddr_detail());
+            pstmt.setString(6, member.getMaddr_etc());
+            pstmt.setString(7, member.getMemail());
+            pstmt.setString(8, member.getMid());
+            result = pstmt.executeUpdate(); 
+		} catch(Exception e) {
+			System.out.println("MemberDAO updateMember() 에러");
+			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(pstmt, con);
 		}
-		return false;
+		return result == 1; // 제대로 수정이 되었다면 true(1), 안됐다면 false(0)
+	}
+	
+//  관리자가 회원정보 가져오기 메서드(), 계정은 관리자여야 한다. 아직 페이지 구현X
+//  String sql_getMemberList = "SELECT * FROM member";
+	public ArrayList<MemberVO> getMemberList() {
+		ArrayList<MemberVO> mlist = new ArrayList<MemberVO>();
+		MemberVO member = null; 
+		String pwOrigin; // user_password
+		int pwLength = 0;
+		
+		con = JDBCUtil.connect();
+		try {
+			pstmt = con.prepareStatement(sql_getMemberList);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				member = new MemberVO();
+			//  비밀번호는 인덱스[0] + '*'로 보여지기 
+				pwOrigin = rs.getString("pw");
+				pwLength = pwOrigin.length()-1; 
+				pwOrigin = pwOrigin.substring(0, 1);
+				while(pwLength > 0) {
+					pwOrigin += "*"; 
+					--pwLength;
+				}
+				member.setMno(rs.getString("mno"));
+				member.setMid(rs.getString("mid"));
+				member.setMpw(rs.getString("mpw"));
+				member.setMname(rs.getString("mname"));
+				member.setMgender(rs.getString("mgender"));
+				member.setMbirth(rs.getString("mbirth"));
+				member.setMaddr_zipcode(rs.getString("maddr_zipcode"));
+				member.setMaddr_street(rs.getString("maddr_street"));
+				member.setMaddr_detail(rs.getString("maddr_detail"));
+				member.setMaddr_etc(rs.getString("maddr_etc"));
+				member.setMtel(rs.getString("mtel"));
+				member.setMemail(rs.getString("memail"));
+				
+				mlist.add(member);
+			}
+		} catch(Exception e) {
+			System.out.println("MemberDAO getMemberList() 에러");
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.disconnect(rs, pstmt, con);
+		}
+		return mlist.isEmpty()? null : mlist;
+	}	
+	
+//  isExistID, 해당 ID가 존재하는가 
+//  String sql_isExistID = "SELECT * FROM member WHERE id=?";
+	public boolean isExistID(String id) {
+		int result = 0;
+		
+		con = JDBCUtil.connect();
+		try {
+			pstmt = con.prepareStatement(sql_isExistID);
+			pstmt.setString(1, id);
+			result = pstmt.executeUpdate();
+		} catch(Exception e) {
+			System.out.println("MemberDAO isExistID() 에러");
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.disconnect(pstmt, con);
+		}
+		return result==1;
+	}
+	
+//  delete(ID) 아직 수정 중
+//	String sql_selectPW = "SELECT pw FROM member WHERE id=?";    
+//	String sql_deleteM = "DELETE FROM member WHERE id=? AND pw=?"; 
+	public boolean deleteMember(String id, String pw) {
+		String MemberPW = null; // loginfo 테이블의 비밀번호를 넣을 변수
+		int result = 0;  // 삭제 성공 == true, 메세지 반환
+		
+		con = JDBCUtil.connect();
+		try { 
+			pstmt = con.prepareStatement(sql_selectPW);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				MemberPW = rs.getString("pw");
+				if(MemberPW.equals(pw)) {
+					pstmt = con.prepareStatement(sql_deleteM);
+					pstmt.setString(1, id);
+					pstmt.setString(2, pw);
+					result = pstmt.executeUpdate();
+				} else {
+					System.out.println("비밀번호가 일치하지 않습니다.");
+				}
+			}
+		} catch(Exception e) {
+			System.out.println("MemberDAO deleteMember() 에러");
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.disconnect(rs, pstmt, con);
+		}
+		return result == 1;
 	}
 }
