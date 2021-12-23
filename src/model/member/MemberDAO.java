@@ -34,6 +34,8 @@ public class MemberDAO {
 	String sql_deleteM = "DELETE FROM member WHERE id=? AND pw=?"; // deleteMember()
 	
 	public boolean insertMember(MemberVO member) {
+		int result = 0;
+		
 		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_insertM);
@@ -49,51 +51,48 @@ public class MemberDAO {
 			pstmt.setString(9, member.getMaddr_etc());
 			pstmt.setString(10, member.getMtel());
 			pstmt.setString(11, member.getMemail());
-			pstmt.executeUpdate(); // 영향을 받은 행 수 반환 메서드
+			result = pstmt.executeUpdate(); // 영향을 받은 행 수 반환 메서드
 		} catch (SQLException e) {
 			System.out.println("MemberDAO insertMember() 에러");
 			e.printStackTrace();
-			return false;
 		} finally {
 			JDBCUtil.disconnect(pstmt, con);
 		}
-		return true;
+		return result == 1;
 	}
 
 //  로그인 성공여부를 반환하는 메서드
 	public boolean loginMember(String id, String pw) {
-			String LogInfopw = null; // loginfo 테이블의 pw를 넣을 변수
-			int result = 0;
-			
-			
-			con = JDBCUtil.connect(); // Connection 타입
-			try {
-				pstmt = con.prepareStatement(sql_loginM);
-				pstmt.setString(1, id);
-				rs = pstmt.executeQuery();
-				if(rs.next()) {
-					LogInfopw = rs.getString("pw");
-					if(rs.getString("pw").equals(pw)) {
-						result = 1; // 로그인 성공 
-					} else { 
-						result = 0; // 비밀번호가 다를 때
-					}
+		String dbpw = null; // loginfo 테이블의 pw를 넣을 변수
+		int result = 0;
+		
+		con = JDBCUtil.connect(); // Connection 타입
+		try {
+			pstmt = con.prepareStatement(sql_loginM);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				dbpw = rs.getString("pw");
+				if(rs.getString("pw").equals(pw)) {
+					result = 1; // 로그인 성공 
 				} else { 
-					result = -1; // 비밀번호가 없을 때, 0과 -1 구분할 필요는 사실 없다. 
+					result = 0; // 비밀번호가 다를 때
 				}
-			} catch(SQLException e) {
-				System.out.println("LogInfoDAO checkLogin() 문제발생");
-				e.printStackTrace();
-				return false;
-			} finally {
-				JDBCUtil.disconnect(rs, pstmt, con); 
+			} else { 
+				result = -1; // 비밀번호가 없을 때, 0과 -1 구분할 필요는 사실 없다. 
 			}
-			return result == 1; // result가 1이 아니라면 false 반환.
+		} catch(SQLException e) {
+			System.out.println("LogInfoDAO checkLogin() 문제발생");
+			e.printStackTrace();
+			return false;
+		} finally {
+			JDBCUtil.disconnect(rs, pstmt, con); 
 		}
+		return result == 1; // result가 1이 아니라면 false 반환.
+	}
 	
 //  모델에서 멤버DAO랑 관리자DAO에서 selectOne 메서드 로그인 성공여부를 받는 게 아니라 
 //	객체를 받아야함(그래야지 객체를 들고 돌아다니기 가능)
-//  selectMember()
 //  String sql_selectM = "SELECT * FROM member WHERE id=? and pw=?";
 //  수정내용: loginfo 테이블 삭제로 쿼리문에 "and pw=?" 추가
 	public MemberVO selectMember(String id, String pw) {
@@ -128,7 +127,7 @@ public class MemberDAO {
 		return member;
 	}
 	
-//  findIDbyTel, 전화번호로 ID 찾기
+//  전화번호로 ID 찾기
 	public String findIDbyTel(String tel) { 
 		String findID = null;
 		
@@ -149,7 +148,7 @@ public class MemberDAO {
 		return findID;
 	}
 	
-//	update(회원정보) 수정 중
+//	update(회원정보)
 //	String sql_updateM = "UPDATE member SET mname=?, mbirth=?,"
 //				+ "maddr_zipcode=?, maddr_street=?, maddr_detail=?, maddr_etc=?, "
 //				+ "memail=? WHERE id=?"; // updateMember()
