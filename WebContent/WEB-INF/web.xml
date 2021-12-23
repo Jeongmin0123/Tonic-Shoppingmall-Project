@@ -5,11 +5,19 @@
     <param-value>UTF-8</param-value>
   </context-param>
   <servlet>
-    <servlet-name>fc</servlet-name>
-    <servlet-class>controller.MemFrontController</servlet-class>
+    <servlet-name>fc_mem</servlet-name>
+    <servlet-class>controller.member.MemberFrontController</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>fc</servlet-name>
-    <url-pattern>*.do</url-pattern>
+    <servlet-name>fc_mem</servlet-name>
+    <url-pattern>*.mem</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>fc_not</servlet-name>
+    <servlet-class>controller.notice.NoticeFrontController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>fc_</servlet-name>
+    <url-pattern>*.mem</url-pattern>
   </servlet-mapping>
 </web-app>

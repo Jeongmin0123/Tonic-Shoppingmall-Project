@@ -1,27 +1,21 @@
-package controller.notice;
-
-import java.util.ArrayList;
+package controller.member;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import controller.common.Action;
 import controller.common.ActionForward;
-import model.notice.NoticeDAO;
-import model.notice.NoticeVO;
 
-public class NoticeAction implements Action {
+public class MemberDeleteAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		NoticeDAO dao = new NoticeDAO();
-		ArrayList<NoticeVO> ndatas=dao.selectAll();	
-		request.setAttribute("ndatas", ndatas);
+		
 		
 		ActionForward forward = new ActionForward();
-		forward.setPath("notice.jsp");
-		forward.setRedirect(false);		
+		forward.setPath("main.do");
+		forward.setRedirect(true);
 		return forward;
 	}
 

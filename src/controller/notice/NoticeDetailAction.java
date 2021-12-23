@@ -1,7 +1,5 @@
 package controller.notice;
 
-import java.util.ArrayList;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -10,17 +8,19 @@ import controller.common.ActionForward;
 import model.notice.NoticeDAO;
 import model.notice.NoticeVO;
 
-public class NoticeAction implements Action {
+public class NoticeDetailAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		int ndix = Integer.parseInt(request.getParameter("nidx"));
 		
 		NoticeDAO dao = new NoticeDAO();
-		ArrayList<NoticeVO> ndatas=dao.selectAll();	
-		request.setAttribute("ndatas", ndatas);
+		NoticeVO ndata = new NoticeVO();
+		ndata = dao.selectOne(ndix);
+		request.setAttribute("ndata", ndata);
 		
 		ActionForward forward = new ActionForward();
-		forward.setPath("notice.jsp");
+		forward.setPath("notice_detail.jsp");
 		forward.setRedirect(false);		
 		return forward;
 	}
