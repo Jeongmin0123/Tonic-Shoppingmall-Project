@@ -12,7 +12,7 @@ public class ProductVO {
 	private String pmanuf;
 	private int psales;
 	private int pstock;
-	private String image;
+	private String pimage;
 	
 	public int getPcode() {
 		return pcode;
@@ -80,10 +80,10 @@ public class ProductVO {
 	public void setPstock(int pstock) {
 		this.pstock = pstock;
 	}
-	public String getImage() {
-		return image;
+	public String getPimage() {
+		return pimage;
 	}
-	public void setImage(String image) {
-		this.image = image;
+	public void setPimage(String pimage) {
+		this.pimage = pimage;
 	}
 }
