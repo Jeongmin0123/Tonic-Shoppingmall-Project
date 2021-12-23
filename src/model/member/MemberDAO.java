@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import model.common.JDBCUtil; // JDBCUtil(), disconnect() 메서드 
-
+//  회원등록, 로그인 성공여부, 
 public class MemberDAO {
 	private MemberDAO(){}
 	private static MemberDAO MemberIns = new MemberDAO();
@@ -19,20 +19,23 @@ public class MemberDAO {
 	PreparedStatement pstmt;
 	ResultSet rs;
 	
-	String sql_insertM = "INSERT INTO member VALUES"
-			+ "('MEM' || LPAD(mem_seq.NEXTVAL, 3, 0),?,?,?,?,?,?,?,?,?,?,?)"; // insertMember()
-	String sql_selectM = "SELECT * FROM member WHERE id=? and pw=?"; // selectMember()
-	String sql_findIDbyTel = "SELECT id FROM member WHERE tel=?"; // findIDbyTel()
+	private String sql_insertM = "INSERT INTO member VALUES"
+			+ "('MEM' || LPAD(mem_seq.NEXTVAL, 3, 0),?,?,?,?,?,?,?,?,?,?,?)"; 
+	private String sql_loginM = "SELECT * FROM member WHERE id=?"; 
+	private String sql_selectM = "SELECT * FROM member WHERE id=? and pw=?"; 
+	private String sql_findIDbyTel = "SELECT id FROM member WHERE tel=?"; 
 //	String sql_selectForUp = "SELECT * FROM MEMBER WHERE id=? AND pw=?"; // updateMember()
-	String sql_updateM = "UPDATE member SET mname=?, mbirth=?, "
+	private String sql_updateM = "UPDATE member SET mname=?, mbirth=?, "
 			+ "maddr_zipcode=?, maddr_street=?, maddr_detail=?, maddr_etc=?, "
-			+ "memail=? WHERE id=?"; // updateMember()
-	String sql_getMemberList = "SELECT * FROM member"; // getMemberList()
-	String sql_selectPW = "SELECT pw FROM member WHERE id=?";     // deleteMember()
-	String sql_isExistID = "SELECT * FROM member WHERE id=?";
-	String sql_deleteM = "DELETE FROM member WHERE id=? AND pw=?"; // deleteMember()
+			+ "memail=? WHERE id=?"; 
+	private String sql_getMemberList = "SELECT * FROM member"; 
+	private String sql_isExistID = "SELECT * FROM member WHERE id=?";
+	private String sql_selectPW = "SELECT pw FROM member WHERE id=?";      // deleteMember()
+	private String sql_deleteM = "DELETE FROM member WHERE id=? AND pw=?"; // deleteMember()
 	
-	public boolean insertMember(MemberVO member) {
+	public boolean insertMember(MemberVO member) { // 파라미터 수정?
+		int result = 0;
+		
 		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_insertM);
@@ -48,20 +51,49 @@ public class MemberDAO {
 			pstmt.setString(9, member.getMaddr_etc());
 			pstmt.setString(10, member.getMtel());
 			pstmt.setString(11, member.getMemail());
-			pstmt.executeUpdate(); // 영향을 받은 행 수 반환 메서드
+			result = pstmt.executeUpdate(); // 영향을 받은 행 수 반환 메서드
 		} catch (SQLException e) {
-			System.out.println("MemberDAO insertMember() 에러");
+			System.out.println("MemberDAO insertMember(): "+ e +" 에러");
 			e.printStackTrace();
-			return false;
 		} finally {
 			JDBCUtil.disconnect(pstmt, con);
 		}
-		return true;
+		return result == 1;
 	}
 
+//  로그인 성공여부를 반환하는 메서드
+//  boolean -> int로 변환, 경우의 수 3가지
+	public int loginMember(String id, String pw) {
+		String dbpw = null; 
+		int result = 0;
+		
+		con = JDBCUtil.connect(); 
+		try {
+			pstmt = con.prepareStatement(sql_loginM);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				dbpw = rs.getString("pw");
+				if(rs.getString("pw").equals(pw)) {
+					result = 1; // 로그인 성공 
+				} else { 
+					result = 0; // 비밀번호가 다를 때
+				}
+			} else { 
+				result = -1; // 비밀번호가 없을 때 
+			}
+		} catch(SQLException e) {
+			System.out.println("MemberDAO checkLogin(): "+ e +" 에러");
+			e.printStackTrace();
+			return result;
+		} finally {
+			JDBCUtil.disconnect(rs, pstmt, con); 
+		}
+		return result; // result가 1이 아니라면 false 반환.
+	}
+	
 //  모델에서 멤버DAO랑 관리자DAO에서 selectOne 메서드 로그인 성공여부를 받는 게 아니라 
 //	객체를 받아야함(그래야지 객체를 들고 돌아다니기 가능)
-//  selectMember()
 //  String sql_selectM = "SELECT * FROM member WHERE id=? and pw=?";
 //  수정내용: loginfo 테이블 삭제로 쿼리문에 "and pw=?" 추가
 	public MemberVO selectMember(String id, String pw) {
@@ -88,7 +120,7 @@ public class MemberDAO {
 				member.setMemail(rs.getString("memail"));
 			}
 		} catch(SQLException e) {
-			System.out.println("MemberDAO selectMember() 에러");
+			System.out.println("MemberDAO selectMember(): "+ e +" 에러");
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(rs, pstmt, con);
@@ -96,7 +128,7 @@ public class MemberDAO {
 		return member;
 	}
 	
-//  findIDbyTel, 전화번호로 ID 찾기
+//  전화번호로 ID 찾기
 	public String findIDbyTel(String tel) { 
 		String findID = null;
 		
@@ -109,7 +141,7 @@ public class MemberDAO {
 				findID = rs.getString("mid");
 			}
 		} catch(Exception e) {
-			System.out.println("MemberDAO findIDbyTel() 에러");
+			System.out.println("MemberDAO findIDbyTel(): "+ e +" 에러");
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(rs, pstmt, con);
@@ -117,7 +149,7 @@ public class MemberDAO {
 		return findID;
 	}
 	
-//	update(회원정보) 수정 중
+//	update(회원정보)
 //	String sql_updateM = "UPDATE member SET mname=?, mbirth=?,"
 //				+ "maddr_zipcode=?, maddr_street=?, maddr_detail=?, maddr_etc=?, "
 //				+ "memail=? WHERE id=?"; // updateMember()
@@ -140,12 +172,12 @@ public class MemberDAO {
             pstmt.setString(8, member.getMid());
             result = pstmt.executeUpdate(); 
 		} catch(Exception e) {
-			System.out.println("MemberDAO updateMember() 에러");
+			System.out.println("MemberDAO updateMember(): "+ e +" 에러");
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(pstmt, con);
 		}
-		return result == 1; // 제대로 수정이 되었다면 true(1), 안됐다면 false(0)
+		return result == 1;
 	}
 	
 //  관리자가 회원정보 가져오기 메서드(), 계정은 관리자여야 한다. 아직 페이지 구현X
@@ -153,7 +185,7 @@ public class MemberDAO {
 	public ArrayList<MemberVO> getMemberList() {
 		ArrayList<MemberVO> mlist = new ArrayList<MemberVO>();
 		MemberVO member = null; 
-		String pwOrigin; // user_password
+		String pwOrigin; 
 		int pwLength = 0;
 		
 		con = JDBCUtil.connect();
@@ -186,7 +218,7 @@ public class MemberDAO {
 				mlist.add(member);
 			}
 		} catch(Exception e) {
-			System.out.println("MemberDAO getMemberList() 에러");
+			System.out.println("MemberDAO getMemberList(): "+ e +" 에러");
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(rs, pstmt, con);
@@ -205,19 +237,19 @@ public class MemberDAO {
 			pstmt.setString(1, id);
 			result = pstmt.executeUpdate();
 		} catch(Exception e) {
-			System.out.println("MemberDAO isExistID() 에러");
+			System.out.println("MemberDAO isExistID(): "+ e +" 에러");
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(pstmt, con);
 		}
-		return result==1;
+		return result == 1;
 	}
 	
 //  delete(ID) 아직 수정 중
 //	String sql_selectPW = "SELECT pw FROM member WHERE id=?";    
 //	String sql_deleteM = "DELETE FROM member WHERE id=? AND pw=?"; 
 	public boolean deleteMember(String id, String pw) {
-		String MemberPW = null; // loginfo 테이블의 비밀번호를 넣을 변수
+		String MemberPW = null; 
 		int result = 0;  // 삭제 성공 == true, 메세지 반환
 		
 		con = JDBCUtil.connect();
@@ -237,7 +269,7 @@ public class MemberDAO {
 				}
 			}
 		} catch(Exception e) {
-			System.out.println("MemberDAO deleteMember() 에러");
+			System.out.println("MemberDAO deleteMember(): "+ e +"에러");
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(rs, pstmt, con);

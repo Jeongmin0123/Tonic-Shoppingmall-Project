@@ -2,12 +2,12 @@ package model.emp;
 
 public class EmpVO {
 //  속성(칼럼)
-	private String eno;     // 예) EMP001 ??
+	private String eno;    
 	private String ename;   
 	private String eid;
 	private String epw;
 	private String egender; 
-	private String ebirth;  // 예) 950410 ??
+	private String ebirth;  
 	private String eaddr;   
 	private String etel;    
 	private String eemail;  

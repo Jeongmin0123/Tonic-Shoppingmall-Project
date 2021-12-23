@@ -11,8 +11,8 @@ import model.member.MemberVO;
 
 public class EmpDAO {
 	private EmpDAO(){}
-	private static EmpDAO EmpDAO = new EmpDAO();
-	public static EmpDAO getInstance() {return EmpDAO;}
+	private static EmpDAO EmpIns = new EmpDAO();
+	public static EmpDAO getInstance() {return EmpIns;}
 	
 	Connection con;
 	PreparedStatement pstmt;

@@ -11,18 +11,18 @@ import model.emp.EmpDAO;
 
 public class NoticeDAO {
 	private NoticeDAO(){}
-	private static NoticeDAO NoticeDAO = new NoticeDAO();
-	public static NoticeDAO getInstance() {return NoticeDAO;}
+	private static NoticeDAO NoticeIns = new NoticeDAO();
+	public static NoticeDAO getInstance() {return NoticeIns;}
 	
 	Connection con;
 	PreparedStatement pstmt;
 	ResultSet rs;
 
-	String sql_insertN = "INSERT INTO notice VALUES(LPAD(notice_seq.NEXTVAL, 2, 0), ?, ?, ?)"; 
-	String sql_selectAll = "SELECT * FROM notice";
-	String sql_selectOne = "SELECT * FROM notice WHERE nidx=?";
-	String sql_updateN = "UPDATE notice SET ntitle=?, ncont=? WHERE nidx=?";
-	String sql_deleteN = "DELETE FROM notice WHERE nidx = ?"; 
+	private String sql_insertN = "INSERT INTO notice VALUES(LPAD(notice_seq.NEXTVAL, 2, 0), ?, ?, ?)"; 
+	private String sql_selectAll = "SELECT * FROM notice";
+	private String sql_selectOne = "SELECT * FROM notice WHERE nidx=?";
+	private String sql_updateN = "UPDATE notice SET ntitle=?, ncont=? WHERE nidx=?";
+	private String sql_deleteN = "DELETE FROM notice WHERE nidx = ?"; 
 	
 	public boolean insertNotice(NoticeVO notice) {
 		int result = 0;
@@ -36,7 +36,7 @@ public class NoticeDAO {
 			pstmt.setString(3, notice.getWriter()); // 작성자에 관리자를 어떻게 넣어야 되나.
 			result = pstmt.executeUpdate();
 		} catch(SQLException e) {
-			System.out.println("NoticeDAO insertNotice() 에러");
+			System.out.println("NoticeDAO insertNotice(): "+ e +" 에러");
 			e.printStackTrace();
 			return false;
 		} finally {
@@ -66,7 +66,7 @@ public class NoticeDAO {
 				nlist.add(notice);
 			}
 		} catch(Exception e) {
-			System.out.println("NoticeDAO selectAll() 에러");
+			System.out.println("NoticeDAO selectAll(): "+ e +" 에러");
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(rs, pstmt, con);
@@ -92,7 +92,7 @@ public class NoticeDAO {
 				notice.setWriter(rs.getString("writer"));
 			}
 		} catch(Exception e) {
-			System.out.println("NoticeDAO selectOne() 에러");
+			System.out.println("NoticeDAO selectOne(): "+ e +" 에러");
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(rs, pstmt, con);
@@ -113,7 +113,7 @@ public class NoticeDAO {
 			pstmt.setInt(3, index);
 			result = pstmt.executeUpdate();
 		} catch(Exception e) {
-			System.out.println("NoticeDAO updateNotice() 에러");
+			System.out.println("NoticeDAO updateNotice(): "+ e +" 에러");
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(pstmt, con);
@@ -132,7 +132,7 @@ public class NoticeDAO {
 			pstmt.setInt(1, index);
 			result = pstmt.executeUpdate();
 		} catch(SQLException e) {
-			System.out.println("NoticeDAO deleteNotice() 에러");
+			System.out.println("NoticeDAO deleteNotice(): "+ e +" 에러");
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(rs, pstmt, con);
