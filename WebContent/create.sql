@@ -34,6 +34,7 @@ DROP SEQUENCE EX_FOR_SEQ;
 --	memail  VARCHAR(50) UNIQUE NOT NULL,
 --);
 
+--표기 예시 : MEM101~MEM899
 --CREATE SEQUENCE member_seq
 --START WITH 101
 --INCREMENT BY 1
@@ -52,20 +53,15 @@ DROP SEQUENCE EX_FOR_SEQ;
 --	eemail  VARCHAR(50) UNIQUE NOT NULL,
 --);
 
+--표기 예시 : EMP901
 --CREATE SEQUENCE emp_seq; 
 --START WITH 901
 --INCREMENT BY 1
 --MAXVALUE 999; 
 
---삭제 예정
---CREATE TABLE loginfo (
---	log_code VARCHAR(10) PRIMARY KEY,
---	id       VARCHAR(15) UNIQUE NOT NULL,
---	pw       VARCHAR(15) UNIQUE NOT NULL
---);
 
 --CREATE TABLE notice (
---	nidx    NUMBER PRIMARY KEY,
+--	nidx    NUMBER(2) PRIMARY KEY,
 --	nititle VARCHAR(20) NOT NULL,
 --	ncont   VARCHAR(2000) NOT NULL, // ncont CLOB NOT NULL,
 --	writer  VARCHAR(15) UNIQUE NOT NULL
@@ -79,18 +75,19 @@ DROP SEQUENCE EX_FOR_SEQ;
 CREATE SEQUENCE prod_seq; -- 시퀀스
 
 CREATE TABLE product(
-	prod_code   VARCHAR(10) PRIMARY KEY, -- 상품코드(PK)
-	prod_class  VARCHAR(10) NOT NULL,    -- 분류코드(종합비타민[VITA], 유산균[LACT], 눈건강[EYES])
-	prod_name   VARCHAR(20) NOT NULL,    -- 상품명
-	prod_price  NUMBER(10) NOT NULL,     -- 상품가격
-	prod_detail VARCHAR(2000) NOT NULL,  -- 상세정보
-	prod_period VARCHAR(10),             -- 유통기한
-	prod_date   VARCHAR(10),             -- 제조일자
-	prod_origin VARCHAR(20),             -- 원산지
-	prod_manuf  VARCHAR(20),             -- 제조업체
-	prod_sales  NUMBER NOT NULL,         -- 판매량
-	prod_stock  NUMBER NOT NULL          -- 재고량
-);--이미지 경로, 사이즈? 넣을 칼럼 추가 예정
+	pcode   NUMBER(2) PRIMARY KEY,     -- 상품코드(PK)
+	pclass  VARCHAR(10) NOT NULL,      -- 분류코드(종합비타민[VITA], 유산균[LACT], 눈건강[EYES])
+	pname   VARCHAR(20) NOT NULL,      -- 상품명
+	pprice  NUMBER(10) NOT NULL,       -- 상품가격
+	pdetail VARCHAR(2000) NOT NULL,    -- 상세정보
+	pperiod VARCHAR(10),               -- 유통기한
+	pdate   VARCHAR(10),               -- 제조일자
+	porigin VARCHAR(20),               -- 원산지
+	pmanuf  VARCHAR(20),               -- 제조업체
+	psales  NUMBER NOT NULL DEFAULT 0, -- 판매량
+	pstock  NUMBER NOT NULL            -- 재고량
+	pimage  CLOB                       -- 이미지 테이블(CLOB || VARCHAR)
+);--이미지 경로, 사이즈(미정) 넣을 칼럼 추가 
 DESC PRODUCT;
 SELECT * FROM PRODUCT;
 DROP TABLE PRODUCT;

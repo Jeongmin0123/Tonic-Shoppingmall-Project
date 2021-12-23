@@ -36,7 +36,7 @@ public class NoticeDAO {
 			pstmt.setString(3, notice.getWriter()); // 작성자에 관리자를 어떻게 넣어야 되나.
 			result = pstmt.executeUpdate();
 		} catch(SQLException e) {
-			System.out.println("NoticeDAO insertNotice() 에러");
+			System.out.println("NoticeDAO insertNotice(): "+ e +" 에러");
 			e.printStackTrace();
 			return false;
 		} finally {
@@ -66,7 +66,7 @@ public class NoticeDAO {
 				nlist.add(notice);
 			}
 		} catch(Exception e) {
-			System.out.println("NoticeDAO selectAll() 에러");
+			System.out.println("NoticeDAO selectAll(): "+ e +" 에러");
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(rs, pstmt, con);
@@ -92,7 +92,7 @@ public class NoticeDAO {
 				notice.setWriter(rs.getString("writer"));
 			}
 		} catch(Exception e) {
-			System.out.println("NoticeDAO selectOne() 에러");
+			System.out.println("NoticeDAO selectOne(): "+ e +" 에러");
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(rs, pstmt, con);
@@ -113,7 +113,7 @@ public class NoticeDAO {
 			pstmt.setInt(3, index);
 			result = pstmt.executeUpdate();
 		} catch(Exception e) {
-			System.out.println("NoticeDAO updateNotice() 에러");
+			System.out.println("NoticeDAO updateNotice(): "+ e +" 에러");
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(pstmt, con);
@@ -132,7 +132,7 @@ public class NoticeDAO {
 			pstmt.setInt(1, index);
 			result = pstmt.executeUpdate();
 		} catch(SQLException e) {
-			System.out.println("NoticeDAO deleteNotice() 에러");
+			System.out.println("NoticeDAO deleteNotice(): "+ e +" 에러");
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(rs, pstmt, con);

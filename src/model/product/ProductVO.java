@@ -1,82 +1,89 @@
 package model.product;
 
 public class ProductVO {
-	private String prod_code;
-	private String prod_class;
-	private String prod_name;
-	private int prod_price;
-	private String prod_detail;
-	private String prod_period;
-	private String prod_date;
-	private String prod_origin;
-	private String prod_manuf;
-	private int prod_sales;
-	private int prod_stock;
+	private int pcode;
+	private String pclass;
+	private String pname;
+	private int pprice;
+	private String pdetail;
+	private String pperiod;
+	private String pdate;
+	private String porigin;
+	private String pmanuf;
+	private int psales;
+	private int pstock;
+	private String image;
 	
-	public String getProd_code() {
-		return prod_code;
+	public int getPcode() {
+		return pcode;
 	}
-	public void setProd_code(String prod_code) {
-		this.prod_code = prod_code;
+	public void setPcode(int pcode) {
+		this.pcode = pcode;
 	}
-	public String getProd_class() {
-		return prod_class;
+	public String getPclass() {
+		return pclass;
 	}
-	public void setProd_class(String prod_class) {
-		this.prod_class = prod_class;
+	public void setPclass(String pclass) {
+		this.pclass = pclass;
 	}
-	public String getProd_name() {
-		return prod_name;
+	public String getPname() {
+		return pname;
 	}
-	public void setProd_name(String prod_name) {
-		this.prod_name = prod_name;
+	public void setPname(String pname) {
+		this.pname = pname;
 	}
-	public int getProd_price() {
-		return prod_price;
+	public int getPprice() {
+		return pprice;
 	}
-	public void setProd_price(int prod_price) {
-		this.prod_price = prod_price;
+	public void setPprice(int pprice) {
+		this.pprice = pprice;
 	}
-	public String getProd_detail() {
-		return prod_detail;
+	public String getPdetail() {
+		return pdetail;
 	}
-	public void setProd_detail(String prod_detail) {
-		this.prod_detail = prod_detail;
+	public void setPdetail(String pdetail) {
+		this.pdetail = pdetail;
 	}
-	public String getProd_period() {
-		return prod_period;
+	public String getPperiod() {
+		return pperiod;
 	}
-	public void setProd_period(String prod_period) {
-		this.prod_period = prod_period;
+	public void setPperiod(String pperiod) {
+		this.pperiod = pperiod;
 	}
-	public String getProd_date() {
-		return prod_date;
+	public String getPdate() {
+		return pdate;
 	}
-	public void setProd_date(String prod_date) {
-		this.prod_date = prod_date;
+	public void setPdate(String pdate) {
+		this.pdate = pdate;
 	}
-	public String getProd_origin() {
-		return prod_origin;
+	public String getPorigin() {
+		return porigin;
 	}
-	public void setProd_origin(String prod_origin) {
-		this.prod_origin = prod_origin;
+	public void setPorigin(String porigin) {
+		this.porigin = porigin;
 	}
-	public String getProd_manuf() {
-		return prod_manuf;
+	public String getPmanuf() {
+		return pmanuf;
 	}
-	public void setProd_manuf(String prod_manuf) {
-		this.prod_manuf = prod_manuf;
+	public void setPmanuf(String pmanuf) {
+		this.pmanuf = pmanuf;
 	}
-	public int getProd_sales() {
-		return prod_sales;
+	public int getPsales() {
+		return psales;
 	}
-	public void setProd_sales(int prod_sales) {
-		this.prod_sales = prod_sales;
+	public void setPsales(int psales) {
+		this.psales = psales;
 	}
-	public int getProd_stock() {
-		return prod_stock;
+	public int getPstock() {
+		return pstock;
 	}
-	public void setProd_stock(int prod_stock) {
-		this.prod_stock = prod_stock;
+	public void setPstock(int pstock) {
+		this.pstock = pstock;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
 	}
 }

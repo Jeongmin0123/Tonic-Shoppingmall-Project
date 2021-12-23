@@ -53,7 +53,7 @@ public class MemberDAO {
 			pstmt.setString(11, member.getMemail());
 			result = pstmt.executeUpdate(); // 영향을 받은 행 수 반환 메서드
 		} catch (SQLException e) {
-			System.out.println("MemberDAO insertMember() 에러");
+			System.out.println("MemberDAO insertMember(): "+ e +" 에러");
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(pstmt, con);
@@ -82,7 +82,7 @@ public class MemberDAO {
 				result = -1; // 비밀번호가 없을 때, 0과 -1 구분할 필요는 사실 없다. 
 			}
 		} catch(SQLException e) {
-			System.out.println("LogInfoDAO checkLogin() 문제발생");
+			System.out.println("LogInfoDAO checkLogin(): "+ e +" 에러");
 			e.printStackTrace();
 			return false;
 		} finally {
@@ -119,7 +119,7 @@ public class MemberDAO {
 				member.setMemail(rs.getString("memail"));
 			}
 		} catch(SQLException e) {
-			System.out.println("MemberDAO selectMember() 에러");
+			System.out.println("MemberDAO selectMember(): "+ e +" 에러");
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(rs, pstmt, con);
@@ -140,7 +140,7 @@ public class MemberDAO {
 				findID = rs.getString("mid");
 			}
 		} catch(Exception e) {
-			System.out.println("MemberDAO findIDbyTel() 에러");
+			System.out.println("MemberDAO findIDbyTel(): "+ e +" 에러");
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(rs, pstmt, con);
@@ -171,7 +171,7 @@ public class MemberDAO {
             pstmt.setString(8, member.getMid());
             result = pstmt.executeUpdate(); 
 		} catch(Exception e) {
-			System.out.println("MemberDAO updateMember() 에러");
+			System.out.println("MemberDAO updateMember(): "+ e +" 에러");
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(pstmt, con);
@@ -217,7 +217,7 @@ public class MemberDAO {
 				mlist.add(member);
 			}
 		} catch(Exception e) {
-			System.out.println("MemberDAO getMemberList() 에러");
+			System.out.println("MemberDAO getMemberList(): "+ e +" 에러");
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(rs, pstmt, con);
@@ -236,12 +236,12 @@ public class MemberDAO {
 			pstmt.setString(1, id);
 			result = pstmt.executeUpdate();
 		} catch(Exception e) {
-			System.out.println("MemberDAO isExistID() 에러");
+			System.out.println("MemberDAO isExistID(): "+ e +" 에러");
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(pstmt, con);
 		}
-		return result==1;
+		return result == 1;
 	}
 	
 //  delete(ID) 아직 수정 중
@@ -268,7 +268,7 @@ public class MemberDAO {
 				}
 			}
 		} catch(Exception e) {
-			System.out.println("MemberDAO deleteMember() 에러");
+			System.out.println("MemberDAO deleteMember(): "+ e +"에러");
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(rs, pstmt, con);
