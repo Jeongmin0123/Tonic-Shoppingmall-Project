@@ -19,19 +19,19 @@ public class MemberDAO {
 	PreparedStatement pstmt;
 	ResultSet rs;
 	
-	String sql_insertM = "INSERT INTO member VALUES"
+	private String sql_insertM = "INSERT INTO member VALUES"
 			+ "('MEM' || LPAD(mem_seq.NEXTVAL, 3, 0),?,?,?,?,?,?,?,?,?,?,?)"; // insertMember()
-	String sql_loginM = "SELECT * FROM member WHERE id=?"; // pw보다 *를 가져오는게 더 빠르다.
-	String sql_selectM = "SELECT * FROM member WHERE id=? and pw=?"; // selectMember()
-	String sql_findIDbyTel = "SELECT id FROM member WHERE tel=?"; // findIDbyTel()
+	private String sql_loginM = "SELECT * FROM member WHERE id=?"; // pw보다 *를 가져오는게 더 빠르다.
+	private String sql_selectM = "SELECT * FROM member WHERE id=? and pw=?"; // selectMember()
+	private String sql_findIDbyTel = "SELECT id FROM member WHERE tel=?"; // findIDbyTel()
 //	String sql_selectForUp = "SELECT * FROM MEMBER WHERE id=? AND pw=?"; // updateMember()
-	String sql_updateM = "UPDATE member SET mname=?, mbirth=?, "
+	private String sql_updateM = "UPDATE member SET mname=?, mbirth=?, "
 			+ "maddr_zipcode=?, maddr_street=?, maddr_detail=?, maddr_etc=?, "
 			+ "memail=? WHERE id=?"; // updateMember()
-	String sql_getMemberList = "SELECT * FROM member"; // getMemberList()
-	String sql_selectPW = "SELECT pw FROM member WHERE id=?";     // deleteMember()
-	String sql_isExistID = "SELECT * FROM member WHERE id=?";
-	String sql_deleteM = "DELETE FROM member WHERE id=? AND pw=?"; // deleteMember()
+	private String sql_getMemberList = "SELECT * FROM member"; // getMemberList()
+	private String sql_selectPW = "SELECT pw FROM member WHERE id=?";     // deleteMember()
+	private String sql_isExistID = "SELECT * FROM member WHERE id=?";
+	private String sql_deleteM = "DELETE FROM member WHERE id=? AND pw=?"; // deleteMember()
 	
 	public boolean insertMember(MemberVO member) {
 		int result = 0;
@@ -176,7 +176,7 @@ public class MemberDAO {
 		} finally {
 			JDBCUtil.disconnect(pstmt, con);
 		}
-		return result == 1; // 제대로 수정이 되었다면 true(1), 안됐다면 false(0)
+		return result == 1;
 	}
 	
 //  관리자가 회원정보 가져오기 메서드(), 계정은 관리자여야 한다. 아직 페이지 구현X
@@ -184,7 +184,7 @@ public class MemberDAO {
 	public ArrayList<MemberVO> getMemberList() {
 		ArrayList<MemberVO> mlist = new ArrayList<MemberVO>();
 		MemberVO member = null; 
-		String pwOrigin; // user_password
+		String pwOrigin; 
 		int pwLength = 0;
 		
 		con = JDBCUtil.connect();
@@ -248,7 +248,7 @@ public class MemberDAO {
 //	String sql_selectPW = "SELECT pw FROM member WHERE id=?";    
 //	String sql_deleteM = "DELETE FROM member WHERE id=? AND pw=?"; 
 	public boolean deleteMember(String id, String pw) {
-		String MemberPW = null; // loginfo 테이블의 비밀번호를 넣을 변수
+		String MemberPW = null; 
 		int result = 0;  // 삭제 성공 == true, 메세지 반환
 		
 		con = JDBCUtil.connect();

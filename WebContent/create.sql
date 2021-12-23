@@ -76,53 +76,25 @@ DROP SEQUENCE EX_FOR_SEQ;
 
 
 --상품 DB 
---CREATE TABLE product (
---	p_class VARCHAR(10) PRIMARY KEY,
---	p_name  VARCHAR(20) NOT NULL,
---	p_code  VARCHAR(10) NOT NULL
---);
+CREATE SEQUENCE prod_seq; -- 시퀀스
 
---CREATE TABLE vita (
---	v_code    VARCHAR(10) PRIMARY KEY,
---	v_name    VARCHAR(20) UNIQUE NOT NULL,
---	v_price   NUMBER(10)  NOT NULL,
---	v_details VARCHAR(30) NOT NULL,
---	v_period  VARCHAR(10) NOT NULL,
---	v_date    VARCHAR(10) NOT NULL,
---	v_origin  VARCHAR(10) NOT NULL,
---	v_manuf   VARCHAR(10) NOT NULL,
---	v_sales   NUMBER(10)  NOT NULL,
---	v_stock   NUMBER(10)  NOT NULL
---  ++상품이미지 추가 칼럼?
---);
+CREATE TABLE product(
+	prod_code   VARCHAR(10) PRIMARY KEY, -- 상품코드(PK)
+	prod_class  VARCHAR(10) NOT NULL,    -- 분류코드(종합비타민[VITA], 유산균[LACT], 눈건강[EYES])
+	prod_name   VARCHAR(20) NOT NULL,    -- 상품명
+	prod_price  NUMBER(10) NOT NULL,     -- 상품가격
+	prod_detail VARCHAR(2000) NOT NULL,  -- 상세정보
+	prod_period VARCHAR(10),             -- 유통기한
+	prod_date   VARCHAR(10),             -- 제조일자
+	prod_origin VARCHAR(20),             -- 원산지
+	prod_manuf  VARCHAR(20),             -- 제조업체
+	prod_sales  NUMBER NOT NULL,         -- 판매량
+	prod_stock  NUMBER NOT NULL          -- 재고량
+);--이미지 경로, 사이즈? 넣을 칼럼 추가 예정
+DESC PRODUCT;
+SELECT * FROM PRODUCT;
+DROP TABLE PRODUCT;
 
---CREATE TABLE lact (
---	l_code    VARCHAR(10) PRIMARY KEY,
---	l_name    VARCHAR(20) UNIQUE NOT NULL,
---	l_price   NUMBER(10)  NOT NULL,
---	l_details VARCHAR(30) NOT NULL,
---	l_period  VARCHAR(10) NOT NULL,
---	l_date    VARCHAR(10) NOT NULL,
---	l_origin  VARCHAR(10) NOT NULL,
---	l_manuf   VARCHAR(10) NOT NULL,
---	l_sales   NUMBER(10)  NOT NULL,
---	l_stock   NUMBER(10)  NOT NULL
---  ++상품이미지 추가 칼럼?
---);
-
---CREATE TABLE eyes (
---	e_code    VARCHAR(10) PRIMARY KEY,
---	e_name    VARCHAR(20) UNIQUE NOT NULL,
---	e_price   NUMBER(10)  NOT NULL,
---	e_details VARCHAR(30) NOT NULL,
---	e_period  VARCHAR(10) NOT NULL,
---	e_date    VARCHAR(10) NOT NULL,
---	e_origin  VARCHAR(10) NOT NULL,
---	e_manuf   VARCHAR(10) NOT NULL,
---	e_sales   NUMBER(10)  NOT NULL,
---	e_stock   NUMBER(10)  NOT NULL
---  ++상품이미지 추가 칼럼?
---);
         
 --고객문의 테이블 
 --CREATE TABLE contact (
@@ -131,22 +103,4 @@ DROP SEQUENCE EX_FOR_SEQ;
 --	msgemail VARCHAR(50) NOT NULL,
 --	msgtext  VARCHAR(2000) NOT NULL
 --)
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         

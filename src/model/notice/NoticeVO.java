@@ -10,8 +10,8 @@ public class NoticeVO {
 	private int nidx;
 	private String ntitle;
 	private String ncont;
-	private String writer; // EMP 테이블 ename 참조키??
-
+	private String writer;
+	
 	public int getNidx() {
 		return nidx;
 	}

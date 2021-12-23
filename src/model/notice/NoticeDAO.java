@@ -11,18 +11,18 @@ import model.emp.EmpDAO;
 
 public class NoticeDAO {
 	private NoticeDAO(){}
-	private static NoticeDAO NoticeDAO = new NoticeDAO();
-	public static NoticeDAO getInstance() {return NoticeDAO;}
+	private static NoticeDAO NoticeIns = new NoticeDAO();
+	public static NoticeDAO getInstance() {return NoticeIns;}
 	
 	Connection con;
 	PreparedStatement pstmt;
 	ResultSet rs;
 
-	String sql_insertN = "INSERT INTO notice VALUES(LPAD(notice_seq.NEXTVAL, 2, 0), ?, ?, ?)"; 
-	String sql_selectAll = "SELECT * FROM notice";
-	String sql_selectOne = "SELECT * FROM notice WHERE nidx=?";
-	String sql_updateN = "UPDATE notice SET ntitle=?, ncont=? WHERE nidx=?";
-	String sql_deleteN = "DELETE FROM notice WHERE nidx = ?"; 
+	private String sql_insertN = "INSERT INTO notice VALUES(LPAD(notice_seq.NEXTVAL, 2, 0), ?, ?, ?)"; 
+	private String sql_selectAll = "SELECT * FROM notice";
+	private String sql_selectOne = "SELECT * FROM notice WHERE nidx=?";
+	private String sql_updateN = "UPDATE notice SET ntitle=?, ncont=? WHERE nidx=?";
+	private String sql_deleteN = "DELETE FROM notice WHERE nidx = ?"; 
 	
 	public boolean insertNotice(NoticeVO notice) {
 		int result = 0;
