@@ -1,10 +1,12 @@
-package controller;
+package controller.notice;
 
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import controller.common.Action;
+import controller.common.ActionForward;
 import model.notice.NoticeDAO;
 import model.notice.NoticeVO;
 

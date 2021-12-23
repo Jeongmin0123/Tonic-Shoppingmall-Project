@@ -1,4 +1,4 @@
-package controller;
+package controller.member;
 
 import java.io.IOException;
 
@@ -9,17 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import controller.common.ActionForward;
+import controller.notice.NoticeAction;
+
 /**
  * Servlet implementation class FrontController
  */
-@WebServlet("/FrontController")
-public class FrontController extends HttpServlet {
+@WebServlet("/MemFrontController")
+public class MemFrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FrontController() {
+    public MemFrontController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -47,14 +50,7 @@ public class FrontController extends HttpServlet {
 		System.out.println(command);
 		
 		ActionForward forward=null;
-		if(command.equals("/notice.do")) {		// notice 페이지를 위한 부분
-			try {
-				forward= new NoticeAction().execute(request, response);
-				
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} else if(command.equals("member_insert.do")) {		// 회원으로 회원가입 시 필요한 부분 
+		if(command.equals("member_insert.do")) {		// 회원으로 회원가입 시 필요한 부분 
 			try {
 				forward= new MemberInsertAction().execute(request, response);
 			} catch (Exception e) {

@@ -6,7 +6,7 @@
   </context-param>
   <servlet>
     <servlet-name>fc</servlet-name>
-    <servlet-class>controller.FrontController</servlet-class>
+    <servlet-class>controller.MemFrontController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>fc</servlet-name>
