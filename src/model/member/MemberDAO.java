@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import model.common.JDBCUtil; // JDBCUtil(), disconnect() 메서드 
-
+//  회원등록, 로그인 성공여부, 
 public class MemberDAO {
 	private MemberDAO(){}
 	private static MemberDAO MemberIns = new MemberDAO();
@@ -20,20 +20,20 @@ public class MemberDAO {
 	ResultSet rs;
 	
 	private String sql_insertM = "INSERT INTO member VALUES"
-			+ "('MEM' || LPAD(mem_seq.NEXTVAL, 3, 0),?,?,?,?,?,?,?,?,?,?,?)"; // insertMember()
-	private String sql_loginM = "SELECT * FROM member WHERE id=?"; // pw보다 *를 가져오는게 더 빠르다.
-	private String sql_selectM = "SELECT * FROM member WHERE id=? and pw=?"; // selectMember()
-	private String sql_findIDbyTel = "SELECT id FROM member WHERE tel=?"; // findIDbyTel()
+			+ "('MEM' || LPAD(mem_seq.NEXTVAL, 3, 0),?,?,?,?,?,?,?,?,?,?,?)"; 
+	private String sql_loginM = "SELECT * FROM member WHERE id=?"; 
+	private String sql_selectM = "SELECT * FROM member WHERE id=? and pw=?"; 
+	private String sql_findIDbyTel = "SELECT id FROM member WHERE tel=?"; 
 //	String sql_selectForUp = "SELECT * FROM MEMBER WHERE id=? AND pw=?"; // updateMember()
 	private String sql_updateM = "UPDATE member SET mname=?, mbirth=?, "
 			+ "maddr_zipcode=?, maddr_street=?, maddr_detail=?, maddr_etc=?, "
-			+ "memail=? WHERE id=?"; // updateMember()
-	private String sql_getMemberList = "SELECT * FROM member"; // getMemberList()
-	private String sql_selectPW = "SELECT pw FROM member WHERE id=?";     // deleteMember()
+			+ "memail=? WHERE id=?"; 
+	private String sql_getMemberList = "SELECT * FROM member"; 
 	private String sql_isExistID = "SELECT * FROM member WHERE id=?";
+	private String sql_selectPW = "SELECT pw FROM member WHERE id=?";      // deleteMember()
 	private String sql_deleteM = "DELETE FROM member WHERE id=? AND pw=?"; // deleteMember()
 	
-	public boolean insertMember(MemberVO member) {
+	public boolean insertMember(MemberVO member) { // 파라미터 수정?
 		int result = 0;
 		
 		con = JDBCUtil.connect();
@@ -62,11 +62,12 @@ public class MemberDAO {
 	}
 
 //  로그인 성공여부를 반환하는 메서드
-	public boolean loginMember(String id, String pw) {
-		String dbpw = null; // loginfo 테이블의 pw를 넣을 변수
+//  boolean -> int로 변환, 경우의 수 3가지
+	public int loginMember(String id, String pw) {
+		String dbpw = null; 
 		int result = 0;
 		
-		con = JDBCUtil.connect(); // Connection 타입
+		con = JDBCUtil.connect(); 
 		try {
 			pstmt = con.prepareStatement(sql_loginM);
 			pstmt.setString(1, id);
@@ -79,16 +80,16 @@ public class MemberDAO {
 					result = 0; // 비밀번호가 다를 때
 				}
 			} else { 
-				result = -1; // 비밀번호가 없을 때, 0과 -1 구분할 필요는 사실 없다. 
+				result = -1; // 비밀번호가 없을 때 
 			}
 		} catch(SQLException e) {
-			System.out.println("LogInfoDAO checkLogin(): "+ e +" 에러");
+			System.out.println("MemberDAO checkLogin(): "+ e +" 에러");
 			e.printStackTrace();
-			return false;
+			return result;
 		} finally {
 			JDBCUtil.disconnect(rs, pstmt, con); 
 		}
-		return result == 1; // result가 1이 아니라면 false 반환.
+		return result; // result가 1이 아니라면 false 반환.
 	}
 	
 //  모델에서 멤버DAO랑 관리자DAO에서 selectOne 메서드 로그인 성공여부를 받는 게 아니라 

@@ -86,7 +86,7 @@ CREATE TABLE product(
 	pmanuf  VARCHAR(20),               -- 제조업체
 	psales  NUMBER NOT NULL DEFAULT 0, -- 판매량
 	pstock  NUMBER NOT NULL            -- 재고량
-	pimage  CLOB                       -- 이미지 테이블(CLOB || VARCHAR)
+	pimage  VARCHAR(50)                -- 이미지 테이블(CLOB || VARCHAR)
 );--이미지 경로, 사이즈(미정) 넣을 칼럼 추가 
 DESC PRODUCT;
 SELECT * FROM PRODUCT;
