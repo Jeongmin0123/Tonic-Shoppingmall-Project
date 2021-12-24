@@ -1,4 +1,4 @@
-package controller.member;
+package controller.doPage;
 
 import java.io.IOException;
 
@@ -12,16 +12,16 @@ import javax.servlet.http.HttpServletResponse;
 import controller.common.ActionForward;
 
 /**
- * Servlet implementation class FrontController
+ * Servlet implementation class DopageFrontController
  */
-@WebServlet("/MemberFrontController")
-public class MemberFrontController extends HttpServlet {
+@WebServlet("/DopageFrontController")
+public class DopageFrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MemberFrontController() {
+    public DopageFrontController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -49,39 +49,9 @@ public class MemberFrontController extends HttpServlet {
 		System.out.println(command);
 		
 		ActionForward forward=null;
-		if(command.equals("/member_insert.mem")) {		// 회원으로 회원가입 시 필요한 부분 
+		if(command.equals("/main.do")) {		// 메인화면을 보여줄거임
 			try {
-				forward= new MemberInsertAction().execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} else if(command.equals("/member_delete.mem")) {		// 회원탈퇴시 필요한 부분
-			try {
-				forward= new MemberDeleteAction().execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} else if(command.equals("/member_update.mem")) {		// 회원탈퇴시 필요한 부분
-			try {
-				forward= new MemberUpdateAction().execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} else if(command.equals("/login.mem")) {		// 로그인 성공여부 반환
-			try {
-				forward= new MemberLoginAction().execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} else if(command.equals("/isExistId.mem")) {
-			try {
-				forward= new MemberIsExistIDAction().execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} else if(command.equals("/member_select.mem")) {
-			try {
-				forward= new MemberSelectAction().execute(request, response);
+				forward= new DopageMainAction().execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

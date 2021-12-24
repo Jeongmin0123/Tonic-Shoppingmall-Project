@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
+
 // import javax.servlet.http.HttpServletRequest;
 
 // import com.oreilly.servlet.MultipartRequest;
@@ -35,7 +37,7 @@ public class ProductDAO {
 상품등록 폼 파일 업로드 구현 -> MultipartRequest 라이브러리를 설치할 필요 有
 MultipartRequest multi = new MultipartRequest(request, savePath, sizeLimit, "UTF-8", new DefaultFileRenamePolicy());
 MultipartRequest(객체, 저장될 서버 경로, 파일 최대 크기, 인코딩 방식, 같은 이름의 파일명 방지 처리)
-*/	public boolean insertProduct(HttpServletRequest request) { // HttpServletRequest 빨간줄은 톰캣 서버를 연결하면 사라진다.
+*/ /*	public boolean insertProduct(HttpServletRequest request) { // HttpServletRequest 빨간줄은 톰캣 서버를 연결하면 사라진다.
 	//	String upload = "절대경로";
 		String upload = "C:/···/···/···/WebContent/images";
 		int limitSize = 50*1024*1024; // 50MB
@@ -69,7 +71,7 @@ MultipartRequest(객체, 저장될 서버 경로, 파일 최대 크기, 인코�
 		}
 		return result == 1;
 	}
-	
+	*/
 //  상품조회
 //  private	String sql_selectAll = "SELECT * FROM product ORDER BY pcode";
 	public ArrayList<ProductVO> selectAll() {
