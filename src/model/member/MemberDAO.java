@@ -63,16 +63,16 @@ public class MemberDAO {
 
 //  로그인 성공여부를 반환하는 메서드
 //  boolean->int->로 변환, 경우의 수 3가지
-	public boolean loginMember(String id, String pw) {
+	public boolean loginMember(MemberVO member) {
 		int result = 0;
 		
 		con = JDBCUtil.connect(); 
 		try {
 			pstmt = con.prepareStatement(sql_loginM);
-			pstmt.setString(1, id);
+			pstmt.setString(1, member.getMid());
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				if(rs.getString("pw").equals(pw)) {
+				if(rs.getString("mpw").equals(member.getMpw())) {
 					result = 1; // 로그인 성공 
 				} else { 
 					result = 0; // 비밀번호가 다를 때
