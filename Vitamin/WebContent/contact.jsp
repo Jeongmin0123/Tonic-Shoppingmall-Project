@@ -37,13 +37,6 @@
         <div class="humberger__menu__logo">
             <a href="#"><img src="img/logo.png" alt=""></a>
         </div>
-        <div class="humberger__menu__cart">
-            <ul>
-                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-            </ul>
-            <div class="header__cart__price">item: <span>$150.00</span></div>
-        </div>
         <div class="humberger__menu__widget">
             <div class="header__top__right__language">
                 <img src="img/language.png" alt="">
@@ -55,7 +48,7 @@
                 </ul>
             </div>
             <div class="header__top__right__auth">
-                <a href="login.do"><i class="fa fa-user"></i> Login</a>
+                <a href="login.jsp"><i class="fa fa-user"></i> Login</a>
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
@@ -71,7 +64,7 @@
                     </ul>
                 </li>
                 <li><a href="notice.do">공지사항</a></li>
-                <li><a href="contact.do">고객센터</a></li>
+                <li><a href="contact.jsp">고객센터</a></li>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
@@ -121,7 +114,7 @@
                                 </ul>
                             </div>
                             <div class="header__top__right__auth">
-                                <a href="login.do"><i class="fa fa-user"></i> Login</a>
+                                <a href="login.jsp"><i class="fa fa-user"></i> Login</a>
                                 <a href="new.do">&nbsp;&nbsp;회원가입</a>
                             </div>
                         </div>
@@ -140,28 +133,18 @@
                     <nav class="header__menu">
                         <ul>
                             <li class="active"><a href="main.do">Home</a></li>
-                            <!-- <li><a href="./shop-grid.html">Shop</a></li> -->
-                            <li><a href="shop-grid.do">Shop</a>
+                            <li><a href="#">Shop</a>
                                 <ul class="header__menu__dropdown">
-                                    <li><a href="shop_grid.do">전체상품</a></li> 
-                                    <li><a href="shop_grid.do">종합비타민</a></li>
-                                    <li><a href="shop_grid.do">유산균</a></li>
-                                    <li><a href="shop_grid.do">눈건강</a></li>
+                                    <li><a href="shop-grid.do">전체상품</a></li> 
+                                    <li><a href="shop-grid.do">종합비타민</a></li>
+                                    <li><a href="shop-grid.do">유산균</a></li>
+                                    <li><a href="shop-grid.do">눈건강</a></li>
                                 </ul>
                             </li>
                             <li><a href="notice.do">공지사항</a></li>
-                            <li><a href="contact.do">고객센터</a></li>
+                            <li><a href="contact.jsp">고객센터</a></li>
                         </ul>
                     </nav>
-                </div>
-                <div class="col-lg-3">
-                    <div class="header__cart">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-                        </ul>
-                        <div class="header__cart__price">item: <span>$150.00</span></div>
-                    </div>
                 </div>
             </div>
             <div class="humberger__open">
@@ -235,6 +218,7 @@
     </section>
     <!-- Breadcrumb Section End -->
 
+
     <!-- Contact Section Begin -->
     <section class="contact spad">
         <div class="container">
@@ -243,14 +227,14 @@
                     <div class="contact__widget">
                         <span class="icon_phone"></span>
                         <h4>Phone</h4>
-                        <p>+01-3-8888-6868</p>
+                        <p>+82-1-8888-6868</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 text-center">
                     <div class="contact__widget">
                         <span class="icon_pin_alt"></span>
                         <h4>Address</h4>
-                        <p>60-49 Road 11378 New York</p>
+                        <p>60-49 Road 11378 Seoul</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 text-center">
@@ -264,7 +248,7 @@
                     <div class="contact__widget">
                         <span class="icon_mail_alt"></span>
                         <h4>Email</h4>
-                        <p>hello@colorlib.com</p>
+                        <p>hello@ogani.com</p>
                     </div>
                 </div>
             </div>
@@ -274,14 +258,14 @@
 
     <!-- Map Begin -->
     <div class="map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d49116.39176087041!2d-86.41867791216099!3d39.69977417971648!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x886ca48c841038a1%3A0x70cfba96bf847f0!2sPlainfield%2C%20IN%2C%20USA!5e0!3m2!1sen!2sbd!4v1586106673811!5m2!1sen!2sbd" height="500" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50647.46568304649!2d127.03291992056559!3d37.49691167942796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca4235fb589fb%3A0xb331971bc570bb6a!2z7ISc7Jq47Yq567OE7IucIOqwleuCqOq1rA!5e0!3m2!1sko!2skr!4v1640267479844!5m2!1sko!2skr" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         <div class="map-inside">
             <i class="icon_pin"></i>
             <div class="inside-widget">
-                <h4>New York</h4>
+                <h4>GangNam</h4>
                 <ul>
                     <li>Phone: +12-345-6789</li>
-                    <li>Add: 16 Creek Ave. Farmingdale, NY</li>
+                    <li>Add: GangNam, Seoul</li>
                 </ul>
             </div>
         </div>
@@ -316,6 +300,7 @@
     </div>
     <!-- Contact Form End -->
 
+
     <!-- Footer Section Begin -->
     <footer class="footer spad">
         <div class="container">
@@ -326,9 +311,9 @@
                             <a href="main.do"><img src="img/logo.png" alt=""></a>
                         </div>
                         <ul>
-                            <li>Address: 60-49 Road 11378 New York</li>
-                            <li>Tel: +65 11.188.888</li>
-                            <li>Email: hello@colorlib.com</li>
+                            <li>Address: 60-49 Road 11378 Seoul</li>
+                            <li>Tel: +82-1-8888-6868</li>
+                            <li>Email: hello@ogani.com</li>
                         </ul>
                     </div>
                 </div>
@@ -376,7 +361,9 @@
                                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                             </p>
                         </div>
-                        <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
+                        <div class="footer__copyright__payment">
+                        	<img src="img/payment-item.png" alt="">
+                        </div>
                     </div>
                 </div>
             </div>

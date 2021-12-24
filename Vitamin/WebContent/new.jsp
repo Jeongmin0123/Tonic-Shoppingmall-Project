@@ -39,13 +39,6 @@
         <div class="humberger__menu__logo">
             <a href="main.do"><img src="img/logo.png" alt=""></a>
         </div>
-        <div class="humberger__menu__cart">
-            <ul>
-                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-            </ul>
-            <!--<div class="header__cart__price">item: <span>$150.00</span></div>-->
-        </div>
         <div class="humberger__menu__widget">
             <div class="header__top__right__language">
                 <img src="img/language.png" alt="">
@@ -211,6 +204,23 @@
     </section>
     <!-- Hero Section End -->
 
+ 	<!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2>New</h2>
+                        <div class="breadcrumb__option">                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+
+
     <!-- 본문   -->
     <!-- 본문 시작 -->
     <div class="bodytext_area box_inner">
@@ -221,34 +231,47 @@
                 <legend>회원가입 입력 양식</legend>
                 <p class="info_pilsoo pilsoo_item">필수입력</p>
                 <ul class="app_list">
+                
 					<!-- 아이디 -->
                     <li class="clear">
                         <label for="id_lbl" class="tit_lbl pilsoo_item">
                             아이디
                         </label>
                         <div class="app_content ">
-                            <input type="password" class="w40p" id="id_lbl" placeholder="아이디를 입력하세요">
+                            <input type="text" class="w40p" id="id_lbl" name="mid" placeholder="아이디를 입력하세요">
+                            <!-- 중복확인 처리 필요 	ajax로 하기  -->
 	                        <input type="button" value="중복확인" onclick="">
                         </div>
                     </li>
+                    
                     <!-- 비밀번호 -->
                     <li class="clear">
                         <label for="pwd_lbl" class="tit_lbl pilsoo_item">
                             비밀번호
                         </label>
                         <div class="app_content ">
-                            <input type="password" class="w40p" id="pwd_lbl" placeholder="비밀번호를 입력하세요">
+                            <input type="password" name="mpw" class="w40p pw" id="pwd_lbl" placeholder="비밀번호를 입력하세요">
                         </div>
                     </li>
+                    
                     <!-- 비밀번호 확인 -->
                     <li class="clear">
                         <label for="pwd2_lbl" class="tit_lbl pilsoo_item">
                             비밀번호 확인
                         </label>
                         <div class="app_content ">
-                            <input type="password" class="w40p" id="pwd2_lbl" placeholder="비밀번호 확인을 입력하세요">
+                            <input type="password" name="mpw2" class="w40p pw" id="pwd2_lbl" placeholder="비밀번호 확인을 입력하세요">
+		                    <p class="alert alert-success w20p" id="alert-success" align="center">비밀번호 일치</p>
+		                    <p class="alert alert-danger w20p" id="alert-danger" align="center">비밀번호 불일치</p>
                         </div>
                     </li>
+                    <!-- <li>
+                    	<p class="alert alert-success w20p" id="alert-success" align="center">비밀번호 일치</p>
+		                <p class="alert alert-danger w20p" id="alert-danger" align="center">비밀번호 불일치</p>
+                    </li> -->
+
+                    
+                    
                     <!-- 이름 -->
                     <li class="clear">
                         <label for="name_lbl" class="tit_lbl pilsoo_item">
@@ -274,7 +297,7 @@
                             생년월일
                         </label>
                         <div class="app_content ">
-                            <input type="text" class="w40p" id="name_lbl" placeholder="생년월일을 입력하세요" name="birth">
+                            <input type="text" class="w40p" id="name_lbl" placeholder="생년월일을 입력하세요" name="mbirth">
                         </div>
                     </li>
 
@@ -283,11 +306,11 @@
                         <label for="addr_lbl" class="tit_lbl pilsoo_item addr"> 주소 </label>
 
                         <div class="app_content ">
-                            <input type="text" name="maddr_zipcode" class="postcodify_postcode5 w40p" value="" id="name_lbl" placeholder="우편번호" />
+                            <input type="text" name="maddr_zipcode" class="postcodify_postcode5 w40p" id="name_lbl" placeholder="우편번호" />
                             <input type="button" id="postcodify_search_button" value="검색"/>
-                            <input type="text" name=maddr_street class="postcodify_address w70p" value="" id="name_lbl" placeholder="도로명 주소" /><br />
-                            <input type="text" name="maddr_detail" class="postcodify_details w70p" value="" id="name_lbl" placeholder="상세 주소" /><br />
-                            <input type="text" name="maddr_etc" class="postcodify_extra_info w70p" value="" id="name_lbl" placeholder="참고항목" /><br />
+                            <input type="text" name=maddr_street class="postcodify_address w70p" id="name_lbl" placeholder="도로명 주소" /><br>
+                            <input type="text" name="maddr_detail" class="postcodify_details w70p" id="name_lbl" placeholder="상세 주소" /><br>
+                            <input type="text" name="maddr_etc" class="postcodify_extra_info w70p" id="name_lbl" placeholder="참고항목" /><br>
                             <!-- <input type="text" class="w100p" id="name_lbl" placeholder="주소을 입력하세요"> -->
                         </div>
                     </li>
@@ -312,7 +335,9 @@
                     </li>
                     
                 </ul>
-                <p class="btn_line"><button>회원가입</button></p>
+                <p class="app_content" align="center">
+                	<input type="submit" class="btn_basecolor" value="회원가입">
+                </p>
             </fieldset>
         </form>
         <!-- 회원가입폼  -->
@@ -406,9 +431,29 @@
         $(function() {
             $("#postcodify_search_button").postcodifyPopUp();
         });
-
     </script>
+	
+	<script type="text/javascript"> 
+		$(function(){ $("#alert-success").hide();
+		$("#alert-danger").hide(); $("input").keyup(function(){ 
+				var pwd1=$("#pwd_lbl").val();
+				var pwd2=$("#pwd2_lbl").val(); 
+				if(pwd1 != "" || pwd2 != ""){ 
+					if(pwd1 == pwd2){ 
+						$("#alert-success").show();
+						$("#alert-danger").hide(); 
+						$("#submit").removeAttr("disabled"); 
+					} else {
+						$("#alert-success").hide();
+						$("#alert-danger").show(); 
+						$("#submit").attr("disabled", "disabled");
+					} 
+				} 
+			}); 
+		});
+	</script>
 
+	
 </body>
 
 </html>

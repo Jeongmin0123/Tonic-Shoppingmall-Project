@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -21,10 +23,11 @@
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/swiper.min.css" type="text/css">
 </head>
 
 <body>
-   <!-- Page Preloder -->
+        <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
     </div>
@@ -34,13 +37,6 @@
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
             <a href="#"><img src="img/logo.png" alt=""></a>
-        </div>
-        <div class="humberger__menu__cart">
-            <ul>
-                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-            </ul>
-            <div class="header__cart__price">item: <span>$150.00</span></div>
         </div>
         <div class="humberger__menu__widget">
             <div class="header__top__right__language">
@@ -53,7 +49,8 @@
                 </ul>
             </div>
             <div class="header__top__right__auth">
-                <a href="#"><i class="fa fa-user"></i> Login</a>
+                <a href="./login.html"><i class="fa fa-user"></i> Login</a>
+                <a href="./new.html">&nbsp;&nbsp;회원가입</a>
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
@@ -62,11 +59,11 @@
                 <li><a href="./shop-grid.html">Shop</a></li>
                 <li><a href="#">Pages</a>
                     <ul class="header__menu__dropdown">
-                        <li><a href="./shop-grid.html">전체상품</a></li>
+                        <li><a href="./shop-grid.html">전체상품</a></li> 
                         <li><a href="./shop-grid.html">종합비타민</a></li>
                         <li><a href="./shop-grid.html">유산균</a></li>
                         <li><a href="./shop-grid.html">눈건강</a></li>
-                        <!-- <li><a href="./blog-details.html">Blog Details</a></li> -->
+                        
                     </ul>
                 </li>
                 <li><a href="./blog.html">Blog</a></li>
@@ -120,7 +117,9 @@
                                 </ul>
                             </div>
                             <div class="header__top__right__auth">
-                                <a href="#"><i class="fa fa-user"></i> Login</a>
+                                <a href="./login.html"><i class="fa fa-user"></i> Login</a>
+                                <a href="./new.html">&nbsp;&nbsp;회원가입</a>
+                                <!--<li><a href="#"><i class="fa fa-shopping-bag"></i> <span></span></a></li>-->
                             </div>
                         </div>
                     </div>
@@ -139,9 +138,9 @@
                         <ul>
                             <li class="active"><a href="./index.html">Home</a></li>
                             <!-- <li><a href="./shop-grid.html">Shop</a></li> -->
-                            <li><a href="./shop-grid.html">Shop</a>
+                            <li><a href="#">Shop</a>
                                 <ul class="header__menu__dropdown">
-                                    <li><a href="./shop-grid.html">전체상품</a></li>
+                                    <li><a href="./shop-grid.html">전체상품</a></li> 
                                     <li><a href="./shop-grid.html">종합비타민</a></li>
                                     <li><a href="./shop-grid.html">유산균</a></li>
                                     <li><a href="./shop-grid.html">눈건강</a></li>
@@ -152,15 +151,6 @@
                             <li><a href="./contact.html">고객센터</a></li>
                         </ul>
                     </nav>
-                </div>
-                <div class="col-lg-3">
-                    <div class="header__cart">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-                        </ul>
-                        <div class="header__cart__price">item: <span>$150.00</span></div>
-                    </div>
                 </div>
             </div>
             <div class="humberger__open">
@@ -185,6 +175,7 @@
                             <li><a href="./shop-grid.html">종합비타민</a></li>
                             <li><a href="./shop-grid.html">유산균</a></li>
                             <li><a href="./shop-grid.html">눈건강</a></li>
+                
                         </ul>
                     </div>
                 </div>
@@ -210,30 +201,20 @@
                             </div>
                         </div>
                     </div>
-                    <!--<div class="hero__item set-bg" data-setbg="img/hero/banner.jpg">
-                        <div class="hero__text">
-                            <span>FRUIT FRESH</span>
-                            <h2>Vegetable <br />100% Organic</h2>
-                            <p>Free Pickup and Delivery Available</p>
-                            <a href="#" class="primary-btn">SHOP NOW</a>
-                        </div>
-                    </div>-->
                 </div>
             </div>
         </div>
     </section>
     <!-- Hero Section End -->
 
-    <!-- Breadcrumb Section Begin -->
+ 	<!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>Blog</h2>
-                        <div class="breadcrumb__option">
-                            <a href="./index.html">Home</a>
-                            <span>Blog</span>
+                        <h2>Product register</h2>
+                        <div class="breadcrumb__option">                           
                         </div>
                     </div>
                 </div>
@@ -243,47 +224,145 @@
     <!-- Breadcrumb Section End -->
 
 
-  <!--================Login Box Area =================-->
-  <section class="login_box_area section-margin">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="login_box_img">
-                    <div class="hover">
-                        <h4>New to our website?</h4>
-                        <p>There are advances being made in science and technology everyday, and a good example of this is the</p>
-                        <a class="button button-account" href="register.html">Create an Account</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="login_form_inner">
-                    <h3>Log in to enter</h3>
-                    <form class="row login_form" action="#/" id="contactForm" >
-                        <div class="col-md-12 form-group">
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
-                        </div>
-                        <div class="col-md-12 form-group">
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
-                        </div>
-                        <div class="col-md-12 form-group">
-                            <div class="creat_account">
-                                <input type="checkbox" id="f-option2" name="selector">
-                                <label for="f-option2">Keep me logged in</label>
-                            </div>
-                        </div>
-                        <div class="col-md-12 form-group">
-                            <button type="submit" value="submit" class="button button-login w-100">Log In</button>
-                            <a href="#">Forgot Password?</a>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!--================End Login Box Area =================-->
 
+    <!-- 본문   -->
+    <!-- 본문 시작 -->
+	<div class="bodytext_area box_inner">
+    <!-- 회원가입폼 시작 -->
+    <form action="#" class="appForm" method="post">
+        <fieldset>
+            <!-- 안보이지만 접근성을 위해 넣는다. -->
+            <legend>상품등록 양식</legend>
+            <!-- <p class="info_pilsoo pilsoo_item">필수입력</p> -->
+            <ul class="app_list">
+                <!-- 이미지 -->
+                <li class="clear">
+                    <label for="name_lbl" class="tit_lbl">
+                        상품사진
+                    </label>
+                    <div class="app_content ">
+                        <input type="file" class="w100p" id="name_lbl" name="">
+                    </div>
+                </li>
+                
+                <!-- 상품명 -->
+                <li class="clear">
+                    <label for="name_lbl" class="tit_lbl">
+                        상품명
+                    </label>
+                    <div class="app_content ">
+                        <input type="text" class="w100p" id="name_lbl" placeholder="상품명 입력하세요" name="">
+                    </div>
+                </li>
+                <!-- 가격 -->
+                <li class="clear">
+                    <label for="name_lbl" class="tit_lbl">
+                        가격
+                    </label>
+                    <div class="app_content ">
+                        <input type="text" class="w100p" id="name_lbl" placeholder="가격을 입력하세요" name="">
+                    </div>
+                </li>
+                <!-- 상세정보 -->
+                <li class="clear">
+                    <label for="name_lbl" class="tit_lbl">
+                        상세정보
+                    </label>
+                    <div class="app_content ">
+                        <input type="text" class="w100p" id="name_lbl" placeholder="상세정보를 입력하세요" name="">
+                    </div>
+                </li>
+                <!-- 유통기한 -->
+                <li class="clear">
+                    <label for="name_lbl" class="tit_lbl">
+                        유통기한
+                    </label>
+                    <div class="app_content ">
+                        <input type="text" class="w100p" id="name_lbl" placeholder="유통기한을 입력하세요" name="">
+                    </div>
+                </li>
+                <!-- 제조일자 -->
+                <li class="clear">
+                    <label for="name_lbl" class="tit_lbl">
+                        제조일자
+                    </label>
+                    <div class="app_content ">
+                        <input type="text" class="w100p" id="name_lbl" placeholder="제조일자를 입력하세요" name="">
+                    </div>
+                </li>
+                <!-- 원산지 -->
+                <li class="clear">
+                    <label for="name_lbl" class="tit_lbl">
+                        원산지
+                    </label>
+                    <div class="app_content ">
+                        <input type="text" class="w100p" id="name_lbl" placeholder="원산지를 입력하세요" name="">
+                    </div>
+                </li>
+                <!-- 제조사 -->
+                <li class="clear">
+                    <label for="name_lbl" class="tit_lbl">
+                        제조사
+                    </label>
+                    <div class="app_content ">
+                        <input type="text" class="w100p" id="name_lbl" placeholder="제조사를 입력하세요" name="">
+                    </div>
+                </li>
+                
+                <!-- 판매량 -->
+                <li class="clear">
+                    <label for="name_lbl" class="tit_lbl">
+                        판매량
+                    </label>
+                    <div class="app_content ">
+                        <input type="text" class="w100p" id="name_lbl" placeholder="0" name="">
+                    </div>
+                </li>
+
+                <!-- 재고량 -->
+                <li class="clear">
+                    <label for="name_lbl" class="tit_lbl">
+                        재고량
+                    </label>
+                    <div class="app_content ">
+                        <input type="text" class="w100p" id="name_lbl" placeholder="재고량을 입력하세요" name="">
+                    </div>
+                </li>
+
+                <!-- 분류 -->
+                <li class="clear">
+                    <span class="tit_lbl">분류</span>
+                    <div class="app_content radio_area">
+                        <input type="radio" class="css-radio" id="mmm_lbl" name="type" value="종합비타민"> 
+                        <label for="mmm_lbl">종합비타민</label>
+
+                        <input type="radio" class="css-radio" id="www_lbl" name="type" value="유산균"> 
+                        <label for="www_lbl">유산균</label>
+                        <!-- 오류 미해결 -->
+                        <input type="radio" class="css-radio" id="www_lbl" name="type" value="눈건강"> 
+                        <label for="www_lbl">눈건강</label>
+                    </div>
+                </li>
+
+                <!-- 성별 -->
+                <li class="clear">
+                    <span class="tit_lbl">성별</span>
+                    <div class="app_content radio_area">
+                        <input type="radio" class="css-radio" id="mmm_lbl" name="gender" value="남"> 
+                        <label for="mmm_lbl">남</label>
+                        <input type="radio" class="css-radio" id="www_lbl" name="gender" value="여"> 
+                        <label for="www_lbl">여</label>
+                    </div>
+                </li>
+
+
+        
+            </ul>
+            <p class="btn_line"><a href="#" class="btn_basecolor">등록</a></p>
+        </fieldset>
+    </form>
+    <!-- 회원가입폼 끝  -->
+</div>
 
 
     <!-- Footer Section Begin -->
@@ -297,15 +376,22 @@
                         </div>
                         <ul>
                             <li>Address: 60-49 Road 11378 New York</li>
-                            <li>Phone: +65 11.188.888</li>
+                            <li>Tel: +65 11.188.888</li>
                             <li>Email: hello@colorlib.com</li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
                     <div class="footer__widget">
-                        <h6>Useful Links</h6>
+                        <h4>판매자 정보</h4> <br>
                         <ul>
+                            <li><bold>Company</bold>&nbsp;World 3lass <br><br>
+                            <bold>판매자</bold>&nbsp;이상헌 <br><br>
+                            <bold>phone</bold>&nbsp;010-1234-1234 <br><br>
+                            <bold>Business License</bold>&nbsp;123-45</li>
+                        </ul> 
+                        <!-- <h6>Useful Links</h6> -->
+                        <!-- <ul>
                             <li><a href="#">About Us</a></li>
                             <li><a href="#">About Our Shop</a></li>
                             <li><a href="#">Secure Shopping</a></li>
@@ -320,7 +406,7 @@
                             <li><a href="#">Contact</a></li>
                             <li><a href="#">Innovation</a></li>
                             <li><a href="#">Testimonials</a></li>
-                        </ul>
+                        </ul> -->
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-12">

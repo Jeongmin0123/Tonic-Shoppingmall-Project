@@ -28,17 +28,7 @@
     <link rel="stylesheet" href="css/swiper.min.css" type="text/css">
 </head>
 
-<script type="text/javascript">
-	function memdel(){
-		ans=confirm("정말 회원탈퇴하시겠습니까?");
-		if(ans==true){
-			location.href="mem_delete.do?mno="+${mdata.mno};
-		}
-		else{
-			return;
-		}
-	}
-</script>
+
 
 <body>
     <!-- Page Preloder -->
@@ -51,13 +41,6 @@
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
             <a href="main.do"><img src="img/logo.png" alt=""></a>
-        </div>
-        <div class="humberger__menu__cart">
-            <ul>
-                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-            </ul>
-            <div class="header__cart__price">item: <span>$150.00</span></div>
         </div>
         <div class="humberger__menu__widget">
             <div class="header__top__right__language">
@@ -96,12 +79,7 @@
             <a href="#"><i class="fa fa-linkedin"></i></a>
             <a href="#"><i class="fa fa-pinterest-p"></i></a>
         </div>
-        <div class="humberger__menu__contact">
-            <ul>
-                <!-- <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                <li>Free Shipping for all Order of $99</li> -->
-            </ul>
-        </div>
+        
     </div>
     <!-- Humberger End -->
 
@@ -136,6 +114,7 @@
                                 </ul>
                             </div>
                             <div class="header__top__right__auth">
+                            	<!-- mdata.mid? mid? mid 세션에 저장하는 변수명에 따라 달라질 예정 -->
                             	<c:if test="${mid == null}">
 	                                <a href="login.do"><i class="fa fa-user"></i> Login</a>
 	                                <a href="new.do">&nbsp;&nbsp;회원가입</a>
@@ -170,15 +149,6 @@
                             <li><a href="contact.do">고객센터</a></li>
                         </ul>
                     </nav>
-                </div>
-                <div class="col-lg-3">
-                    <div class="header__cart">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-                        </ul>
-                        <div class="header__cart__price">item: <span>$150.00</span></div>
-                    </div>
                 </div>
             </div>
             <div class="humberger__open">
@@ -234,6 +204,24 @@
         </div>
     </section>
     <!-- Hero Section End -->
+    
+    <!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2>My Page</h2>
+                        <div class="breadcrumb__option">                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+    
+    
 
     <!-- 본문   -->
     <!-- container 시작 -->
@@ -247,42 +235,45 @@
                 <dd>
                     <form action="mem_update.do" method="post" class="regForm">
                     <input type="hidden" name="mno" value="${mdata.mno}">
-                        <fieldset>
+                         <fieldset>
                             <legend>내 정보 입력 양식</legend>
                             <ul class="reg_list">
                                 <li class="clear">
                                     <span class="tit_lbl">이름</span>
-                                    <div class="reg_content"><input type="text" name="title" value="${mdata.mname}"></div>
+                                    <div class="reg_contxent"><input type="text" name="mname" value="${mdata.mname}"></div>
+                                    <div class="reg_contxent">${mdata.mname}</div>
                                 </li>
                                 <li class="clear">
                                     <span class="tit_lbl">성별</span>
-                                    <div class="reg_content"><input type="text" name="title" value="${mdata.mgender}"></div>
+                                    <div class="reg_content"><input type="text" name="mgender" value="${mdata.mgender}"></div>
                                 </li>
                                 <li class="clear">
                                     <span class="tit_lbl">생년월일</span>
-                                    <div class="reg_content"><input type="text" name="title" value="${mdata.mbirth}"></div>
+                                    <div class="reg_content"><input type="text" name="mbirth" value="${mdata.mbirth}"></div>
                                 </li>
                                 <li class="clear">
                                     <span class="tit_lbl">우편번호</span>
-                                    <div class="reg_content"><input type="text" name="title" value="${mdata.zipcode}"></div>
+                                    <div class="reg_content"><input type="text" name="zipcode" value="${mdata.zipcode}"></div>
                                 </li>
                                 <li class="clear">
                                     <span class="tit_lbl">주소</span>
-                                    <div class="reg_content"><input type="text" name="title" value="${mdata.street}"+"${mdata.detail}"></div>
+                                    <div class="reg_content"><input type="text" name="street" value="${mdata.street}"+"${mdata.detail}"></div>
                                 </li>
                                 <li class="clear">
                                     <span class="tit_lbl">연락처</span>
-                                    <div class="reg_content"><input type="text" name="title" value="${mdata.mtel}"></div>
+                                    <div class="reg_content"><input type="text" name="mtel" value="${mdata.mtel}"></div>
                                 </li>
                                 
                                 <li class="clear">
                                     <span class="tit_lbl">이메일</span>
-                                    <div class="reg_content"><input type="text" name="title" value="${mdata.memail}"></div>
+                                    <div class="reg_content"><input type="text" name="email" value="${mdata.memail}"></div>
                                 </li>
                             </ul>
-                            <p class="btn_line">
+                            <!-- <p class="btn_line">
+                            </p> -->
+                            <p class="app_content" align="center">
                             	<input type="submit" class="btn_basecolor" value="정보수정">
-                            	<input type="button" class="btn_basecolor" onclick="memdel()" value="회원탈퇴">
+	                            <input type="button" class="btn_basecolor" onclick="memdel()" value="회원탈퇴">
                             </p>
                         </fieldset>
                     </form>
@@ -373,8 +364,19 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
 
-
-
+<script type="text/javascript">
+	function memdel(){
+		ans=confirm("정말 회원탈퇴하시겠습니까?");
+		if(ans==true){
+			/* mno 값을 hidden으로 숨기기!!! */
+			location.href="mem_delete.do?mno=${mdata.mno}";
+		}
+		else{
+			return;
+		}
+	}
+</script>
+	
 </body>
 
 </html>

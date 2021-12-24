@@ -13,6 +13,7 @@
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
@@ -25,6 +26,41 @@
     <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 
+<style>
+   
+   .main_container {
+    font-size: 30px;
+    color: black;
+    text-align: center;
+    margin: 30px 0;
+    padding-top: 30px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: bold;
+   }
+   
+   
+   .categories {
+  /*  padding-top: 10px; */
+   }
+
+   .categories_wrap {
+    background-color: #E5F3DA;
+    height: 450px;
+   }
+   
+   .event {
+   background-color: #A7BEDE;
+   text-align: center;
+   height:100px;
+   
+   }
+   
+   .event h2 {
+   line-height: 100px;
+   font-family: 'Noto Sans KR', sans-serif;
+   font-weight: bold;
+   }
+</style>
 
 <body>
     <!-- Page Preloder -->
@@ -39,11 +75,11 @@
             <a href="#"><img src="img/logo.png" alt=""></a>
         </div>
         <div class="humberger__menu__cart">
-            <ul>
+            <!-- <ul>
                 <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                 <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
             </ul>
-            <div class="header__cart__price">item: <span>$150.00</span></div>
+            <div class="header__cart__price">item: <span>$150.00</span></div> -->
         </div>
         <div class="humberger__menu__widget">
             <div class="header__top__right__language">
@@ -56,7 +92,7 @@
                 </ul>
             </div>
             <div class="header__top__right__auth">
-                <a href="login.do"><i class="fa fa-user"></i> Login</a>
+                <a href="login.jsp"><i class="fa fa-user"></i> Login</a>
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
@@ -71,8 +107,8 @@
                         <li><a href="shop_grid.do">눈건강</a></li>                        
                     </ul>
                 </li>
-                <li><a href="notice.do">공지사항</a></li>
-                <li><a href="contact.do">고객센터</a></li>
+                <li><a href="notice.jsp">공지사항</a></li>
+                <li><a href="contact.jsp">고객센터</a></li>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
@@ -122,8 +158,8 @@
                                 </ul>
                             </div>
                             <div class="header__top__right__auth">
-                                <a href="login.do"><i class="fa fa-user"></i> Login</a>
-                                <a href="new.do">&nbsp;&nbsp;회원가입</a>
+                                <a href="login.jsp"><i class="fa fa-user"></i> Login</a>
+                                <a href="new.jsp">&nbsp;&nbsp;회원가입</a>
                             </div>
                         </div>
                     </div>
@@ -149,19 +185,10 @@
                                     <li><a href="shop-grid.do">눈건강</a></li>
                                 </ul>
                             </li>
-                            <li><a href="notice.do">공지사항</a></li>
-                            <li><a href="contact.do">고객센터</a></li>
+                            <li><a href="notice.jsp">공지사항</a></li>
+                            <li><a href="contact.jsp">고객센터</a></li>
                         </ul>
                     </nav>
-                </div>
-                <div class="col-lg-3">
-                    <div class="header__cart">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-                        </ul>
-                        <div class="header__cart__price">item: <span>$150.00</span></div>
-                    </div>
                 </div>
             </div>
             <div class="humberger__open">
@@ -220,8 +247,17 @@
     </section>
     <!-- Hero Section End -->
 
+    
+
     <!-- Categories Section Begin -->
+   
+    
+    
+    
+    <div class="categories_wrap">
+    <h2 class="main_container">#인기 #HOT</h2>
     <section class="categories">
+    
         <div class="container">
             <div class="row">
                 <div class="categories__slider owl-carousel">
@@ -252,17 +288,22 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> 
     </section>
+    </div>
     <!-- Categories Section End -->
 
+    <div class="event">
+    <h2>최신상품이 궁금하다면? Click</h2>
+    </div>
+
     <!-- Featured Section Begin -->
-    <section class="featured spad">
+     <section class="featured spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h2>Featured Product</h2>
+                        <h2>상품목록</h2>
                     </div>
                     <div class="featured__controls">
                         <ul>

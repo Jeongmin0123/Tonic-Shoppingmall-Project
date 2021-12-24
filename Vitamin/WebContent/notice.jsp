@@ -45,13 +45,6 @@
         <div class="humberger__menu__logo">
             <a href="main.do"><img src="img/logo.png" alt=""></a>
         </div>
-        <div class="humberger__menu__cart">
-            <ul>
-                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-            </ul>
-            <!--<div class="header__cart__price">item: <span>$150.00</span></div>-->
-        </div>
         <div class="humberger__menu__widget">
             <div class="header__top__right__language">
                 <img src="img/language.png" alt="">
@@ -216,6 +209,23 @@
         </div>
     </section>
     <!-- Hero Section End -->
+
+
+ 	<!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2>Notice</h2>
+                        <div class="breadcrumb__option">                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
 
 
     <!-- wrap 시작 -->

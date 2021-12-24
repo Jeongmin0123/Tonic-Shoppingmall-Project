@@ -32,7 +32,6 @@
 
 @import url(./layout_base.css);
 
-
 html,
 body {
     height: 100%;
@@ -50,7 +49,7 @@ h6 {
     margin: 0;
     color: #111111;
     font-weight: 400;
-    font-family: "Cairo", sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 h1 {
@@ -58,7 +57,8 @@ h1 {
 }
 
 h2 {
-    font-size: 36px;
+    font-size: 30px;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 h3 {
@@ -79,7 +79,7 @@ h6 {
 
 p {
     font-size: 16px;
-    font-family: "Cairo", sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
     color: #6f6f6f;
     font-weight: 400;
     line-height: 26px;
@@ -125,7 +125,7 @@ ol {
     position: relative;
 }
 
-.section-title h2:after {
+/* .section-title h2:after {
     position: absolute;
     left: 0;
     bottom: -15px;
@@ -135,18 +135,19 @@ ol {
     background: #7fad39;
     content: "";
     margin: 0 auto;
-}
+} */
 
 .set-bg {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top center;
+    border-radius: 10px;
 }
 
 .spad {
-    margin-top: 100px;
+    /*  margin-top: 150px;  */
     padding-top: 100px;
-    padding-bottom: 100px;
+     /* padding-bottom: 150px; */ 
 }
 
 .text-white h1,
@@ -815,6 +816,7 @@ ol {
 .categories__slider.owl-carousel .owl-nav button.owl-next {
     left: auto;
     right: -35px;
+    
 }
 
 /*---------------------
@@ -822,6 +824,7 @@ ol {
 -----------------------*/
 
 .featured {
+	/* background-color: #FAD9CA; */
     padding-top: 80px;
     padding-bottom: 40px;
 }
@@ -1053,6 +1056,7 @@ ol {
     display: flex;
     align-items: center;
     padding: 45px 0 40px;
+    margin-bottom: 50px;
 }
 
 .breadcrumb__text h2 {
@@ -2918,6 +2922,7 @@ ol {
 .bodytext_area {
     box-sizing: border-box;
     padding: 55px 50px 0;
+    margin-top: 50px;
 }
 
 .bodytext_area {
@@ -2939,6 +2944,8 @@ li {
 
 a {
     text-decoration: none;
+    font-family: 'Noto Sans KR', sans-serif;
+    
 }
 
 a:link,
@@ -3238,10 +3245,10 @@ tfoot {
 }
 
 /* 이메일 "@"위치 조정 */
-.appForm .app_list li .app_content.email_area .ico_space {
+/*.appForm .app_list li .app_content.email_area .ico_space {
     display: inline-block;
     padding-top: 15px;
-}
+} */
 
 .appForm .app_list li .app_content label {
     vertical-align: middle;
@@ -3267,17 +3274,17 @@ tfoot {
     padding-top: 12px;
 }
 
-.appForm .app_list li .app_content.checkbox_area {
+/* .appForm .app_list li .app_content.checkbox_area {
     height: 45px;
     box-sizing: border-box;
     padding-top: 12px;
-}
+} */
 
-.appForm .app_list li textarea {
+/* .appForm .app_list li textarea {
     height: 245px;
-    /* 크기 조정 막기 */
+    크기 조정 막기
     resize: none;
-}
+} */
 
 /* 등록버튼 */
 .btn_line {
@@ -4505,6 +4512,10 @@ tfoot {
 }
 
 /*로그인 css*/
+section.login_box_area.section-margin {
+	margin-bottom:100px;
+}
+
 
 .login_box_area .login_box_img {
     height: 350px;
