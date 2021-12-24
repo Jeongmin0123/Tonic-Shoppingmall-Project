@@ -22,7 +22,7 @@ public class MemberDAO {
 	private String sql_insertM = "INSERT INTO member VALUES"
 			+ "('MEM' || LPAD(mem_seq.NEXTVAL, 3, 0),?,?,?,?,?,?,?,?,?,?,?)"; 
 	private String sql_loginM = "SELECT * FROM member WHERE id=?"; 
-	private String sql_selectM = "SELECT * FROM member WHERE id=? and pw=?"; 
+	private String sql_selectM = "SELECT * FROM member WHERE id=?"; 
 	private String sql_findIDbyTel = "SELECT id FROM member WHERE tel=?"; 
 //	String sql_selectForUp = "SELECT * FROM MEMBER WHERE id=? AND pw=?"; // updateMember()
 	private String sql_updateM = "UPDATE member SET mname=?, mbirth=?, "
@@ -62,9 +62,8 @@ public class MemberDAO {
 	}
 
 //  로그인 성공여부를 반환하는 메서드
-//  boolean -> int로 변환, 경우의 수 3가지
-	public int loginMember(String id, String pw) {
-		String dbpw = null; 
+//  boolean->int->로 변환, 경우의 수 3가지
+	public boolean loginMember(String id, String pw) {
 		int result = 0;
 		
 		con = JDBCUtil.connect(); 
@@ -73,37 +72,32 @@ public class MemberDAO {
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				dbpw = rs.getString("pw");
 				if(rs.getString("pw").equals(pw)) {
 					result = 1; // 로그인 성공 
 				} else { 
 					result = 0; // 비밀번호가 다를 때
 				}
-			} else { 
-				result = -1; // 비밀번호가 없을 때 
 			}
 		} catch(SQLException e) {
 			System.out.println("MemberDAO checkLogin(): "+ e +" 에러");
 			e.printStackTrace();
-			return result;
 		} finally {
 			JDBCUtil.disconnect(rs, pstmt, con); 
 		}
-		return result; // result가 1이 아니라면 false 반환.
+		return result == 1; // result가 1이 아니라면 false 반환.
 	}
 	
 //  모델에서 멤버DAO랑 관리자DAO에서 selectOne 메서드 로그인 성공여부를 받는 게 아니라 
 //	객체를 받아야함(그래야지 객체를 들고 돌아다니기 가능)
-//  String sql_selectM = "SELECT * FROM member WHERE id=? and pw=?";
-//  수정내용: loginfo 테이블 삭제로 쿼리문에 "and pw=?" 추가
-	public MemberVO selectMember(String id, String pw) {
+//  String sql_selectM = "SELECT * FROM member WHERE id=?";
+//  수정내용: loginfo 테이블 삭제, 쿼리문에 "and pw=?" 추가 -> 다시 삭제
+	public MemberVO selectMember(MemberVO MemberVO) {
 		MemberVO member = null;
 		
 		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_selectM);
-			pstmt.setString(1, id);
-			pstmt.setString(2, pw);
+			pstmt.setString(1, MemberVO.getMid());
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				member = new MemberVO();
