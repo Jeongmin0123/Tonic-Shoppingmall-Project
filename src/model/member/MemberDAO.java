@@ -91,13 +91,13 @@ public class MemberDAO {
 //	객체를 받아야함(그래야지 객체를 들고 돌아다니기 가능)
 //  String sql_selectM = "SELECT * FROM member WHERE id=?";
 //  수정내용: loginfo 테이블 삭제, 쿼리문에 "and pw=?" 추가 -> 다시 삭제
-	public MemberVO selectMember(MemberVO MemberVO) {
+	public MemberVO selectMember(MemberVO memberVO) {
 		MemberVO member = null;
 		
 		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_selectM);
-			pstmt.setString(1, MemberVO.getMid());
+			pstmt.setString(1, memberVO.getMid());
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				member = new MemberVO();
