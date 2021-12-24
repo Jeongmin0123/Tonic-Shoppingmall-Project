@@ -73,6 +73,12 @@ public class MemberFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		} else if(command.equals("/isExistId.mem")) {
+			try {
+				forward= new MemberIsExistIDAction().execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 		if(forward!=null) { 
