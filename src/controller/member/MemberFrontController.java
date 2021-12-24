@@ -49,21 +49,27 @@ public class MemberFrontController extends HttpServlet {
 		System.out.println(command);
 		
 		ActionForward forward=null;
-		if(command.equals("member_insert.do")) {		// 회원으로 회원가입 시 필요한 부분 
+		if(command.equals("/member_insert.mem")) {		// 회원으로 회원가입 시 필요한 부분 
 			try {
 				forward= new MemberInsertAction().execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if(command.equals("member_delete.do")) {		// 회원탈퇴시 필요한 부분
+		} else if(command.equals("/member_delete.mem")) {		// 회원탈퇴시 필요한 부분
 			try {
 				forward= new MemberDeleteAction().execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if(command.equals("member_update.do")) {		// 회원탈퇴시 필요한 부분
+		} else if(command.equals("/member_update.mem")) {		// 회원탈퇴시 필요한 부분
 			try {
 				forward= new MemberUpdateAction().execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/login.mem")) {		// 로그인 성공여부 반환
+			try {
+				forward= new MemberLoginAction().execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

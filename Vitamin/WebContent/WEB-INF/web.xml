@@ -6,10 +6,18 @@
   </context-param>
   <servlet>
     <servlet-name>fc</servlet-name>
-    <servlet-class>controller.FrontController</servlet-class>
+    <servlet-class>controller.member.MemberFrontController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>fc</servlet-name>
-    <url-pattern>*.do</url-pattern>
+    <url-pattern>*.mem</url-pattern>
+  </servlet-mapping>
+   <servlet>
+    <servlet-name>fc2</servlet-name>
+    <servlet-class>controller.notice.NoticeFrontController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>fc2</servlet-name>
+    <url-pattern>*.not</url-pattern>
   </servlet-mapping>
 </web-app>

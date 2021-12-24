@@ -17,7 +17,7 @@
     <servlet-class>controller.notice.NoticeFrontController</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>fc_</servlet-name>
-    <url-pattern>*.mem</url-pattern>
+    <servlet-name>fc_not</servlet-name>
+    <url-pattern>*.not</url-pattern>
   </servlet-mapping>
 </web-app>

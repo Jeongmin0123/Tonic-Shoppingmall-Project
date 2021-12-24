@@ -14,7 +14,7 @@ public class NoticeDetailAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int ndix = Integer.parseInt(request.getParameter("nidx"));
 		
-		NoticeDAO dao = new NoticeDAO();
+		NoticeDAO dao = NoticeDAO.getInstance();
 		NoticeVO ndata = new NoticeVO();
 		ndata = dao.selectOne(ndix);
 		request.setAttribute("ndata", ndata);

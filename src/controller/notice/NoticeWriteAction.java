@@ -12,7 +12,7 @@ public class NoticeWriteAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		NoticeDAO dao = new NoticeDAO();
+		NoticeDAO dao = NoticeDAO.getInstance();
 		NoticeVO vo = new NoticeVO();
 		vo.setNtitle(request.getParameter("ntitle"));
 		vo.setNcont(request.getParameter("ncont"));

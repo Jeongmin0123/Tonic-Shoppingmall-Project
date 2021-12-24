@@ -15,7 +15,7 @@ public class NoticeAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		NoticeDAO dao = new NoticeDAO();
+		NoticeDAO dao = NoticeDAO.getInstance();
 		ArrayList<NoticeVO> ndatas=dao.selectAll();	
 		request.setAttribute("ndatas", ndatas);
 		
