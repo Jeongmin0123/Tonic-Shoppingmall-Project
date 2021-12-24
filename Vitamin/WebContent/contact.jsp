@@ -39,13 +39,13 @@
         </div>
         <div class="humberger__menu__widget">
             <div class="header__top__right__language">
-                <img src="img/language.png" alt="">
-                <div>English</div>
-                <span class="arrow_carrot-down"></span>
+                <img src="img/korea.png" alt="">
+                <div>한국어</div>
+                <!-- <span class="arrow_carrot-down"></span>
                 <ul>
                     <li><a href="#">Spanis</a></li>
                     <li><a href="#">English</a></li>
-                </ul>
+                </ul> -->
             </div>
             <div class="header__top__right__auth">
                 <a href="login.jsp"><i class="fa fa-user"></i> Login</a>
@@ -105,13 +105,13 @@
                                 <a href="#"><i class="fa fa-pinterest-p"></i></a>
                             </div>
                             <div class="header__top__right__language">
-                                <img src="img/language.png" alt="">
-                                <div>English</div>
-                                <span class="arrow_carrot-down"></span>
+                                <img src="img/koera.png" alt="">
+                                <div>한국어</div>
+                                <!-- <span class="arrow_carrot-down"></span>
                                 <ul>
                                     <li><a href="#">Spanis</a></li>
                                     <li><a href="#">English</a></li>
-                                </ul>
+                                </ul> -->
                             </div>
                             <div class="header__top__right__auth">
                                 <a href="login.jsp"><i class="fa fa-user"></i> Login</a>

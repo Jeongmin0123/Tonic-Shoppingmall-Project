@@ -9,7 +9,7 @@
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ogani | Template</title>
+    <title>Ogani</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
@@ -40,13 +40,13 @@
         </div>
         <div class="humberger__menu__widget">
             <div class="header__top__right__language">
-                <img src="img/language.png" alt="">
-                <div>English</div>
-                <span class="arrow_carrot-down"></span>
+                <img src="img/korea.png" alt="">
+                <div>한국어</div>
+                <!-- <span class="arrow_carrot-down"></span>
                 <ul>
                     <li><a href="#">Spanis</a></li>
                     <li><a href="#">English</a></li>
-                </ul>
+                </ul> -->
             </div>
             <div class="header__top__right__auth">
                 <a href="./login.html"><i class="fa fa-user"></i> Login</a>
@@ -72,10 +72,10 @@
         </nav>
         <div id="mobile-menu-wrap"></div>
         <div class="header__top__right__social">
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-linkedin"></i></a>
-            <a href="#"><i class="fa fa-pinterest-p"></i></a>
+            <a><i class="fa fa-facebook"></i></a>
+            <a><i class="fa fa-twitter"></i></a>
+            <a><i class="fa fa-linkedin"></i></a>
+            <a><i class="fa fa-pinterest-p"></i></a>
         </div>
         <div class="humberger__menu__contact">
             <ul>
@@ -102,24 +102,23 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__right">
                             <div class="header__top__right__social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-linkedin"></i></a>
-                                <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                                <a><i class="fa fa-facebook"></i></a>
+                                <a><i class="fa fa-twitter"></i></a>
+                                <a><i class="fa fa-linkedin"></i></a>
+                                <a><i class="fa fa-pinterest-p"></i></a>
                             </div>
                             <div class="header__top__right__language">
-                                <img src="img/language.png" alt="">
-                                <div>English</div>
-                                <span class="arrow_carrot-down"></span>
+                                <img src="img/korea.png" alt="">
+                                <div>한국어</div>
+                                <!-- <span class="arrow_carrot-down"></span>
                                 <ul>
                                     <li><a href="#">Spanis</a></li>
                                     <li><a href="#">English</a></li>
-                                </ul>
+                                </ul> -->
                             </div>
                             <div class="header__top__right__auth">
                                 <a href="./login.html"><i class="fa fa-user"></i> Login</a>
                                 <a href="./new.html">&nbsp;&nbsp;회원가입</a>
-                                <!--<li><a href="#"><i class="fa fa-shopping-bag"></i> <span></span></a></li>-->
                             </div>
                         </div>
                     </div>
@@ -144,7 +143,6 @@
                                     <li><a href="./shop-grid.html">종합비타민</a></li>
                                     <li><a href="./shop-grid.html">유산균</a></li>
                                     <li><a href="./shop-grid.html">눈건강</a></li>
-                                    <!-- <li><a href="./blog-details.html">Blog Details</a></li> -->
                                 </ul>
                             </li>
                             <li><a href="./notice.html">공지사항</a></li>
