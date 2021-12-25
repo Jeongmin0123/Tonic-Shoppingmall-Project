@@ -1,10 +1,12 @@
-package controller;
+package controller.notice;
 
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import controller.common.Action;
+import controller.common.ActionForward;
 import model.notice.NoticeDAO;
 import model.notice.NoticeVO;
 
@@ -12,15 +14,14 @@ public class NoticeAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-//		NoticeDAO dao = new NoticeDAO();
-//		int count = Integer.parseInt(request.getParameter("count"));
-//		ArrayList<NoticeVO> datas=dao.selectAll(count);	// noticeSet의 존재 이유???
-//		request.setAttribute("datas", datas);
-//		return null;
-//		
+		
+		NoticeDAO dao = NoticeDAO.getInstance();
+		ArrayList<NoticeVO> ndatas=dao.selectAll();	
+		request.setAttribute("ndatas", ndatas);
+		
 		ActionForward forward = new ActionForward();
-//		forward.setPath("notice.jsp");	// 어디로 가야하는지 : 경로
-//		forward.setRedirect(false);		// 어떻게 가야하는지 : 방식
+		forward.setPath("notice.jsp");
+		forward.setRedirect(false);		
 		return forward;
 	}
 

@@ -2,21 +2,34 @@ package model.emp;
 
 public class EmpVO {
 //  속성(칼럼)
-	private String eno;     // 예) EMP001 ??
+	private String eno;    
 	private String ename;   
+	private String eid;
+	private String epw;
 	private String egender; 
-	private int ebirth;     // 예) 950410 ??
+	private String ebirth;  
 	private String eaddr;   
 	private String etel;    
 	private String eemail;  
-	private String id;
 	
-//  getter, setter
+	//  getter, setter
 	public String getEno() {
 		return eno;
 	}
 	public void setEno(String eno) {
 		this.eno = eno;
+	}
+	public String getEid() {
+		return eid;
+	}
+	public void setEid(String eid) {
+		this.eid = eid;
+	}
+	public String getEpw() {
+		return epw;
+	}
+	public void setEpw(String epw) {
+		this.epw = epw;
 	}
 	public String getEname() {
 		return ename;
@@ -30,10 +43,10 @@ public class EmpVO {
 	public void setEgender(String egender) {
 		this.egender = egender;
 	}
-	public int getEbirth() {
+	public String getEbirth() {
 		return ebirth;
 	}
-	public void setEbirth(int ebirth) {
+	public void setEbirth(String ebirth) {
 		this.ebirth = ebirth;
 	}
 	public String getEaddr() {
@@ -54,15 +67,9 @@ public class EmpVO {
 	public void setEemail(String eemail) {
 		this.eemail = eemail;
 	}
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
 	@Override
 	public String toString() {
-		return "EmpVO [eno=" + eno + ", ename=" + ename + ", egender=" + egender + ", ebirth=" + ebirth + ", eaddr="
-				+ eaddr + ", etel=" + etel + ", eemail=" + eemail + ", id=" + id + "]";
+		return "EmpVO [eno=" + eno + ", eid=" + eid + ", epw=" + epw + ", ename=" + ename + ", egender=" + egender + ", ebirth=" + ebirth + ", eaddr="
+				+ eaddr + ", etel=" + etel + ", eemail=" + eemail + "]";
 	}   
 }

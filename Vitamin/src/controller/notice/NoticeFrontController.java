@@ -1,4 +1,4 @@
-package controller;
+package controller.notice;
 
 import java.io.IOException;
 
@@ -9,17 +9,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import controller.common.ActionForward;
+
 /**
- * Servlet implementation class FrontController
+ * Servlet implementation class NoticeFrontController
  */
-@WebServlet("/FrontController")
-public class FrontController extends HttpServlet {
+@WebServlet("/NoticeFrontController")
+public class NoticeFrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FrontController() {
+    public NoticeFrontController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,6 +39,7 @@ public class FrontController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		actionDO(request,response);
 	}
+	
 	private void actionDO(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 요청 파악을 위해 uri 가져오기
 		String uri=request.getRequestURI();
@@ -47,22 +50,33 @@ public class FrontController extends HttpServlet {
 		System.out.println(command);
 		
 		ActionForward forward=null;
-		if(command.equals("/notice.do")) {		// notice 페이지를 위한 부분
+		if(command.equals("notice.do")) {		// 회원으로 회원가입 시 필요한 부분 
 			try {
 				forward= new NoticeAction().execute(request, response);
-				
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if(command.equals("member_insert.do")) {		// 회원으로 회원가입 시 필요한 부분 
+		} else if(command.equals("notice_detail.no")) {
 			try {
-				forward= new MemberInsertAction().execute(request, response);
+				forward= new NoticeDetailAction().execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if(command.equals("emp_insert.do")) {		// 관리자로 회원가입 시 필요한 부분
+		} else if(command.equals("notice_insert.no")) {
 			try {
-				forward= new EmpInsertAction().execute(request, response);
+				forward= new NoticeWriteAction().execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("notice_update.no")) {
+			try {
+				forward= new NoticeUpdateAction().execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("notice_delete.no")) {
+			try {
+				forward= new NoticeDeleteAction().execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

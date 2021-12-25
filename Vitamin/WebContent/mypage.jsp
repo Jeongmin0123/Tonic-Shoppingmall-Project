@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="mytag" %>
     
 <!DOCTYPE html>
 <html lang="zxx">
@@ -53,7 +54,8 @@
                 </ul> -->
             </div>
             <div class="header__top__right__auth">
-                <a href="login.do"><i class="fa fa-user"></i> Login</a>
+                <!-- <a href="login.do"><i class="fa fa-user"></i> Login</a> -->
+                <mytag:login/>
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
@@ -115,10 +117,11 @@
                             </div>
                             <div class="header__top__right__auth">
                             	<!-- mdata.mid? mid? mid 세션에 저장하는 변수명에 따라 달라질 예정 -->
-                            	<c:if test="${mid == null}">
+                            	<%-- <c:if test="${mid == null}">
 	                                <a href="login.do"><i class="fa fa-user"></i> Login</a>
 	                                <a href="new.do">&nbsp;&nbsp;회원가입</a>
-                            	</c:if>
+                            	</c:if> --%>
+                            	<mytag:login/>
                             </div>
                         </div>
                     </div>

@@ -50,7 +50,8 @@
                 </ul> -->
             </div>
             <div class="header__top__right__auth">
-                <a href="login.do"><i class="fa fa-user"></i> Login</a>
+               <!--  <a href="login.do"><i class="fa fa-user"></i> Login</a> -->
+               <mytag:login/>
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
@@ -66,7 +67,7 @@
                     </ul>
                 </li>
                 <li><a href="notice.do">공지사항</a></li>
-                <li><a href="contact.do">고객센터</a></li>
+                <li><a href="contact.jsp">고객센터</a></li>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
@@ -116,8 +117,9 @@
                                 </ul> -->
                             </div>
                             <div class="header__top__right__auth">
-                                <a href="login.do"><i class="fa fa-user"></i> Login</a>
-                                <a href="new.do">&nbsp;&nbsp;회원가입</a>
+                                <!-- <a href="login.jsp"><i class="fa fa-user"></i> Login</a>
+                                <a href="new.jsp">&nbsp;&nbsp;회원가입</a> -->
+                                <mytag:login/>
                             </div>
                         </div>
                     </div>
@@ -145,7 +147,7 @@
                                 </ul>
                             </li>
                             <li><a href="notice.do">공지사항</a></li>
-                            <li><a href="contact.do">고객센터</a></li>
+                            <li><a href="contact.jsp">고객센터</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -225,7 +227,7 @@
     <!-- 본문 시작 -->
     <div class="bodytext_area box_inner">
         <!-- 회원가입폼 시작 -->
-        <form action="member_insert.do" class="appForm" method="post">
+        <form action="member_insert.mem" class="appForm" method="post">
             <fieldset>
                 <!-- 안보이지만 접근성을 위해 넣는다. -->
                 <legend>회원가입 입력 양식</legend>

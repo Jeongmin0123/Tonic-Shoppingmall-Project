@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="mytag" %>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -49,7 +51,8 @@
                 </ul> -->
             </div>
             <div class="header__top__right__auth">
-                <a href="login.jsp"><i class="fa fa-user"></i> Login</a>
+               <!--  <a href="login.jsp"><i class="fa fa-user"></i> Login</a> -->
+               <mytag:login/>
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
@@ -111,8 +114,9 @@
                                 </ul> -->
                             </div>
                             <div class="header__top__right__auth">
-                                <a href="login.jsp"><i class="fa fa-user"></i> Login</a>
-                                <a href="new.jsp">&nbsp;&nbsp;회원가입</a>
+                                <!-- <a href="login.jsp"><i class="fa fa-user"></i> Login</a>
+                                <a href="new.jsp">&nbsp;&nbsp;회원가입</a> -->
+                                <mytag:login/>
                             </div>
                         </div>
                     </div>
@@ -215,12 +219,12 @@
                 <div class="col-lg-6">
                     <div class="login_form_inner">
                         <h3>Log in to enter</h3>
-                        <form class="row login_form" action="login.do" id="contactForm">
+                        <form class="row login_form" action="login.mem" id="contactForm">
                             <div class="col-md-12 form-group">
-                                <input type="text" class="form-control" id="name" name="mname" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
+                                <input type="text" class="form-control" id="name" name="mid" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
                             </div>
                             <div class="col-md-12 form-group">
-                                <input type="text" class="form-control" id="name" name="mpw" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+                                <input type="password" class="form-control" id="name" name="mpw" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
                             </div>
                             <div class="col-md-12 form-group">
                                 <button type="submit" value="submit" class="button button-login w-100">Log In</button>

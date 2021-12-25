@@ -1,4 +1,4 @@
-package controller;
+package controller.common;
 
 import java.io.IOException;
 
@@ -13,7 +13,7 @@ import javax.servlet.annotation.WebFilter;
 /**
  * Servlet Filter implementation class EncFilter
  */
-@WebFilter({ "*.jsp", "*.do" })
+@WebFilter({ "*.do", "*.jsp", "*.mem" })
 public class EncFilter implements Filter {
 	private String encoding;
     /**

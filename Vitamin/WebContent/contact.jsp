@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="mytag" %>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -48,7 +49,8 @@
                 </ul> -->
             </div>
             <div class="header__top__right__auth">
-                <a href="login.jsp"><i class="fa fa-user"></i> Login</a>
+                <!-- <a href="login.jsp"><i class="fa fa-user"></i> Login</a> -->
+                <mytag:login/>
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
@@ -114,8 +116,9 @@
                                 </ul> -->
                             </div>
                             <div class="header__top__right__auth">
-                                <a href="login.jsp"><i class="fa fa-user"></i> Login</a>
-                                <a href="new.do">&nbsp;&nbsp;회원가입</a>
+                                <!-- <a href="login.jsp"><i class="fa fa-user"></i> Login</a>
+                                <a href="new.do">&nbsp;&nbsp;회원가입</a> -->
+                                <mytag:login/>
                             </div>
                         </div>
                     </div>
