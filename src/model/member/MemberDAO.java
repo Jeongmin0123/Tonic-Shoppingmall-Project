@@ -20,18 +20,18 @@ public class MemberDAO {
 	ResultSet rs;
 	
 	private String sql_insertM = "INSERT INTO member VALUES"
-			+ "('MEM' || LPAD(mem_seq.NEXTVAL, 3, 0),?,?,?,?,?,?,?,?,?,?,?)"; 
-	private String sql_loginM = "SELECT * FROM member WHERE id=?"; 
-	private String sql_selectM = "SELECT * FROM member WHERE id=?"; 
-	private String sql_findIDbyTel = "SELECT id FROM member WHERE tel=?"; 
+			+ "('MEM' || LPAD(member_seq.NEXTVAL, 3, 0),?,?,?,?,?,?,?,?,?,?,?)"; 
+	private String sql_loginM = "SELECT * FROM member WHERE mid=?"; 
+	private String sql_selectM = "SELECT * FROM member WHERE mid=?"; 
+	private String sql_findIDbyTel = "SELECT mid FROM member WHERE mtel=?"; 
 //	String sql_selectForUp = "SELECT * FROM MEMBER WHERE id=? AND pw=?"; // updateMember()
 	private String sql_updateM = "UPDATE member SET mname=?, mbirth=?, "
 			+ "maddr_zipcode=?, maddr_street=?, maddr_detail=?, maddr_etc=?, "
-			+ "memail=? WHERE id=?"; 
+			+ "memail=? WHERE mid=?"; 
 	private String sql_getMemberList = "SELECT * FROM member"; 
-	private String sql_isExistID = "SELECT * FROM member WHERE id=?";
-	private String sql_selectPW = "SELECT pw FROM member WHERE id=?";      // deleteMember()
-	private String sql_deleteM = "DELETE FROM member WHERE id=? AND pw=?"; // deleteMember()
+	private String sql_isExistID = "SELECT * FROM member WHERE mid=?";
+	private String sql_selectPW = "SELECT pw FROM member WHERE mid=?";      // deleteMember()
+	private String sql_deleteM = "DELETE FROM member WHERE mid=? AND mpw=?"; // deleteMember()
 	
 	public boolean insertMember(MemberVO member) { // 파라미터 수정?
 		int result = 0;
