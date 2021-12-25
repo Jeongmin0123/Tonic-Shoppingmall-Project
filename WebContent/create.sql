@@ -1,28 +1,9 @@
-CREATE TABLE EXAM (
-	EX_NO VARCHAR(20) PRIMARY KEY, 
-	EX_NAME VARCHAR(10)
-);
-
-CREATE SEQUENCE EX_FOR_SEQ;
--- 표기 예시
---INSERT INTO EXAM VALUES('MEM' || EX_FOR_SEQ.NEXTVAL, 'KIM');
---INSERT INTO EXAM VALUES(LPAD(EX_FOR_SEQ.NEXTVAL, 3, 0), 'KIM');
---INSERT INTO EXAM VALUES('MEM' || LPAD(EX_FOR_SEQ.NEXTVAL, 3, 0), 'KIM');
-
-SELECT * FROM EXAM;
-SELECT * FROM USER_SEQUENCES;
-
-ASC EXAM;
-DESC EXAM;
-
-DROP TABLE EXAM;
-DROP SEQUENCE EX_FOR_SEQ;
-
--- 구분선 
-
+-- 회원+관리자 테이블 
 CREATE SEQUENCE member_seq;
-DROP SEQUENCE member_seq;
+--DROP SEQUENCE member_seq;
 
+SELECT * FROM MEMBER;
+--DROP TABLE MEMBER;
 CREATE TABLE member (
 	mno     VARCHAR(30) PRIMARY KEY,
 	mid     VARCHAR(30) UNIQUE NOT NULL,
@@ -38,51 +19,42 @@ CREATE TABLE member (
 	memail  VARCHAR(50) UNIQUE NOT NULL,
 	mrole   VARCHAR(20) DEFAULT 'MEMBER'
 );
---예시
+--SQL문
+--관리자 초기 데이터 입력을 위한 INSERT문
+INSERT INTO MEMBER VALUES('EMP'||LPAD(member_seq.NEXTVAL, 3, 0), 'ID 1', '1234', 
+	'NAME1', 'GENDER', 'BIRTH', '우편번호 입력', '도로명 입력', '상세주소 입력', 'etc', '01011111111', 
+	'이메일2', 'ADMIN');
+--회원 INSERT문
 INSERT INTO MEMBER(mno, mid, mpw, mname, mgender, mbirth, maddr_zipcode, maddr_street, 
-	maddr_detail, maddr_etc, mtel, memail) VALUES('MEM'||LPAD(member_seq.NEXTVAL, 3, 0), 'kimzonyuk', '1234', 
-	'김종혁', '남자', '950410', '우편번호 입력', '도로명 입력', '상세주소 입력', 'etc', '01023441234', 
-	'이메일2');
+	maddr_detail, maddr_etc, mtel, memail) VALUES('MEM'||LPAD(member_seq.NEXTVAL, 3, 0),
+	'ID 2', '1234', 'NAME2', 'GENDER', 'BIRTH', '우편번호 입력', '도로명 입력', '상세주소 입력', 
+	'etc', '01022222222', '이메일2');
 
 	
-SELECT * FROM MEMBER;
-DELETE FROM MEMBER WHERE ID = '';
-DROP TABLE MEMBER;
-
---관리자 테이블 삭제 예정
---CREATE TABLE emp (
---	eno     VARCHAR(30) PRIMARY KEY,
---	eid     VARCHAR(30) UNIQUE NOT NULL
---	epw     VARCHAR(30) NOT NULL
---	ename   VARCHAR(30) NOT NULL, 
---	egender VARCHAR(30) NOT NULL,
---	ebirth  VARCHAR(30) NOT NULL,
---	eaddr   VARCHAR(99) NOT NULL,
---	etel    VARCHAR(15) UNIQUE NOT NULL,
---	eemail  VARCHAR(50) UNIQUE NOT NULL,
---);
-
---표기 예시 : EMP901
---CREATE SEQUENCE emp_seq; 
---START WITH 901
---INCREMENT BY 1
---MAXVALUE 999; 
-
-
+	
+-- 공지사항 테이블 
 CREATE SEQUENCE notice_seq; 
+--DROP SEQUENCE notice_seq; 
+
+SELECT * FROM notice;
+--DROP TABLE notice;
 CREATE TABLE notice (
 	nidx    NUMBER(2) PRIMARY KEY,
-	nititle VARCHAR(20) NOT NULL,
+	ntitle  VARCHAR(20) NOT NULL,
 	ncont   VARCHAR(2000) NOT NULL, // ncont CLOB NOT NULL,
 	writer  VARCHAR(15) UNIQUE NOT NULL
 );
 
-SELECT * FROM notice;
---DROP TABLE notice;
 
 
---상품 DB 
-CREATE SEQUENCE prod_seq; -- 시퀀스
+-- 상품 DB 테이블
+CREATE SEQUENCE prod_seq;
+--DROP SEQUENCE prod_seq;
+
+SELECT * FROM PRODUCT;
+--DESC PRODUCT;
+--DROP TABLE PRODUCT;
+
 CREATE TABLE product(
 	pcode   NUMBER(2) PRIMARY KEY,     -- 상품코드(PK)
 	pclass  VARCHAR(10) NOT NULL,      -- 분류코드(종합비타민[VITA], 유산균[LACT], 눈건강[EYES])
@@ -97,17 +69,17 @@ CREATE TABLE product(
 	pstock  NUMBER NOT NULL            -- 재고량
 	pimage  VARCHAR(200)               -- 이미지 테이블(CLOB || VARCHAR)
 );--이미지 경로, 사이즈(미정) 넣을 칼럼 추가 
-DESC PRODUCT;
-SELECT * FROM PRODUCT;
-DROP TABLE PRODUCT;
+
 
         
---고객문의 테이블 
+-- 고객문의 테이블 
 CREATE SEQUENCE contact_seq; 
+--DROP SEQUENCE contact_seq; 
+
+--DROP TABLE contact;
 CREATE TABLE contact (
-	msgno    VARCHAR(10) PRIMARY KEY,
+	msgno    NUMBER(2) PRIMARY KEY,
 	msgname  VARCHAR(20) NOT NULL,
 	msgemail VARCHAR(50) NOT NULL,
 	msgtext  VARCHAR(2000) NOT NULL
 );
-
