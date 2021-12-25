@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib tagdir="/WEB-INF/tags" prefix="mytag" %>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -25,17 +23,11 @@
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/swiper.min.css" type="text/css">
 </head>
 
-<script type="text/javascript">
-	function showdetails(){
-		window.open('notice_detail.do?nidx=${v.nidx}','새창으로 회원가입','width=1000, height=500, menubar=no, status=no,toolbar=no');
-	}
-</script>
-
-
 <body>
-    <!-- Page Preloder -->
+        <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
     </div>
@@ -44,7 +36,7 @@
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
-            <a href="main.do"><img src="img/logo.png" alt=""></a>
+            <a href="#"><img src="img/logo.png" alt=""></a>
         </div>
         <div class="humberger__menu__widget">
             <div class="header__top__right__language">
@@ -57,24 +49,25 @@
                 </ul> -->
             </div>
             <div class="header__top__right__auth">
-                <!-- <a href="login.do"><i class="fa fa-user"></i> Login</a> -->
-                <mytag:login/>
+                <a href="./login.html"><i class="fa fa-user"></i> Login</a>
+                <a href="./new.html">&nbsp;&nbsp;회원가입</a>
             </div>
         </div>
-         <nav class="humberger__menu__nav mobile-menu">
+        <nav class="humberger__menu__nav mobile-menu">
             <ul>
-                <li class="active"><a href="main.do">Home</a></li>
-                <li><a href="shop_grid.do">Shop</a></li>
+                <li class="active"><a href="./index.html">Home</a></li>
+                <li><a href="./shop-grid.html">Shop</a></li>
                 <li><a href="#">Pages</a>
                     <ul class="header__menu__dropdown">
-                        <li><a href="shop_grid.do">전체상품</a></li> 
-                        <li><a href="shop_grid.do">종합비타민</a></li>
-                        <li><a href="shop_grid.do">유산균</a></li>
-                        <li><a href="shop_grid.do">눈건강</a></li>                        
+                        <li><a href="./shop-grid.html">전체상품</a></li> 
+                        <li><a href="./shop-grid.html">종합비타민</a></li>
+                        <li><a href="./shop-grid.html">유산균</a></li>
+                        <li><a href="./shop-grid.html">눈건강</a></li>
+                        
                     </ul>
                 </li>
-                <li><a href="notice.do">공지사항</a></li>
-                <li><a href="contact.do">고객센터</a></li>
+                <li><a href="./blog.html">Blog</a></li>
+                <li><a href="./contact.html">Contact</a></li>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
@@ -123,11 +116,10 @@
                                     <li><a href="#">English</a></li>
                                 </ul> -->
                             </div>
-                           <!--  <div class="header__top__right__auth">
-                                <a href="login.do"><i class="fa fa-user"></i> Login</a>
-                                <a href="new.do">&nbsp;&nbsp;회원가입</a>
-                            </div> -->
-                            <mytag:login/>
+                            <div class="header__top__right__auth">
+                                <a href="./login.html"><i class="fa fa-user"></i> Login</a>
+                                <a href="./new.html">&nbsp;&nbsp;회원가입</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -137,24 +129,24 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="main.do"><img src="img/logo.png" alt=""></a>
+                        <a href="./index.html"><img src="img/logo.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
-                            <li class="active"><a href="main.do">Home</a></li>
+                            <li class="active"><a href="./index.html">Home</a></li>
                             <!-- <li><a href="./shop-grid.html">Shop</a></li> -->
-                            <li><a href="shop_grid.do">Shop</a>
+                            <li><a href="#">Shop</a>
                                 <ul class="header__menu__dropdown">
-                                    <li><a href="shop_grid.do">전체상품</a></li> 
-                                    <li><a href="shop_grid.do">종합비타민</a></li>
-                                    <li><a href="shop_grid.do">유산균</a></li>
-                                    <li><a href="shop_grid.do">눈건강</a></li>
+                                    <li><a href="./shop-grid.html">전체상품</a></li> 
+                                    <li><a href="./shop-grid.html">종합비타민</a></li>
+                                    <li><a href="./shop-grid.html">유산균</a></li>
+                                    <li><a href="./shop-grid.html">눈건강</a></li>
                                 </ul>
                             </li>
-                            <li><a href="notice.do">공지사항</a></li>
-                            <li><a href="contact.do">고객센터</a></li>
+                            <li><a href="./notice.html">공지사항</a></li>
+                            <li><a href="./contact.html">고객센터</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -177,10 +169,10 @@
                             <span>Shop</span>
                         </div>
                         <ul>
-                            <li><a href="shop_grid.do">전체상품</a></li>
-                            <li><a href="shop_grid.do">종합비타민</a></li>
-                            <li><a href="shop_grid.do">유산균</a></li>
-                            <li><a href="shop_grid.do">눈건강</a></li>
+                            <li><a href="./shop-grid.html">전체상품</a></li>
+                            <li><a href="./shop-grid.html">종합비타민</a></li>
+                            <li><a href="./shop-grid.html">유산균</a></li>
+                            <li><a href="./shop-grid.html">눈건강</a></li>
                 
                         </ul>
                     </div>
@@ -213,14 +205,13 @@
     </section>
     <!-- Hero Section End -->
 
-
  	<!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>Notice</h2>
+                        <h2>Product register</h2>
                         <div class="breadcrumb__option">                           
                         </div>
                     </div>
@@ -231,67 +222,145 @@
     <!-- Breadcrumb Section End -->
 
 
-    <!-- wrap 시작 -->
-    <div id="wrap">
-        <!-- container 시작 -->
-        <div id="container">
-            <!-- 본문 시작 -->
-            <div class="bodytext_area box_inner">
-                <form action="#" class="minisrch_form">
-                    <fieldset>
-                        <legend>검색</legend>
-                        <input type="text" class="tbox" title="검색어를 입력하세요" placeholder="검색어를 입력하세요">
-                        <a href="#" class="btn_srch">검색</a>
-                    </fieldset>
-                </form>
-                <!-- summary : 접근성을 위한 속성 -->
-                <table class="bbsListTbl" summary="번호, 제목, 작성자 등을 제공하는 표">
-                    <!-- 테이블 제목 -->
-                    <caption class="hdd">공지사항 목록</caption>
-                    <thead>
-                        <tr>
-                            <th scope="col">번호</th>
-                            <th scope="col">제목</th>
-                            <th scope="col">작성자</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    	
-                    	<c:forEach var="v" items="${ndatas}">
-                    	
-	                        <tr>
-	                            <td>${v.nidx}</td>
-	                            <%-- <td class="tit_notice"><a href="notice_detail.do?nidx=${v.nidx}">${v.ntitle}</a></td> --%>
-	                            <td class="tit_notice"><a href="javascript:showdetails()">${v.ntitle}</a></td>
-	                            <td>${v.writer}</td>
-	                        </tr>
-                        
-                        </c:forEach>
-	                            <td class="tit_notice"><a href="javascript:showdetails()">test(테스트 후 지우는 부분)</a></td>
-                    </tbody>
-                </table>
-                <!-- 페이징처리 -->
-                <!-- <div class="npagination">
-                    <<
-                    <a href="#" class="firstpage pbtn"><img src="./img/btn_firstpage.png" alt="첫 페이지로 이동"></a>
-                    <
-                    <a href="#" class="prevpage pbtn"><img src="./img/btn_prevpage.png" alt="이전 페이지로 이동"></a>
-                    <a href="#"><span class="currentPage pagenum">1</span></a>
-                    <a href="#"><span class="pagenum">2</span></a>
-                    <a href="#"><span class="pagenum">3</span></a>
-                    <a href="#"><span class="pagenum">4</span></a>
-                    <a href="#"><span class="pagenum">5</span></a>
-                    >
-                    <a href="#" class="nextpage pbtn"><img src="./img/btn_nextpage.png" alt="다음 페이지로 이동"></a>
-                    >>
-                    <a href="#" class="lastpage pbtn"><img src="./img/btn_lastpage.png" alt="마지막 페이지로 이동"></a>
-                </div> -->
-            </div>
-            <!-- 본문 끝 -->
-        </div>
-        <!-- container 끝 -->
-    </div>
-    <!-- wrap 끝 -->
+
+    <!-- 본문   -->
+    <!-- 본문 시작 -->
+	<div class="bodytext_area box_inner">
+    <!-- 회원가입폼 시작 -->
+    <form action="#" class="appForm" method="post">
+        <fieldset>
+            <!-- 안보이지만 접근성을 위해 넣는다. -->
+            <legend>상품등록 양식</legend>
+            <!-- <p class="info_pilsoo pilsoo_item">필수입력</p> -->
+            <ul class="app_list">
+                <!-- 이미지 -->
+                <li class="clear">
+                    <label for="name_lbl" class="tit_lbl">
+                        상품사진
+                    </label>
+                    <div class="app_content ">
+                        <input type="file" class="w100p" id="name_lbl" name="">
+                    </div>
+                </li>
+                
+                <!-- 상품명 -->
+                <li class="clear">
+                    <label for="name_lbl" class="tit_lbl">
+                        상품명
+                    </label>
+                    <div class="app_content ">
+                        <input type="text" class="w100p" id="name_lbl" placeholder="상품명 입력하세요" name="">
+                    </div>
+                </li>
+                <!-- 가격 -->
+                <li class="clear">
+                    <label for="name_lbl" class="tit_lbl">
+                        가격
+                    </label>
+                    <div class="app_content ">
+                        <input type="text" class="w100p" id="name_lbl" placeholder="가격을 입력하세요" name="">
+                    </div>
+                </li>
+                <!-- 상세정보 -->
+                <li class="clear">
+                    <label for="name_lbl" class="tit_lbl">
+                        상세정보
+                    </label>
+                    <div class="app_content ">
+                        <input type="text" class="w100p" id="name_lbl" placeholder="상세정보를 입력하세요" name="">
+                    </div>
+                </li>
+                <!-- 유통기한 -->
+                <li class="clear">
+                    <label for="name_lbl" class="tit_lbl">
+                        유통기한
+                    </label>
+                    <div class="app_content ">
+                        <input type="text" class="w100p" id="name_lbl" placeholder="유통기한을 입력하세요" name="">
+                    </div>
+                </li>
+                <!-- 제조일자 -->
+                <li class="clear">
+                    <label for="name_lbl" class="tit_lbl">
+                        제조일자
+                    </label>
+                    <div class="app_content ">
+                        <input type="text" class="w100p" id="name_lbl" placeholder="제조일자를 입력하세요" name="">
+                    </div>
+                </li>
+                <!-- 원산지 -->
+                <li class="clear">
+                    <label for="name_lbl" class="tit_lbl">
+                        원산지
+                    </label>
+                    <div class="app_content ">
+                        <input type="text" class="w100p" id="name_lbl" placeholder="원산지를 입력하세요" name="">
+                    </div>
+                </li>
+                <!-- 제조사 -->
+                <li class="clear">
+                    <label for="name_lbl" class="tit_lbl">
+                        제조사
+                    </label>
+                    <div class="app_content ">
+                        <input type="text" class="w100p" id="name_lbl" placeholder="제조사를 입력하세요" name="">
+                    </div>
+                </li>
+                
+                <!-- 판매량 -->
+                <li class="clear">
+                    <label for="name_lbl" class="tit_lbl">
+                        판매량
+                    </label>
+                    <div class="app_content ">
+                        <input type="text" class="w100p" id="name_lbl" placeholder="0" name="">
+                    </div>
+                </li>
+
+                <!-- 재고량 -->
+                <li class="clear">
+                    <label for="name_lbl" class="tit_lbl">
+                        재고량
+                    </label>
+                    <div class="app_content ">
+                        <input type="text" class="w100p" id="name_lbl" placeholder="재고량을 입력하세요" name="">
+                    </div>
+                </li>
+
+                <!-- 분류 -->
+                <li class="clear">
+                    <span class="tit_lbl">분류</span>
+                    <div class="app_content radio_area">
+                        <input type="radio" class="css-radio" id="mmm_lbl" name="type" value="종합비타민"> 
+                        <label for="mmm_lbl">종합비타민</label>
+
+                        <input type="radio" class="css-radio" id="www_lbl" name="type" value="유산균"> 
+                        <label for="www_lbl">유산균</label>
+                        <!-- 오류 미해결 -->
+                        <input type="radio" class="css-radio" id="www_lbl" name="type" value="눈건강"> 
+                        <label for="www_lbl">눈건강</label>
+                    </div>
+                </li>
+
+                <!-- 성별 -->
+                <li class="clear">
+                    <span class="tit_lbl">성별</span>
+                    <div class="app_content radio_area">
+                        <input type="radio" class="css-radio" id="mmm_lbl" name="gender" value="남"> 
+                        <label for="mmm_lbl">남</label>
+                        <input type="radio" class="css-radio" id="www_lbl" name="gender" value="여"> 
+                        <label for="www_lbl">여</label>
+                    </div>
+                </li>
+
+
+        
+            </ul>
+            <p class="btn_line"><a href="#" class="btn_basecolor">등록</a></p>
+        </fieldset>
+    </form>
+    <!-- 회원가입폼 끝  -->
+</div>
 
 
     <!-- Footer Section Begin -->
@@ -301,7 +370,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__about__logo">
-                            <a href="main.do"><img src="img/logo.png" alt=""></a>
+                            <a href="./index.html"><img src="img/logo.png" alt=""></a>
                         </div>
                         <ul>
                             <li>Address: 60-49 Road 11378 New York</li>
@@ -319,6 +388,23 @@
                             <bold>phone</bold>&nbsp;010-1234-1234 <br><br>
                             <bold>Business License</bold>&nbsp;123-45</li>
                         </ul> 
+                        <!-- <h6>Useful Links</h6> -->
+                        <!-- <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">About Our Shop</a></li>
+                            <li><a href="#">Secure Shopping</a></li>
+                            <li><a href="#">Delivery infomation</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Our Sitemap</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="#">Who We Are</a></li>
+                            <li><a href="#">Our Services</a></li>
+                            <li><a href="#">Projects</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Innovation</a></li>
+                            <li><a href="#">Testimonials</a></li>
+                        </ul> -->
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-12">
@@ -362,6 +448,8 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
 
+
+
 </body>
 
-</html>    
+</html>
