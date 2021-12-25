@@ -233,6 +233,7 @@
                                 <a href="new.jsp">회원가입</a>
                             </div>
                         </form>
+                        <input type="button" value="관리자 로그인" onclick="">
                     </div>
                 </div>
             </div>

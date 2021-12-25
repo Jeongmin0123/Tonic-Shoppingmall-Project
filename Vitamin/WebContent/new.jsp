@@ -227,7 +227,7 @@
     <!-- 본문 시작 -->
     <div class="bodytext_area box_inner">
         <!-- 회원가입폼 시작 -->
-        <form action="member_insert.mem" class="appForm" method="post">
+        <form action="member_insert.mem" class="appForm" method="post" name="newForm">
             <fieldset>
                 <!-- 안보이지만 접근성을 위해 넣는다. -->
                 <legend>회원가입 입력 양식</legend>
@@ -253,6 +253,8 @@
                         </label>
                         <div class="app_content ">
                             <input type="password" name="mpw" class="w40p pw" id="pwd_lbl" placeholder="비밀번호를 입력하세요">
+	                        <!-- <input type="button" id="showpw" value="표시" onclick="document.getElementById('pwd_lbl').type='text';document.getElementById('showpw').value='가리기'" > -->
+	                        <input type="button" value="비밀번호 표시" name="passwordsee" onclick="change()">
                         </div>
                     </li>
                     
@@ -287,9 +289,9 @@
                     <li class="clear">
                         <span class="tit_lbl">성별</span>
                         <div class="app_content radio_area">
-                            <input type="radio" class="css-radio" id="mmm_lbl" name="mgender" value="남">
+                            <input type="radio" class="css-radio" id="mmm_lbl" name="mgender" value="남자">
                             <label for="mmm_lbl">남</label>
-                            <input type="radio" class="css-radio" id="www_lbl" name="mgender" value="여">
+                            <input type="radio" class="css-radio" id="www_lbl" name="mgender" value="여자">
                             <label for="www_lbl">여</label>
                         </div>
                     </li>
@@ -437,7 +439,8 @@
 	
 	<script type="text/javascript"> 
 		$(function(){ $("#alert-success").hide();
-		$("#alert-danger").hide(); $("input").keyup(function(){ 
+		$("#alert-danger").hide(); 
+		$("input").keyup(function(){ 
 				var pwd1=$("#pwd_lbl").val();
 				var pwd2=$("#pwd2_lbl").val(); 
 				if(pwd1 != "" || pwd2 != ""){ 
@@ -453,9 +456,23 @@
 				} 
 			}); 
 		});
+		
 	</script>
 
-	
+	<script>
+	function change(){
+		var form = document.newForm;
+		if(form.mpw.type == "password"){
+			form.mpw.type = "text";
+			form.passwordsee.value ="비밀번호 가리기";
+		} else{
+			form.mpw.type = "password";
+			form.passwordsee.value ="비밀번호 표시"
+		}
+	}
+
+	</script>
+
 </body>
 
 </html>
