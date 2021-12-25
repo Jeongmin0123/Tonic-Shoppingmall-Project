@@ -14,7 +14,15 @@ public class MemberVO {
 	private String maddr_etc;   
 	private String mtel;    
 	private String memail;  
+	private String mrole;  
 	
+	// 역할 칼럼 추가
+	public String getMrole() {
+		return mrole;
+	}
+	public void setMrole(String mrole) {
+		this.mrole = mrole;
+	}
 	// getter, setter
 	public String getMno() {
 		return mno;
