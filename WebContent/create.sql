@@ -38,19 +38,12 @@ CREATE TABLE member (
 	memail  VARCHAR(50) UNIQUE NOT NULL,
 	mrole   VARCHAR(20) DEFAULT 'MEMBER'
 );
-INSERT INTO MEMBER VALUES('MEM'||LPAD(member_seq.NEXTVAL, 3, 0), 'sonhakgyo', '1234', 
-	'김종혁', '남자', '950410', '우편번호 입력', '도로명 입력', '상세주소 입력', 'etc', '01012341234', 
-	'이메일', 'ADMIN');
+--예시
 INSERT INTO MEMBER(mno, mid, mpw, mname, mgender, mbirth, maddr_zipcode, maddr_street, 
 	maddr_detail, maddr_etc, mtel, memail) VALUES('MEM'||LPAD(member_seq.NEXTVAL, 3, 0), 'kimzonyuk', '1234', 
 	'김종혁', '남자', '950410', '우편번호 입력', '도로명 입력', '상세주소 입력', 'etc', '01023441234', 
 	'이메일2');
-INSERT INTO MEMBER VALUES('MEM'||LPAD(member_seq.NEXTVAL, 3, 0), 'kimzonyuk2', '1234', 
-	'김종혁', '남자', '950410', '우편번호 입력', '도로명 입력', '상세주소 입력', 'etc', '01034561234', 
-	'이메일3', '');
-INSERT INTO MEMBER VALUES('MEM'||LPAD(member_seq.NEXTVAL, 3, 0), 'kimzonyuk3', '1234', 
-	'김종혁', '남자', '950410', '우편번호 입력', '도로명 입력', '상세주소 입력', 'etc', '01044444444', 
-	'이메일5');
+
 	
 SELECT * FROM MEMBER;
 DELETE FROM MEMBER WHERE ID = '';
