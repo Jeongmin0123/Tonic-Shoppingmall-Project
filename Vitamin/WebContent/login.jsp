@@ -219,7 +219,8 @@
                 <div class="col-lg-6">
                     <div class="login_form_inner">
                         <h3>Log in to enter</h3>
-                        <form class="row login_form" action="login.mem" id="contactForm">
+                        
+                        <form class="row login_form" action="login.mem" id="contactForm" name="memlogin">
                             <div class="col-md-12 form-group">
                                 <input type="text" class="form-control" id="name" name="mid" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
                             </div>
@@ -228,12 +229,10 @@
                             </div>
                             <div class="col-md-12 form-group">
                                 <button type="submit" value="submit" class="button button-login w-100">Log In</button>
-                               <!--  <a href="#">ID 찾기</a>
-                                <a href="#">비밀번호 찾기</a> -->
                                 <a href="new.jsp">회원가입</a>
                             </div>
                         </form>
-                        <input type="button" value="관리자 로그인" onclick="">
+                        
                     </div>
                 </div>
             </div>

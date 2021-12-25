@@ -30,7 +30,6 @@ public class NoticeDAO {
 		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_insertN);
-		//	pstmt.setString(1, notice.getNidx());
 			pstmt.setString(1, notice.getNtitle());
 			pstmt.setString(2, notice.getNcont());
 			pstmt.setString(3, notice.getWriter()); // 작성자에 관리자를 어떻게 넣어야 되나.

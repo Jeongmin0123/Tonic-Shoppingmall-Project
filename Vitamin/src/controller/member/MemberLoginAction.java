@@ -26,6 +26,7 @@ public class MemberLoginAction implements Action {
 		if(dao.loginMember(vo)) {
 			HttpSession session = request.getSession();
 			session.setAttribute("mid", vo.getMid());
+//			session.setAttribute("mname", vo.getMname());
 			forward = new ActionForward();
 			forward.setPath("main.do");
 			forward.setRedirect(false);
