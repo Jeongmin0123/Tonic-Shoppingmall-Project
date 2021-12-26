@@ -18,7 +18,8 @@ public class MemberDeleteAction implements Action {
 		// 일단은 회원 탈퇴가 되도록 해놓음
 		MemberDAO dao = MemberDAO.getInstance();
 		MemberVO vo = new MemberVO();
-		String id = request.getParameter("mid");
+		vo.setMid(request.getParameter("mid"));
+		vo.setMpw(request.getParameter("mpw"));
 		ActionForward forward = null;
 		if(dao.deleteMember(vo)) {
 			//회원 탈퇴 성공시 메인페이지로 이동
