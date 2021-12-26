@@ -23,15 +23,15 @@ public class ContactDAO {
 	private String sql_deleteC = "DELETE FROM contact WHERE msgno = ?";
 	
 	// 고객문의 작성()
-	public boolean insertContact(ContactVO contact) {
+	public boolean insertContact(ContactVO vo) {
 		int result = 0;
 		
 		con= JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_insertC);
-			pstmt.setString(1, contact.getMsgname());
-			pstmt.setString(2, contact.getMsgemail());
-			pstmt.setString(3, contact.getMsgtext());
+			pstmt.setString(1, vo.getMsgname());
+			pstmt.setString(2, vo.getMsgemail());
+			pstmt.setString(3, vo.getMsgtext());
 			result = pstmt.executeUpdate();
 		} catch(Exception e) {
 			System.out.println("ContactVO writeContact(): "+ e +" 에러");
@@ -70,13 +70,13 @@ public class ContactDAO {
 	}
 	
 	// 고객문의 조회()
-	public ContactVO selectOne(int msgno) {
+	public ContactVO selectOne(ContactVO vo) {
 		ContactVO contact = null;
 		
 		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_selectOne);
-			pstmt.setInt(1, msgno);
+			pstmt.setInt(1, vo.getMsgno());
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				contact = new ContactVO();
@@ -95,13 +95,13 @@ public class ContactDAO {
 	}
 	
 	// 관리자 권한 고객문의 삭제 메서드()
-	public boolean deleteContact(int msgno) {
+	public boolean deleteContact(ContactVO vo) {
 		int result = 0;
 		
 		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_deleteC);
-			pstmt.setInt(1, msgno);
+			pstmt.setInt(1, vo.getMsgno());
 			result = pstmt.executeUpdate();
 		} catch(SQLException e) {
 			System.out.println("ContactDAO deleteContact(): "+ e +" 에러");

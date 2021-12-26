@@ -31,7 +31,7 @@ public class MemberDAO {
 			+ "memail=? WHERE mid=?"; 
 	private String sql_getMemberList = "SELECT * FROM member"; 
 	private String sql_isExistID = "SELECT * FROM member WHERE mid=?";
-	private String sql_selectPW = "SELECT pw FROM member WHERE mid=?";      
+	private String sql_selectPW = "SELECT mpw FROM member WHERE mid=?";      
 	private String sql_deleteM = "DELETE FROM member WHERE mid=? AND mpw=?"; 
 	
 	public boolean insertMember(MemberVO member) { 
