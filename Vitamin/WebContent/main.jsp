@@ -112,6 +112,9 @@
                 </li>
                 <li><a href="notice.jsp">공지사항</a></li>
                 <li><a href="contact.jsp">고객센터</a></li>
+                <c:if test="${mid == 'admin'}">
+              		<li><a href="register.jsp">상품등록</a></li>
+              	</c:if>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
@@ -189,6 +192,11 @@
                             </li>
                             <li><a href="notice.jsp">공지사항</a></li>
                             <li><a href="contact.jsp">고객센터</a></li>
+                           
+                           	<c:if test="${mid == 'admin'}">
+                           		<li><a href="register.jsp">상품등록</a></li>
+                           	</c:if>
+                           
                         </ul>
                     </nav>
                 </div>

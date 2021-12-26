@@ -29,10 +29,11 @@ public class MemberInsertAction implements Action {
 		vo.setMtel(request.getParameter("mtel"));
 		vo.setMemail(request.getParameter("memail"));
 		
+		
 		System.out.println(vo);
 		
 		ActionForward forward = null;
-		// if 문으로 감싸서 회원가입이 완료되면 main으로 가고 안되면 다시 시도하라고 써줄 예정 아직 고민중...
+		// if 문으로 감싸서 회원가입이 완료되면 main으로 가고 안되면 회원가입 실패 창 띄운 후 다시 회원가입 창으로
 		if(dao.insertMember(vo)) {
 			forward = new ActionForward();
 			forward.setPath("main.do");
@@ -43,7 +44,6 @@ public class MemberInsertAction implements Action {
 			out.println("<script>alert('회원가입에 실패하였습니다!');history.go(-1);</script>");
 		}
 		
-		// 회원가입이 완료될 시 
 		return forward;
 	}
 

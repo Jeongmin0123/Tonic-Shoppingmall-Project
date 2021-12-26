@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="mytag" %>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -49,8 +51,7 @@
                 </ul> -->
             </div>
             <div class="header__top__right__auth">
-                <a href="./login.html"><i class="fa fa-user"></i> Login</a>
-                <a href="./new.html">&nbsp;&nbsp;회원가입</a>
+                <mytag:login/>
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
@@ -117,8 +118,7 @@
                                 </ul> -->
                             </div>
                             <div class="header__top__right__auth">
-                                <a href="./login.html"><i class="fa fa-user"></i> Login</a>
-                                <a href="./new.html">&nbsp;&nbsp;회원가입</a>
+                                <mytag:login/>
                             </div>
                         </div>
                     </div>
@@ -147,6 +147,9 @@
                             </li>
                             <li><a href="./notice.html">공지사항</a></li>
                             <li><a href="./contact.html">고객센터</a></li>
+                            <c:if test="${mid == 'admin'}">
+			              		<li><a href="register.jsp">상품등록</a></li>
+			              	</c:if>
                         </ul>
                     </nav>
                 </div>
@@ -226,7 +229,7 @@
     <!-- 본문   -->
     <!-- 본문 시작 -->
 	<div class="bodytext_area box_inner">
-    <!-- 회원가입폼 시작 -->
+    <!-- 상품등록폼 시작 -->
     <form action="#" class="appForm" method="post">
         <fieldset>
             <!-- 안보이지만 접근성을 위해 넣는다. -->
@@ -342,24 +345,12 @@
                     </div>
                 </li>
 
-                <!-- 성별 -->
-                <li class="clear">
-                    <span class="tit_lbl">성별</span>
-                    <div class="app_content radio_area">
-                        <input type="radio" class="css-radio" id="mmm_lbl" name="gender" value="남"> 
-                        <label for="mmm_lbl">남</label>
-                        <input type="radio" class="css-radio" id="www_lbl" name="gender" value="여"> 
-                        <label for="www_lbl">여</label>
-                    </div>
-                </li>
-
-
         
             </ul>
             <p class="btn_line"><a href="#" class="btn_basecolor">등록</a></p>
         </fieldset>
     </form>
-    <!-- 회원가입폼 끝  -->
+    <!-- 상품등록 끝  -->
 </div>
 
 

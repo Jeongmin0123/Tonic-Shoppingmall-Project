@@ -144,6 +144,10 @@
                             </li>
                             <li><a href="notice.do">공지사항</a></li>
                             <li><a href="contact.jsp">고객센터</a></li>
+                            <c:if test="${mid == 'admin'}">
+			              		<li><a href="register.jsp">상품등록</a></li>
+			              	</c:if>
+                            
                         </ul>
                     </nav>
                 </div>
@@ -220,7 +224,7 @@
                     <div class="login_form_inner">
                         <h3>Log in to enter</h3>
                         
-                        <form class="row login_form" action="login.mem" id="contactForm" name="memlogin">
+                        <form class="row login_form" action="member_login.mem" id="contactForm" name="memlogin" method="post">
                             <div class="col-md-12 form-group">
                                 <input type="text" class="form-control" id="name" name="mid" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
                             </div>

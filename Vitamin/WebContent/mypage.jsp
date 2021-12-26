@@ -72,6 +72,9 @@
                 </li>
                 <li><a href="notice.do">공지사항</a></li>
                 <li><a href="contact.do">고객센터</a></li>
+                <c:if test="${mid == 'admin'}">
+              		<li><a href="register.jsp">상품등록</a></li>
+              	</c:if>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
@@ -150,6 +153,9 @@
                             </li>
                             <li><a href="notice.do">공지사항</a></li>
                             <li><a href="contact.do">고객센터</a></li>
+                            <c:if test="${mid == 'admin'}">
+			              		<li><a href="register.jsp">상품등록</a></li>
+			              	</c:if>
                         </ul>
                     </nav>
                 </div>
@@ -236,40 +242,47 @@
             <dl class="myinfo">
                 <dt>내 정보</dt>
                 <dd>
-                    <form action="mem_update.do" method="post" class="regForm">
+                    <form action="member_update.mem" method="post" class="regForm">
                     <input type="hidden" name="mno" value="${mdata.mno}">
                          <fieldset>
                             <legend>내 정보 입력 양식</legend>
                             <ul class="reg_list">
-                                <li class="clear">
+                               	<li class="clear">
                                     <span class="tit_lbl">이름</span>
-                                    <div class="reg_contxent"><input type="text" name="mname" value="${mdata.mname}"></div>
-                                    <%-- <div class="reg_contxent">${mdata.mname}</div> --%>
+                                    <div class="reg_content"><input type="text" name="mname" class="w20p" value="${mdata.mname}"></div>
                                 </li>
                                 <li class="clear">
                                     <span class="tit_lbl">성별</span>
-                                    <div class="reg_content"><input type="text" name="mgender" value="${mdata.mgender}"></div>
+                                    <div class="reg_content"><input type="text" name="mgender"  class="w20p" value="${mdata.mgender}"></div>
                                 </li>
                                 <li class="clear">
                                     <span class="tit_lbl">생년월일</span>
-                                    <div class="reg_content"><input type="text" name="mbirth" value="${mdata.mbirth}"></div>
+                                    <div class="reg_content"><input type="text" name="mbirth" class="w20p" value="${mdata.mbirth}"></div>
                                 </li>
                                 <li class="clear">
                                     <span class="tit_lbl">우편번호</span>
-                                    <div class="reg_content"><input type="text" name="zipcode" value="${mdata.zipcode}"></div>
+                                    <div class="reg_content"><input type="text" name="maddr_zipcode" class="w20p" value="${mdata.maddr_zipcode}"></div>
                                 </li>
                                 <li class="clear">
                                     <span class="tit_lbl">주소</span>
-                                    <div class="reg_content"><input type="text" name="street" value="${mdata.street}"+"${mdata.detail}"></div>
+                                    <div class="reg_content"><input type="text" name="maddr_street" class="w40p" value="${mdata.maddr_street}"></div>
+                                </li>
+                                <li class="clear">
+                                    <span class="tit_lbl">상세주소</span>
+                                    <div class="reg_content"><input type="text" name="maddr_detail" class="w40p" value="${mdata.maddr_detail}"></div>
+                                </li>
+                                <li class="clear">
+                                    <span class="tit_lbl">참고항목</span>
+                                    <div class="reg_content"><input type="text" name="maddr_etc"  class="w30p" value="${mdata.maddr_etc}"></div>
                                 </li>
                                 <li class="clear">
                                     <span class="tit_lbl">연락처</span>
-                                    <div class="reg_content"><input type="text" name="mtel" value="${mdata.mtel}"></div>
+                                    <div class="reg_content"><input type="text" name="mtel" class="w20p"  value="${mdata.mtel}"></div>
                                 </li>
                                 
                                 <li class="clear">
                                     <span class="tit_lbl">이메일</span>
-                                    <div class="reg_content"><input type="text" name="email" value="${mdata.memail}"></div>
+                                    <div class="reg_content"><input type="text" name="memail" class="w30p" value="${mdata.memail}"></div>
                                 </li>
                             </ul>
                             <!-- <p class="btn_line">
@@ -371,8 +384,10 @@
 	function memdel(){
 		ans=confirm("정말 회원탈퇴하시겠습니까?");
 		if(ans==true){
-			/* mno 값을 hidden으로 숨기기!!! */
-			location.href="mem_delete.do?mno=${mdata.mno}";
+			mpw = prompt("비밀번호를 입력해주세요.");
+			
+			
+			location.href="member_delete.mem?mid=${mid}&mpw="+mpw;
 		}
 		else{
 			return;

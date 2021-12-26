@@ -119,6 +119,7 @@ public class MemberDAO {
 		} finally {
 			JDBCUtil.disconnect(rs, pstmt, con);
 		}
+		System.out.println(member);
 		return member;
 	}
 	
@@ -240,28 +241,22 @@ public class MemberDAO {
 //	String sql_deleteM = "DELETE FROM member WHERE id=? AND pw=?"; 
 	public boolean deleteMember(String id, String pw) {
 		String MemberPW = null; 
-		int result = 0; 
+		int rs = 0;
 		
 		con = JDBCUtil.connect();
 		try { 
 			pstmt = con.prepareStatement(sql_selectPW);
 			pstmt.setString(1, id);
-			rs = pstmt.executeQuery();
-			if(rs.next()) {
-				MemberPW = rs.getString("mpw");
-				if(MemberPW.equals(pw)) {
-					pstmt = con.prepareStatement(sql_deleteM);
-					pstmt.setString(1, id);
-					pstmt.setString(2, pw);
-					result = pstmt.executeUpdate();
-				}
-			}
+			pstmt.setString(2, pw);
+			rs = pstmt.executeUpdate();
+			return true;	
+
 		} catch(Exception e) {
 			System.out.println("MemberDAO deleteMember(): "+ e + " 에러");
 			e.printStackTrace();
 		} finally {
-			JDBCUtil.disconnect(rs, pstmt, con);
+			JDBCUtil.disconnect(pstmt, con);
 		}
-		return result == 1;
+		return false;
 	}
 }
