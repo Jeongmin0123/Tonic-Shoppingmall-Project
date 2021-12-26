@@ -19,9 +19,8 @@ public class MemberDeleteAction implements Action {
 		MemberDAO dao = MemberDAO.getInstance();
 		MemberVO vo = new MemberVO();
 		String id = request.getParameter("mid");
-		String pw = request.getParameter("mpw");
 		ActionForward forward = null;
-		if(dao.deleteMember(id, pw)) {
+		if(dao.deleteMember(vo)) {
 			//회원 탈퇴 성공시 메인페이지로 이동
 			forward = new ActionForward();
 			forward.setPath("main.do");
