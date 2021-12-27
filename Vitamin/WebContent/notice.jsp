@@ -29,7 +29,7 @@
 
 <script type="text/javascript">
 	function showdetails(){
-		window.open('notice_detail.do?nidx=${v.nidx}','새창으로 회원가입','width=1000, height=500, menubar=no, status=no,toolbar=no');
+		window.open('notice_detail.not?nidx=${v.nidx}','새창으로 회원가입','width=1000, height=500, menubar=no, status=no,toolbar=no');
 	}
 </script>
 
@@ -73,7 +73,7 @@
                         <li><a href="shop_grid.do">눈건강</a></li>                        
                     </ul>
                 </li>
-                <li><a href="notice.do">공지사항</a></li>
+                <li><a href="notice.not">공지사항</a></li>
                 <li><a href="contact.do">고객센터</a></li>
                 <c:if test="${mid == 'admin'}">
               		<li><a href="register.jsp">상품등록</a></li>
@@ -156,7 +156,7 @@
                                     <li><a href="shop_grid.do">눈건강</a></li>
                                 </ul>
                             </li>
-                            <li><a href="notice.do">공지사항</a></li>
+                            <li><a href="notice.not">공지사항</a></li>
                             <li><a href="contact.do">고객센터</a></li>
                             <c:if test="${mid == 'admin'}">
 			              		<li><a href="register.jsp">상품등록</a></li>
@@ -267,13 +267,13 @@
                     	
 	                        <tr>
 	                            <td>${v.nidx}</td>
-	                            <%-- <td class="tit_notice"><a href="notice_detail.do?nidx=${v.nidx}">${v.ntitle}</a></td> --%>
-	                            <td class="tit_notice"><a href="javascript:showdetails()">${v.ntitle}</a></td>
+	                            <td class="tit_notice"><a href="notice_detail.not?nidx=${v.nidx}">${v.ntitle}</a></td>
+	                            <%-- <td class="tit_notice"><a href="javascript:showdetails()">${v.ntitle}</a></td> --%>
 	                            <td>${v.writer}</td>
 	                        </tr>
                         
                         </c:forEach>
-	                            <td class="tit_notice"><a href="javascript:showdetails()">test(테스트 후 지우는 부분)</a></td>
+	                            <!-- <td class="tit_notice"><a href="javascript:showdetails()">test(테스트 후 지우는 부분)</a></td> -->
                     </tbody>
                 </table>
                 <!-- 페이징처리 -->

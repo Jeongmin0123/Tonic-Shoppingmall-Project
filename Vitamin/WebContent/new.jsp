@@ -67,7 +67,7 @@
                         <li><a href="shop_grid.do">눈건강</a></li>                        
                     </ul>
                 </li>
-                <li><a href="notice.do">공지사항</a></li>
+                <li><a href="notice.not">공지사항</a></li>
                 <li><a href="contact.jsp">고객센터</a></li>
                 <c:if test="${mid == 'admin'}">
               		<li><a href="register.jsp">상품등록</a></li>
@@ -150,7 +150,7 @@
                                     <li><a href="shop_grid.do">눈건강</a></li>
                                 </ul>
                             </li>
-                            <li><a href="notice.do">공지사항</a></li>
+                            <li><a href="notice.not">공지사항</a></li>
                             <li><a href="contact.jsp">고객센터</a></li>
                             <c:if test="${mid == 'admin'}">
 			              		<li><a href="register.jsp">상품등록</a></li>
@@ -247,7 +247,7 @@
                             아이디
                         </label>
                         <div class="app_content ">
-                            <input type="text" class="w40p" id="id_lbl" name="mid" placeholder="아이디를 입력하세요">
+                            <input type="text" class="w40p" id="id_lbl" name="mid" placeholder="아이디를 입력하세요" required>
                             <!-- 중복확인 처리 필요 	ajax로 하기  -->
 	                        <input type="button" value="중복확인" onclick="">
                         </div>
@@ -259,7 +259,7 @@
                             비밀번호
                         </label>
                         <div class="app_content ">
-                            <input type="password" name="mpw" class="w40p pw" id="pwd_lbl" placeholder="비밀번호를 입력하세요">
+                            <input type="password" name="mpw" class="w40p pw" id="pwd_lbl" placeholder="비밀번호를 입력하세요" required>
 	                        <!-- <input type="button" id="showpw" value="표시" onclick="document.getElementById('pwd_lbl').type='text';document.getElementById('showpw').value='가리기'" > -->
 	                        <input type="button" value="비밀번호 표시" name="passwordsee" onclick="change()">
                         </div>
@@ -271,7 +271,7 @@
                             비밀번호 확인
                         </label>
                         <div class="app_content ">
-                            <input type="password" name="mpw2" class="w40p pw" id="pwd2_lbl" placeholder="비밀번호 확인을 입력하세요">
+                            <input type="password" name="mpw2" class="w40p pw" id="pwd2_lbl" placeholder="비밀번호 확인을 입력하세요" required>
 		                    <p class="alert alert-success w20p" id="alert-success" align="center">비밀번호 일치</p>
 		                    <p class="alert alert-danger w20p" id="alert-danger" align="center">비밀번호 불일치</p>
                         </div>
@@ -289,7 +289,7 @@
                             이름
                         </label>
                         <div class="app_content ">
-                            <input type="text" class="w40p" id="name_lbl" placeholder="이름을 입력하세요" name="mname">
+                            <input type="text" class="w40p" id="name_lbl" placeholder="이름을 입력하세요" name="mname" required>
                         </div>
                     </li>
                     <!-- 성별 -->
@@ -304,11 +304,11 @@
                     </li>
                     <!-- 생년월일 -->
                     <li class="clear">
-                        <label for="name_lbl" class="tit_lbl">
+                        <label for="name_lbl" class="tit_lbl pilsoo_item">
                             생년월일
                         </label>
                         <div class="app_content ">
-                            <input type="text" class="w40p" id="name_lbl" placeholder="생년월일을 입력하세요" name="mbirth">
+                            <input type="text" class="w40p" id="name_lbl" placeholder="생년월일을 입력하세요 ex)211225" name="mbirth" required>
                         </div>
                     </li>
 
@@ -317,10 +317,10 @@
                         <label for="addr_lbl" class="tit_lbl pilsoo_item addr"> 주소 </label>
 
                         <div class="app_content ">
-                            <input type="text" name="maddr_zipcode" class="postcodify_postcode5 w40p" id="name_lbl" placeholder="우편번호" />
+                            <input type="text" name="maddr_zipcode" class="postcodify_postcode5 w40p" id="name_lbl" placeholder="우편번호" required/>
                             <input type="button" id="postcodify_search_button" value="검색"/>
                             <input type="text" name=maddr_street class="postcodify_address w70p" id="name_lbl" placeholder="도로명 주소" /><br>
-                            <input type="text" name="maddr_detail" class="postcodify_details w70p" id="name_lbl" placeholder="상세 주소" /><br>
+                            <input type="text" name="maddr_detail" class="postcodify_details w70p" id="name_lbl" placeholder="상세 주소" required/><br>
                             <input type="text" name="maddr_etc" class="postcodify_extra_info w70p" id="name_lbl" placeholder="참고항목" /><br>
                             <!-- <input type="text" class="w100p" id="name_lbl" placeholder="주소을 입력하세요"> -->
                         </div>
@@ -332,7 +332,7 @@
                             연락처
                         </label>
                         <div class="app_content ">
-                            <input type="tel" class="w40p" id="phone_lbl" placeholder="휴대폰 '-' 없이 숫자만 입력하세요" name="mtel">
+                            <input type="tel" class="w40p" id="phone_lbl" placeholder="휴대폰 '-' 없이 숫자만 입력하세요" name="mtel" required>
                         </div>
                     </li>
                     <!-- 이메일 -->
@@ -341,7 +341,7 @@
                             이메일
                         </label>
                         <div class="app_content email_area">
-                            <input type="text" class="w40p" id="email_lbl" placeholder="이매일을 입력하세요" name="memail">
+                            <input type="text" class="w40p" id="email_lbl" placeholder="이매일을 입력하세요" name="memail" required>
                         </div>
                     </li>
                     

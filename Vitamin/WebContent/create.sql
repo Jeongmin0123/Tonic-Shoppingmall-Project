@@ -34,17 +34,27 @@ INSERT INTO MEMBER(mno, mid, mpw, mname, mgender, mbirth, maddr_zipcode, maddr_s
 	
 -- 공지사항 테이블 
 CREATE SEQUENCE notice_seq; 
---DROP SEQUENCE notice_seq; 
+DROP SEQUENCE notice_seq; 
 
 SELECT * FROM notice;
---DROP TABLE notice;
+DROP TABLE notice;
 CREATE TABLE notice (
-	nidx    NUMBER(2) PRIMARY KEY,
-	ntitle  VARCHAR(20) NOT NULL,
-	ncont   VARCHAR(2000) NOT NULL, // ncont CLOB NOT NULL,
-	writer  VARCHAR(15) UNIQUE NOT NULL
+	nidx    NUMBER(5) PRIMARY KEY,
+	ntitle  VARCHAR(100) NOT NULL,
+	ncont   VARCHAR(2000) NOT NULL,
+	writer  VARCHAR(20) NOT NULL
 );
 
+insert into NOTICE values (notice_seq.NEXTVAL, '결제 관련 공지사항','결제 관련 공지사항입니다.','관리자');
+insert into NOTICE values (notice_seq.NEXTVAL, '제목2','내용2','관리자');
+insert into NOTICE values (notice_seq.NEXTVAL, '제목3','내용3','관리자');
+insert into NOTICE values (notice_seq.NEXTVAL, '제목4','내용4','관리자');
+insert into NOTICE values (notice_seq.NEXTVAL, '제목5','내용5','관리자');
+insert into NOTICE values (notice_seq.NEXTVAL, '제목6','내용6','관리자');
+insert into NOTICE values (notice_seq.NEXTVAL, '제목7','내용7','관리자');
+insert into NOTICE values (notice_seq.NEXTVAL, '제목8','내용8','관리자');
+insert into NOTICE values (notice_seq.NEXTVAL, '제목9','내용9','관리자');
+insert into NOTICE values (notice_seq.NEXTVAL, '제목10','내용10','관리자');
 
 
 -- 상품 DB 테이블

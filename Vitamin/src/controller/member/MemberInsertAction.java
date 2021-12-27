@@ -29,9 +29,6 @@ public class MemberInsertAction implements Action {
 		vo.setMtel(request.getParameter("mtel"));
 		vo.setMemail(request.getParameter("memail"));
 		
-		
-		System.out.println(vo);
-		
 		ActionForward forward = null;
 		// if 문으로 감싸서 회원가입이 완료되면 main으로 가고 안되면 회원가입 실패 창 띄운 후 다시 회원가입 창으로
 		if(dao.insertMember(vo)) {

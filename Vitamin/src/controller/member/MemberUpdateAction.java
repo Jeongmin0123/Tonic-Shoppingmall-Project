@@ -23,19 +23,13 @@ public class MemberUpdateAction implements Action {
 		vo.setMid(id);
 		
 		// 수정하거나 입력된 값들을 받아오기
-		vo.setMno(request.getParameter("mno"));
-		vo.setMno(request.getParameter("mpw"));
 		vo.setMname(request.getParameter("mname"));
 		vo.setMbirth(request.getParameter("mbirth"));
-		vo.setMgender(request.getParameter("mgender"));
 		vo.setMaddr_zipcode(request.getParameter("maddr_zipcode"));
 		vo.setMaddr_street(request.getParameter("maddr_street"));
 		vo.setMaddr_detail(request.getParameter("maddr_detail"));
 		vo.setMaddr_etc(request.getParameter("maddr_etc"));
 		vo.setMemail(request.getParameter("memail"));
-		
-		System.out.println("수정후 값 출력해보기"+vo);
-		
 		
 		ActionForward forward = null;
 		if(dao.updateMember(vo)) {

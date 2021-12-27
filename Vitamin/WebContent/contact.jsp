@@ -66,11 +66,11 @@
                         <li><a href="shop_grid.do">눈건강</a></li>                        
                     </ul>
                 </li>
-                <li><a href="notice.do">공지사항</a></li>
+                <li><a href="notice.not">공지사항</a></li>
                 <li><a href="contact.jsp">고객센터</a></li>
                 <c:if test="${mid == 'admin'}">
-               		<li><a href="register.jsp">상품등록</a></li>
-               	</c:if>
+                     <li><a href="register.jsp">상품등록</a></li>
+                  </c:if>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
@@ -148,11 +148,11 @@
                                     <li><a href="shop-grid.do">눈건강</a></li>
                                 </ul>
                             </li>
-                            <li><a href="notice.do">공지사항</a></li>
+                            <li><a href="notice.not">공지사항</a></li>
                             <li><a href="contact.jsp">고객센터</a></li>
-	                           <c:if test="${mid == 'admin'}">
-	                           		<li><a href="register.jsp">상품등록</a></li>
-	                           	</c:if>
+                              <c:if test="${mid == 'admin'}">
+                                    <li><a href="register.jsp">상품등록</a></li>
+                                 </c:if>
                         </ul>
                     </nav>
                 </div>
@@ -218,8 +218,6 @@
                     <div class="breadcrumb__text">
                         <h2>Contact Us</h2>
                         <div class="breadcrumb__option">
-                            <a href="main.do">Home</a>
-                            <span>Contact Us</span>
                         </div>
                     </div>
                 </div>
@@ -268,7 +266,7 @@
 
     <!-- Map Begin -->
     <div class="map">
-    	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50647.46568304649!2d127.03291992056559!3d37.49691167942796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca4235fb589fb%3A0xb331971bc570bb6a!2z7ISc7Jq47Yq567OE7IucIOqwleuCqOq1rA!5e0!3m2!1sko!2skr!4v1640267479844!5m2!1sko!2skr" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50647.46568304649!2d127.03291992056559!3d37.49691167942796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca4235fb589fb%3A0xb331971bc570bb6a!2z7ISc7Jq47Yq567OE7IucIOqwleuCqOq1rA!5e0!3m2!1sko!2skr!4v1640267479844!5m2!1sko!2skr" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         <div class="map-inside">
             <i class="icon_pin"></i>
             <div class="inside-widget">
@@ -372,7 +370,7 @@
                             </p>
                         </div>
                         <div class="footer__copyright__payment">
-                        	<img src="img/payment-item.png" alt="">
+                           <img src="img/payment-item.png" alt="">
                         </div>
                     </div>
                 </div>

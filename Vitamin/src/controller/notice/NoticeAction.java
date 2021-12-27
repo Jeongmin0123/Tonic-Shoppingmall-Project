@@ -18,6 +18,8 @@ public class NoticeAction implements Action {
 		NoticeDAO dao = NoticeDAO.getInstance();
 		ArrayList<NoticeVO> ndatas=dao.selectAll();	
 		request.setAttribute("ndatas", ndatas);
+		System.out.println(ndatas);
+		
 		
 		// notice.jsp 페이지가 나오도록 한다.
 		ActionForward forward = new ActionForward();

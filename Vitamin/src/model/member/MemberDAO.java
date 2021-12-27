@@ -31,7 +31,7 @@ public class MemberDAO {
 			+ "memail=? WHERE mid=?"; 
 	private String sql_getMemberList = "SELECT * FROM member"; 
 	private String sql_isExistID = "SELECT * FROM member WHERE mid=?";
-	private String sql_selectPW = "SELECT pw FROM member WHERE mid=?";      
+	private String sql_selectPW = "SELECT mpw FROM member WHERE mid=?";      
 	private String sql_deleteM = "DELETE FROM member WHERE mid=? AND mpw=?"; 
 	
 	public boolean insertMember(MemberVO member) { 
@@ -119,7 +119,6 @@ public class MemberDAO {
 		} finally {
 			JDBCUtil.disconnect(rs, pstmt, con);
 		}
-		System.out.println(member);
 		return member;
 	}
 	
@@ -239,24 +238,30 @@ public class MemberDAO {
 //  삭제()
 //	String sql_selectPW = "SELECT pw FROM member WHERE id=?";    
 //	String sql_deleteM = "DELETE FROM member WHERE id=? AND pw=?"; 
-	public boolean deleteMember(String id, String pw) {
+	public boolean deleteMember(MemberVO vo) {
 		String MemberPW = null; 
-		int rs = 0;
+		int result = 0; 
 		
 		con = JDBCUtil.connect();
 		try { 
 			pstmt = con.prepareStatement(sql_selectPW);
-			pstmt.setString(1, id);
-			pstmt.setString(2, pw);
-			rs = pstmt.executeUpdate();
-			return true;	
-
+			pstmt.setString(1, vo.getMid());
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				MemberPW = rs.getString("mpw");
+				if(MemberPW.equals(vo.getMpw())) {
+					pstmt = con.prepareStatement(sql_deleteM);
+					pstmt.setString(1, vo.getMid());
+					pstmt.setString(2, vo.getMpw());
+					result = pstmt.executeUpdate();
+				}
+			}
 		} catch(Exception e) {
 			System.out.println("MemberDAO deleteMember(): "+ e + " 에러");
 			e.printStackTrace();
 		} finally {
-			JDBCUtil.disconnect(pstmt, con);
+			JDBCUtil.disconnect(rs, pstmt, con);
 		}
-		return false;
+		return result == 1;
 	}
 }

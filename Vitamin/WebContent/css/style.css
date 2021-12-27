@@ -78,7 +78,7 @@ h6 {
 }
 
 p {
-    font-size: 16px;
+    font-size: 15px;
     font-family: 'Noto Sans KR', sans-serif;
     color: #6f6f6f;
     font-weight: 400;
@@ -2864,7 +2864,7 @@ ol {
 -----------------------*/
 
 .contact__form__title {
-    margin-bottom: 50px;
+    margin: 50px 0px;
     text-align: center;
 }
 
@@ -3127,6 +3127,7 @@ select {
     vertical-align: middle;
     background-color: #7FAD39;
     color: #fff !important;
+    margin-top: 10px;
 }
 
 /* 검색버튼 */
