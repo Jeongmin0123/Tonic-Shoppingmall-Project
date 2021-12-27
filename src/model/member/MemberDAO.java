@@ -238,21 +238,21 @@ public class MemberDAO {
 //  삭제()
 //	String sql_selectPW = "SELECT pw FROM member WHERE id=?";    
 //	String sql_deleteM = "DELETE FROM member WHERE id=? AND pw=?"; 
-	public boolean deleteMember(String id, String pw) {
+	public boolean deleteMember(MemberVO vo) {
 		String MemberPW = null; 
 		int result = 0; 
 		
 		con = JDBCUtil.connect();
 		try { 
 			pstmt = con.prepareStatement(sql_selectPW);
-			pstmt.setString(1, id);
+			pstmt.setString(1, vo.getMid());
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				MemberPW = rs.getString("mpw");
-				if(MemberPW.equals(pw)) {
+				if(MemberPW.equals(vo.getMpw())) {
 					pstmt = con.prepareStatement(sql_deleteM);
-					pstmt.setString(1, id);
-					pstmt.setString(2, pw);
+					pstmt.setString(1, vo.getMid());
+					pstmt.setString(2, vo.getMpw());
 					result = pstmt.executeUpdate();
 				}
 			}
