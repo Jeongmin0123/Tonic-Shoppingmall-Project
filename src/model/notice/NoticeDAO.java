@@ -24,15 +24,15 @@ public class NoticeDAO {
 	private String sql_updateN = "UPDATE notice SET ntitle=?, ncont=? WHERE nidx=?";
 	private String sql_deleteN = "DELETE FROM notice WHERE nidx = ?"; 
 	
-	public boolean insertNotice(NoticeVO notice) {
+	public boolean insertNotice(NoticeVO vo) {
 		int result = 0;
 		
 		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_insertN);
-			pstmt.setString(1, notice.getNtitle());
-			pstmt.setString(2, notice.getNcont());
-			pstmt.setString(3, notice.getWriter()); // 작성자에 관리자를 어떻게 넣어야 되나.
+			pstmt.setString(1, vo.getNtitle());
+			pstmt.setString(2, vo.getNcont());
+			pstmt.setString(3, vo.getWriter()); // 작성자에 관리자를 어떻게 넣어야 되나.
 			result = pstmt.executeUpdate();
 		} catch(SQLException e) {
 			System.out.println("NoticeDAO insertNotice(): "+ e +" 에러");
@@ -75,13 +75,13 @@ public class NoticeDAO {
 	
 //	공지사항 본문, 필요한 메서드인 걸 어필한다!
 //  String sql_selectOne = "SELECT * FROM notice WHERE nidx=?";
-	public NoticeVO selectOne(int index) {
+	public NoticeVO selectOne(NoticeVO vo) {
 		NoticeVO notice = null;
 		
 		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_selectOne);
-			pstmt.setInt(1, index);
+			pstmt.setInt(1, vo.getNidx());
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				notice = new NoticeVO();
@@ -101,15 +101,15 @@ public class NoticeDAO {
 	
 //  공지사항 수정
 //  String sql_updateN = "UPDATE notice SET ntitle=?, ncont=? WHERE nidx=?";
-	public boolean updateNotice(int index, String upTitle, String upCont) {
+	public boolean updateNotice(NoticeVO vo) {
 		int result = 0;
 		
 		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_updateN);
-			pstmt.setString(1, upTitle);
-			pstmt.setString(2, upCont);
-			pstmt.setInt(3, index);
+			pstmt.setString(1, vo.getNtitle());
+			pstmt.setString(2, vo.getNcont());
+			pstmt.setInt(3, vo.getNidx());
 			result = pstmt.executeUpdate();
 		} catch(Exception e) {
 			System.out.println("NoticeDAO updateNotice(): "+ e +" 에러");
@@ -122,13 +122,13 @@ public class NoticeDAO {
 	
 //  관리자인지 확인하고 삭제를 허용한다. 수정 중	
 //	String sql_deleteN = "DELETE FROM notice WHERE nidx = ?"; 
-	public boolean deleteNotice(int index) {
+	public boolean deleteNotice(NoticeVO vo) {
 		int result = 0;
 		
 		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_deleteN);
-			pstmt.setInt(1, index);
+			pstmt.setInt(1, vo.getNidx());
 			result = pstmt.executeUpdate();
 		} catch(SQLException e) {
 			System.out.println("NoticeDAO deleteNotice(): "+ e +" 에러");

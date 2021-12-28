@@ -39,10 +39,10 @@ CREATE SEQUENCE notice_seq;
 SELECT * FROM notice;
 --DROP TABLE notice;
 CREATE TABLE notice (
-	nidx    NUMBER(2) PRIMARY KEY,
-	ntitle  VARCHAR(20) NOT NULL,
+	nidx    NUMBER(5) PRIMARY KEY,
+	ntitle  VARCHAR(100) NOT NULL,
 	ncont   VARCHAR(2000) NOT NULL, // ncont CLOB NOT NULL,
-	writer  VARCHAR(15) UNIQUE NOT NULL
+	writer  VARCHAR(20) UNIQUE NOT NULL
 );
 
 
@@ -78,7 +78,7 @@ CREATE SEQUENCE contact_seq;
 
 --DROP TABLE contact;
 CREATE TABLE contact (
-	msgno    NUMBER(2) PRIMARY KEY,
+	msgno    NUMBER(5) PRIMARY KEY,
 	msgname  VARCHAR(20) NOT NULL,
 	msgemail VARCHAR(50) NOT NULL,
 	msgtext  VARCHAR(2000) NOT NULL
