@@ -33,7 +33,7 @@ public class NoticeUpdateAction implements Action {
 			PrintWriter out = response.getWriter();
 			out.println("<script>alert('공지사항 수정에 실패했습니다. 입력내용을 확인해보세요!');history.go(-1);</script>");
 		}
-		return null;
+		return forward;
 	}
 
 }

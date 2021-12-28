@@ -32,4 +32,13 @@
     <servlet-name>fc_do</servlet-name>
     <url-pattern>*.do</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>fc_con</servlet-name>
+    <servlet-class>controller.contact.ContactFrontController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>fc_con</servlet-name>
+    <url-pattern>*.con</url-pattern>
+  </servlet-mapping>
 </web-app>
