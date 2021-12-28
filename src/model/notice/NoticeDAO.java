@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import model.common.JDBCUtil; // JDBCUtil(), disconnect() 메서드
-import model.emp.EmpDAO;
 
 public class NoticeDAO {
 	private NoticeDAO(){}
