@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import model.common.JDBCUtil; // JDBCUtil(), disconnect() 메서드
-import model.emp.EmpDAO;
 
 public class NoticeDAO {
 	private NoticeDAO(){}
@@ -19,7 +18,8 @@ public class NoticeDAO {
 	ResultSet rs;
 
 	private String sql_insertN = "INSERT INTO notice VALUES(LPAD(notice_seq.NEXTVAL, 2, 0), ?, ?, ?)"; 
-	private String sql_selectAll = "SELECT * FROM notice";
+//	private String sql_selectAll = "SELECT * FROM notice ORDER BY nidx DESC";
+	private String sql_selectAll = "SELECT ROWNUM, nidx, ntitle, ncont, writer FROM (SELECT * FROM notice ORDER BY nidx DESC) ORDER BY ROWNUM DESC";
 	private String sql_selectOne = "SELECT * FROM notice WHERE nidx=?";
 	private String sql_updateN = "UPDATE notice SET ntitle=?, ncont=? WHERE nidx=?";
 	private String sql_deleteN = "DELETE FROM notice WHERE nidx = ?"; 

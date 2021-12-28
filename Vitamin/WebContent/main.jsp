@@ -111,7 +111,7 @@
                     </ul>
                 </li>
                 <li><a href="notice.not">공지사항</a></li>
-                <li><a href="contact.jsp">고객센터</a></li>
+                <li><a href="contact.con">고객센터</a></li>
                 <c:if test="${mid == 'admin'}">
               		<li><a href="register.jsp">상품등록</a></li>
               	</c:if>
@@ -191,7 +191,7 @@
                                 </ul>
                             </li>
                             <li><a href="notice.not">공지사항</a></li>
-                            <li><a href="contact.jsp">고객센터</a></li>
+                            <li><a href="contact.con">고객센터</a></li>
                            
                            	<c:if test="${mid == 'admin'}">
                            		<li><a href="register.jsp">상품등록</a></li>

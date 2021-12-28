@@ -23,6 +23,8 @@ public class MemberDeleteAction implements Action {
 		ActionForward forward = null;
 		if(dao.deleteMember(vo)) {
 			//회원 탈퇴 성공시 메인페이지로 이동
+			HttpSession session = request.getSession();
+			session.invalidate();
 			forward = new ActionForward();
 			forward.setPath("main.do");
 			forward.setRedirect(true);

@@ -1,7 +1,6 @@
 package controller.notice;
 
 import java.io.PrintWriter;
-import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,15 +20,10 @@ public class NoticeUpdateAction implements Action {
 		vo.setNtitle(request.getParameter("ntitle"));
 		vo.setNcont(request.getParameter("ncont"));
 		vo.setNidx(Integer.parseInt(request.getParameter("nidx")));
-		System.out.println(request.getParameter("ntitle"));
-		dao.updateNotice(vo);
 		ActionForward forward = null;
 		
 		// 수정이 잘 수행되면 다시 notice.not 을 통해 notice.jsp로 이동
 		if(dao.updateNotice(vo)) {
-			
-
-
 			forward = new ActionForward();
 			forward.setPath("notice.not");
 			forward.setRedirect(false);
@@ -39,7 +33,7 @@ public class NoticeUpdateAction implements Action {
 			PrintWriter out = response.getWriter();
 			out.println("<script>alert('공지사항 수정에 실패했습니다. 입력내용을 확인해보세요!');history.go(-1);</script>");
 		}
-		return null;
+		return forward;
 	}
 
 }

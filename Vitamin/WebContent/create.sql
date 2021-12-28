@@ -86,6 +86,8 @@ CREATE TABLE product(
 CREATE SEQUENCE contact_seq; 
 --DROP SEQUENCE contact_seq; 
 
+
+select * from CONTACT;
 --DROP TABLE contact;
 CREATE TABLE contact (
 	msgno    NUMBER(2) PRIMARY KEY,

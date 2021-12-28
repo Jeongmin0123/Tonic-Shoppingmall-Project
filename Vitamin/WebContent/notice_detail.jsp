@@ -74,7 +74,7 @@
                     </ul>
                 </li>
                 <li><a href="notice.not">공지사항</a></li>
-                <li><a href="contact.do">고객센터</a></li>
+                <li><a href="contact.con">고객센터</a></li>
                 <c:if test="${mid == 'admin'}">
               		<li><a href="register.jsp">상품등록</a></li>
               	</c:if>
@@ -157,7 +157,7 @@
                                 </ul>
                             </li>
                             <li><a href="notice.not">공지사항</a></li>
-                            <li><a href="contact.do">고객센터</a></li>
+                            <li><a href="contact.con">고객센터</a></li>
                             <c:if test="${mid == 'admin'}">
 			              		<li><a href="register.jsp">상품등록</a></li>
 			              	</c:if>
@@ -240,17 +240,16 @@
 	            	<c:when test="${mid == 'admin'}">
 	            		<form action="notice_update.not" method="post">
 	            		<input type="hidden" name="nidx" value="${ndata.nidx}">
-			             	<ul class="bbsview_list">
-			                    <li class="bbs_title"><input type="text" name="ntitle" value="${ndata.ntitle}" style="border:none"></li>
-			                    <li class="bbs_date"><input type="text" name="nidx" value="${ndata.nidx}" style="border:none"></li>
-			                    <li class="bbs_hit"><input type="text" name="writer" value="${ndata.writer}" style="border:none"></li>
-			                    <li class="bbs_content">
-			                        <div class="editor_content">
-			                        	<input type="text" name="ncont" value=" ${ndata.ncont}" style="border:none">
-			                           
-			                        </div>
-			                    </li>
-			                </ul>
+			             	 <ul class="bbsview_list">
+		                    <li class="bbs_title">${ndata.ntitle}</p></li>
+		                    <li class="bbs_date">번호<span>${ndata.nidx}</span></li>
+		                    <li class="bbs_hit">${ndata.writer}</li>
+		                    <li class="bbs_content">
+		                        <div class="editor_content">
+		                            ${ndata.ncont}
+		                        </div>
+		                    </li>
+		                </ul>
 		               		<p class="app_content" align="center">
                             	<input type="submit" class="btn_basecolor" value="수정">
 	                            <input type="button" class="btn_basecolor" onclick="noticedel()" value="삭제">

@@ -74,7 +74,7 @@
                     </ul>
                 </li>
                 <li><a href="notice.not">공지사항</a></li>
-                <li><a href="contact.do">고객센터</a></li>
+                <li><a href="contact.con">고객센터</a></li>
                 <c:if test="${mid == 'admin'}">
               		<li><a href="register.jsp">상품등록</a></li>
               	</c:if>
@@ -157,7 +157,7 @@
                                 </ul>
                             </li>
                             <li><a href="notice.not">공지사항</a></li>
-                            <li><a href="contact.do">고객센터</a></li>
+                            <li><a href="contact.con">고객센터</a></li>
                             <c:if test="${mid == 'admin'}">
 			              		<li><a href="register.jsp">상품등록</a></li>
 			              	</c:if>
@@ -276,6 +276,11 @@
 	                            <!-- <td class="tit_notice"><a href="javascript:showdetails()">test(테스트 후 지우는 부분)</a></td> -->
                     </tbody>
                 </table>
+                    <c:if test="${mid == 'admin'}">
+	                    <p class="app_content" align="right">
+	                     	<input type="button" class="btn_basecolor" onclick="noticecreate()" value="게시글 등록">
+	                    </p>
+                    </c:if>
                 <!-- 페이징처리 -->
                 <!-- <div class="npagination">
                     <<
@@ -367,6 +372,13 @@
     <script src="js/mixitup.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+    
+    <script type="text/javascript">
+		function noticecreate(){
+			location.href="notice_new.jsp";
+		}
+	</script>
+    
 
 </body>
 

@@ -24,7 +24,7 @@ public class NoticeWriteAction implements Action {
 		// 공지사항 작성이 잘 되면 작성후에 notice.do를 통해 notice.jsp로 이동한다.
 		if(dao.insertNotice(vo)) {
 			forward = new ActionForward();
-			forward.setPath("notice.do");
+			forward.setPath("notice.not");
 			forward.setRedirect(false);	
 		} else {
 			// 작성 실패시 alert 창 이후 다시 작성페이지로 이동한다.
