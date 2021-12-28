@@ -19,7 +19,7 @@ public class NoticeDAO {
 	ResultSet rs;
 
 	private String sql_insertN = "INSERT INTO notice VALUES(LPAD(notice_seq.NEXTVAL, 2, 0), ?, ?, ?)"; 
-	private String sql_selectAll = "SELECT * FROM notice";
+	private String sql_selectAll = "SELECT * FROM notice ORDER BY nidx DESC";
 	private String sql_selectOne = "SELECT * FROM notice WHERE nidx=?";
 	private String sql_updateN = "UPDATE notice SET ntitle=?, ncont=? WHERE nidx=?";
 	private String sql_deleteN = "DELETE FROM notice WHERE nidx = ?"; 
