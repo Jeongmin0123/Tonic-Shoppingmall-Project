@@ -20,7 +20,6 @@ public class NoticeUpdateAction implements Action {
 		vo.setNtitle(request.getParameter("ntitle"));
 		vo.setNcont(request.getParameter("ncont"));
 		vo.setNidx(Integer.parseInt(request.getParameter("nidx")));
-		dao.updateNotice(vo);
 		ActionForward forward = null;
 		
 		// 수정이 잘 수행되면 다시 notice.not 을 통해 notice.jsp로 이동
