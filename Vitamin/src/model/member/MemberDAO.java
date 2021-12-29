@@ -112,6 +112,7 @@ public class MemberDAO {
 				member.setMaddr_etc(rs.getString("maddr_etc"));
 				member.setMtel(rs.getString("mtel"));
 				member.setMemail(rs.getString("memail"));
+				member.setMrole(rs.getString("mrole"));
 			}
 		} catch(SQLException e) {
 			System.out.println("MemberDAO selectMember(): "+ e +" 에러");

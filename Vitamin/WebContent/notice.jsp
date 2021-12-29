@@ -75,7 +75,7 @@
                 </li>
                 <li><a href="notice.not">공지사항</a></li>
                 <li><a href="contact.con">고객센터</a></li>
-                <c:if test="${mid == 'admin'}">
+                <c:if test="${mrole == 'ADMIN'}">
               		<li><a href="register.jsp">상품등록</a></li>
               	</c:if>
             </ul>
@@ -158,7 +158,7 @@
                             </li>
                             <li><a href="notice.not">공지사항</a></li>
                             <li><a href="contact.con">고객센터</a></li>
-                            <c:if test="${mid == 'admin'}">
+                            <c:if test="${mrole == 'ADMIN'}">
 			              		<li><a href="register.jsp">상품등록</a></li>
 			              	</c:if>
                         </ul>
@@ -276,7 +276,7 @@
 	                            <!-- <td class="tit_notice"><a href="javascript:showdetails()">test(테스트 후 지우는 부분)</a></td> -->
                     </tbody>
                 </table>
-                    <c:if test="${mid == 'admin'}">
+                    <c:if test="${mrole == 'ADMIN'}">
 	                    <p class="app_content" align="right">
 	                     	<input type="button" class="btn_basecolor" onclick="noticecreate()" value="게시글 등록">
 	                    </p>

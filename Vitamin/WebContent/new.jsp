@@ -247,9 +247,10 @@
                             아이디
                         </label>
                         <div class="app_content ">
-                            <input type="text" class="w40p" id="id_lbl" name="mid" placeholder="아이디를 입력하세요" required>
+                            <input type="text" class="w40p input_id" id="id_lbl" name="mid" placeholder="아이디를 입력하세요" required>
+                            <font id="checkId" size="2"></font>
                             <!-- 중복확인 처리 필요 	ajax로 하기  -->
-	                        <input type="button" value="중복확인" onclick="">
+	                        <input type="button" value="중복확인" onclick="checkID()">
                         </div>
                     </li>
                     
@@ -479,6 +480,33 @@
 	}
 
 	</script>
+
+	<script src = "js/jquery-3.6.0.min.js"></script>
+	<script>
+		$('.input_id').focusout(function(){
+			let userId.$('.input_id').val();
+			
+			$.ajax({
+				url : "IdCheckService",
+				type : "post",
+				data : {userId: userId},
+				dataType : 'json',
+				success : function(result){
+					if(result == 0){
+						$('#checkId').html('사용할 수 없는 아이디입니다.');
+						$('#checkId').attr('color','red');
+					} else{
+						$('#checkId').html('사용할 수 있는 아이디입니다.');
+						$('#checkId').attr('color','green');
+					}
+				},
+				error : function(){
+					alert("서버요청실패");
+				}
+			})
+		})
+	</script>
+
 
 </body>
 

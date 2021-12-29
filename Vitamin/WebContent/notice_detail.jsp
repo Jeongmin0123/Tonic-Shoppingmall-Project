@@ -75,7 +75,7 @@
                 </li>
                 <li><a href="notice.not">공지사항</a></li>
                 <li><a href="contact.con">고객센터</a></li>
-                <c:if test="${mid == 'admin'}">
+                <c:if test="${mrole == 'ADMIN'}">
               		<li><a href="register.jsp">상품등록</a></li>
               	</c:if>
             </ul>
@@ -158,7 +158,7 @@
                             </li>
                             <li><a href="notice.not">공지사항</a></li>
                             <li><a href="contact.con">고객센터</a></li>
-                            <c:if test="${mid == 'admin'}">
+                            <c:if test="${mrole == 'ADMIN'}">
 			              		<li><a href="register.jsp">상품등록</a></li>
 			              	</c:if>
                         </ul>
@@ -237,7 +237,7 @@
             <!-- 본문 시작 -->
             <div class="bodytext_area box_inner">
            		<c:choose>
-	            	<c:when test="${mid == 'admin'}">
+	            	<c:when test="${mrole == 'ADMIN'}">
 	            		<form action="notice_update.not" method="post">
 	            		<input type="hidden" name="nidx" value="${ndata.nidx}">
 			             	 <ul class="bbsview_list">

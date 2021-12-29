@@ -35,7 +35,7 @@ INSERT INTO MEMBER(mno, mid, mpw, mname, mgender, mbirth, maddr_zipcode, maddr_s
 -- 공지사항 테이블 
 CREATE SEQUENCE notice_seq; 
 DROP SEQUENCE notice_seq; 
-
+SELECT ROWNUM, nidx, ntitle, ncont, writer FROM (SELECT * FROM notice ORDER BY nidx DESC) ORDER BY ROWNUM DESC;
 SELECT * FROM notice;
 DROP TABLE notice;
 CREATE TABLE notice (
