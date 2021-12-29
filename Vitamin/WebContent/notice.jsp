@@ -28,9 +28,9 @@
 </head>
 
 <script type="text/javascript">
-	function showdetails(){
-		window.open('notice_detail.not?nidx=${v.nidx}','새창으로 회원가입','width=1000, height=500, menubar=no, status=no,toolbar=no');
-	}
+   function showdetails(){
+      window.open('notice_detail.not?nidx=${v.nidx}','새창으로 회원가입','width=1000, height=500, menubar=no, status=no,toolbar=no');
+   }
 </script>
 
 
@@ -76,8 +76,8 @@
                 <li><a href="notice.not">공지사항</a></li>
                 <li><a href="contact.con">고객센터</a></li>
                 <c:if test="${mrole == 'ADMIN'}">
-              		<li><a href="register.jsp">상품등록</a></li>
-              	</c:if>
+                    <li><a href="register.jsp">상품등록</a></li>
+                 </c:if>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
@@ -159,8 +159,8 @@
                             <li><a href="notice.not">공지사항</a></li>
                             <li><a href="contact.con">고객센터</a></li>
                             <c:if test="${mrole == 'ADMIN'}">
-			              		<li><a href="register.jsp">상품등록</a></li>
-			              	</c:if>
+                             <li><a href="register.jsp">상품등록</a></li>
+                          </c:if>
                         </ul>
                     </nav>
                 </div>
@@ -220,7 +220,7 @@
     <!-- Hero Section End -->
 
 
- 	<!-- Breadcrumb Section Begin -->
+    <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
         <div class="container">
             <div class="row">
@@ -262,24 +262,24 @@
                         </tr>
                     </thead>
                     <tbody>
-                    	
-                    	<c:forEach var="v" items="${ndatas}">
-                    	
-	                        <tr>
-	                            <td>${v.nidx}</td>
-	                            <td class="tit_notice"><a href="notice_detail.not?nidx=${v.nidx}">${v.ntitle}</a></td>
-	                            <%-- <td class="tit_notice"><a href="javascript:showdetails()">${v.ntitle}</a></td> --%>
-	                            <td>${v.writer}</td>
-	                        </tr>
+                       
+                       <c:forEach var="v" items="${ndatas}">
+                       
+                           <tr>
+                               <td>${v.nidx}</td>
+                               <td class="tit_notice"><a href="notice_detail.not?nidx=${v.nidx}">${v.ntitle}</a></td>
+                               <%-- <td class="tit_notice"><a href="javascript:showdetails()">${v.ntitle}</a></td> --%>
+                               <td>${v.writer}</td>
+                           </tr>
                         
                         </c:forEach>
-	                            <!-- <td class="tit_notice"><a href="javascript:showdetails()">test(테스트 후 지우는 부분)</a></td> -->
+                               <!-- <td class="tit_notice"><a href="javascript:showdetails()">test(테스트 후 지우는 부분)</a></td> -->
                     </tbody>
                 </table>
                     <c:if test="${mrole == 'ADMIN'}">
-	                    <p class="app_content" align="right">
-	                     	<input type="button" class="btn_basecolor" onclick="noticecreate()" value="게시글 등록">
-	                    </p>
+                       <p class="app_content" align="center">
+                           <input type="button" class="btn_basecolor" onclick="noticecreate()" value="게시글 등록">
+                       </p>
                     </c:if>
                 <!-- 페이징처리 -->
                 <!-- <div class="npagination">
@@ -334,17 +334,13 @@
                 </div>
                 <div class="col-lg-4 col-md-12">
                     <div class="footer__widget">
-                        <h6>Join Our Newsletter Now</h6>
-                        <p>Get E-mail updates about our latest shop and special offers.</p>
-                        <form action="#">
-                            <input type="text" placeholder="Enter your mail">
-                            <button type="submit" class="site-btn">Subscribe</button>
-                        </form>
+                        <h6>Join Our Homepage</h6>
+                        <p>Ask any questions!! <br> <a href="contact.jsp">고객문의</a></p>
                         <div class="footer__widget__social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-pinterest"></i></a>
+                            <a href="https://twitter.com/?lang=ko"><i class="fa fa-facebook"></i></a>
+                            <a href="https://www.instagram.com"><i class="fa fa-instagram"></i></a>
+                            <a href="https://twitter.com/?lang=ko"><i class="fa fa-twitter"></i></a>
+                            <a href="https://www.pinterest.co.kr/"><i class="fa fa-pinterest"></i></a>
                         </div>
                     </div>
                 </div>
@@ -374,10 +370,10 @@
     <script src="js/main.js"></script>
     
     <script type="text/javascript">
-		function noticecreate(){
-			location.href="notice_new.jsp";
-		}
-	</script>
+      function noticecreate(){
+         location.href="notice_new.jsp";
+      }
+   </script>
     
 
 </body>

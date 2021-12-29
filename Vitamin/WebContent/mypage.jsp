@@ -334,17 +334,13 @@
                 </div>
                 <div class="col-lg-4 col-md-12">
                     <div class="footer__widget">
-                        <h6>Join Our Newsletter Now</h6>
-                        <p>Get E-mail updates about our latest shop and special offers.</p>
-                        <form action="#">
-                            <input type="text" placeholder="Enter your mail">
-                            <button type="submit" class="site-btn">Subscribe</button>
-                        </form>
+                        <h6>Join Our Homepage</h6>
+                        <p>Ask any questions!! <br> <a href="contact.jsp">고객문의</a></p>
                         <div class="footer__widget__social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-pinterest"></i></a>
+                            <a href="https://twitter.com/?lang=ko"><i class="fa fa-facebook"></i></a>
+                            <a href="https://www.instagram.com"><i class="fa fa-instagram"></i></a>
+                            <a href="https://twitter.com/?lang=ko"><i class="fa fa-twitter"></i></a>
+                            <a href="https://www.pinterest.co.kr/"><i class="fa fa-pinterest"></i></a>
                         </div>
                     </div>
                 </div>

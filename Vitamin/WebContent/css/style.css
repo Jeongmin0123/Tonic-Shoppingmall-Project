@@ -2632,6 +2632,7 @@ ol {
     background: #F3F6FA;
     padding-top: 70px;
     padding-bottom: 0;
+    margin-top: 50px;
 }
 
 .footer__about {
@@ -2928,6 +2929,7 @@ ol {
 .bodytext_area {
     box-sizing: border-box;
     padding: 0px 20px 0;
+    
 }
 
 .box_inner {
@@ -3004,10 +3006,11 @@ input[type="email"] {
     box-sizing: border-box;
     display: inline-block;
     height: 45px;
-    padding: 0 10px;
+    /* padding: 10px 0px; */
     border: 1px solid #ccc;
     line-height: normal;
     font-size: 15px;
+    margin-bottom: 15px;
 }
 
 textarea {
@@ -3532,6 +3535,7 @@ tfoot {
 
 .regForm .reg_list li {
     min-height: 60px;
+    height: 90px;
     padding: 0;
     border-bottom: 1px solid #ccc;
 }
@@ -3543,9 +3547,10 @@ tfoot {
     width: 150px;
     box-sizing: border-box;
     padding-left: 20px;
-    line-height: 60px;
+    line-height: 90px;
     font-weight: bold;
     font-size: 16px;
+    
 }
 
 /* 내용들은 오른쪽으로 정렬시키며 크기 및 위치 세부 조정 */

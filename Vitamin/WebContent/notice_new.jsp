@@ -240,13 +240,13 @@
 	            		<form action="notice_insert.not" method="post">
 	            		
 			             	<ul class="bbsview_list">
-			                    <li class="bbs_title"><input type="text" name="ntitle"></li>
-			                    
-			                    <li class="bbs_hit"><input type="text" name="writer" value="관리자" readonly></li>
+			                    <li class="bbs_title">제목&nbsp;&nbsp;&nbsp;<input type="text" name="ntitle"></li>
+			                    <li class="bbs_date"><span></span></li>
+			                    <li class="bbs_hit">작성자&nbsp;&nbsp;<input type="text" name="writer" value="관리자" readonly></li>
 			                    <li class="bbs_content">
 			                        <div class="editor_content">
 			                        	<!-- <input type="text" name="ncont"> -->
-			                           	<textarea rows="" cols="" name="ncont"></textarea>
+			                           	<textarea rows="10" cols="130" name="ncont" style="resize:none"></textarea>
 			                        </div>
 			                    </li>
 			                </ul>
@@ -310,17 +310,13 @@
                 </div>
                 <div class="col-lg-4 col-md-12">
                     <div class="footer__widget">
-                        <h6>Join Our Newsletter Now</h6>
-                        <p>Get E-mail updates about our latest shop and special offers.</p>
-                        <form action="#">
-                            <input type="text" placeholder="Enter your mail">
-                            <button type="submit" class="site-btn">Subscribe</button>
-                        </form>
+                        <h6>Join Our Homepage</h6>
+                        <p>Ask any questions!! <br> <a href="contact.jsp">고객문의</a></p>
                         <div class="footer__widget__social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-pinterest"></i></a>
+                            <a href="https://twitter.com/?lang=ko"><i class="fa fa-facebook"></i></a>
+                            <a href="https://www.instagram.com"><i class="fa fa-instagram"></i></a>
+                            <a href="https://twitter.com/?lang=ko"><i class="fa fa-twitter"></i></a>
+                            <a href="https://www.pinterest.co.kr/"><i class="fa fa-pinterest"></i></a>
                         </div>
                     </div>
                 </div>
