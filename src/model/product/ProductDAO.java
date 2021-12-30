@@ -27,17 +27,23 @@ public class ProductDAO {
 	private	String sql_insertP = "INSERT INTO product VALUES(LPAD(prod_seq.NEXTVAL, 2, 0),"
 			+ " ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 //  (상품코드, 상품분류코드, 상품명, 가격, 정보, 유통기간, 제조일자, 원산지, 제조업체, 판매량, 재고량)
+//	private	String sql_updateP = "UPDATE product SET product WHERE pcode = ?";
 	private	String sql_selectAll = "SELECT * FROM product ORDER BY pcode";
 	private	String sql_selectOne = "SELECT * FROM product WHERE pcode = ?";
 	private	String sql_deleteP = "DELETE FROM product WHERE pcode = ?";
 
 	
-//  상품등록, 수정
 /*	
 상품등록 폼 파일 업로드 구현 -> MultipartRequest 라이브러리를 설치할 필요 有
 MultipartRequest multi = new MultipartRequest(request, savePath, sizeLimit, "UTF-8", new DefaultFileRenamePolicy());
 MultipartRequest(객체, 저장될 서버 경로, 파일 최대 크기, 인코딩 방식, 같은 이름의 파일명 방지 처리)
+<<<<<<< HEAD
 */ /*	public boolean insertProduct(HttpServletRequest request) { // HttpServletRequest 빨간줄은 톰캣 서버를 연결하면 사라진다.
+=======
+*/
+	// 상품등록(아직 수정 중입니다)
+	public boolean insertProduct(HttpServletRequest request) { // HttpServletRequest 빨간줄은 톰캣 서버를 연결하면 사라진다.
+>>>>>>> refs/remotes/origin/jh
 	//	String upload = "절대경로";
 		String upload = "C:/···/···/···/WebContent/images";
 		int limitSize = 50*1024*1024; // 50MB
@@ -71,9 +77,28 @@ MultipartRequest(객체, 저장될 서버 경로, 파일 최대 크기, 인코�
 		}
 		return result == 1;
 	}
+<<<<<<< HEAD
 	*/
 //  상품조회
 //  private	String sql_selectAll = "SELECT * FROM product ORDER BY pcode";
+=======
+	
+	// 상품수정(수정 중입니다)
+	public boolean updateProduct() {
+		con = JDBCUtil.connect();
+		try {
+			
+		} catch(Exception e) {
+			
+		} finally {
+			
+		}
+		return false;
+	}
+	
+	
+	// 상품리스트 조회
+>>>>>>> refs/remotes/origin/jh
 	public ArrayList<ProductVO> selectAll() {
 		ArrayList<ProductVO> plist = new ArrayList<>();
 		
@@ -107,14 +132,14 @@ MultipartRequest(객체, 저장될 서버 경로, 파일 최대 크기, 인코�
 		return plist.isEmpty()? null : plist;
 	}
 	
-	public ProductVO selectOne(int pcode) { // 파라미터 인자는 변경 가능.
-	//	private	String sql_selectOne = "SELECT * FROM product WHERE pcode = ?";
+	// 상품 본문조회
+	public ProductVO selectOne(ProductVO vo) {
 		ProductVO product = null;
 		con = JDBCUtil.connect();
 		
 		try {
 			pstmt = con.prepareStatement(sql_selectOne);
-			pstmt.setInt(1, pcode);
+			pstmt.setInt(1, vo.getPcode());
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				product = new ProductVO();
@@ -140,15 +165,15 @@ MultipartRequest(객체, 저장될 서버 경로, 파일 최대 크기, 인코�
 		return product;
 	}
 
-//  상품삭제
-	public boolean deleteProduct(int pcode) {
+	//  상품삭제
+	public boolean deleteProduct(ProductVO vo) {
 	//  private	String sql_deleteP = "DELETE FROM product WHERE pcode = ?";
 		int result = 0;
 		
 		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_deleteP);
-			pstmt.setInt(1, pcode);
+			pstmt.setInt(1, vo.getPcode());
 			result = pstmt.executeUpdate();
 		} catch(Exception e) {
 			System.out.println("MemberDAO deleteProduct() : "+ e +" 에러");
@@ -158,11 +183,4 @@ MultipartRequest(객체, 저장될 서버 경로, 파일 최대 크기, 인코�
 		}
 		return result == 1; 
 	}
-	
-	
-	
-	
-	
-	
-	
 }

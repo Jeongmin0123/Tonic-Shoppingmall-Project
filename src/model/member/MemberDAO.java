@@ -34,23 +34,23 @@ public class MemberDAO {
 	private String sql_selectPW = "SELECT mpw FROM member WHERE mid=?";      
 	private String sql_deleteM = "DELETE FROM member WHERE mid=? AND mpw=?"; 
 	
-	public boolean insertMember(MemberVO member) { 
+	public boolean insertMember(MemberVO vo) { 
 		int result = 0;
 		
 		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_insertM);
-			pstmt.setString(1, member.getMid());
-			pstmt.setString(2, member.getMpw());
-		    pstmt.setString(3, member.getMname());
-			pstmt.setString(4, member.getMgender());
-			pstmt.setString(5, member.getMbirth());
-			pstmt.setString(6, member.getMaddr_zipcode());
-			pstmt.setString(7, member.getMaddr_street());
-			pstmt.setString(8, member.getMaddr_detail());
-			pstmt.setString(9, member.getMaddr_etc());
-			pstmt.setString(10, member.getMtel());
-			pstmt.setString(11, member.getMemail());
+			pstmt.setString(1, vo.getMid());
+			pstmt.setString(2, vo.getMpw());
+		    pstmt.setString(3, vo.getMname());
+			pstmt.setString(4, vo.getMgender());
+			pstmt.setString(5, vo.getMbirth());
+			pstmt.setString(6, vo.getMaddr_zipcode());
+			pstmt.setString(7, vo.getMaddr_street());
+			pstmt.setString(8, vo.getMaddr_detail());
+			pstmt.setString(9, vo.getMaddr_etc());
+			pstmt.setString(10, vo.getMtel());
+			pstmt.setString(11, vo.getMemail());
 			result = pstmt.executeUpdate(); // 영향을 받은 행 수 반환 메서드
 		} catch (SQLException e) {
 			System.out.println("MemberDAO insertMember(): "+ e +" 에러");
@@ -63,16 +63,16 @@ public class MemberDAO {
 
 //  로그인 성공여부()
 //  boolean->int->로 변환, 경우의 수 3가지
-	public boolean loginMember(MemberVO member) {
+	public boolean loginMember(MemberVO vo) {
 		int result = 0;
 		
 		con = JDBCUtil.connect(); 
 		try {
 			pstmt = con.prepareStatement(sql_loginM);
-			pstmt.setString(1, member.getMid());
+			pstmt.setString(1, vo.getMid());
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				if(rs.getString("mpw").equals(member.getMpw())) {
+				if(rs.getString("mpw").equals(vo.getMpw())) {
 					result = 1; // 로그인 성공 
 				} else { 
 					result = 0; // 비밀번호가 다를 때
@@ -91,13 +91,13 @@ public class MemberDAO {
 //	객체를 받아야함(그래야지 객체를 들고 돌아다니기 가능)
 //  String sql_selectM = "SELECT * FROM member WHERE id=?";
 //  수정내용: loginfo 테이블 삭제, 쿼리문에 "and pw=?" 추가 -> 다시 삭제
-	public MemberVO selectMember(MemberVO memberVO) {
+	public MemberVO selectMember(MemberVO vo) {
 		MemberVO member = null;
 		
 		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_selectM);
-			pstmt.setString(1, memberVO.getMid());
+			pstmt.setString(1, vo.getMid());
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				member = new MemberVO();
@@ -146,22 +146,22 @@ public class MemberDAO {
 	
 //	update(회원정보)
 //  수정내용: WHERE절 id
-	public boolean updateMember(MemberVO member) {
+	public boolean updateMember(MemberVO vo) {
 		int result = 0;
 		
 		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_updateM);
-			pstmt.setString(1, member.getMname());
-            pstmt.setString(2, member.getMbirth());
+			pstmt.setString(1, vo.getMname());
+            pstmt.setString(2, vo.getMbirth());
 //          pstmt.setString(3, member.getMaddr_zipcode()+" "
 //          		+member.getMaddr_street()+" "+member.getMaddr_detail());
-            pstmt.setString(3, member.getMaddr_zipcode());
-            pstmt.setString(4, member.getMaddr_street());
-            pstmt.setString(5, member.getMaddr_detail());
-            pstmt.setString(6, member.getMaddr_etc());
-            pstmt.setString(7, member.getMemail());
-            pstmt.setString(8, member.getMid());
+            pstmt.setString(3, vo.getMaddr_zipcode());
+            pstmt.setString(4, vo.getMaddr_street());
+            pstmt.setString(5, vo.getMaddr_detail());
+            pstmt.setString(6, vo.getMaddr_etc());
+            pstmt.setString(7, vo.getMemail());
+            pstmt.setString(8, vo.getMid());
             result = pstmt.executeUpdate(); 
 		} catch(Exception e) {
 			System.out.println("MemberDAO updateMember(): "+ e +" 에러");

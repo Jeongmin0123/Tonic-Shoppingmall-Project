@@ -80,8 +80,23 @@ drop  SEQUENCE member_seq;
 --CREATE SEQUENCE notice_seq; 
 --SELECT * FROM notice;
 --DROP TABLE notice;
+<<<<<<< HEAD
+=======
+CREATE TABLE notice (
+	nidx    NUMBER(5) PRIMARY KEY,
+	ntitle  VARCHAR(100) NOT NULL,
+	ncont   VARCHAR(2000) NOT NULL, 
+	writer  VARCHAR(20) UNIQUE NOT NULL
+);
+>>>>>>> refs/remotes/origin/jh
 
+INSERT INTO notice VALUES(notice_seq.NEXTVAL, 'NTITLE1', 'NCONT1', 'WRITER1');
+INSERT INTO notice VALUES(notice_seq.NEXTVAL, 'NTITLE2', 'NCONT2', 'WRITER2');
+INSERT INTO notice VALUES(notice_seq.NEXTVAL, 'NTITLE3', 'NCONT3', 'WRITER3');
+INSERT INTO notice VALUES(notice_seq.NEXTVAL, 'NTITLE4', 'NCONT4', 'WRITER4');
+INSERT INTO notice VALUES(notice_seq.NEXTVAL, 'NTITLE5', 'NCONT5', 'WRITER5');
 
+<<<<<<< HEAD
 --상품 DB 
 --CREATE SEQUENCE prod_seq; -- 시퀀스
 --
@@ -99,6 +114,18 @@ drop  SEQUENCE member_seq;
 --	pstock  NUMBER NOT NULL            -- 재고량
 --	pimage  VARCHAR(50)                -- 이미지 테이블(CLOB || VARCHAR)
 --);--이미지 경로, 사이즈(미정) 넣을 칼럼 추가 
+=======
+SELECT ROW_NUMBER() OVER (ORDER BY nidx DESC) FROM notice ORDER BY ROW_NUMBER() OVER (ORDER BY nidx DESC) DESC;
+SELECT ROWNUM, nidx, ntitle, ncont, writer FROM (SELECT * FROM notice ORDER BY nidx DESC) ORDER BY ROWNUM DESC;
+
+SELECT ROW_NUMBER() OVER (ORDER BY nidx DESC) AS ROWNUM FROM notice ORDER BY ROWNUM DESC;
+
+-- 상품 DB 테이블
+CREATE SEQUENCE prod_seq;
+--DROP SEQUENCE prod_seq;
+
+SELECT * FROM PRODUCT;
+>>>>>>> refs/remotes/origin/jh
 --DESC PRODUCT;
 --SELECT * FROM PRODUCT;
 --DROP TABLE PRODUCT;
