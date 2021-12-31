@@ -19,18 +19,17 @@ CREATE TABLE member (
 	memail  VARCHAR(50) UNIQUE NOT NULL,
 	mrole   VARCHAR(20) DEFAULT 'MEMBER'
 );
---SQL문
---관리자 초기 데이터 입력을 위한 INSERT문
+-- SQL문
+-- 관리자 초기 데이터 입력을 위한 INSERT문
 INSERT INTO MEMBER VALUES('EMP'||LPAD(member_seq.NEXTVAL, 3, 0), 'ID 1', '1234', 
 	'NAME1', 'GENDER', 'BIRTH', '우편번호 입력', '도로명 입력', '상세주소 입력', 'etc', '01011111111', 
 	'이메일2', 'ADMIN');
---회원 INSERT문
+-- 회원 INSERT문
 INSERT INTO MEMBER(mno, mid, mpw, mname, mgender, mbirth, maddr_zipcode, maddr_street, 
 	maddr_detail, maddr_etc, mtel, memail) VALUES('MEM'||LPAD(member_seq.NEXTVAL, 3, 0),
 	'ID 2', '1234', 'NAME2', 'GENDER', 'BIRTH', '우편번호 입력', '도로명 입력', '상세주소 입력', 
 	'etc', '01022222222', '이메일2');
 
-	
 	
 -- 공지사항 테이블 
 CREATE SEQUENCE notice_seq; 
@@ -45,18 +44,52 @@ CREATE TABLE notice (
 	writer  VARCHAR(20) UNIQUE NOT NULL
 );
 
-INSERT INTO notice VALUES(notice_seq.NEXTVAL, 'NTITLE1', 'NCONT1', 'WRITER1');
-INSERT INTO notice VALUES(notice_seq.NEXTVAL, 'NTITLE2', 'NCONT2', 'WRITER2');
-INSERT INTO notice VALUES(notice_seq.NEXTVAL, 'NTITLE3', 'NCONT3', 'WRITER3');
-INSERT INTO notice VALUES(notice_seq.NEXTVAL, 'NTITLE4', 'NCONT4', 'WRITER4');
-INSERT INTO notice VALUES(notice_seq.NEXTVAL, 'NTITLE5', 'NCONT5', 'WRITER5');
-
-SELECT ROW_NUMBER() OVER (ORDER BY nidx DESC) FROM notice ORDER BY ROW_NUMBER() OVER (ORDER BY nidx DESC) DESC;
-SELECT ROWNUM, nidx, ntitle, ncont, writer FROM (SELECT * FROM notice ORDER BY nidx DESC) ORDER BY ROWNUM DESC;
-
-SELECT ROW_NUMBER() OVER (ORDER BY nidx DESC) AS ROWNUM FROM notice ORDER BY ROWNUM DESC;
 
 -- 상품 DB 테이블
+CREATE SEQUENCE PROD_SEQ;
+-- DROP SEQUENCE PROD_SEQ;
+
+CREATE TABLE PROD (
+	pno VARCHAR(20) PRIMARY KEY,
+	pimg_src VARCHAR(2000),
+	pbrand VARCHAR(1000),
+	pname VARCHAR(1000),
+	pprice NUMBER(10),
+	pdiscount VARCHAR(10),
+	pdetail VARCHAR(2000),
+	psales NUMBER(10) DEFAULT 0, -- 판매량
+	pstock NUMBER(10) DEFAULT 0  -- 재고량
+);
+-- DROP TABLE PROD;
+
+-- DAO에 넣을 INSERT SQL문
+INSERT INTO PROD(pno, pimg_src, pbrand, pname, pprice, pdiscount, psales, pstock) 
+VALUES(LPAD(PROD_SEQ.NEXTVAL,3,0), ?, ?, ?, ?, ?, ROUND(DBMS_RANDOM.VALUE()*200)+1, 
+ROUND(DBMS_RANDOM.VALUE()*200)+1);
+-- 예제
+INSERT INTO PROD(pno, pimg_src, pbrand, pname, pprice, pdiscount, psales, pstock) 
+VALUES(LPAD(PROD_SEQ.NEXTVAL, 3, 0), '이미지 경로.jpg', '4', '4', 4, '4', 
+ROUND(DBMS_RANDOM.VALUE()*200)+1, ROUND(DBMS_RANDOM.VALUE()*200)+1);
+
+SELECT * FROM PROD;
+
+SELECT ROUND(DBMS_RANDOM.VALUE()*200)+1 AS RANDOM FROM DUAL; 
+        
+-- 고객문의 테이블 
+CREATE SEQUENCE contact_seq; 
+-- DROP SEQUENCE contact_seq; 
+
+-- DROP TABLE contact;
+CREATE TABLE contact (
+	msgno    NUMBER(5) PRIMARY KEY,
+	msgname  VARCHAR(20) NOT NULL,
+	msgemail VARCHAR(50) NOT NULL,
+	msgtext  VARCHAR(2000) NOT NULL
+);
+
+
+/*
+ * (구)상품테이블 
 CREATE SEQUENCE prod_seq;
 --DROP SEQUENCE prod_seq;
 
@@ -78,17 +111,5 @@ CREATE TABLE product(
 	pstock  NUMBER NOT NULL            -- 재고량
 	pimage  VARCHAR(200)               -- 이미지 테이블(CLOB || VARCHAR)
 );--이미지 경로, 사이즈(미정) 넣을 칼럼 추가 
+*/
 
-
-        
--- 고객문의 테이블 
-CREATE SEQUENCE contact_seq; 
---DROP SEQUENCE contact_seq; 
-
---DROP TABLE contact;
-CREATE TABLE contact (
-	msgno    NUMBER(5) PRIMARY KEY,
-	msgname  VARCHAR(20) NOT NULL,
-	msgemail VARCHAR(50) NOT NULL,
-	msgtext  VARCHAR(2000) NOT NULL
-);
