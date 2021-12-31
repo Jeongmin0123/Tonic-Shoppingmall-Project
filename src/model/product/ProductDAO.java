@@ -35,7 +35,7 @@ public class ProductDAO {
 			"DECODE(ROUND(DBMS_RANDOM.VALUE(1, 7)),1,'2022년 4월',2,'2022년 9월',3,'2022년 12월',4,'2023년 5월',5,'2023년 7월',6,'2023년 11월',7,'이미 썩었음'),\r\n" + 
 			"ROUND(DBMS_RANDOM.VALUE(1, 200)), ROUND(DBMS_RANDOM.VALUE(1, 200)))";
 	private	String sql_updateP = "UPDATE product SET product WHERE pno = ?"; // 수정 중, 우선 이미지는 수정X
-	private	String sql_selectAll = "SELECT * FROM product ORDER BY pno";
+	private	String sql_selectAll = "SELECT * FROM product ORDER BY pno DESC";
 	private	String sql_selectOne = "SELECT * FROM product WHERE pno = ?";
 	private	String sql_deleteP = "DELETE FROM product WHERE pno = ?";
 
@@ -45,7 +45,6 @@ public class ProductDAO {
 
 	// 상품등록(아직 수정 중입니다)
 	public boolean insertProduct(HttpServletRequest request) throws IOException { 
-		ProductVO product = new ProductVO();
 		int result = 0;
 		
 		// String uploadURL = "절대경로";, 각 컴퓨터마다 경로가 다르기 때문에 수정해야 합니다.
@@ -91,24 +90,23 @@ public class ProductDAO {
 		
 		con = JDBCUtil.connect();
 		try {
-			pstmt = con.prepareStatement(sql_selectAll);
+			pstmt = con.prepareStatement(sql_selectAll); // 수정
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				ProductVO product = new ProductVO();
-				/*
-				product.setPcode(rs.getInt("pcode"));
-				product.setPclass(rs.getString("pclass"));
+				product.setPno(rs.getString("pcode"));
+				product.setPcode(rs.getString("pcode"));
+				product.setPimg_src(rs.getString("pimg_src"));
+				product.setPbrand(rs.getString("pbrand"));
 				product.setPname(rs.getString("pname"));
 				product.setPprice(rs.getInt("pprice"));
+				product.setPdiscount(rs.getString("pdiscount"));
 				product.setPdetail(rs.getString("pdetail"));
-				product.setPperiod(rs.getString("pperiod"));
-				product.setPdate(rs.getString("pdate"));
 				product.setPorigin(rs.getString("porigin"));
-				product.setPmanuf(rs.getString("pmanuf"));
+				product.setPperiod(rs.getString("pperiod"));
 				product.setPsales(rs.getInt("psales"));
 				product.setPstock(rs.getInt("pstock"));
-				product.setPimage(rs.getString("pimage"));
-				*/
+				
 				plist.add(product);
 			}
 		} catch(Exception e) {
@@ -122,29 +120,25 @@ public class ProductDAO {
 	
 	// 상품 본문조회
 	public ProductVO selectOne(ProductVO vo) {
-		ProductVO product = null;
+		ProductVO product = new ProductVO();
 		con = JDBCUtil.connect();
-		
 		try {
 			pstmt = con.prepareStatement(sql_selectOne);
 			pstmt.setString(1, vo.getPno());
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				/*
-				product = new ProductVO();
-				product.setPcode(rs.getInt("pcode"));
-				product.setPclass(rs.getString("pclass"));
+				product.setPno(rs.getString("pcode"));
+				product.setPcode(rs.getString("pcode"));
+				product.setPimg_src(rs.getString("pimg_src"));
+				product.setPbrand(rs.getString("pbrand"));
 				product.setPname(rs.getString("pname"));
 				product.setPprice(rs.getInt("pprice"));
+				product.setPdiscount(rs.getString("pdiscount"));
 				product.setPdetail(rs.getString("pdetail"));
-				product.setPperiod(rs.getString("pperiod"));
-				product.setPdate(rs.getString("pdate"));
 				product.setPorigin(rs.getString("porigin"));
-				product.setPmanuf(rs.getString("pmanuf"));
+				product.setPperiod(rs.getString("pperiod"));
 				product.setPsales(rs.getInt("psales"));
 				product.setPstock(rs.getInt("pstock"));
-				product.setPimage(rs.getString("pimage"));
-				*/
 			}
 		} catch(Exception e) {
 			System.out.println("MemberDAO selectOne() : "+ e +" 에러");

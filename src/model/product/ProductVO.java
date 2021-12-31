@@ -17,6 +17,7 @@ CREATE TABLE PROD (
 */
 public class ProductVO {
 	private String pno;
+	private String pcode;
 	private String pimg_src;
 	private String pbrand;
 	private String pname;
@@ -34,6 +35,12 @@ public class ProductVO {
 	public void setPno(String pno) {
 		this.pno = pno;
 	}
+	public String getPcode() {
+		return pcode;
+	}
+	public void setPcode(String pcode) {
+		this.pcode = pcode;
+	}
 	public String getPimg_src() {
 		return pimg_src;
 	}
@@ -49,7 +56,7 @@ public class ProductVO {
 	public String getPname() {
 		return pname;
 	}
-	public void setPnamee(String pname) {
+	public void setPname(String pname) {
 		this.pname = pname;
 	}
 	public int getPprice() {
