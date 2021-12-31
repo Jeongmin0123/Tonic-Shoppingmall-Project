@@ -38,7 +38,7 @@
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
-            <a href="#"><img src="img/logo.png" alt=""></a>
+            <a href="main.do"><img src="img/logo.png" alt=""></a>
         </div>
         <div class="humberger__menu__widget">
             <div class="header__top__right__language">
@@ -51,24 +51,27 @@
                 </ul> -->
             </div>
             <div class="header__top__right__auth">
+                <!-- <a href="login.do"><i class="fa fa-user"></i> Login</a> -->
                 <mytag:login/>
             </div>
         </div>
-        <nav class="humberger__menu__nav mobile-menu">
+         <nav class="humberger__menu__nav mobile-menu">
             <ul>
                 <li class="active"><a href="intro.jsp">Intro</a></li>
-                <li><a href="./shop-grid.html">Shop</a></li>
+                <li><a href="shop_grid.do">Shop</a></li>
                 <li><a href="#">Pages</a>
                     <ul class="header__menu__dropdown">
-                        <li><a href="./shop-grid.html">전체상품</a></li> 
-                        <li><a href="./shop-grid.html">종합비타민</a></li>
-                        <li><a href="./shop-grid.html">유산균</a></li>
-                        <li><a href="./shop-grid.html">눈건강</a></li>
-                        
+                        <li><a href="shop_grid.do">전체상품</a></li> 
+                        <li><a href="shop_grid.do">종합비타민</a></li>
+                        <li><a href="shop_grid.do">유산균</a></li>
+                        <li><a href="shop_grid.do">눈건강</a></li>                        
                     </ul>
                 </li>
-                <li><a href="./blog.html">Blog</a></li>
-                <li><a href="./contact.html">Contact</a></li>
+                <li><a href="notice.not">공지사항</a></li>
+                <li><a href="contact.con">고객센터</a></li>
+                <c:if test="${mrole == 'ADMIN'}">
+                    <li><a href="manage.man">상품관리</a></li>
+                 </c:if>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
@@ -147,7 +150,7 @@
                             <li><a href="notice.not">공지사항</a></li>
                             <li><a href="contact.con">고객센터</a></li>
                             <c:if test="${mid == 'admin'}">
-			              		<li><a href="register.jsp">상품등록</a></li>
+			              		<li><a href="manage.man">상품관리</a></li>
 			              	</c:if>
                         </ul>
                     </nav>
@@ -229,7 +232,7 @@
     <!-- 본문 시작 -->
 	<div class="bodytext_area box_inner">
     <!-- 상품등록폼 시작 -->
-    <form action="#" class="appForm" method="post">
+    <form action="#" class="appForm" method="post" enctype="multipart/form-data">
         <fieldset>
             <!-- 안보이지만 접근성을 위해 넣는다. -->
             <legend>상품등록 양식</legend>
@@ -241,7 +244,7 @@
                         상품사진
                     </label>
                     <div class="app_content ">
-                        <input type="file" class="w100p" id="name_lbl" name="">
+                        <input type="file" class="w100p" id="name_lbl" name="" accept=".jpg,.png">
                     </div>
                 </li>
                 
@@ -333,14 +336,9 @@
                 <li class="clear">
                     <span class="tit_lbl">분류</span>
                     <div class="app_content radio_area">
-                        <input type="radio" class="css-radio" id="mmm_lbl" name="type" value="종합비타민"> 
-                        <label for="mmm_lbl">종합비타민</label>
-
-                        <input type="radio" class="css-radio" id="www_lbl" name="type" value="유산균"> 
-                        <label for="www_lbl">유산균</label>
-                        <!-- 오류 미해결 -->
-                        <input type="radio" class="css-radio" id="www_lbl" name="type" value="눈건강"> 
-                        <label for="www_lbl">눈건강</label>
+                    	<input type="radio" name="type" value="종합비타민">종합비타민
+                    	<input type="radio" name="type" value="유산균">유산균
+                    	<input type="radio" name="type" value="눈건강">눈건강
                     </div>
                 </li>
 

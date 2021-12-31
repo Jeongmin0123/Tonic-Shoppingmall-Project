@@ -69,16 +69,16 @@
                 <li><a href="notice.not">공지사항</a></li>
                 <li><a href="contact.con">고객센터</a></li>
                 <c:if test="${mrole == 'ADMIN'}">
-                     <li><a href="register.jsp">상품등록</a></li>
+                     <li><a href="manage.man">상품관리</a></li>
                   </c:if>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
         <div class="header__top__right__social">
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-linkedin"></i></a>
-            <a href="#"><i class="fa fa-pinterest-p"></i></a>
+            <a><i class="fa fa-facebook"></i></a>
+            <a><i class="fa fa-twitter"></i></a>
+            <a><i class="fa fa-linkedin"></i></a>
+            <a><i class="fa fa-pinterest-p"></i></a>
         </div>
         <div class="humberger__menu__contact">
             <ul>
@@ -151,7 +151,7 @@
                             <li><a href="notice.not">공지사항</a></li>
                             <li><a href="contact.con">고객센터</a></li>
                               <c:if test="${mrole == 'ADMIN'}">
-                                    <li><a href="register.jsp">상품등록</a></li>
+                                    <li><a href="manage.man">상품관리</a></li>
                                  </c:if>
                         </ul>
                     </nav>

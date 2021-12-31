@@ -34,17 +34,10 @@
     </div>
 
    <!--  Humberger Begin -->
-    <div class="humberger__menu__overlay"></div>
+     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
             <a href="#"><img src="img/logo.png" alt=""></a>
-        </div>
-        <div class="humberger__menu__cart">
-            <ul>
-                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-            </ul>
-            <div class="header__cart__price">item: <span>$150.00</span></div>
         </div>
         <div class="humberger__menu__widget">
             <div class="header__top__right__language">
@@ -57,27 +50,27 @@
                 </ul> -->
             </div>
             <div class="header__top__right__auth">
-                <!-- <a href="login.do"><i class="fa fa-user"></i> Login</a> -->
+                <!-- <a href="login.jsp"><i class="fa fa-user"></i> Login</a> -->
                 <mytag:login/>
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
                 <li class="active"><a href="intro.jsp">Intro</a></li>
-                <li><a href="./shop-grid.html">Shop</a></li>
+                <li><a href="shop_grid.do">Shop</a></li>
                 <li><a href="#">Pages</a>
                     <ul class="header__menu__dropdown">
                         <li><a href="shop_grid.do">전체상품</a></li> 
                         <li><a href="shop_grid.do">종합비타민</a></li>
                         <li><a href="shop_grid.do">유산균</a></li>
-                        <li><a href="shop_grid.do">눈건강</a></li>   
+                        <li><a href="shop_grid.do">눈건강</a></li>                        
                     </ul>
                 </li>
                 <li><a href="notice.not">공지사항</a></li>
                 <li><a href="contact.con">고객센터</a></li>
                 <c:if test="${mrole == 'ADMIN'}">
-              		<li><a href="register.jsp">상품등록</a></li>
-              	</c:if>
+                	<li><a href="manage.man">상품관리</a></li>
+                </c:if>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
@@ -158,7 +151,7 @@
                             <li><a href="notice.not">공지사항</a></li>
                             <li><a href="contact.con">고객센터</a></li>
                             <c:if test="${mrole == 'ADMIN'}">
-			              		<li><a href="register.jsp">상품등록</a></li>
+			              		<li><a href="manage.man">상품관리</a></li>
 			              	</c:if>
                         </ul>
                     </nav>
