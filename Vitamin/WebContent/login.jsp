@@ -58,6 +58,7 @@
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
                 <li class="active"><a href="./index.html">Home</a></li>
+                <li><a href="intro.jsp">Intro</a></li>
                 <li><a href="shop-grid.do">Shop</a></li>
                 <li><a href="#">Pages</a>
                     <ul class="header__menu__dropdown">
@@ -134,6 +135,7 @@
                     <nav class="header__menu">
                         <ul>
                             <li class="active"><a href="main.do">Home</a></li>
+                            <li><a href="intro.jsp">Intro</a></li>
                             <li><a href="#">Shop</a>
                                 <ul class="header__menu__dropdown">
                                     <li><a href="shop-grid.do">전체상품</a></li> 

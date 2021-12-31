@@ -234,124 +234,166 @@
 
     <!-- 본문   -->
     <!-- 본문 시작 -->
-    <div class="bodytext_area box_inner">
-        <!-- 회원가입폼 시작 -->
-        <form action="member_insert.mem" class="appForm" method="post" name="newForm">
-            <fieldset>
-                <!-- 안보이지만 접근성을 위해 넣는다. -->
-                <legend>회원가입 입력 양식</legend>
-                <p class="info_pilsoo pilsoo_item">필수입력</p>
-                <ul class="app_list">
-                
-					<!-- 아이디 -->
-                    <li class="clear">
-                        <label for="id_lbl" class="tit_lbl pilsoo_item">
-                            아이디
-                        </label>
-                        <div class="app_content ">
-                            <input type="text" class="w40p input_id" id="id_lbl" name="mid" placeholder="아이디를 입력하세요" required>
-	                        <input type="button" id="btnEmpnoCheck" value="중복체크" />
-   							<p id="notice"></p>
+    <!-- Product Details Section Begin -->
+    <section class="product-details spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="product__details__pic">
+                        <div class="product__details__pic__item">
+                            <img class="product__details__pic__item--large"
+                                src="img/intro/1.jpg" alt="">
                         </div>
-                    </li>
-                    
-                    <!-- 비밀번호 -->
-                    <li class="clear">
-                        <label for="pwd_lbl" class="tit_lbl pilsoo_item">
-                            비밀번호
-                        </label>
-                        <div class="app_content ">
-                            <input type="password" name="mpw" class="w40p pw" id="pwd_lbl" placeholder="비밀번호를 입력하세요" required>
-	                        <input type="button" value="비밀번호 표시" name="passwordsee" onclick="change()">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="product__details__text">
+                        <h3>장정민</h3>
+                        <div class="product__details__price">역할&nbsp;:&nbsp;Controller</div>
+                        <div class="product__details__price">나이&nbsp;:&nbsp;25세</div>
+                        <div class="product__details__price">성격&nbsp;:&nbsp;따뜻함</div>
+                        
+                        <p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ac diam sit amet quam
+                            vehicula elementum sed sit amet dui. Sed porttitor lectus nibh. Vestibulum ac diam sit amet
+                            quam vehicula elementum sed sit amet dui. Proin eget tortor risus.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="product__details__pic">
+                        <div class="product__details__pic__item">
+                            <img class="product__details__pic__item--large"
+                                src="img/intro/2.jpg" alt="">
                         </div>
-                    </li>
-                    
-                    <!-- 비밀번호 확인 -->
-                    <li class="clear">
-                        <label for="pwd2_lbl" class="tit_lbl pilsoo_item">
-                            비밀번호 확인
-                        </label>
-                        <div class="app_content ">
-                            <input type="password" name="mpw2" class="w40p pw" id="pwd2_lbl" placeholder="비밀번호 확인을 입력하세요" required>
-                            <span class="alert alert-success w20p" id="alert-success" align="center">비밀번호 일치</span>
-                            <span class="alert alert-danger w20p" id="alert-danger" align="center">비밀번호 불일치</span>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="product__details__text">
+                        <h3>김정문</h3>
+                        <div class="product__details__price">역할&nbsp;:&nbsp;View</div>
+                        <div class="product__details__price">나이&nbsp;:&nbsp;26세</div>
+                        <div class="product__details__price">성격&nbsp;:&nbsp;따뜻함</div>
+                        
+                        <p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ac diam sit amet quam
+                            vehicula elementum sed sit amet dui. Sed porttitor lectus nibh. Vestibulum ac diam sit amet
+                            quam vehicula elementum sed sit amet dui. Proin eget tortor risus.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="product__details__pic">
+                        <div class="product__details__pic__item">
+                            <img class="product__details__pic__item--large"
+                                src="img/intro/3.jpg" alt="">
                         </div>
-                    </li>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="product__details__text">
+                        <h3>김종혁</h3>
+                        <div class="product__details__price">역할&nbsp;:&nbsp;Model</div>
+                        <div class="product__details__price">나이&nbsp;:&nbsp;27세</div>
+                        <div class="product__details__price">성격&nbsp;:&nbsp;따뜻함</div>
+                        
+                        <p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ac diam sit amet quam
+                            vehicula elementum sed sit amet dui. Sed porttitor lectus nibh. Vestibulum ac diam sit amet
+                            quam vehicula elementum sed sit amet dui. Proin eget tortor risus.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="product__details__pic">
+                        <div class="product__details__pic__item">
+                            <img class="product__details__pic__item--large"
+                                src="img/intro/4.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="product__details__text">
+                        <h3>이상헌</h3>
+                        <div class="product__details__price">역할&nbsp;:&nbsp;View</div>
+                        <div class="product__details__price">나이&nbsp;:&nbsp;27세</div>
+                        <div class="product__details__price">성격&nbsp;:&nbsp;따뜻함</div>
+                        
+                        <p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ac diam sit amet quam
+                            vehicula elementum sed sit amet dui. Sed porttitor lectus nibh. Vestibulum ac diam sit amet
+                            quam vehicula elementum sed sit amet dui. Proin eget tortor risus.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Product Details Section End -->
 
-                    
-                    <!-- 이름 -->
-                    <li class="clear">
-                        <label for="name_lbl" class="tit_lbl pilsoo_item">
-                            이름
-                        </label>
-                        <div class="app_content ">
-                            <input type="text" class="w40p" id="name_lbl" placeholder="이름을 입력하세요" name="mname" required>
+    <!-- Footer Section Begin -->
+    <footer class="footer spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer__about">
+                        <div class="footer__about__logo">
+                            <a href="main.do"><img src="img/logo.png" alt=""></a>
                         </div>
-                    </li>
-                    <!-- 성별 -->
-                    <li class="clear">
-                        <span class="tit_lbl">성별</span>
-                        <div class="app_content radio_area">
-                            <input type="radio" class="css-radio" id="mmm_lbl" name="mgender" value="남자">
-                            <label for="mmm_lbl">남</label>
-                            <input type="radio" class="css-radio" id="www_lbl" name="mgender" value="여자">
-                            <label for="www_lbl">여</label>
+                        <ul>
+                            <li>Address: 60-49 Road 11378 New York</li>
+                            <li>Tel: +65 11.188.888</li>
+                            <li>Email: hello@colorlib.com</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
+                    <div class="footer__widget">
+                        <br>
+                        <h4>판매자 정보</h4> <br>
+                        <ul>
+                            <li>
+                                <bold>회사명 : </bold>&nbsp;&nbsp;World 3lass <br>
+                                <bold>판매자 : </bold>&nbsp;&nbsp;이상헌 <br>
+                                <bold>phone : </bold>&nbsp;&nbsp;010-1234-1234 <br>
+                                <bold>사업자번호 : </bold>&nbsp;&nbsp;123-45-67
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="footer__widget">
+                        <h6>Join Our Homepage</h6>
+                        <p>Ask any questions!! <br> <a href="contact.jsp">고객문의</a></p>
+                        <div class="footer__widget__social">
+                            <a href="https://twitter.com/?lang=ko"><i class="fa fa-facebook"></i></a>
+                            <a href="https://www.instagram.com"><i class="fa fa-instagram"></i></a>
+                            <a href="https://twitter.com/?lang=ko"><i class="fa fa-twitter"></i></a>
+                            <a href="https://www.pinterest.co.kr/"><i class="fa fa-pinterest"></i></a>
                         </div>
-                    </li>
-                    <!-- 생년월일 -->
-                    <li class="clear">
-                        <label for="name_lbl" class="tit_lbl pilsoo_item">
-                            생년월일
-                        </label>
-                        <div class="app_content ">
-                            <input type="text" class="w40p" id="name_lbl" placeholder="생년월일을 입력하세요 ex)211225" name="mbirth" required>
-                        </div>
-                    </li>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="footer__copyright">
+                        <div class="footer__copyright__text">
+                            <p>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                Copyright &copy;<script>
+                                    document.write(new Date().getFullYear());
 
-                    <!-- 주소 -->
-                    <li class="clear">
-                        <label for="addr_lbl" class="tit_lbl pilsoo_item addr"> 주소 </label>
-
-                        <div class="app_content ">
-                            <input type="text" name="maddr_zipcode" class="postcodify_postcode5 w40p" id="name_lbl" placeholder="우편번호" required/>
-                            <input type="button" id="postcodify_search_button" value="검색"/>
-                            <input type="text" name=maddr_street class="postcodify_address w70p" id="name_lbl" placeholder="도로명 주소" /><br>
-                            <input type="text" name="maddr_detail" class="postcodify_details w70p" id="name_lbl" placeholder="상세 주소" required/><br>
-                            <input type="text" name="maddr_etc" class="postcodify_extra_info w70p" id="name_lbl" placeholder="참고항목" /><br>
-                            <!-- <input type="text" class="w100p" id="name_lbl" placeholder="주소을 입력하세요"> -->
+                                </script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            </p>
                         </div>
-                    </li>
-
-                    <!-- 연락처 -->
-                    <li class="clear">
-                        <label for="phone_lbl" class="tit_lbl pilsoo_item">
-                            연락처
-                        </label>
-                        <div class="app_content ">
-                            <input type="tel" class="w40p" id="phone_lbl" placeholder="휴대폰 '-' 없이 숫자만 입력하세요" name="mtel" required>
-                        </div>
-                    </li>
-                    <!-- 이메일 -->
-                    <li class="clear">
-                        <label for="email_lbl" class="tit_lbl pilsoo_item">
-                            이메일
-                        </label>
-                        <div class="app_content email_area">
-                            <input type="text" class="w40p" id="email_lbl" placeholder="이메일을 입력하세요" name="memail" required>
-                        </div>
-                    </li>
-                    
-                </ul>
-                <p class="app_content" align="center">
-                	<input type="submit" class="btn_basecolor" value="회원가입">
-                </p>
-            </fieldset>
-        </form>
-        <!-- 회원가입폼  -->
-    </div>
-
-	<!-- Footer Section Begin -->
-	<jsp:include page="/footer.jsp"/>
+                        <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->
@@ -410,28 +452,33 @@
 	}
 
 	</script>
-	
+
+	<script src = "js/jquery-3.6.0.min.js"></script>
 	<script>
-	   $(document).ready(function (){   
-		   $("#btnEmpnoCheck").on("click", function(event) {
-		   var params = $("form").serialize(); 
-		   		$.ajax({
-		   			url:"isExistId.mem"
-		   			,dataType:"json"
-		   			,type:"get"
-		   			,data:params
-		   			,cache:false
-		   			,success:function(data){
-		   				if(data==1){
-		   					$("#notice").css("color","blue").text("사용 가능한 ID입니다.");
-		   				}else{
-		   					$("#notice").css("color","red").text("이미 사용 중인 ID입니다.");
-		   				}
-		   			}
-		   		});
-		   });
-	   });
+		$('.input_id').focusout(function(){
+			let userId.$('.input_id').val();
+			
+			$.ajax({
+				url : "IdCheckService",
+				type : "post",
+				data : {userId: userId},
+				dataType : 'json',
+				success : function(result){
+					if(result == 0){
+						$('#checkId').html('사용할 수 없는 아이디입니다.');
+						$('#checkId').attr('color','red');
+					} else{
+						$('#checkId').html('사용할 수 있는 아이디입니다.');
+						$('#checkId').attr('color','green');
+					}
+				},
+				error : function(){
+					alert("서버요청실패");
+				}
+			})
+		})
 	</script>
+
 
 </body>
 
