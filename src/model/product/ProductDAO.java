@@ -55,11 +55,10 @@ public class ProductDAO {
 		
 		con = JDBCUtil.connect();
 		try {
-			
 			pstmt = con.prepareStatement(sql_insertP);
 			pstmt.setString(1, multi.getParameter("pcode"));
 			if(multi.getFilesystemName("pimg_src") != null) 
-				pstmt.setString(2, multi.getFilesystemName("pimg_src"));
+				{ pstmt.setString(2, multi.getFilesystemName("pimg_src")); }
 			pstmt.setString(3, multi.getParameter("pbrand"));
 			pstmt.setString(4, multi.getParameter("pname"));
 			pstmt.setString(5, multi.getParameter("pprice"));
