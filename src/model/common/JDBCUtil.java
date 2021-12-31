@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class JDBCUtil {
 	static String driver = "oracle.jdbc.driver.OracleDriver";
 	static String url = "jdbc:oracle:thin:@localhost:1521:xe";
-	static String user = "user"; // 제 컴퓨터 ID는 user입니다.
+	static String user = "hr"; // 제 컴퓨터 ID는 user입니다.
 	static String password = "1234";
 	
 	public static Connection connect() {

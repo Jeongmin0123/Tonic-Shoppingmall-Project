@@ -80,6 +80,12 @@ public class NoticeFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		} else if(command.equals("/notice_search.not")) { // 공지사항 검색창에 단어를 입력한 후 검색을 클릭하면 그에 따른 결과들을 가지고 notice.jsp 로 이동
+			try {
+				forward= new NoticeSearchAction().execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		} 
 		
 		if(forward!=null) { 
