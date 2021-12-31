@@ -56,8 +56,7 @@
         </div>
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
-                <li class="active"><a href="main.do">Home</a></li>
-                <li><a href="intro.jsp">Intro</a></li>
+                <li class="active"><a href="intro.jsp">Intro</a></li>
                 <li><a href="shop_grid.do">Shop</a></li>
                 <li><a href="#">Pages</a>
                     <ul class="header__menu__dropdown">
@@ -106,10 +105,10 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__right">
                             <div class="header__top__right__social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-linkedin"></i></a>
-                                <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                                <a><i class="fa fa-facebook"></i></a>
+                                <a><i class="fa fa-twitter"></i></a>
+                                <a><i class="fa fa-linkedin"></i></a>
+                                <a><i class="fa fa-pinterest-p"></i></a>
                             </div>
                             <div class="header__top__right__language">
                                 <img src="img/koera.png" alt="">
@@ -140,8 +139,7 @@
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
-                            <li class="active"><a href="main.do">Home</a></li>
-                            <li><a href="intro.jsp">Intro</a></li>
+                            <li class="active"><a href="intro.jsp">Intro</a></li>
                             <li><a href="#">Shop</a>
                                 <ul class="header__menu__dropdown">
                                     <li><a href="shop-grid.do">전체상품</a></li> 
