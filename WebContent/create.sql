@@ -47,33 +47,41 @@ CREATE TABLE notice (
 
 -- 상품 DB 테이블
 CREATE SEQUENCE PROD_SEQ;
--- DROP SEQUENCE PROD_SEQ;
+--DROP SEQUENCE PROD_SEQ;
 
-CREATE TABLE PROD (
-	pno VARCHAR(20) PRIMARY KEY,
-	pimg_src VARCHAR(2000),
-	pbrand VARCHAR(1000),
-	pname VARCHAR(1000),
-	pprice NUMBER(10),
-	pdiscount VARCHAR(10),
-	pdetail VARCHAR(2000),
+CREATE TABLE product(
+	pno VARCHAR(20) PRIMARY KEY, -- 상품번호 예) 001
+	pcode VARCHAR(20),           -- 상품분류 예) 종합비타민, 유산균, 루테인
+	pimg_src VARCHAR(2000),      -- 이미지 절대경로
+	pbrand VARCHAR(1000),        -- 브랜드
+	pname VARCHAR(1000),         -- 상품이름
+	pprice NUMBER(10),           -- (할인된)가격
+	pdiscount VARCHAR(10),       -- 할인율
+	pdetail VARCHAR(2000),       -- 세부사항
+	porigin VARCHAR(20),         -- 원산지
+	pperiod VARCHAR(20),         -- 유통기한
 	psales NUMBER(10) DEFAULT 0, -- 판매량
 	pstock NUMBER(10) DEFAULT 0  -- 재고량
 );
--- DROP TABLE PROD;
+-- DROP TABLE product;
 
 -- DAO에 넣을 INSERT SQL문
-INSERT INTO PROD(pno, pimg_src, pbrand, pname, pprice, pdiscount, psales, pstock) 
-VALUES(LPAD(PROD_SEQ.NEXTVAL,3,0), ?, ?, ?, ?, ?, ROUND(DBMS_RANDOM.VALUE()*200)+1, 
-ROUND(DBMS_RANDOM.VALUE()*200)+1);
+INSERT INTO product(pno, pcode, pimg_src, pbrand, pname, pprice, pdiscount, porigin, pperiod, psales, pstock) 
+VALUES(LPAD(PROD_SEQ.NEXTVAL, 3, 0), ?, ?, ?, ?, ?, ?,
+DECODE(ROUND(DBMS_RANDOM.VALUE(1, 7)),1, '국내산', 2, '중국산', 3, '미국산', 4, '대만산', 5, '일본산', 6, '독일산', 7, '파푸아뉴기니산'),
+DECODE(ROUND(DBMS_RANDOM.VALUE(1, 7)),1,'2022년 4월',2,'2022년 9월',3,'2022년 12월',4,'2023년 5월',5,'2023년 7월',6,'2023년 11월',7,'이미 썩었음'),
+ROUND(DBMS_RANDOM.VALUE(1, 200)), ROUND(DBMS_RANDOM.VALUE(1, 200)));
 -- 예제
-INSERT INTO PROD(pno, pimg_src, pbrand, pname, pprice, pdiscount, psales, pstock) 
-VALUES(LPAD(PROD_SEQ.NEXTVAL, 3, 0), '이미지 경로.jpg', '4', '4', 4, '4', 
-ROUND(DBMS_RANDOM.VALUE()*200)+1, ROUND(DBMS_RANDOM.VALUE()*200)+1);
+INSERT INTO product(pno, pcode, pimg_src, pbrand, pname, pprice, pdiscount, porigin, pperiod, psales, pstock) 
+VALUES(LPAD(PROD_SEQ.NEXTVAL, 3, 0), '종합비타민', '이미지 경로.jpg', '브랜드', '상품명', 5, '할인율',
+DECODE(ROUND(DBMS_RANDOM.VALUE(1, 7)),1,'국내산',2,'중국산',3,'미국산',4,'대만산',5,'일본산',6,'독일산',7,'파푸아뉴기니산'),
+DECODE(ROUND(DBMS_RANDOM.VALUE(1, 7)),1,'2022년 4월',2,'2022년 9월',3,'2022년 12월',4,'2023년 5월',5,'2023년 7월',6,'2023년 11월',7,'이미 썩었음'),
+ROUND(DBMS_RANDOM.VALUE(1, 200)), ROUND(DBMS_RANDOM.VALUE(1, 200)));
 
-SELECT * FROM PROD;
+SELECT * FROM product;
 
-SELECT ROUND(DBMS_RANDOM.VALUE()*200)+1 AS RANDOM FROM DUAL; 
+-- SELECT ROUND(DBMS_RANDOM.VALUE(1, 200)) AS RANDOM FROM DUAL; 
+-- SELECT ROUND(DBMS_RANDOM.VALUE()*200)+1 AS RANDOM FROM DUAL; 
         
 -- 고객문의 테이블 
 CREATE SEQUENCE contact_seq; 
@@ -113,3 +121,13 @@ CREATE TABLE product(
 );--이미지 경로, 사이즈(미정) 넣을 칼럼 추가 
 */
 
+
+-- 원산지 랜덤 텍스트 DECODE()
+SELECT DECODE(ROUND(DBMS_RANDOM.VALUE(1, 5)), 1, '국내산', 2, '중국산', 3, '미국산', 4, '백두산', 5, '일본산') FROM DUAL;
+-- 유통기한 랜덤 DECODE() 
+SELECT DECODE(ROUND(DBMS_RANDOM.VALUE(1, 7)), 1, '2022년 4월', 2, '2022년 9월', 3, '2022년 12월', 4, '2023년 5월', 5, '2023년 7월', 6, '2023년 11월', 7, '이미 썩었음') FROM DUAL;
+-- 날짜 월, 일, 연도 랜덤 조합
+SELECT TO_DATE(ROUND(DBMS_RANDOM.VALUE(1, 25)) || '-' || ROUND(DBMS_RANDOM.VALUE(1, 12)) 
+|| '-' || ROUND(DBMS_RANDOM.VALUE(2022, 2025)), 'DD-MM-YYYY') FROM DUAL;
+SELECT TO_DATE(ROUND(DBMS_RANDOM.VALUE(1, 25)) || '-' || ROUND(DBMS_RANDOM.VALUE(1, 12))
+|| '-' || ROUND(DBMS_RANDOM.VALUE(2022, 2025)), 'DD-MM-YYYY') FROM DUAL;
