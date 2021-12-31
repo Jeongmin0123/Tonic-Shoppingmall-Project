@@ -34,7 +34,7 @@ public class ProductDAO {
 			"DECODE(ROUND(DBMS_RANDOM.VALUE(1, 7)),1, '국내산', 2, '중국산', 3, '미국산', 4, '대만산', 5, '일본산', 6, '독일산', 7, '파푸아뉴기니산'),\r\n" + 
 			"DECODE(ROUND(DBMS_RANDOM.VALUE(1, 7)),1,'2022년 4월',2,'2022년 9월',3,'2022년 12월',4,'2023년 5월',5,'2023년 7월',6,'2023년 11월',7,'이미 썩었음'),\r\n" + 
 			"ROUND(DBMS_RANDOM.VALUE(1, 200)), ROUND(DBMS_RANDOM.VALUE(1, 200)))";
-	private	String sql_updateP = "UPDATE product SET product WHERE pno = ?"; // 수정 중, 우선 이미지는 수정X
+//	private	String sql_updateP = "UPDATE product SET pname=?, pprice=?,  WHERE pno=?"; // 수정 중, 우선 이미지는 수정X
 	private	String sql_selectAll = "SELECT * FROM product ORDER BY pno DESC";
 	private	String sql_selectOne = "SELECT * FROM product WHERE pno = ?";
 	private	String sql_deleteP = "DELETE FROM product WHERE pno = ?";
