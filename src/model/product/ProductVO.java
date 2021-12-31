@@ -1,36 +1,41 @@
 package model.product;
-
+/*
+CREATE SEQUENCE PROD_SEQ;
+CREATE TABLE PROD (
+	item_brand VARCHAR(50),
+	item_name VARCHAR(50),
+	item_price NUMBER(10),
+	item_discount VARCHAR(10),
+	item_img VARCHAR(500)
+);
+*/
 public class ProductVO {
-	private int pcode;
-	private String pclass;
-	private String pname;
+	private String pimg_src;
+	private String pbrand;
+	private String pnamee;
 	private int pprice;
+	private String pdiscount;
 	private String pdetail;
-	private String pperiod;
-	private String pdate;
-	private String porigin;
-	private String pmanuf;
 	private int psales;
 	private int pstock;
-	private String pimage;
 	
-	public int getPcode() {
-		return pcode;
+	public String getPimg_src() {
+		return pimg_src;
 	}
-	public void setPcode(int pcode) {
-		this.pcode = pcode;
+	public void setPimg_src(String pimg_src) {
+		this.pimg_src = pimg_src;
 	}
-	public String getPclass() {
-		return pclass;
+	public String getPbrand() {
+		return pbrand;
 	}
-	public void setPclass(String pclass) {
-		this.pclass = pclass;
+	public void setPbrand(String pbrand) {
+		this.pbrand = pbrand;
 	}
-	public String getPname() {
-		return pname;
+	public String getPnamee() {
+		return pnamee;
 	}
-	public void setPname(String pname) {
-		this.pname = pname;
+	public void setPnamee(String pnamee) {
+		this.pnamee = pnamee;
 	}
 	public int getPprice() {
 		return pprice;
@@ -38,35 +43,17 @@ public class ProductVO {
 	public void setPprice(int pprice) {
 		this.pprice = pprice;
 	}
+	public String getPdiscount() {
+		return pdiscount;
+	}
+	public void setPdiscount(String pdiscount) {
+		this.pdiscount = pdiscount;
+	}
 	public String getPdetail() {
 		return pdetail;
 	}
 	public void setPdetail(String pdetail) {
 		this.pdetail = pdetail;
-	}
-	public String getPperiod() {
-		return pperiod;
-	}
-	public void setPperiod(String pperiod) {
-		this.pperiod = pperiod;
-	}
-	public String getPdate() {
-		return pdate;
-	}
-	public void setPdate(String pdate) {
-		this.pdate = pdate;
-	}
-	public String getPorigin() {
-		return porigin;
-	}
-	public void setPorigin(String porigin) {
-		this.porigin = porigin;
-	}
-	public String getPmanuf() {
-		return pmanuf;
-	}
-	public void setPmanuf(String pmanuf) {
-		this.pmanuf = pmanuf;
 	}
 	public int getPsales() {
 		return psales;
@@ -80,10 +67,11 @@ public class ProductVO {
 	public void setPstock(int pstock) {
 		this.pstock = pstock;
 	}
-	public String getPimage() {
-		return pimage;
-	}
-	public void setPimage(String pimage) {
-		this.pimage = pimage;
+	
+	@Override
+	public String toString() {
+		return "ProductVO [pimg_src=" + pimg_src + ", pbrand=" + pbrand + ", pnamee=" + pnamee + ", pprice=" + pprice
+				+ ", pdiscount=" + pdiscount + ", pdetail=" + pdetail + ", psales=" + psales + ", pstock=" + pstock
+				+ "]";
 	}
 }
