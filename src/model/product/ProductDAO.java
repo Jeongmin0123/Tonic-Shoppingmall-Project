@@ -200,7 +200,7 @@ public class ProductDAO {
 				plist.add(product);
 			}
 		} catch(SQLException e) {
-			System.out.println("ProductDAO searchProductCode(): "+ e +" 에러");
+			System.out.println("ProductDAO filterProductCode(): "+ e +" 에러");
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(rs, pstmt, con);
@@ -210,7 +210,7 @@ public class ProductDAO {
 	
 	// 상품명 검색  메서드
 	// sql_searchPname = "SELECT * FROM product WHERE pname LIKE '%'||?||'%'";
-	public ArrayList<ProductVO> searchProductCode(String searchPname) { 
+	public ArrayList<ProductVO> searchProductName(String searchPname) { 
 		ArrayList<ProductVO> plist = new ArrayList<>();
 		ProductVO product = null;
 		
@@ -238,7 +238,7 @@ public class ProductDAO {
 				plist.add(product);
 			}
 		} catch(SQLException e) {
-			System.out.println("ProductDAO searchProductCode(): "+ e +" 에러");
+			System.out.println("ProductDAO searchProductName(): "+ e +" 에러");
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(rs, pstmt, con);
