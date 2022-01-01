@@ -236,7 +236,6 @@
         <fieldset>
             <!-- 안보이지만 접근성을 위해 넣는다. -->
             <legend>상품등록 양식</legend>
-            <!-- <p class="info_pilsoo pilsoo_item">필수입력</p> -->
             <ul class="app_list">
                 <!-- 이미지 -->
                 <li class="clear">
@@ -248,13 +247,31 @@
                     </div>
                 </li>
                 
+                <!-- 분류 -->
+                <li class="clear">
+                    <span class="tit_lbl">분류</span>
+                    <div class="app_content radio_area">
+                    	<input type="radio" name="type" value="종합비타민" style="vertical-align:0px" checked>종합비타민
+                    	<input type="radio" name="type" value="유산균" style="vertical-align:0px">유산균
+                    	<input type="radio" name="type" value="눈건강" style="vertical-align:0px">눈건강
+                    </div>
+                </li>
+                <!-- 브랜드 -->
+                <li class="clear">
+                    <label for="name_lbl" class="tit_lbl">
+                        브랜드
+                    </label>
+                    <div class="app_content ">
+                        <input type="text" class="w30p" id="name_lbl" placeholder="제조사를 입력하세요" name="" required>
+                    </div>
+                </li>
                 <!-- 상품명 -->
                 <li class="clear">
                     <label for="name_lbl" class="tit_lbl">
                         상품명
                     </label>
                     <div class="app_content ">
-                        <input type="text" class="w100p" id="name_lbl" placeholder="상품명 입력하세요" name="">
+                        <input type="text" class="w30p" id="name_lbl" placeholder="상품명 입력하세요" name="" required>
                     </div>
                 </li>
                 <!-- 가격 -->
@@ -263,7 +280,7 @@
                         가격
                     </label>
                     <div class="app_content ">
-                        <input type="text" class="w100p" id="name_lbl" placeholder="가격을 입력하세요" name="">
+                        <input type="text" class="w30p" id="name_lbl" placeholder="가격을 입력하세요" name="" required>
                     </div>
                 </li>
                 <!-- 상세정보 -->
@@ -272,25 +289,9 @@
                         상세정보
                     </label>
                     <div class="app_content ">
-                        <input type="text" class="w100p" id="name_lbl" placeholder="상세정보를 입력하세요" name="">
-                    </div>
-                </li>
-                <!-- 유통기한 -->
-                <li class="clear">
-                    <label for="name_lbl" class="tit_lbl">
-                        유통기한
-                    </label>
-                    <div class="app_content ">
-                        <input type="text" class="w100p" id="name_lbl" placeholder="유통기한을 입력하세요" name="">
-                    </div>
-                </li>
-                <!-- 제조일자 -->
-                <li class="clear">
-                    <label for="name_lbl" class="tit_lbl">
-                        제조일자
-                    </label>
-                    <div class="app_content ">
-                        <input type="text" class="w100p" id="name_lbl" placeholder="제조일자를 입력하세요" name="">
+                    	<textarea rows="10" cols="80" id="name_lbl" placeholder="상세정보를 입력하세요" name="" style="resize:none" required>
+                    	</textarea>
+                        <!-- <input type="text" class="w100p" id="name_lbl" placeholder="상세정보를 입력하세요" name=""> -->
                     </div>
                 </li>
                 <!-- 원산지 -->
@@ -299,52 +300,50 @@
                         원산지
                     </label>
                     <div class="app_content ">
-                        <input type="text" class="w100p" id="name_lbl" placeholder="원산지를 입력하세요" name="">
+                        <input type="text" class="w30p" id="name_lbl" placeholder="원산지를 입력하세요" name="" required>
                     </div>
                 </li>
-                <!-- 제조사 -->
+                <!-- 유통기한 -->
                 <li class="clear">
                     <label for="name_lbl" class="tit_lbl">
-                        제조사
+                        유통기한
                     </label>
                     <div class="app_content ">
-                        <input type="text" class="w100p" id="name_lbl" placeholder="제조사를 입력하세요" name="">
+                        <input type="date" class="w20p" id="name_lbl" placeholder="유통기한을 입력하세요" name="" required>
                     </div>
                 </li>
-                
+                <!-- 제조일자 -->
+                <!-- <li class="clear">
+                    <label for="name_lbl" class="tit_lbl">
+                        제조일자
+                    </label>
+                    <div class="app_content ">
+                        <input type="text" class="w100p" id="name_lbl" placeholder="제조일자를 입력하세요" name="">
+                    </div>
+                </li> -->
                 <!-- 판매량 -->
-                <li class="clear">
+                <!-- <li class="clear">
                     <label for="name_lbl" class="tit_lbl">
                         판매량
                     </label>
                     <div class="app_content ">
                         <input type="text" class="w100p" id="name_lbl" placeholder="0" name="">
                     </div>
-                </li>
-
+                </li> -->
                 <!-- 재고량 -->
                 <li class="clear">
                     <label for="name_lbl" class="tit_lbl">
                         재고량
                     </label>
                     <div class="app_content ">
-                        <input type="text" class="w100p" id="name_lbl" placeholder="재고량을 입력하세요" name="">
+                        <input type="text" class="w30p" id="name_lbl" placeholder="재고량을 입력하세요" name="" required>
                     </div>
                 </li>
-
-                <!-- 분류 -->
-                <li class="clear">
-                    <span class="tit_lbl">분류</span>
-                    <div class="app_content radio_area">
-                    	<input type="radio" name="type" value="종합비타민">종합비타민
-                    	<input type="radio" name="type" value="유산균">유산균
-                    	<input type="radio" name="type" value="눈건강">눈건강
-                    </div>
-                </li>
-
-        
             </ul>
-            <p class="btn_line"><a href="#" class="btn_basecolor">등록</a></p>
+            <p class="app_content" align="right">
+            	<input type="submit" class="btn_basecolor" value="등록">
+            </p>
+            <!-- <p class="btn_line"><a href="#" class="btn_basecolor">등록</a></p> -->
         </fieldset>
     </form>
     <!-- 상품등록 끝  -->

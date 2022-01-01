@@ -27,12 +27,12 @@
     <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
    function showdetails(){
       window.open('notice_detail.not?nidx=${v.nidx}','새창으로 회원가입','width=1000, height=500, menubar=no, status=no,toolbar=no');
    }
 </script>
-
+ -->
 
 <body>
     <!-- Page Preloder -->
