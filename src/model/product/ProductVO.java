@@ -1,8 +1,9 @@
 package model.product;
 /*
 CREATE SEQUENCE PROD_SEQ;
-CREATE TABLE PROD (
-	pno VARCHAR(20) PRIMARY KEY, -- 상품번호 예)001
+CREATE TABLE product(
+	pno VARCHAR(20) PRIMARY KEY, -- 상품번호 예) 001
+	pcode VARCHAR(20),           -- 상품분류 예) 종합비타민, 유산균, 루테인
 	pimg_src VARCHAR(2000),      -- 이미지 절대경로
 	pbrand VARCHAR(1000),        -- 브랜드
 	pname VARCHAR(1000),         -- 상품이름
