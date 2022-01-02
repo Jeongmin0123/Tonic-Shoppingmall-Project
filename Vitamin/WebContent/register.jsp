@@ -232,7 +232,7 @@
     <!-- 본문 시작 -->
 	<div class="bodytext_area box_inner">
     <!-- 상품등록폼 시작 -->
-    <form action="#" class="appForm" method="post" enctype="multipart/form-data">
+    <form action="product_insert.pro" class="appForm" method="post" enctype="multipart/form-data">
         <fieldset>
             <!-- 안보이지만 접근성을 위해 넣는다. -->
             <legend>상품등록 양식</legend>
@@ -243,7 +243,7 @@
                         상품사진
                     </label>
                     <div class="app_content ">
-                        <input type="file" class="w100p" id="name_lbl" name="" accept=".jpg,.png">
+                        <input type="file" class="w100p" id="name_lbl" name="pimg_src" accept=".jpg,.png">
                     </div>
                 </li>
                 
@@ -251,9 +251,9 @@
                 <li class="clear">
                     <span class="tit_lbl">분류</span>
                     <div class="app_content radio_area">
-                    	<input type="radio" name="type" value="종합비타민" style="vertical-align:0px" checked>종합비타민
-                    	<input type="radio" name="type" value="유산균" style="vertical-align:0px">유산균
-                    	<input type="radio" name="type" value="눈건강" style="vertical-align:0px">눈건강
+                    	<input type="radio" name="pcode" value="종합비타민" style="vertical-align:0px" checked>종합비타민
+                    	<input type="radio" name="pcode" value="유산균" style="vertical-align:0px">유산균
+                    	<input type="radio" name="pcode" value="눈건강" style="vertical-align:0px">눈건강
                     </div>
                 </li>
                 <!-- 브랜드 -->
@@ -262,7 +262,7 @@
                         브랜드
                     </label>
                     <div class="app_content ">
-                        <input type="text" class="w30p" id="name_lbl" placeholder="제조사를 입력하세요" name="" required>
+                        <input type="text" class="w30p" id="name_lbl" placeholder="제조사를 입력하세요" name="pbrand" required>
                     </div>
                 </li>
                 <!-- 상품명 -->
@@ -271,7 +271,7 @@
                         상품명
                     </label>
                     <div class="app_content ">
-                        <input type="text" class="w30p" id="name_lbl" placeholder="상품명 입력하세요" name="" required>
+                        <input type="text" class="w30p" id="name_lbl" placeholder="상품명 입력하세요" name="pname" required>
                     </div>
                 </li>
                 <!-- 가격 -->
@@ -280,7 +280,7 @@
                         가격
                     </label>
                     <div class="app_content ">
-                        <input type="text" class="w30p" id="name_lbl" placeholder="가격을 입력하세요" name="" required>
+                        <input type="text" class="w30p" id="name_lbl" placeholder="가격을 입력하세요" name="pprice" required>
                     </div>
                 </li>
                 <!-- 상세정보 -->
@@ -289,7 +289,7 @@
                         상세정보
                     </label>
                     <div class="app_content ">
-                    	<textarea rows="10" cols="80" id="name_lbl" placeholder="상세정보를 입력하세요" name="" style="resize:none" required>
+                    	<textarea rows="10" cols="80" id="name_lbl" placeholder="상세정보를 입력하세요" name="pdetail" style="resize:none" required>
                     	</textarea>
                         <!-- <input type="text" class="w100p" id="name_lbl" placeholder="상세정보를 입력하세요" name=""> -->
                     </div>
@@ -300,7 +300,7 @@
                         원산지
                     </label>
                     <div class="app_content ">
-                        <input type="text" class="w30p" id="name_lbl" placeholder="원산지를 입력하세요" name="" required>
+                        <input type="text" class="w30p" id="name_lbl" placeholder="원산지를 입력하세요" name="porigin" required>
                     </div>
                 </li>
                 <!-- 유통기한 -->
@@ -309,7 +309,7 @@
                         유통기한
                     </label>
                     <div class="app_content ">
-                        <input type="date" class="w20p" id="name_lbl" placeholder="유통기한을 입력하세요" name="" required>
+                        <input type="date" class="w20p" id="name_lbl" placeholder="유통기한을 입력하세요" name="pperiod" required>
                     </div>
                 </li>
                 <!-- 제조일자 -->
@@ -336,7 +336,7 @@
                         재고량
                     </label>
                     <div class="app_content ">
-                        <input type="text" class="w30p" id="name_lbl" placeholder="재고량을 입력하세요" name="" required>
+                        <input type="text" class="w30p" id="name_lbl" placeholder="재고량을 입력하세요" name="pstock" required>
                     </div>
                 </li>
             </ul>
