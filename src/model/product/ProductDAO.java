@@ -43,15 +43,15 @@ public class ProductDAO {
 	private String sql_filterPcode = "SELECT * FROM product WHERE pcode = ?"; // 상품분류 기반 필터 쿼리
 	private String sql_searchPname = "SELECT * FROM product WHERE pname LIKE '%'||?||'%'"; // 상품명 기반 검색 쿼리
 
-	// 상품등록 폼 파일 업로드 구현 -> MultipartRequest 라이브러리를 설치할 필요 有
-	// MultipartRequest multi = new MultipartRequest(request, savePath, sizeLimit, "UTF-8", new DefaultFileRenamePolicy());
-	// MultipartRequest(객체, 저장될 서버 경로, 파일 최대 크기, 인코딩 방식, 같은 이름의 파일명 방지 처리)
+/*	상품등록 폼 파일 업로드 구현 -> MultipartRequest 라이브러리를 설치할 필요 有
+	MultipartRequest multi = new MultipartRequest(request, savePath, sizeLimit, "UTF-8", new DefaultFileRenamePolicy());
+	MultipartRequest(객체, 저장될 서버 경로, 파일 최대 크기, 인코딩 방식, 같은 이름의 파일명 방지 처리) */
 
 	// 상품등록(아직 수정 중입니다)
 	public boolean insertProduct(HttpServletRequest request) throws IOException { 
 		int result = 0;
 		
-		// String uploadURL = "절대경로";, 각 컴퓨터마다 경로가 다르기 때문에 수정해야 합니다.
+//		String URL = "절대경로";, 각 컴퓨터마다 경로가 다르기 때문에 수정해야 합니다.
 		String dir = "C:\\Users\\totls\\git\\Tonic-Shoppingmall-Project\\WebContent\\getImg"; 
 		int Size = 100*1024*1024; // 받아올 파일용량 제한 : 100MB
 		MultipartRequest multi = new MultipartRequest(request, dir, Size, "UTF-8", new DefaultFileRenamePolicy());
@@ -75,7 +75,7 @@ public class ProductDAO {
 		return result == 1;
 	}
 	
-	// 상품수정(수정 중입니다)
+	// 상품수정(페이지 미구현)
 	public boolean updateProduct() {
 		con = JDBCUtil.connect();
 		try {
@@ -173,7 +173,7 @@ public class ProductDAO {
 	}
 
 	// 상품분류 필터  메서드
-	// sql_filterPcode = "SELECT * FROM product WHERE pcode LIKE '%'||?||'%'";
+	// sql_filterPcode = "SELECT * FROM product WHERE pcode = ?";
 	public ArrayList<ProductVO> filterProductCode(String searchPcode) { 
 		ArrayList<ProductVO> plist = new ArrayList<>();
 		ProductVO product = null;
