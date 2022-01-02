@@ -52,7 +52,6 @@ public class NoticeFrontController extends HttpServlet {
 		ActionForward forward=null;
 		if(command.equals("/notice.not")) {		// main 페이지의 공지사항 부분 클릭 시 notice.not를 통해 notice.jsp로 이동
 			try {
-				System.out.println("notice액션확인");
 				forward= new NoticeAction().execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -78,6 +77,12 @@ public class NoticeFrontController extends HttpServlet {
 		} else if(command.equals("/notice_delete.not")) { // 공지사항 삭제 버튼 클릭 시 삭제 후에 notice.not 을 통해 notice.jsp 로 이동
 			try {
 				forward= new NoticeDeleteAction().execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/notice_search.not")) { // 공지사항 검색창에 단어를 입력한 후 검색을 클릭하면 그에 따른 결과들을 가지고 notice.jsp 로 이동
+			try {
+				forward= new NoticeSearchAction().execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
