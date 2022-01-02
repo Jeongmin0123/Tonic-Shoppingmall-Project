@@ -10,25 +10,30 @@ import controller.common.ActionForward;
 import model.product.ProductDAO;
 import model.product.ProductVO;
 
-public class ProductDeleteAction implements Action {
+public class ProductDetailAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// Delete를 위한 기본 정보 불러오기
+		// DAO를 통해서 자바 클래스 내에 pdata란 이름으로 상품세부 정보 불러오기
 		ProductDAO dao = ProductDAO.getInstance();
 		ProductVO vo = new ProductVO();
 		vo.setPno(request.getParameter("pno"));
+		ProductVO pdata = dao.selectOne(vo);
 		ActionForward forward = null;
-		// 상품 삭제 성공시 삭제 후 다시 manage.jsp 페이지로 이동, 실패시 alert 창 이후 전페이지로 이동
-		if(dao.deleteProduct(vo)) {
+		
+		// 상품 정보가 잘 불러와져서 pdata에 null값이 안 들어갔다면 View가 보여줄 pdata에 불러온 상품정보 넣기
+		if(pdata != null) {
+			request.setAttribute("pdata", pdata);
 			forward = new ActionForward();
-			forward.setPath("manage.jsp");
+			forward.setPath("shop_detail.jsp");
 			forward.setRedirect(false);
 		} else {
+			// 실패시 alert 창 이후 전 페이지로 이동
 			response.setContentType("text/html; charset=UTF-8"); 
 			PrintWriter out = response.getWriter();
-			out.println("<script>alert('등록상품 삭제에 실패했습니다! 권한이 주어져있는지 확인해보세요!');history.go(-1);</script>");
+			out.println("<script>alert('상품세부정보 불러오기에 실패했습니다.');history.go(-1);</script>");
 		}
+		
 		return forward;
 	}
 

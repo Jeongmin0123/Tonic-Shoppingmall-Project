@@ -50,9 +50,39 @@ public class ProductFrontController extends HttpServlet {
 		System.out.println(command);
 		
 		ActionForward forward=null;
-		if(command.equals("/product_insert.pro")) {		// main 페이지의 공지사항 부분 클릭 시 notice.not를 통해 notice.jsp로 이동
+		if(command.equals("/product_selectall.pro")) {		// main 페이지 위의 호버 등에서 전체상품 보기를 누를 경우 product의 전체 데이터들을 가지고 shop_grid.jsp 페이지로 이동
 			try {
-				forward= new NoticeAction().execute(request, response);
+				forward= new ProductSelectAllAction().execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/product_detail.pro")) {		// 상품 분류별 페이지 등에서 상품 이미지나 상품명을 눌렀을 경우 상품의 pno를 받아와 그를 토대로 상품의 세부정보를 받아 shop_detail 페이지로 이동
+			try {
+				forward= new ProductDetailAction().execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/product_delete.pro")) {		// manage.jsp 페이지에서 삭제버튼 클릭 시 삭제 후에 다시 manage.jsp페이지로 이동		
+			try {
+				forward= new ProductDeleteAction().execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/product_manage.pro")) {		// 관리자만 보이는 main 페이지의 상품관리 page에 들어갈 경우 가지고 있는 모든 상품정보를 가지고 manage.jsp페이지로 이동
+			try {
+				forward= new ProductManageAction().execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/product_filterselect.pro")) {		// 관리자만 보이는 main 페이지의 상품관리 page에 들어갈 경우 가지고 있는 모든 상품정보를 가지고 manage.jsp페이지로 이동
+			try {
+				forward= new ProductPcodeFilterAction().execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/product_search.pro")) {		// 모든 페이지의 검색창에 검색어를 넣고 검색을 누르면 그 검색어를 통하여 데이터를 불러온 후에 shop_grid.jsp에 그 데이터를 넘겨주면서 이동한다.
+			try {
+				forward= new ProductSearchAction().execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
