@@ -23,7 +23,7 @@ public class NoticeDAO {
 	private String sql_selectOne = "SELECT * FROM notice WHERE nidx=?";
 	private String sql_updateN = "UPDATE notice SET ntitle=?, ncont=? WHERE nidx=?";
 	private String sql_deleteN = "DELETE FROM notice WHERE nidx = ?"; 
-	private String sql_searchN = "SELECT * FROM board WHERE ntitle LIKE '%'||?||'%'"; // 제목 기반 검색 쿼리
+	private String sql_searchN = "SELECT * FROM notice WHERE ntitle LIKE '%'||?||'%'"; // 제목 기반 검색 쿼리
 	
 	
 	public boolean insertNotice(NoticeVO vo) {
@@ -46,7 +46,7 @@ public class NoticeDAO {
 		return result == 1;
 	}
 
-	// 공지사항 가져오기 메서드
+	// 공지사항 가져오기
 	// sql_selectAll = "SELECT * FROM notice";
 	// 수정내용: 뷰단에서 구분하기 쉽도록 nlist, notice 변수명 변경, 인자값 삭제
 	public ArrayList<NoticeVO> selectAll() {
