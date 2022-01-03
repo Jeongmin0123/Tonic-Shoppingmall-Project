@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import model.common.JDBCUtil;
+import model.notice.NoticeVO;
 
 public class ContactDAO {
 	private ContactDAO(){}
@@ -17,10 +18,11 @@ public class ContactDAO {
 	PreparedStatement pstmt;
 	ResultSet rs;
 	
-	private String sql_insertC = "INSERT INTO contact VALUES (LPAD(contact_seq.NEXTVAL,2,0), ?, ?, ?)";
+	private String sql_insertC = "INSERT INTO contact VALUES(LPAD(contact_seq.NEXTVAL, ?, ?, ?)";
 	private String sql_selectAll = "SELECT * FROM contact";
 	private String sql_selectOne = "SELECT * FROM contact WHERE msgno=?";
 	private String sql_deleteC = "DELETE FROM contact WHERE msgno = ?";
+	private String sql_searchC = "SELECT * FROM contact WHERE msgtext LIKE '%'||?||'%'";
 	
 	// 고객문의 작성()
 	public boolean insertContact(ContactVO vo) {
@@ -34,7 +36,7 @@ public class ContactDAO {
 			pstmt.setString(3, vo.getMsgtext());
 			result = pstmt.executeUpdate();
 		} catch(Exception e) {
-			System.out.println("ContactVO writeContact(): "+ e +" 에러");
+			System.out.println("ContactVO insertContact(): "+ e +" 에러");
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(pstmt, con);
@@ -110,5 +112,36 @@ public class ContactDAO {
 			JDBCUtil.disconnect(pstmt, con);
 		}
 		return result == 1;
+	}
+	
+	// 검색 메서드, SQL문 작성
+	// sql_searchC = "SELECT * FROM contact WHERE msgtext LIKE '%'||?||'%'";
+	public ArrayList<ContactVO> searchContact(String searchMsg) { // 인자로 뭘 받을 것인가
+		ArrayList<ContactVO> clist = new ArrayList<>();
+		ContactVO contact = null;
+		
+		con = JDBCUtil.connect();
+		try {
+			pstmt = con.prepareStatement(sql_searchC);
+			if(searchMsg != null && !searchMsg.equals("") && !searchMsg.equals(" ")) {
+				pstmt.setString(1, searchMsg.trim());
+			}
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				contact = new ContactVO();
+				contact.setMsgno(rs.getInt("msgno"));
+				contact.setMsgname(rs.getString("msgname"));
+				contact.setMsgemail(rs.getString("msgemail"));
+				contact.setMsgtext(rs.getString("msgtext"));
+				
+				clist.add(contact);
+			}
+		} catch(SQLException e) {
+			System.out.println("ContactDAO searchContact(): "+ e +" 에러");
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.disconnect(rs, pstmt, con);
+		}
+		return clist.isEmpty()? null : clist;
 	}
 }

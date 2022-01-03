@@ -10,20 +10,20 @@ import controller.common.ActionForward;
 import model.product.ProductDAO;
 import model.product.ProductVO;
 
-public class ProductManageAction implements Action {
+public class ProductSelectAllHighAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// 모든 상품 데이터들을 pdatas 라는 이름으로 저장
+		// 모든 상품 데이터들을 가격순으로 pdatas 라는 이름으로 저장
 		ProductDAO dao = ProductDAO.getInstance();
-		ArrayList<ProductVO> pdatas = dao.selectAll();
+		ArrayList<ProductVO> pdatas = dao.selectAllHigh();
 		request.setAttribute("pdatas", pdatas);
-				
-		// 상품관리를 누른 경우 위 데이터들을 가지고 바로 manage.jsp 페이지로 이동
+		
+		// shop_grid.jsp에서 가격순으로 보기를 누른 경우 정렬된 데이터들 가지고 바로 shop_grid 페이지로 이동
 		ActionForward forward = new ActionForward();
-		forward.setPath("manage.jsp");
+		forward.setPath("shop_grid.jsp");
 		forward.setRedirect(false);
-		return forward;		
+		return forward;
 	}
 
 }

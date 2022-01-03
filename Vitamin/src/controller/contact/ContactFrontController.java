@@ -50,7 +50,7 @@ public class ContactFrontController extends HttpServlet {
 		System.out.println(command);
 		
 		ActionForward forward=null;
-		if(command.equals("/contact.con")) {		// main 페이지에서 문의하기 누르면 문의하기 page로 넘어가는 부분, contact.con 을 통해 contact.jsp로 이동!
+		if(command.equals("/contact.con")) {					// main 페이지에서 문의하기 누르면 문의하기 page로 넘어가는 부분 이 떼 관리자이면 contact 데이터가 보여야 하므로 cdatas 도 가지고 이동한다, contact.con 을 통해 contact.jsp로 이동!
 			try {
 				forward= new ContactAction().execute(request, response);
 			} catch (Exception e) {
@@ -74,9 +74,9 @@ public class ContactFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if(command.equals("/contact_admin.con")) {		// 관리자가 문의사항을 전체를 볼 수 있는 페이지, 페이지 추가가 필요해보임.
+		} else if(command.equals("/contact_search.con")) {		// 관리자가 문의사항을 검색어를 통하여 검색 시에 해당되는 데이터를 가지고 contact_search.con을 거쳐 다시 contact.jsp로 이동한다.
 			try {
-				forward= new ContactAdminAction().execute(request, response);
+				forward= new ContactSearchAction().execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

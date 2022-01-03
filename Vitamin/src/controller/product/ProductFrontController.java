@@ -74,13 +74,43 @@ public class ProductFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if(command.equals("/product_filterselect.pro")) {		// 관리자만 보이는 main 페이지의 상품관리 page에 들어갈 경우 가지고 있는 모든 상품정보를 가지고 manage.jsp페이지로 이동
+		} else if(command.equals("/product_filterselect.pro")) {		// main 페이지에서 종합비타민, 유산균, 눈 영양제를 눌렀을 경우 이를 토대로 필터를 통하여 원하는 데이터만 불러와 shop_grid 페이지로 이동
 			try {
 				forward= new ProductPcodeFilterAction().execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		} else if(command.equals("/product_search.pro")) {		// 모든 페이지의 검색창에 검색어를 넣고 검색을 누르면 그 검색어를 통하여 데이터를 불러온 후에 shop_grid.jsp에 그 데이터를 넘겨주면서 이동한다.
+			try {
+				forward= new ProductSearchAction().execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/product_selectallhigh.pro")) {		// shop_grid 페이지에서 높은가격순을 누르면 높은가격순서대로 상품을 pdatas로 저장한 후에 이 데이터들을 가지고 shop_grid.jsp로 이동한다.
+			try {
+				forward= new ProductSearchAction().execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/product_selectalllow.pro")) {		// shop_grid 페이지에서 낮은가격순을 누르면 낮은가격순서대로 상품을 pdatas로 저장한 후에 이 데이터들을 가지고 shop_grid.jsp로 이동한다.
+			try {
+				forward= new ProductSearchAction().execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/product_selectallname.pro")) {		// shop_grid 페이지에서 이름순을 누르면 이름순서대로 상품을 pdatas로 저장한 후에 이 데이터들을 가지고 shop_grid.jsp로 이동한다.
+			try {
+				forward= new ProductSearchAction().execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/product_update.pro")) {		// 아직 페이지가 구현되지 않아 구현되면 설명 적어놓겠습니다.
+			try {
+				forward= new ProductSearchAction().execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/product_insert.pro")) {		// register.jsp에서 상품등록 버튼을 누르면 상품등록 이후에 다시 register.jsp로 이동 
 			try {
 				forward= new ProductSearchAction().execute(request, response);
 			} catch (Exception e) {
