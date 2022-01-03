@@ -30,6 +30,7 @@ public class DopageMainAction implements Action {
 		
 		// 이 부분에는 가장 잘 파리는 6개의 데이터가 pdatas_fav 형태로 들어올 예정
 		
+		
 		ActionForward forward = new ActionForward();
 		forward.setPath("main.jsp");
 		forward.setRedirect(false);
