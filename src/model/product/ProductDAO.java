@@ -73,7 +73,7 @@ public class ProductDAO {
 			pstmt.setString(9, multi.getParameter("pstock"));
 			result = pstmt.executeUpdate();
 		} catch(Exception e) {
-			System.out.println("MemberDAO insertMember() : "+ e +" 에러");
+			System.out.println("ProductDAO insertProduct() : "+ e +" 에러");
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(pstmt, con);
@@ -105,7 +105,7 @@ public class ProductDAO {
 			pstmt.setString(9, multi.getParameter("pno")); // 음...
 			result = pstmt.executeUpdate();
 		} catch(Exception e) {
-			System.out.println("MemberDAO updateMember(): "+ e +" 에러");
+			System.out.println("ProductDAO updateProduct(): "+ e +" 에러");
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(pstmt, con);
