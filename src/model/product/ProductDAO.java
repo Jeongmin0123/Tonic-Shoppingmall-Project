@@ -139,7 +139,7 @@ public class ProductDAO {
 				plist.add(product);
 			}
 		} catch(Exception e) {
-			System.out.println("MemberDAO selectAll() : "+ e +" 에러");
+			System.out.println("ProductDAO selectAll() : "+ e +" 에러");
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(rs, pstmt, con);
@@ -173,7 +173,7 @@ public class ProductDAO {
 				plist.add(product);
 			}
 		} catch(Exception e) {
-			System.out.println("MemberDAO selectAll() : "+ e +" 에러");
+			System.out.println("ProductDAO selectAllHigh() : "+ e +" 에러");
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(rs, pstmt, con);
@@ -207,7 +207,7 @@ public class ProductDAO {
 				plist.add(product);
 			}
 		} catch(Exception e) {
-			System.out.println("MemberDAO selectAll() : "+ e +" 에러");
+			System.out.println("ProductDAO selectAllLow() : "+ e +" 에러");
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(rs, pstmt, con);
@@ -241,7 +241,7 @@ public class ProductDAO {
 				plist.add(product);
 			}
 		} catch(Exception e) {
-			System.out.println("MemberDAO selectAll() : "+ e +" 에러");
+			System.out.println("ProductDAO selectAllName() : "+ e +" 에러");
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(rs, pstmt, con);
@@ -272,7 +272,7 @@ public class ProductDAO {
 				product.setPstock(rs.getInt("pstock"));
 			}
 		} catch(Exception e) {
-			System.out.println("MemberDAO selectOne() : "+ e +" 에러");
+			System.out.println("ProductDAO selectOne() : "+ e +" 에러");
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(rs, pstmt, con);
@@ -291,7 +291,7 @@ public class ProductDAO {
 			pstmt.setString(1, vo.getPno());
 			result = pstmt.executeUpdate();
 		} catch(Exception e) {
-			System.out.println("MemberDAO deleteProduct() : "+ e +" 에러");
+			System.out.println("ProductDAO deleteProduct() : "+ e +" 에러");
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(rs, pstmt, con);

@@ -36,7 +36,7 @@ public class ContactDAO {
 			pstmt.setString(3, vo.getMsgtext());
 			result = pstmt.executeUpdate();
 		} catch(Exception e) {
-			System.out.println("ContactVO writeContact(): "+ e +" 에러");
+			System.out.println("ContactVO insertContact(): "+ e +" 에러");
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(pstmt, con);
