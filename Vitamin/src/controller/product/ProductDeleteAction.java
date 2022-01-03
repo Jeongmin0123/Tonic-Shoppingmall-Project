@@ -17,6 +17,7 @@ public class ProductDeleteAction implements Action {
 		// Delete를 위한 기본 정보 불러오기
 		ProductDAO dao = ProductDAO.getInstance();
 		ProductVO vo = new ProductVO();
+		System.out.println(request.getParameter("pno"));
 		vo.setPno(request.getParameter("pno"));
 		ActionForward forward = null;
 		// 상품 삭제 성공시 삭제 후 다시 manage.jsp 페이지로 이동, 실패시 alert 창 이후 전페이지로 이동

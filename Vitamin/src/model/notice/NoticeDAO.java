@@ -23,7 +23,7 @@ public class NoticeDAO {
 	private String sql_selectOne = "SELECT * FROM notice WHERE nidx=?";
 	private String sql_updateN = "UPDATE notice SET ntitle=?, ncont=? WHERE nidx=?";
 	private String sql_deleteN = "DELETE FROM notice WHERE nidx = ?"; 
-	private String sql_searchN = "SELECT * FROM board WHERE ntitle LIKE '%'||?||'%'"; // 제목 기반 검색 쿼리
+	private String sql_searchN = "SELECT * FROM notice WHERE ntitle LIKE '%'||?||'%'"; // 제목 기반 검색 쿼리
 	
 	
 	public boolean insertNotice(NoticeVO vo) {

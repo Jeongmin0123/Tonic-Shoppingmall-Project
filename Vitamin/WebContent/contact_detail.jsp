@@ -37,17 +37,12 @@
      <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
-            <a href="#"><img src="img/logo.png" alt=""></a>
+            <a href="main.do"><img src="img/logo.png" alt=""></a>
         </div>
         <div class="humberger__menu__widget">
             <div class="header__top__right__language">
                 <img src="img/korea.png" alt="">
                 <div>한국어</div>
-                <!-- <span class="arrow_carrot-down"></span>
-                <ul>
-                    <li><a href="#">Spanis</a></li>
-                    <li><a href="#">English</a></li>
-                </ul> -->
             </div>
             <div class="header__top__right__auth">
                 <!-- <a href="login.jsp"><i class="fa fa-user"></i> Login</a> -->
@@ -57,13 +52,14 @@
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
                 <li class="active"><a href="intro.jsp">Intro</a></li>
-                <li><a href="shop_grid.do">Shop</a></li>
-                <li><a href="#">Pages</a>
+                <li><a>Shop</a></li>
+                <li><a>Pages</a>
                     <ul class="header__menu__dropdown">
-                        <li><a href="shop_grid.do">전체상품</a></li> 
-                        <li><a href="shop_grid.do">종합비타민</a></li>
-                        <li><a href="shop_grid.do">유산균</a></li>
-                        <li><a href="shop_grid.do">눈건강</a></li>                        
+                    	<!-- VITA, LACT, EYES -->
+                        <li><a href="product_selectall.pro">전체상품</a></li> 
+                        <li><a href="product_selectall.pro?pcode=VITA">종합비타민</a></li>
+                        <li><a href="product_selectall.pro?pcode=LACT">유산균</a></li>
+                        <li><a href="product_selectall.pro?pcode=EYES">눈건강</a></li>                        
                     </ul>
                 </li>
                 <li><a href="notice.not">공지사항</a></li>
@@ -113,16 +109,7 @@
                             <div class="header__top__right__language">
                                 <img src="img/korea.png" alt="">
                                 <div>한국어</div>
-                                <!-- <span class="arrow_carrot-down"></span>
-                                <ul>
-                                    <li><a href="#">Spanis</a></li>
-                                    <li><a href="#">English</a></li>
-                                </ul> -->
                             </div>
-                            <!-- <div class="header__top__right__auth">
-                                <a href="./login.html"><i class="fa fa-user"></i> Login</a>
-                                <a href="./new.html">&nbsp;&nbsp;회원가입</a>
-                            </div> -->
                             <mytag:login/>
                         </div>
                     </div>
@@ -133,7 +120,7 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                        <a href="main.do"><img src="img/logo.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -142,10 +129,10 @@
                            <li class="active"><a href="intro.jsp">Intro</a></li>
                             <li><a href="shop_grid.do">Shop</a>
                                 <ul class="header__menu__dropdown">
-                                    <li><a href="shop_grid.do">전체상품</a></li> 
-                                    <li><a href="shop_grid.do">종합비타민</a></li>
-                                    <li><a href="shop_grid.do">유산균</a></li>
-                                    <li><a href="shop_grid.do">눈건강</a></li>
+			                        <li><a href="product_selectall.pro">전체상품</a></li> 
+			                        <li><a href="product_selectall.pro?pcode=VITA">종합비타민</a></li>
+			                        <li><a href="product_selectall.pro?pcode=LACT">유산균</a></li>
+			                        <li><a href="product_selectall.pro?pcode=EYES">눈건강</a></li>      
                                 </ul>
                             </li>
                             <li><a href="notice.not">공지사항</a></li>
@@ -156,15 +143,6 @@
                         </ul>
                     </nav>
                 </div>
-                <!-- <div class="col-lg-3">
-                    <div class="header__cart">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-                        </ul>
-                        <div class="header__cart__price">item: <span>$150.00</span></div>
-                    </div>
-                </div> -->
             </div>
             <div class="humberger__open">
                 <i class="fa fa-bars"></i>
@@ -184,10 +162,10 @@
                             <span>Shop</span>
                         </div>
                         <ul>
-                        	<li><a href="shop_grid.do">전체상품</a></li>
-                            <li><a href="shop_grid.do">종합비타민</a></li>
-                            <li><a href="shop_grid.do">유산균</a></li>
-                            <li><a href="shop_grid.do">눈건강</a></li>
+                      		<li><a href="product_selectall.pro">전체상품</a></li> 
+	                        <li><a href="product_selectall.pro?pcode=VITA">종합비타민</a></li>
+	                        <li><a href="product_selectall.pro?pcode=LACT">유산균</a></li>
+	                        <li><a href="product_selectall.pro?pcode=EYES">눈건강</a></li> 
                         </ul>
                     </div>
                 </div>
@@ -243,11 +221,6 @@
              	<p class="app_content" align="center">
                 	<input type="button" class="btn_basecolor" onclick="contactdel()" value="삭제">
                </p>
-		               		
-             	
-             	
-             	
-             	
                 <!-- <p class="btn_line txt_right">
                     <a href="./notice_list.html" class="btn_bbs">목록</a>
                 </p> -->

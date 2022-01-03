@@ -64,13 +64,13 @@
          <nav class="humberger__menu__nav mobile-menu">
             <ul>
                 <li class="active"><a href="intro.jsp">Intro</a></li>
-                <li><a href="shop_grid.do">Shop</a></li>
-                <li><a href="#">Pages</a>
+                <li><a>Shop</a></li>
+                <li><a>Pages</a>
                     <ul class="header__menu__dropdown">
-                        <li><a href="shop_grid.do">전체상품</a></li> 
-                        <li><a href="shop_grid.do">종합비타민</a></li>
-                        <li><a href="shop_grid.do">유산균</a></li>
-                        <li><a href="shop_grid.do">눈건강</a></li>                        
+                        <li><a href="product_selectall.pro">전체상품</a></li> 
+                       <li><a href="product_selectall.pro?pcode=VITA">종합비타민</a></li>
+                       <li><a href="product_selectall.pro?pcode=LACT">유산균</a></li>
+                       <li><a href="product_selectall.pro?pcode=EYES">눈건강</a></li>                       
                     </ul>
                 </li>
                 <li><a href="notice.not">공지사항</a></li>
@@ -149,10 +149,10 @@
                             <li class="active"><a href="intro.jsp">Intro</a></li>
                             <li><a href="shop_grid.do">Shop</a>
                                 <ul class="header__menu__dropdown">
-                                    <li><a href="shop_grid.do">전체상품</a></li> 
-                                    <li><a href="shop_grid.do">종합비타민</a></li>
-                                    <li><a href="shop_grid.do">유산균</a></li>
-                                    <li><a href="shop_grid.do">눈건강</a></li>
+									<li><a href="product_selectall.pro">전체상품</a></li> 
+			                       <li><a href="product_selectall.pro?pcode=VITA">종합비타민</a></li>
+			                       <li><a href="product_selectall.pro?pcode=LACT">유산균</a></li>
+			                       <li><a href="product_selectall.pro?pcode=EYES">눈건강</a></li> 
                                 </ul>
                             </li>
                             <li><a href="notice.not">공지사항</a></li>
@@ -182,10 +182,10 @@
                             <span>Shop</span>
                         </div>
                         <ul>
-                            <li><a href="shop_grid.do">전체상품</a></li>
-                            <li><a href="shop_grid.do">종합비타민</a></li>
-                            <li><a href="shop_grid.do">유산균</a></li>
-                            <li><a href="shop_grid.do">눈건강</a></li>
+                            <li><a href="product_selectall.pro">전체상품</a></li> 
+	                       <li><a href="product_selectall.pro?pcode=VITA">종합비타민</a></li>
+	                       <li><a href="product_selectall.pro?pcode=LACT">유산균</a></li>
+	                       <li><a href="product_selectall.pro?pcode=EYES">눈건강</a></li> 
                 
                         </ul>
                     </div>
@@ -242,10 +242,10 @@
         <div id="container">
             <!-- 본문 시작 -->
             <div class="bodytext_area box_inner">
-                <form action="/notice_search.not" class="minisrch_form" method="post">
+                <form action="notice_search.not" class="minisrch_form" method="post">
                     <fieldset>
                         <legend>검색</legend>
-                        <input type="text" class="tbox" name="noticsearch" placeholder="검색어를 입력하세요">
+                        <input type="text" class="tbox" name="search_word" placeholder="검색어를 입력하세요">
                         <input type="submit" class="btn_basecolor btn_srch" value="검색">                        
                         <!-- <a href="/notice_search.not" class="btn_srch">검색</a> -->
                     </fieldset>

@@ -58,13 +58,13 @@
          <nav class="humberger__menu__nav mobile-menu">
             <ul>
                 <li class="active"><a href="intro.jsp">Intro</a></li>
-                <li><a href="shop_grid.do">Shop</a></li>
-                <li><a href="#">Pages</a>
+                <li><a>Shop</a></li>
+                <li><a>Pages</a>
                     <ul class="header__menu__dropdown">
-                        <li><a href="shop_grid.do">전체상품</a></li> 
-                        <li><a href="shop_grid.do">종합비타민</a></li>
-                        <li><a href="shop_grid.do">유산균</a></li>
-                        <li><a href="shop_grid.do">눈건강</a></li>                        
+                        <li><a href="product_selectall.pro">전체상품</a></li> 
+                       <li><a href="product_selectall.pro?pcode=VITA">종합비타민</a></li>
+                       <li><a href="product_selectall.pro?pcode=LACT">유산균</a></li>
+                       <li><a href="product_selectall.pro?pcode=EYES">눈건강</a></li>                         
                     </ul>
                 </li>
                 <li><a href="notice.not">공지사항</a></li>
@@ -132,19 +132,19 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                        <a href="main.do"><img src="img/logo.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
                             <li class="active"><a href="intro.jsp">Intro</a></li>
-                            <li><a href="#">Shop</a>
+                            <li><a>Shop</a>
                                 <ul class="header__menu__dropdown">
-                                    <li><a href="./shop-grid.html">전체상품</a></li> 
-                                    <li><a href="./shop-grid.html">종합비타민</a></li>
-                                    <li><a href="./shop-grid.html">유산균</a></li>
-                                    <li><a href="./shop-grid.html">눈건강</a></li>
+									<li><a href="product_selectall.pro">전체상품</a></li> 
+			                       <li><a href="product_selectall.pro?pcode=VITA">종합비타민</a></li>
+			                       <li><a href="product_selectall.pro?pcode=LACT">유산균</a></li>
+			                       <li><a href="product_selectall.pro?pcode=EYES">눈건강</a></li> 
                                 </ul>
                             </li>
                             <li><a href="notice.not">공지사항</a></li>

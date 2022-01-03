@@ -51,20 +51,19 @@
                 </ul> -->
             </div>
             <div class="header__top__right__auth">
-                <!-- <a href="login.do"><i class="fa fa-user"></i> Login</a> -->
                 <mytag:login/>
             </div>
         </div>
          <nav class="humberger__menu__nav mobile-menu">
             <ul>
                 <li class="active"><a href="intro.jsp">Intro</a></li>
-                <li><a href="shop_grid.do">Shop</a></li>
-                <li><a href="#">Pages</a>
+                <li><a>Shop</a></li>
+                <li><a>Pages</a>
                     <ul class="header__menu__dropdown">
-                        <li><a href="shop_grid.do">전체상품</a></li> 
-                        <li><a href="shop_grid.do">종합비타민</a></li>
-                        <li><a href="shop_grid.do">유산균</a></li>
-                        <li><a href="shop_grid.do">눈건강</a></li>                        
+                       <li><a href="product_selectall.pro">전체상품</a></li> 
+                       <li><a href="product_selectall.pro?pcode=VITA">종합비타민</a></li>
+                       <li><a href="product_selectall.pro?pcode=LACT">유산균</a></li>
+                       <li><a href="product_selectall.pro?pcode=EYES">눈건강</a></li>                       
                     </ul>
                 </li>
                 <li><a href="notice.not">공지사항</a></li>
@@ -120,10 +119,6 @@
                                     <li><a href="#">English</a></li>
                                 </ul> -->
                             </div>
-                           <!--  <div class="header__top__right__auth">
-                                <a href="login.do"><i class="fa fa-user"></i> Login</a>
-                                <a href="new.do">&nbsp;&nbsp;회원가입</a>
-                            </div> -->
                             <mytag:login/>
                         </div>
                     </div>
@@ -141,19 +136,19 @@
                     <nav class="header__menu">
                         <ul>
                             <li class="active"><a href="intro.jsp">Intro</a></li>
-                            <li><a href="shop_grid.do">Shop</a>
+                            <li><a>Shop</a>
                                 <ul class="header__menu__dropdown">
-                                    <li><a href="shop_grid.do">전체상품</a></li> 
-                                    <li><a href="shop_grid.do">종합비타민</a></li>
-                                    <li><a href="shop_grid.do">유산균</a></li>
-                                    <li><a href="shop_grid.do">눈건강</a></li>
+                                   <li><a href="product_selectall.pro">전체상품</a></li> 
+			                       <li><a href="product_selectall.pro?pcode=VITA">종합비타민</a></li>
+			                       <li><a href="product_selectall.pro?pcode=LACT">유산균</a></li>
+			                       <li><a href="product_selectall.pro?pcode=EYES">눈건강</a></li>    
                                 </ul>
                             </li>
                             <li><a href="notice.not">공지사항</a></li>
                             <li><a href="contact.con">고객센터</a></li>
-                            <c:if test="${mrole == 'ADMIN'}">
-                             <li><a href="product_manage.pro">상품관리</a></li>
-                          </c:if>
+	                            <c:if test="${mrole == 'ADMIN'}">
+	                             <li><a href="product_manage.pro">상품관리</a></li>
+	                          </c:if>
                         </ul>
                     </nav>
                 </div>
@@ -176,11 +171,10 @@
                             <span>Shop</span>
                         </div>
                         <ul>
-                            <li><a href="shop_grid.do">전체상품</a></li>
-                            <li><a href="shop_grid.do">종합비타민</a></li>
-                            <li><a href="shop_grid.do">유산균</a></li>
-                            <li><a href="shop_grid.do">눈건강</a></li>
-                
+	                       <li><a href="product_selectall.pro">전체상품</a></li> 
+	                       <li><a href="product_selectall.pro?pcode=VITA">종합비타민</a></li>
+	                       <li><a href="product_selectall.pro?pcode=LACT">유산균</a></li>
+	                       <li><a href="product_selectall.pro?pcode=EYES">눈건강</a></li>    
                         </ul>
                     </div>
                 </div>
@@ -262,7 +256,7 @@
                     </thead>
                     <tbody>
                        
-                       <c:forEach var="v" items="${mdatas}">
+                       <c:forEach var="v" items="${pdatas}">
                        
                            <tr>
                                <td>${v.pno}</td>
@@ -274,7 +268,10 @@
                                <td>${v.porigin}</td>
                                <td>${v.psales}</td>
                                <td>${v.pstock}</td>
-                               
+                               <td>
+                               		<a href="product_delete.pro?pno=${v.pno}">삭제</a>
+                               	<!-- <input type="button" class="btn_basecolor" onclick="productedel()" value="삭제"> -->
+                               </td>
                            </tr>
                         
                         </c:forEach>
@@ -324,6 +321,19 @@
       }
    </script>
     
+	
+<script type="text/javascript">
+	function productedel(){
+		ans=confirm("정말 삭제하시겠습니까?");
+		if(ans==true){
+			location.href="product_delete.pro?pno=${v.pno}";
+		}
+		else{
+			return;
+		}
+	}
+</script>
+
 
 </body>
 

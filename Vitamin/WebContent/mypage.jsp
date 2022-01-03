@@ -61,13 +61,13 @@
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
                 <li class="active"><a href="intro.jsp">Intro</a></li>
-                <li><a href="shop_grid.do">Shop</a></li>
-                <li><a href="#">Pages</a>
+                <li><a>Shop</a></li>
+                <li><a>Pages</a>
                     <ul class="header__menu__dropdown">
-                        <li><a href="shop_grid.do">전체상품</a></li> 
-                        <li><a href="shop_grid.do">종합비타민</a></li>
-                        <li><a href="shop_grid.do">유산균</a></li>
-                        <li><a href="shop_grid.do">눈건강</a></li>                        
+                       <li><a href="product_selectall.pro">전체상품</a></li> 
+                       <li><a href="product_selectall.pro?pcode=VITA">종합비타민</a></li>
+                       <li><a href="product_selectall.pro?pcode=LACT">유산균</a></li>
+                       <li><a href="product_selectall.pro?pcode=EYES">눈건강</a></li>                           
                     </ul>
                 </li>
                 <li><a href="notice.not">공지사항</a></li>
@@ -142,12 +142,12 @@
                     <nav class="header__menu">
                         <ul>
                             <li class="active"><a href="intro.jsp">Intro</a></li>
-                            <li><a href="shop_grid.do">Shop</a>
+                            <li><a>Shop</a>
                                 <ul class="header__menu__dropdown">
-                                	<li><a href="shop_grid.do">전체상품</a></li>
-                                    <li><a href="shop_grid.do">종합비타민</a></li>
-                                    <li><a href="shop_grid.do">유산균</a></li>
-                                    <li><a href="shop_grid.do">눈건강</a></li>
+                                	<li><a href="product_selectall.pro">전체상품</a></li> 
+			                        <li><a href="product_selectall.pro?pcode=VITA">종합비타민</a></li>
+			                        <li><a href="product_selectall.pro?pcode=LACT">유산균</a></li>
+			                        <li><a href="product_selectall.pro?pcode=EYES">눈건강</a></li>    
                                 </ul>
                             </li>
                             <li><a href="notice.not">공지사항</a></li>
@@ -177,10 +177,10 @@
                             <span>Shop</span>
                         </div>
                         <ul>
-                        	<li><a href="shop_grid.do">전체상품</a></li>
-                            <li><a href="shop_grid.do">종합비타민</a></li>
-                            <li><a href="shop_grid.do">유산균</a></li>
-                            <li><a href="shop_grid.do">눈건강</a></li>
+                        	<li><a href="product_selectall.pro">전체상품</a></li> 
+                      		<li><a href="product_selectall.pro?pcode=VITA">종합비타민</a></li>
+	                    	<li><a href="product_selectall.pro?pcode=LACT">유산균</a></li>
+	                     	<li><a href="product_selectall.pro?pcode=EYES">눈건강</a></li>    
                         </ul>
                     </div>
                 </div>
@@ -319,8 +319,6 @@
 		ans=confirm("정말 회원탈퇴하시겠습니까?");
 		if(ans==true){
 			mpw = prompt("비밀번호를 입력해주세요.");
-			
-			
 			location.href="member_delete.mem?mid=${mid}&mpw="+mpw;
 		}
 		else{

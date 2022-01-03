@@ -17,6 +17,7 @@ public class ProductManageAction implements Action {
 		// 모든 상품 데이터들을 pdatas 라는 이름으로 저장
 		ProductDAO dao = ProductDAO.getInstance();
 		ArrayList<ProductVO> pdatas = dao.selectAll();
+		System.out.println(pdatas);
 		request.setAttribute("pdatas", pdatas);
 				
 		// 상품관리를 누른 경우 위 데이터들을 가지고 바로 manage.jsp 페이지로 이동

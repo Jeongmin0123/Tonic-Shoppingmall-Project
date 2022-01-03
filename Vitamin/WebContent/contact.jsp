@@ -37,7 +37,7 @@
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
-            <a href="#"><img src="img/logo.png" alt=""></a>
+            <a href="main.do"><img src="img/logo.png" alt=""></a>
         </div>
         <div class="humberger__menu__widget">
             <div class="header__top__right__language">
@@ -57,13 +57,13 @@
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
                 <li class="active"><a href="intro.jsp">Intro</a></li>
-                <li><a href="shop_grid.do">Shop</a></li>
-                <li><a href="#">Pages</a>
+                <li><a>Shop</a></li>
+                <li><a>Pages</a>
                     <ul class="header__menu__dropdown">
-                        <li><a href="shop_grid.do">전체상품</a></li> 
-                        <li><a href="shop_grid.do">종합비타민</a></li>
-                        <li><a href="shop_grid.do">유산균</a></li>
-                        <li><a href="shop_grid.do">눈건강</a></li>                        
+                        <li><a href="product_selectall.pro">전체상품</a></li> 
+                        <li><a href="product_selectall.pro?pcode=VITA">종합비타민</a></li>
+                        <li><a href="product_selectall.pro?pcode=LACT">유산균</a></li>
+                        <li><a href="product_selectall.pro?pcode=EYES">눈건강</a></li>                     
                     </ul>
                 </li>
                 <li><a href="notice.not">공지사항</a></li>
@@ -140,19 +140,19 @@
                     <nav class="header__menu">
                         <ul>
                             <li class="active"><a href="intro.jsp">Intro</a></li>
-                            <li><a href="#">Shop</a>
+                            <li><a>Shop</a>
                                 <ul class="header__menu__dropdown">
-                                    <li><a href="shop-grid.do">전체상품</a></li> 
-                                    <li><a href="shop-grid.do">종합비타민</a></li>
-                                    <li><a href="shop-grid.do">유산균</a></li>
-                                    <li><a href="shop-grid.do">눈건강</a></li>
+			                        <li><a href="product_selectall.pro">전체상품</a></li> 
+			                        <li><a href="product_selectall.pro?pcode=VITA">종합비타민</a></li>
+			                        <li><a href="product_selectall.pro?pcode=LACT">유산균</a></li>
+			                        <li><a href="product_selectall.pro?pcode=EYES">눈건강</a></li> 
                                 </ul>
                             </li>
                             <li><a href="notice.not">공지사항</a></li>
                             <li><a href="contact.con">고객센터</a></li>
                               <c:if test="${mrole == 'ADMIN'}">
-                                    <li><a href="product_manage.pro">상품관리</a></li>
-                                 </c:if>
+                                 <li><a href="product_manage.pro">상품관리</a></li>
+                              </c:if>
                         </ul>
                     </nav>
                 </div>
@@ -175,10 +175,10 @@
                             <span>Shop</span>
                         </div>
                         <ul>
-                            <li><a href="shop_grid.do">전체상품</a></li>
-                            <li><a href="shop_grid.do">종합비타민</a></li>
-                            <li><a href="shop_grid.do">유산균</a></li>
-                            <li><a href="shop_grid.do">눈건강</a></li>
+	                        <li><a href="product_selectall.pro">전체상품</a></li> 
+	                        <li><a href="product_selectall.pro?pcode=VITA">종합비타민</a></li>
+	                        <li><a href="product_selectall.pro?pcode=LACT">유산균</a></li>
+	                        <li><a href="product_selectall.pro?pcode=EYES">눈건강</a></li> 
                         </ul>
                     </div>
                 </div>
@@ -238,6 +238,7 @@
                     <fieldset>
                         <legend>검색</legend>
                         <input type="text" class="tbox" title="검색어를 입력하세요" placeholder="검색어를 입력하세요">
+                        <!-- 곧 추가할 예정 -->
                         <a href="#" class="btn_srch">검색</a>
                     </fieldset>
                 </form>
@@ -253,15 +254,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                    	
                     	<c:forEach var="v" items="${cdatas}">
-                    	
 	                        <tr>
 	                            <td>${v.msgno}</td>
 	                            <td class="tit_notice"><a href="contact_detail.con?msgno=${v.msgno}">${v.msgtext}</a></td>
 	                            <td>${v.msgemail}</td>
 	                        </tr>
-                        
                         </c:forEach>
 	                            <!-- <td class="tit_notice"><a href="javascript:showdetails()">test(테스트 후 지우는 부분)</a></td> -->
                     </tbody>
