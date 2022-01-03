@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="mytag" %>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -74,7 +76,7 @@
                 <li><a href="notice.not">공지사항</a></li>
                 <li><a href="contact.con">고객센터</a></li>
                 <c:if test="${mrole == 'ADMIN'}">
-              		<li><a href="manage.man">상품관리</a></li>
+              		<li><a href="product_manage.pro">상품관리</a></li>
               	</c:if>
             </ul>
         </nav>
@@ -155,7 +157,7 @@
                             <li><a href="contact.con">고객센터</a></li>
                            
                            	<c:if test="${mrole == 'ADMIN'}">
-                           		<li><a href="manage.man">상품관리</a></li>
+                           		<li><a href="product_manage.pro">상품관리</a></li>
                            	</c:if>
                            
                         </ul>

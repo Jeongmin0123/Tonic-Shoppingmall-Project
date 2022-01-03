@@ -73,7 +73,7 @@
                 <li><a href="notice.not">공지사항</a></li>
                 <li><a href="contact.con">고객센터</a></li>
                 <c:if test="${mrole == 'ADMIN'}">
-              		<li><a href="manage.man">상품관리</a></li>
+              		<li><a href="product_manage.pro">상품관리</a></li>
               	</c:if>
             </ul>
         </nav>
@@ -153,7 +153,7 @@
                             <li><a href="notice.not">공지사항</a></li>
                             <li><a href="contact.con">고객센터</a></li>
                             <c:if test="${mrole == 'ADMIN'}">
-			              		<li><a href="manage.man">상품관리</a></li>
+			              		<li><a href="product_manage.pro">상품관리</a></li>
 			              	</c:if>
                         </ul>
                     </nav>
