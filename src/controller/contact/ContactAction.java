@@ -14,6 +14,11 @@ public class ContactAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		// cdatas라는 이름에 contact data들을 arraylist 로 저장한다.
+		ContactDAO dao = ContactDAO.getInstance();
+		ArrayList<ContactVO> cdatas = dao.selectAll();
+		request.setAttribute("cdatas", cdatas);
+		
 		// contact.jsp 파일로 이동할 수 있드록 경로를 지정하고 데이터를 기억해서 넘겨준다.
 		ActionForward forward = new ActionForward();
 		forward.setPath("contact.jsp");

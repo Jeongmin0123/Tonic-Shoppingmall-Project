@@ -35,10 +35,19 @@
   
   <servlet>
     <servlet-name>fc_con</servlet-name>
-    <servlet-class>controller.contact.ContactFrontController</servlet-class>
+    <servlet-class>controller.product.ProductFrontController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>fc_con</servlet-name>
     <url-pattern>*.con</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>fc_pro</servlet-name>
+    <servlet-class>controller.product.ProductFrontController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>fc_pro</servlet-name>
+    <url-pattern>*.pro</url-pattern>
   </servlet-mapping>
 </web-app>
