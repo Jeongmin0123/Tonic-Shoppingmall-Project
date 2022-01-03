@@ -19,6 +19,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 // import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import model.common.JDBCUtil;
+import model.member.MemberVO;
 import model.notice.NoticeVO;
 
 public class ProductDAO {
@@ -30,11 +31,11 @@ public class ProductDAO {
 	PreparedStatement pstmt;
 	ResultSet rs;
 
-//  상품테이블(상품번호, 상품분류, 이미지 절대경로, 브랜드, 상품명, (할인된)가격, 할인율, 원산지, 유통기한, 판매량, 재고량)
+//  상품테이블(상품번호, 상품분류, 이미지 절대경로, 브랜드, 상품명, 가격, 할인율, 원산지, 유통기한, 판매량, 재고량)
 //  상품등록 시 입력받는 것들 = 이미지(파일 업로드), 분류, 브랜드, 상품명, 가격, 상세정보, 원산지, 유통기한, 재고량}
-	private	String sql_insertP = "INSERT INTO product(pno, pcode, pimg_src, pbrand, pname, pprice, porigin, pperiod, pstock) " + 
+	private	String sql_insertP = "INSERT INTO product(pno, pcode, pimg_src, pbrand, pname, pprice, pdetail, porigin, pperiod, pstock) " + 
 			"VALUES(LPAD(PROD_SEQ.NEXTVAL, 3, 0), ?, ?, ?, ?, ?, ?, ?, ?";
-//	private	String sql_updateP = "UPDATE product SET pname=?, pprice=?,  WHERE pno=?"; // 220101 미구현
+	private	String sql_updateP = "UPDATE product SET pcode=?, pimg_src=?, pbrand=?, pname=?, pprice=?, pdetail=?, porigin=?, pperiod=?, pstock=? WHERE pno=?"; 
 	private	String sql_selectAll = "SELECT * FROM product ORDER BY pno DESC";
 	private	String sql_selectAllHP = "SELECT * FROM product ORDER BY pprice DESC"; // 높은 가격순
 	private	String sql_selectAllLP = "SELECT * FROM product ORDER BY pprice";    // 낮은 가격순
@@ -44,11 +45,10 @@ public class ProductDAO {
 	private String sql_filterPcode = "SELECT * FROM product WHERE pcode = ?"; // 상품분류 기반 필터 {VITA, LACT, EYES}
 	private String sql_searchPname = "SELECT * FROM product WHERE pname LIKE '%'||?||'%'"; // 상품명 기반 검색 쿼리
 
-/*	상품등록 폼 파일 업로드 구현 -> MultipartRequest 라이브러리를 설치할 필요 有
-	MultipartRequest multi = new MultipartRequest(request, savePath, sizeLimit, "UTF-8", new DefaultFileRenamePolicy());
-	MultipartRequest(객체, 저장될 서버 경로, 파일 최대 크기, 인코딩 방식, 같은 이름의 파일명 방지 처리) */
-
-	// 상품등록(아직 수정 중입니다)
+//	상품등록 폼 파일 업로드 구현 -> MultipartRequest 라이브러리를 설치할 필요 有
+//	MultipartRequest multi = new MultipartRequest(request, savePath, sizeLimit, "UTF-8", new DefaultFileRenamePolicy());
+//	MultipartRequest(객체, 저장될 서버 경로, 파일 최대 크기, 인코딩 방식, 같은 이름의 파일명 방지 처리)
+	// 상품등록
 	public boolean insertProduct(HttpServletRequest request) throws IOException { 
 		int result = 0;
 		
@@ -56,6 +56,7 @@ public class ProductDAO {
 		String dir = "C:\\Users\\totls\\git\\Tonic-Shoppingmall-Project\\WebContent\\getImg"; 
 		int Size = 100*1024*1024; // 받아올 파일용량 제한 : 100MB
 		MultipartRequest multi = new MultipartRequest(request, dir, Size, "UTF-8", new DefaultFileRenamePolicy());
+//		MultipartRequest(객체, 저장될 서버 경로, 파일 최대 크기, 인코딩 방식, 같은 이름의 파일명 방지 처리) 
 		
 		con = JDBCUtil.connect();
 		try {
@@ -66,9 +67,10 @@ public class ProductDAO {
 			pstmt.setString(3, multi.getParameter("pbrand"));
 			pstmt.setString(4, multi.getParameter("pname"));
 			pstmt.setString(5, multi.getParameter("pprice"));
-			pstmt.setString(6, multi.getParameter("porigin"));
-			pstmt.setString(7, multi.getParameter("pperiod"));
-			pstmt.setString(8, multi.getParameter("pstock"));
+			pstmt.setString(6, multi.getParameter("pdetail"));
+			pstmt.setString(7, multi.getParameter("porigin"));
+			pstmt.setString(8, multi.getParameter("pperiod"));
+			pstmt.setString(9, multi.getParameter("pstock"));
 			result = pstmt.executeUpdate();
 		} catch(Exception e) {
 			System.out.println("MemberDAO insertMember() : "+ e +" 에러");
@@ -79,17 +81,36 @@ public class ProductDAO {
 		return result == 1;
 	}
 	
-	// 상품수정(페이지 미구현)
-	public boolean updateProduct() {
+	// 상품수정(페이지 미구현, 수정 중)
+	public boolean updateProduct(HttpServletRequest request) throws IOException {
+		int result = 0;
+		
+		String dir = "C:\\Users\\totls\\git\\Tonic-Shoppingmall-Project\\WebContent\\getImg"; 
+		int Size = 100*1024*1024; // 받아올 파일용량 제한 : 100MB
+		MultipartRequest multi = new MultipartRequest(request, dir, Size, "UTF-8", new DefaultFileRenamePolicy());
+		
 		con = JDBCUtil.connect();
 		try {
-			
+			pstmt = con.prepareStatement(sql_updateP);
+			pstmt.setString(1, multi.getParameter("pcode"));
+			if(multi.getFilesystemName("pimg_src") != null) 
+				{ pstmt.setString(2, multi.getFilesystemName("pimg_src")); }
+			pstmt.setString(3, multi.getParameter("pbrand"));
+			pstmt.setString(4, multi.getParameter("pname"));
+			pstmt.setString(5, multi.getParameter("pprice"));
+			pstmt.setString(6, multi.getParameter("pdetail"));
+			pstmt.setString(6, multi.getParameter("porigin"));
+			pstmt.setString(7, multi.getParameter("pperiod"));
+			pstmt.setString(8, multi.getParameter("pstock"));
+			pstmt.setString(9, multi.getParameter("pno")); // 음...
+			result = pstmt.executeUpdate();
 		} catch(Exception e) {
-			
+			System.out.println("MemberDAO updateMember(): "+ e +" 에러");
+			e.printStackTrace();
 		} finally {
-			
+			JDBCUtil.disconnect(pstmt, con);
 		}
-		return false;
+		return result == 1;
 	}
   
 	// 상품리스트 조회
