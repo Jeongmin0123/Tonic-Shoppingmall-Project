@@ -115,7 +115,7 @@ public class ContactDAO {
 	}
 	
 	// 검색 메서드, SQL문 작성
-	// sql_searchN = "SELECT * FROM board WHERE ntitle LIKE '%' || ? || '%'";
+	// sql_searchC = "SELECT * FROM contact WHERE msgtext LIKE '%'||?||'%'";
 	public ArrayList<ContactVO> searchContact(String searchMsg) { // 인자로 뭘 받을 것인가
 		ArrayList<ContactVO> clist = new ArrayList<>();
 		ContactVO contact = null;
