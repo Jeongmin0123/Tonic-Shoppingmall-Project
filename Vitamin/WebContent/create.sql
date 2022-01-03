@@ -95,3 +95,29 @@ CREATE TABLE contact (
 	msgemail VARCHAR(50) NOT NULL,
 	msgtext  VARCHAR(2000) NOT NULL
 );
+
+
+drop table product;
+
+
+CREATE TABLE product(
+	pno VARCHAR(20) PRIMARY KEY, -- 상품번호 예) 001
+	pcode VARCHAR(20),           -- 상품분류 예) 종합비타민, 유산균, 루테인
+	pimg_src VARCHAR(2000),      -- 이미지 절대경로
+	pbrand VARCHAR(1000),        -- 브랜드
+	pname VARCHAR(1000),         -- 상품이름
+	pprice NUMBER(10),           -- (할인된)가격
+	pdiscount VARCHAR(10),       -- 할인율
+	pdetail VARCHAR(2000),       -- 세부사항
+	porigin VARCHAR(20),         -- 원산지
+	pperiod VARCHAR(20),         -- 유통기한
+	psales NUMBER(10) DEFAULT 0, -- 판매량
+	pstock NUMBER(10) DEFAULT 0  -- 재고량
+);
+
+INSERT INTO product(pno, pcode, pimg_src, pbrand, pname, pprice, pdiscount, porigin, pperiod, psales, pstock) 
+VALUES(1,'종합비타','https://www.uppear.co.kr/data/goods/20/08/32/1000000464/1000000464_main_088.jpg', '브랜드','비타민','10000','30%','미국','20221020','100','100');
+
+
+
+select * from product;

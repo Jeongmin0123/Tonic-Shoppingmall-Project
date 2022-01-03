@@ -340,7 +340,7 @@
                     </div>
                 </li>
             </ul>
-            <p class="app_content" align="right">
+            <p class="app_content" align="center">
             	<input type="submit" class="btn_basecolor" value="등록">
             </p>
             <!-- <p class="btn_line"><a href="#" class="btn_basecolor">등록</a></p> -->

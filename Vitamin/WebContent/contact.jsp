@@ -329,7 +329,7 @@
 		    <!-- Contact Section End -->
 		
 		    <!-- Map Begin -->
-		    <div class="map">
+		    <!-- <div class="map">
 		       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50647.46568304649!2d127.03291992056559!3d37.49691167942796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca4235fb589fb%3A0xb331971bc570bb6a!2z7ISc7Jq47Yq567OE7IucIOqwleuCqOq1rA!5e0!3m2!1sko!2skr!4v1640267479844!5m2!1sko!2skr" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 		        <div class="map-inside">
 		            <i class="icon_pin"></i>
@@ -341,7 +341,7 @@
 		                </ul>
 		            </div>
 		        </div>
-		    </div>
+		    </div> -->
 		    <!-- Map End -->
 		
 		    <!-- Contact Form Begin -->
