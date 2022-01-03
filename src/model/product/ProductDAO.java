@@ -31,11 +31,9 @@ public class ProductDAO {
 	ResultSet rs;
 
 //  상품테이블(상품번호, 상품분류, 이미지 절대경로, 브랜드, 상품명, (할인된)가격, 할인율, 원산지, 유통기한, 판매량, 재고량)
-	private	String sql_insertP = "INSERT INTO product(pno, pcode, pimg_src, pbrand, pname, pprice, pdiscount, porigin, pperiod, psales, pstock) \r\n" + 
-			"VALUES(LPAD(PROD_SEQ.NEXTVAL, 3, 0), ?, ?, ?, ?, ?, '0%',\r\n" + 
-			"DECODE(ROUND(DBMS_RANDOM.VALUE(1, 7)),1, '국내산', 2, '중국산', 3, '미국산', 4, '대만산', 5, '일본산', 6, '독일산', 7, '파푸아뉴기니산'),\r\n" + 
-			"DECODE(ROUND(DBMS_RANDOM.VALUE(1, 7)),1,'2022년 4월',2,'2022년 9월',3,'2022년 12월',4,'2023년 5월',5,'2023년 7월',6,'2023년 11월',7,'이미 썩었음'),\r\n" + 
-			"ROUND(DBMS_RANDOM.VALUE(1, 200)), ROUND(DBMS_RANDOM.VALUE(1, 200)))";
+//  상품등록 시 입력받는 것들 = 이미지(파일 업로드), 분류, 브랜드, 상품명, 가격, 상세정보, 원산지, 유통기한, 재고량}
+	private	String sql_insertP = "INSERT INTO product(pno, pcode, pimg_src, pbrand, pname, pprice, porigin, pperiod, pstock) " + 
+			"VALUES(LPAD(PROD_SEQ.NEXTVAL, 3, 0), ?, ?, ?, ?, ?, ?, ?, ?";
 //	private	String sql_updateP = "UPDATE product SET pname=?, pprice=?,  WHERE pno=?"; // 220101 미구현
 	private	String sql_selectAll = "SELECT * FROM product ORDER BY pno DESC";
 	private	String sql_selectAllHP = "SELECT * FROM product ORDER BY pprice DESC"; // 높은 가격순
@@ -68,6 +66,9 @@ public class ProductDAO {
 			pstmt.setString(3, multi.getParameter("pbrand"));
 			pstmt.setString(4, multi.getParameter("pname"));
 			pstmt.setString(5, multi.getParameter("pprice"));
+			pstmt.setString(6, multi.getParameter("porigin"));
+			pstmt.setString(7, multi.getParameter("pperiod"));
+			pstmt.setString(8, multi.getParameter("pstock"));
 			result = pstmt.executeUpdate();
 		} catch(Exception e) {
 			System.out.println("MemberDAO insertMember() : "+ e +" 에러");
