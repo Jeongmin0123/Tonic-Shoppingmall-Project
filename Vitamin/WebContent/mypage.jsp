@@ -47,11 +47,6 @@
             <div class="header__top__right__language">
                 <img src="img/korea.png" alt="">
                 <div>한국어</div>
-                <!-- <span class="arrow_carrot-down"></span>
-                <ul>
-                    <li><a href="#">Spanis</a></li>
-                    <li><a href="#">English</a></li>
-                </ul> -->
             </div>
             <div class="header__top__right__auth">
                 <!-- <a href="login.do"><i class="fa fa-user"></i> Login</a> -->
@@ -112,18 +107,8 @@
                             <div class="header__top__right__language">
                                 <img src="img/korea.png" alt="">
                                 <div>한국어</div>
-                                <!-- <span class="arrow_carrot-down"></span>
-                                <ul>
-                                    <li><a href="#">Spanis</a></li>
-                                    <li><a href="#">English</a></li>
-                                </ul> -->
                             </div>
                             <div class="header__top__right__auth">
-                            	<!-- mdata.mid? mid? mid 세션에 저장하는 변수명에 따라 달라질 예정 -->
-                            	<%-- <c:if test="${mid == null}">
-	                                <a href="login.do"><i class="fa fa-user"></i> Login</a>
-	                                <a href="new.do">&nbsp;&nbsp;회원가입</a>
-                            	</c:if> --%>
                             	<mytag:login/>
                             </div>
                         </div>

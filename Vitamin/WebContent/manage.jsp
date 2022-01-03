@@ -44,11 +44,6 @@
             <div class="header__top__right__language">
                 <img src="img/korea.png" alt="">
                 <div>한국어</div>
-                <!-- <span class="arrow_carrot-down"></span>
-                <ul>
-                    <li><a href="#">Spanis</a></li>
-                    <li><a href="#">English</a></li>
-                </ul> -->
             </div>
             <div class="header__top__right__auth">
                 <mytag:login/>
@@ -113,11 +108,6 @@
                             <div class="header__top__right__language">
                                 <img src="img/korea.png" alt="">
                                 <div>한국어</div>
-                                <!-- <span class="arrow_carrot-down"></span>
-                                <ul>
-                                    <li><a href="#">Spanis</a></li>
-                                    <li><a href="#">English</a></li>
-                                </ul> -->
                             </div>
                             <mytag:login/>
                         </div>

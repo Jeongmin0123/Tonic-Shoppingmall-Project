@@ -44,14 +44,8 @@
             <div class="header__top__right__language">
                 <img src="img/korea.png" alt="">
                 <div>한국어</div>
-                <!-- <span class="arrow_carrot-down"></span>
-                <ul>
-                    <li><a href="#">Spanis</a></li>
-                    <li><a href="#">English</a></li>
-                </ul> -->
             </div>
             <div class="header__top__right__auth">
-               <!--  <a href="login.do"><i class="fa fa-user"></i> Login</a> -->
                <mytag:login/>
             </div>
         </div>
@@ -114,15 +108,8 @@
                             <div class="header__top__right__language">
                                 <img src="img/korea.png" alt="">
                                 <div>한국어</div>
-                                <!-- <span class="arrow_carrot-down"></span>
-                                <ul>
-                                    <li><a href="#">Spanis</a></li>
-                                    <li><a href="#">English</a></li>
-                                </ul> -->
                             </div>
                             <div class="header__top__right__auth">
-                                <!-- <a href="login.jsp"><i class="fa fa-user"></i> Login</a>
-                                <a href="new.jsp">&nbsp;&nbsp;회원가입</a> -->
                                 <mytag:login/>
                             </div>
                         </div>
