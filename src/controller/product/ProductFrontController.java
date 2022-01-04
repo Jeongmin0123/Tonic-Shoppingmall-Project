@@ -116,6 +116,12 @@ public class ProductFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		} else if(command.equals("/product_cartin.pro")) {		// 상품 세부 페이지에서 장바구니 버튼을 클릭 시에 id값을 통해서 전체 값을 받아준 뒤에 카트에 그 데이터를 저장하고 다시 product_detail.pro를 통해 shop_detail.jsp로 이동
+			try {
+				forward= new ProductCartInAction().execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 		if(forward!=null) { 
