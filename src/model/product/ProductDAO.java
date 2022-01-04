@@ -81,7 +81,7 @@ public class ProductDAO {
 		return result == 1;
 	}
 	
-	// 상품수정(페이지 미구현, 수정 중)
+	// 상품수정
 	public boolean updateProduct(HttpServletRequest request) throws IOException {
 		int result = 0;
 		
