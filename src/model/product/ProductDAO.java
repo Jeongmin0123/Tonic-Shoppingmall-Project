@@ -128,7 +128,7 @@ public class ProductDAO {
 				product.setPimg_src(rs.getString("pimg_src"));
 				product.setPbrand(rs.getString("pbrand"));
 				product.setPname(rs.getString("pname"));
-				product.setPprice(rs.getInt("pprice"));
+				product.setPprice(rs.getString("pprice")); // product.setPprice(rs.getInt("pprice"));
 				product.setPdiscount(rs.getString("pdiscount"));
 				product.setPdetail(rs.getString("pdetail"));
 				product.setPorigin(rs.getString("porigin"));
@@ -162,7 +162,7 @@ public class ProductDAO {
 				product.setPimg_src(rs.getString("pimg_src"));
 				product.setPbrand(rs.getString("pbrand"));
 				product.setPname(rs.getString("pname"));
-				product.setPprice(rs.getInt("pprice"));
+				product.setPprice(rs.getString("pprice"));
 				product.setPdiscount(rs.getString("pdiscount"));
 				product.setPdetail(rs.getString("pdetail"));
 				product.setPorigin(rs.getString("porigin"));
@@ -196,7 +196,7 @@ public class ProductDAO {
 				product.setPimg_src(rs.getString("pimg_src"));
 				product.setPbrand(rs.getString("pbrand"));
 				product.setPname(rs.getString("pname"));
-				product.setPprice(rs.getInt("pprice"));
+				product.setPprice(rs.getString("pprice"));
 				product.setPdiscount(rs.getString("pdiscount"));
 				product.setPdetail(rs.getString("pdetail"));
 				product.setPorigin(rs.getString("porigin"));
@@ -230,7 +230,7 @@ public class ProductDAO {
 				product.setPimg_src(rs.getString("pimg_src"));
 				product.setPbrand(rs.getString("pbrand"));
 				product.setPname(rs.getString("pname"));
-				product.setPprice(rs.getInt("pprice"));
+				product.setPprice(rs.getString("pprice"));
 				product.setPdiscount(rs.getString("pdiscount"));
 				product.setPdetail(rs.getString("pdetail"));
 				product.setPorigin(rs.getString("porigin"));
@@ -263,7 +263,7 @@ public class ProductDAO {
 				product.setPimg_src(rs.getString("pimg_src"));
 				product.setPbrand(rs.getString("pbrand"));
 				product.setPname(rs.getString("pname"));
-				product.setPprice(rs.getInt("pprice"));
+				product.setPprice(rs.getString("pprice"));
 				product.setPdiscount(rs.getString("pdiscount"));
 				product.setPdetail(rs.getString("pdetail"));
 				product.setPorigin(rs.getString("porigin"));
@@ -314,7 +314,7 @@ public class ProductDAO {
 				product.setPimg_src(rs.getString("pimg_src"));
 				product.setPbrand(rs.getString("pbrand"));
 				product.setPname(rs.getString("pname"));
-				product.setPprice(rs.getInt("pprice"));
+				product.setPprice(rs.getString("pprice"));
 				product.setPdiscount(rs.getString("pdiscount"));
 				product.setPdetail(rs.getString("pdetail"));
 				product.setPorigin(rs.getString("porigin"));
@@ -351,7 +351,7 @@ public class ProductDAO {
 				product.setPimg_src(rs.getString("pimg_src"));
 				product.setPbrand(rs.getString("pbrand"));
 				product.setPname(rs.getString("pname"));
-				product.setPprice(rs.getInt("pprice"));
+				product.setPprice(rs.getString("pprice"));
 				product.setPdiscount(rs.getString("pdiscount"));
 				product.setPdetail(rs.getString("pdetail"));
 				product.setPorigin(rs.getString("porigin"));
