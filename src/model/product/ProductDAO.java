@@ -48,7 +48,8 @@ public class ProductDAO {
 		int result = 0;
 		
 //		String URL = "절대경로";, 각 컴퓨터마다 경로가 다르기 때문에 수정해야 합니다.
-		String dir = "C:\\Users\\totls\\git\\Tonic-Shoppingmall-Project\\WebContent\\getImg"; 
+//		String dir = "C:\\Users\\totls\\git\\Tonic-Shoppingmall-Project\\WebContent\\getImg";
+		String dir = request.getServletContext().getRealPath("/getImg");
 		int Size = 100*1024*1024; // 받아올 파일용량 제한 : 100MB
 		MultipartRequest multi = new MultipartRequest(request, dir, Size, "UTF-8", new DefaultFileRenamePolicy());
 //		MultipartRequest(객체, 저장될 서버 경로, 파일 최대 크기, 인코딩 방식, 같은 이름의 파일명 방지 처리) 
