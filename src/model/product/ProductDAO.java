@@ -34,7 +34,7 @@ public class ProductDAO {
 //  상품테이블(상품번호, 상품분류, 이미지 절대경로, 브랜드, 상품명, 가격, 할인율, 원산지, 유통기한, 판매량, 재고량)
 //  상품등록 시 입력받는 것들 = 이미지(파일 업로드), 분류, 브랜드, 상품명, 가격, 상세정보, 원산지, 유통기한, 재고량}
 	private	String sql_insertP = "INSERT INTO product(pno, pcode, pimg_src, pbrand, pname, pprice, pdetail, porigin, pperiod, pstock) " + 
-			"VALUES(LPAD(PROD_SEQ.NEXTVAL, 3, 0), ?, ?, ?, ?, ?, ?, ?, ?";
+			"VALUES(LPAD(PROD_SEQ.NEXTVAL, 3, 0), ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	private	String sql_updateP = "UPDATE product SET pcode=?, pimg_src=?, pbrand=?, pname=?, pprice=?, pdetail=?, porigin=?, pperiod=?, pstock=? WHERE pno=?"; 
 	private	String sql_selectAll = "SELECT * FROM product ORDER BY pno DESC";
 	private	String sql_selectAllHP = "SELECT * FROM product ORDER BY pprice DESC"; // 높은 가격순
