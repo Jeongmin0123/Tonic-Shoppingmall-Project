@@ -23,11 +23,11 @@ public class CrawlDAO {
 		PreparedStatement pstmt = null;
 		 
 		String sql_InsertVITA = "INSERT INTO product(pno, pcode, pimg_src, pbrand, pname, pprice, pdiscount, porigin, pperiod, psales, pstock) " + 
-				"VALUES(LPAD(PROD_SEQ.NEXTVAL, 3, 0), 'VITA', "
-				+ "?, "
-				+ "DECODE(ROUND(DBMS_RANDOM.VALUE(1, 5)), 1, '네이처메이드', 2, '네추럴라이즈', 3, '한미헬스케어', 4, '어피어', 5, '라이프익스텐션', "
-				+ "?, "
-				+ "?, "
+				"VALUES(LPAD(PROD_SEQ.NEXTVAL, 3, 0), 'VITA',"
+				+ "?,"
+				+ "DECODE(ROUND(DBMS_RANDOM.VALUE(1, 5)), 1, '네이처메이드', 2, '네추럴라이즈', 3, '한미헬스케어', 4, '어피어', 5, '라이프익스텐션'),"
+				+ "?,"
+				+ "?,"
 				+ "'0%'," + 
 				"DECODE(ROUND(DBMS_RANDOM.VALUE(1, 7)),1, '국내산', 2, '중국산', 3, '미국산', 4, '대만산', 5, '일본산', 6, '독일산', 7, '파푸아뉴기니산')," + 
 				"DECODE(ROUND(DBMS_RANDOM.VALUE(1, 7)),1,'2022년 4월',2,'2022년 9월',3,'2022년 12월',4,'2023년 5월',5,'2023년 7월',6,'2023년 11월',7,'이미 썩었음')," + 
@@ -35,7 +35,7 @@ public class CrawlDAO {
 		String sql_InsertLACT = "INSERT INTO product(pno, pcode, pimg_src, pbrand, pname, pprice, pdiscount, porigin, pperiod, psales, pstock) " + 
 				"VALUES(LPAD(PROD_SEQ.NEXTVAL, 3, 0), 'LACT', "
 				+ "?, "
-				+ "DECODE(ROUND(DBMS_RANDOM.VALUE(1, 5)), 1, '엔젯오리진', 2, '닥터브라이언', 3, '라플레', 4, '어피어', 5, '라이프익스텐션', "
+				+ "DECODE(ROUND(DBMS_RANDOM.VALUE(1, 5)), 1, '엔젯오리진', 2, '닥터브라이언', 3, '라플레', 4, '어피어', 5, '라이프익스텐션'), "
 				+ "?, "
 				+ "?, "
 				+ "'0%'," + 
@@ -45,7 +45,7 @@ public class CrawlDAO {
 		String sql_InsertEYES = "INSERT INTO product(pno, pcode, pimg_src, pbrand, pname, pprice, pdiscount, porigin, pperiod, psales, pstock) " + 
 				"VALUES(LPAD(PROD_SEQ.NEXTVAL, 3, 0), 'EYES', "
 				+ "?, "
-				+ "DECODE(ROUND(DBMS_RANDOM.VALUE(1, 5)), 1, '닥터브라이언', 2, '네추럴라이즈', 3, '한미헬스케어', 4, '어피어', 5, '라이프익스텐션', "
+				+ "DECODE(ROUND(DBMS_RANDOM.VALUE(1, 5)), 1, '닥터브라이언', 2, '네추럴라이즈', 3, '한미헬스케어', 4, '어피어', 5, '라이프익스텐션'), "
 				+ "?, "
 				+ "?, "
 				+ "'0%'," + 

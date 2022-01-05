@@ -38,8 +38,8 @@ public class ProductDAO {
 	private	String sql_updateP = "UPDATE product SET pcode=?, pimg_src=?, pbrand=?, pname=?, pprice=?, pdetail=?, porigin=?, pperiod=?, pstock=? WHERE pno=?"; 
 	private	String sql_selectAll = "SELECT * FROM product ORDER BY pno DESC";
 	private	String sql_selectAllHP = "SELECT * FROM product ORDER BY pprice DESC"; // 높은 가격순
-	private	String sql_selectAllLP = "SELECT * FROM product ORDER BY pprice";    // 낮은 가격순
-	private	String sql_selectAllN = "SELECT * FROM product ORDER BY pname";    // 이름순
+	private	String sql_selectAllLP = "SELECT * FROM product ORDER BY pprice"; // 낮은 가격순
+	private	String sql_selectAllN = "SELECT * FROM product ORDER BY pname"; // 이름순
 	private	String sql_selectOne = "SELECT * FROM product WHERE pno = ?";
 	private	String sql_deleteP = "DELETE FROM product WHERE pno = ?";
 	private String sql_filterPcode = "SELECT * FROM product WHERE pcode = ?"; // 상품분류 기반 필터 {VITA, LACT, EYES}
@@ -282,7 +282,6 @@ public class ProductDAO {
   
 	//  상품삭제
 	public boolean deleteProduct(ProductVO vo) {
-	//  private	String sql_deleteP = "DELETE FROM product WHERE pcode = ?";
 		int result = 0;
 		
 		con = JDBCUtil.connect();
@@ -300,7 +299,6 @@ public class ProductDAO {
 	}
 
 	// 상품분류 필터  메서드
-	// sql_filterPcode = "SELECT * FROM product WHERE pcode = ?";
 	public ArrayList<ProductVO> filterProductCode(String searchPcode) { 
 		ArrayList<ProductVO> plist = new ArrayList<>();
 		ProductVO product = null;
@@ -336,7 +334,6 @@ public class ProductDAO {
 	}
 	
 	// 상품명 검색  메서드
-	// sql_searchPname = "SELECT * FROM product WHERE pname LIKE '%'||?||'%'";
 	public ArrayList<ProductVO> searchProductName(String searchPname) { 
 		ArrayList<ProductVO> plist = new ArrayList<>();
 		ProductVO product = null;
