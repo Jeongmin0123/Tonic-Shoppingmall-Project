@@ -16,8 +16,7 @@ public class CrawlDAO {
 	PreparedStatement pstmt;
 	ResultSet rs;
 	
-	// 비타민
-	public static void insertVITA() {
+	public static void insertCrawlDB() {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		 
@@ -77,7 +76,7 @@ public class CrawlDAO {
 					result += pstmt.executeUpdate();
 				}
 			}
-			/* for문이면 필요없는 문장들
+			/* for문 하나로 줄이기
 			Document doc1 = Jsoup.connect(url1).get(); // url의 HTML 코드를 가져온다.
 			Elements ele1 = doc1.select("div.goods_list_cont"); // 그 중 div의 item_cont 클래스 태그로 둘러쌓인 부분을 가져온다. 
 			Iterator<Element> itr_img_src1 = ele1.select("div.item_photo_box > a > img").iterator(); // 정상
@@ -85,7 +84,7 @@ public class CrawlDAO {
 			Iterator<Element> itr_price1 = ele1.select("strong.item_price").iterator(); // 정상
 			
 			while(itr_name1.hasNext()) {
-				// 상품별로 순차적으로 sql문을 수정한다.
+			//  상품별로 순차적으로 sql문을 수정한다.
 				pstmt = con.prepareStatement(sql_InsertVITA); // sql_InsertVITA, sql_InsertLACT, sql_InsertEYES
 				pstmt.setString(1, itr_img_src1.next().attr("abs:src"));
 				pstmt.setString(2, itr_name1.next().text());
@@ -129,39 +128,4 @@ public class CrawlDAO {
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
