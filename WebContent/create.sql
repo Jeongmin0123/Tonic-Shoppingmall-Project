@@ -66,6 +66,8 @@ CREATE TABLE product(
 -- DROP TABLE product;
 SELECT * FROM product;
 
+SELECT * FROM (SELECT * FROM product ORDER BY psales DESC) WHERE ROW NUM <= 6;
+
 -- DAO에 넣을 INSERT SQL문
 -- INSERT INTO product(pno, pcode, pimg_src, pbrand, pname, pprice, porigin, pperiod, pstock)
 -- VALUES(LPAD(PROD_SEQ.NEXTVAL, 3, 0), ?, ?, ?, ?, ?, ?, ?, ?)

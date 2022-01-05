@@ -299,14 +299,14 @@ public class ProductDAO {
 	}
 
 	// 상품분류 필터  메서드
-	public ArrayList<ProductVO> filterProductCode(String searchPcode) { 
+	public ArrayList<ProductVO> filterProductCode(ProductVO vo) { 
 		ArrayList<ProductVO> plist = new ArrayList<>();
-		ProductVO product = null;
+		ProductVO product = new ProductVO();
 		
 		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_filterPcode);
-			pstmt.setString(1, searchPcode);
+			pstmt.setString(1, vo.getPcode());
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				product.setPno(rs.getString("pno"));
