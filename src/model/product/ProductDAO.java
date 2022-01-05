@@ -111,13 +111,13 @@ public class ProductDAO {
 	// 상품리스트 조회
 	public ArrayList<ProductVO> selectAll() {
 		ArrayList<ProductVO> plist = new ArrayList<>();
+		ProductVO product = new ProductVO();
 		
 		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_selectAll); // 수정
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				ProductVO product = new ProductVO();
 				product.setPno(rs.getString("pno"));
 				product.setPcode(rs.getString("pcode"));
 				product.setPimg_src(rs.getString("pimg_src"));
@@ -145,13 +145,13 @@ public class ProductDAO {
 	// 높은 가격순 
 	public ArrayList<ProductVO> selectAllHigh() {
 		ArrayList<ProductVO> plist = new ArrayList<>();
+		ProductVO product = new ProductVO();
 		
 		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_selectAllHP); // 수정
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				ProductVO product = new ProductVO();
 				product.setPno(rs.getString("pno"));
 				product.setPcode(rs.getString("pcode"));
 				product.setPimg_src(rs.getString("pimg_src"));
@@ -179,13 +179,13 @@ public class ProductDAO {
 	// 낮은 가격순
 	public ArrayList<ProductVO> selectAllLow() {
 		ArrayList<ProductVO> plist = new ArrayList<>();
+		ProductVO product = new ProductVO();
 		
 		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_selectAllLP); // 수정
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				ProductVO product = new ProductVO();
 				product.setPno(rs.getString("pno"));
 				product.setPcode(rs.getString("pcode"));
 				product.setPimg_src(rs.getString("pimg_src"));
@@ -213,13 +213,13 @@ public class ProductDAO {
 	// 이름순
 	public ArrayList<ProductVO> selectAllName() {
 		ArrayList<ProductVO> plist = new ArrayList<>();
+		ProductVO product = new ProductVO();
 		
 		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_selectAllN); // 수정
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				ProductVO product = new ProductVO();
 				product.setPno(rs.getString("pno"));
 				product.setPcode(rs.getString("pcode"));
 				product.setPimg_src(rs.getString("pimg_src"));
@@ -247,6 +247,7 @@ public class ProductDAO {
 	// 상품 본문조회
 	public ProductVO selectOne(ProductVO vo) {
 		ProductVO product = new ProductVO();
+		
 		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_selectOne);
