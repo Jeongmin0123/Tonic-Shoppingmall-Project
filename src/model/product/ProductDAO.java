@@ -49,7 +49,7 @@ public class ProductDAO {
 		
 //		String URL = "절대경로";, 각 컴퓨터마다 경로가 다르기 때문에 수정해야 합니다.
 //		String dir = "C:\\Users\\totls\\git\\Tonic-Shoppingmall-Project\\WebContent\\getImg";
-		String dir = request.getServletContext().getRealPath("/getImg");
+		String dir = request.getServletContext().getRealPath("/getImg"); // 실제경로를 가져온다.
 		int Size = 100*1024*1024; // 받아올 파일용량 제한 : 100MB
 		MultipartRequest multi = new MultipartRequest(request, dir, Size, "UTF-8", new DefaultFileRenamePolicy());
 //		MultipartRequest(객체, 저장될 서버 경로, 파일 최대 크기, 인코딩 방식, 같은 이름의 파일명 방지 처리) 
@@ -112,13 +112,13 @@ public class ProductDAO {
 	// 상품리스트 조회
 	public ArrayList<ProductVO> selectAll() {
 		ArrayList<ProductVO> plist = new ArrayList<>();
-		ProductVO product = new ProductVO();
 		
 		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_selectAll); // 수정
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
+				ProductVO product = new ProductVO();
 				product.setPno(rs.getString("pno"));
 				product.setPcode(rs.getString("pcode"));
 				product.setPimg_src(rs.getString("pimg_src"));
@@ -146,13 +146,13 @@ public class ProductDAO {
 	// 높은 가격순 
 	public ArrayList<ProductVO> selectAllHigh() {
 		ArrayList<ProductVO> plist = new ArrayList<>();
-		ProductVO product = new ProductVO();
 		
 		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_selectAllHP); // 수정
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
+				ProductVO product = new ProductVO();
 				product.setPno(rs.getString("pno"));
 				product.setPcode(rs.getString("pcode"));
 				product.setPimg_src(rs.getString("pimg_src"));
@@ -180,13 +180,13 @@ public class ProductDAO {
 	// 낮은 가격순
 	public ArrayList<ProductVO> selectAllLow() {
 		ArrayList<ProductVO> plist = new ArrayList<>();
-		ProductVO product = new ProductVO();
 		
 		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_selectAllLP); // 수정
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
+				ProductVO product = new ProductVO();
 				product.setPno(rs.getString("pno"));
 				product.setPcode(rs.getString("pcode"));
 				product.setPimg_src(rs.getString("pimg_src"));
@@ -214,13 +214,13 @@ public class ProductDAO {
 	// 이름순
 	public ArrayList<ProductVO> selectAllName() {
 		ArrayList<ProductVO> plist = new ArrayList<>();
-		ProductVO product = new ProductVO();
 		
 		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_selectAllN); // 수정
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
+				ProductVO product = new ProductVO();
 				product.setPno(rs.getString("pno"));
 				product.setPcode(rs.getString("pcode"));
 				product.setPimg_src(rs.getString("pimg_src"));
@@ -298,7 +298,6 @@ public class ProductDAO {
 	// 상품분류 필터  메서드
 	public ArrayList<ProductVO> filterProductCode(ProductVO vo) { 
 		ArrayList<ProductVO> plist = new ArrayList<>();
-		ProductVO product = new ProductVO();
 		
 		con = JDBCUtil.connect();
 		try {
@@ -306,6 +305,7 @@ public class ProductDAO {
 			pstmt.setString(1, vo.getPcode());
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
+				ProductVO product = new ProductVO();
 				product.setPno(rs.getString("pno"));
 				product.setPcode(rs.getString("pcode"));
 				product.setPimg_src(rs.getString("pimg_src"));
@@ -333,7 +333,6 @@ public class ProductDAO {
 	// 상품명 검색  메서드
 	public ArrayList<ProductVO> searchProductName(String searchPname) { 
 		ArrayList<ProductVO> plist = new ArrayList<>();
-		ProductVO product = new ProductVO();
 		
 		con = JDBCUtil.connect();
 		try {
@@ -343,6 +342,7 @@ public class ProductDAO {
 			}
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
+				ProductVO product = new ProductVO();
 				product.setPno(rs.getString("pno"));
 				product.setPcode(rs.getString("pcode"));
 				product.setPimg_src(rs.getString("pimg_src"));
