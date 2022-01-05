@@ -104,7 +104,7 @@ public class ProductFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if(command.equals("/product_update.pro")) {		// 아직 페이지가 구현되지 않아 구현되면 설명 적어놓겠습니다.
+		} else if(command.equals("/product_update.pro")) {		// product_modi.jsp 페이지에서 상품 수정이라는 버튼을 누를 시에 DB의 내용이 수정되는 부분. product_mamage.pro 를 통해 다시 manage.jsp 로 이동
 			try {
 				forward= new ProductSearchAction().execute(request, response);
 			} catch (Exception e) {
@@ -117,6 +117,12 @@ public class ProductFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		} else if(command.equals("/product_cartin.pro")) {		// 상품 세부 페이지에서 장바구니 버튼을 클릭 시에 id값을 통해서 전체 값을 받아준 뒤에 카트에 그 데이터를 저장하고 다시 product_detail.pro를 통해 shop_detail.jsp로 이동
+			try {
+				forward= new ProductCartInAction().execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/product_modi.pro")) {		// manage.jsp 페이지에서 상품 수정을 위해서 수정 버튼을 누르면 데이터를 가지고 상품수정을 위한 product_modi.jsp 페이지로 이동
 			try {
 				forward= new ProductCartInAction().execute(request, response);
 			} catch (Exception e) {
