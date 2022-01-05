@@ -7,20 +7,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import javax.servlet.ServletContext;
+// import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-// import javax.servlet.http.HttpServletRequest;
 
-// import com.oreilly.servlet.MultipartRequest;
-// import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import model.common.JDBCUtil;
-import model.member.MemberVO;
-import model.notice.NoticeVO;
 
 public class ProductDAO {
 	private ProductDAO(){}
@@ -336,7 +331,7 @@ public class ProductDAO {
 	// 상품명 검색  메서드
 	public ArrayList<ProductVO> searchProductName(String searchPname) { 
 		ArrayList<ProductVO> plist = new ArrayList<>();
-		ProductVO product = null;
+		ProductVO product = new ProductVO();
 		
 		con = JDBCUtil.connect();
 		try {
