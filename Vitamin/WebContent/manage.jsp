@@ -258,7 +258,8 @@
                                <td>${v.porigin}</td>
                                <td>${v.psales}</td>
                                <td>${v.pstock}</td>
-                               <td>
+                               <td>	
+                               		<a href="product_modi.pro?pno=${v.pno}">수정</a>
                                		<a href="product_delete.pro?pno=${v.pno}">삭제</a>
                                	<!-- <input type="button" class="btn_basecolor" onclick="productedel()" value="삭제"> -->
                                </td>

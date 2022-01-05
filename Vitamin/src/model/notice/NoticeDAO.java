@@ -46,7 +46,7 @@ public class NoticeDAO {
 		return result == 1;
 	}
 
-	// 공지사항 가져오기 메서드
+	// 공지사항 가져오기
 	// sql_selectAll = "SELECT * FROM notice";
 	// 수정내용: 뷰단에서 구분하기 쉽도록 nlist, notice 변수명 변경, 인자값 삭제
 	public ArrayList<NoticeVO> selectAll() {

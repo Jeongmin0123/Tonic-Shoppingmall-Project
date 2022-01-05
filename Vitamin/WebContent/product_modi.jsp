@@ -25,10 +25,11 @@
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/swiper.min.css" type="text/css">
 </head>
 
 <body>
-    <!-- Page Preloder -->
+        <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
     </div>
@@ -48,23 +49,23 @@
                 <mytag:login/>
             </div>
         </div>
-        <nav class="humberger__menu__nav mobile-menu">
+         <nav class="humberger__menu__nav mobile-menu">
             <ul>
                 <li class="active"><a href="intro.jsp">Intro</a></li>
                 <li><a>Shop</a></li>
                 <li><a>Pages</a>
                     <ul class="header__menu__dropdown">
                         <li><a href="product_selectall.pro">전체상품</a></li> 
-                        <li><a href="product_selectall.pro?pcode=VITA">종합비타민</a></li>
-                        <li><a href="product_selectall.pro?pcode=LACT">유산균</a></li>
-                        <li><a href="product_selectall.pro?pcode=EYES">눈건강</a></li>                     
+                       <li><a href="product_selectall.pro?pcode=VITA">종합비타민</a></li>
+                       <li><a href="product_selectall.pro?pcode=LACT">유산균</a></li>
+                       <li><a href="product_selectall.pro?pcode=EYES">눈건강</a></li>                         
                     </ul>
                 </li>
                 <li><a href="notice.not">공지사항</a></li>
                 <li><a href="contact.con">고객센터</a></li>
                 <c:if test="${mrole == 'ADMIN'}">
-                     <li><a href="product_manage.pro">상품관리</a></li>
-                  </c:if>
+                    <li><a href="product_manage.pro">상품관리</a></li>
+                 </c:if>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
@@ -105,7 +106,7 @@
                                 <a><i class="fa fa-pinterest-p"></i></a>
                             </div>
                             <div class="header__top__right__language">
-                                <img src="img/koera.png" alt="">
+                                <img src="img/korea.png" alt="">
                                 <div>한국어</div>
                             </div>
                             <div class="header__top__right__auth">
@@ -129,17 +130,17 @@
                             <li class="active"><a href="intro.jsp">Intro</a></li>
                             <li><a>Shop</a>
                                 <ul class="header__menu__dropdown">
-			                        <li><a href="product_selectall.pro">전체상품</a></li> 
-			                        <li><a href="product_selectall.pro?pcode=VITA">종합비타민</a></li>
-			                        <li><a href="product_selectall.pro?pcode=LACT">유산균</a></li>
-			                        <li><a href="product_selectall.pro?pcode=EYES">눈건강</a></li> 
+									<li><a href="product_selectall.pro">전체상품</a></li> 
+			                       <li><a href="product_selectall.pro?pcode=VITA">종합비타민</a></li>
+			                       <li><a href="product_selectall.pro?pcode=LACT">유산균</a></li>
+			                       <li><a href="product_selectall.pro?pcode=EYES">눈건강</a></li> 
                                 </ul>
                             </li>
                             <li><a href="notice.not">공지사항</a></li>
                             <li><a href="contact.con">고객센터</a></li>
-                              <c:if test="${mrole == 'ADMIN'}">
-                                 <li><a href="product_manage.pro">상품관리</a></li>
-                              </c:if>
+                            <c:if test="${mid == 'admin'}">
+			              		<li><a href="product_manage.pro">상품관리</a></li>
+			              	</c:if>
                         </ul>
                     </nav>
                 </div>
@@ -162,10 +163,11 @@
                             <span>Shop</span>
                         </div>
                         <ul>
-	                        <li><a href="product_selectall.pro">전체상품</a></li> 
-	                        <li><a href="product_selectall.pro?pcode=VITA">종합비타민</a></li>
-	                        <li><a href="product_selectall.pro?pcode=LACT">유산균</a></li>
-	                        <li><a href="product_selectall.pro?pcode=EYES">눈건강</a></li> 
+                            <li><a href="./shop-grid.html">전체상품</a></li>
+                            <li><a href="./shop-grid.html">종합비타민</a></li>
+                            <li><a href="./shop-grid.html">유산균</a></li>
+                            <li><a href="./shop-grid.html">눈건강</a></li>
+                
                         </ul>
                     </div>
                 </div>
@@ -197,14 +199,14 @@
     </section>
     <!-- Hero Section End -->
 
-    <!-- Breadcrumb Section Begin -->
+ 	<!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>Contact Us</h2>
-                        <div class="breadcrumb__option">
+                        <h2>modification</h2>
+                        <div class="breadcrumb__option">                           
                         </div>
                     </div>
                 </div>
@@ -215,158 +217,131 @@
 
 
 
-
-	<c:choose>
-
-		<c:when test="${mrole == 'ADMIN'}">
-			
-			<div class="bodytext_area box_inner">
-                <form action="contact_search.con" class="minisrch_form">
-                    <fieldset>
-                        <legend>검색</legend>
-                        <input type="text" class="tbox" title="검색어를 입력하세요" name="searchword" placeholder="검색어를 입력하세요">
-                        <!-- 곧 추가할 예정 -->
-                        <!-- <a href="#" class="btn_srch">검색</a> -->
-                        <input type="submit" class="btn_basecolor btn_srch" value="검색">
-                    </fieldset>
-                </form>
-                <!-- summary : 접근성을 위한 속성 -->
-                <table class="bbsListTbl" summary="번호, 제목, 작성자 등을 제공하는 표">
-                    <!-- 테이블 제목 -->
-                    <caption class="hdd">고객문의 목록</caption>
-                    <thead>
-                        <tr>
-                            <th scope="col">번호</th>
-                            <th scope="col">내용</th>
-                            <th scope="col">이메일</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    	<c:forEach var="v" items="${cdatas}">
-	                        <tr>
-	                            <td>${v.msgno}</td>
-	                            <td class="tit_notice"><a href="contact_detail.con?msgno=${v.msgno}">${v.msgtext}</a></td>
-	                            <td>${v.msgemail}</td>
-	                        </tr>
-                        </c:forEach>
-	                            <!-- <td class="tit_notice"><a href="javascript:showdetails()">test(테스트 후 지우는 부분)</a></td> -->
-                    </tbody>
-                </table>
-
-                <!-- 페이징처리 -->
-                <!-- <div class="npagination">
-                    <<
-                    <a href="#" class="firstpage pbtn"><img src="./img/btn_firstpage.png" alt="첫 페이지로 이동"></a>
-                    <
-                    <a href="#" class="prevpage pbtn"><img src="./img/btn_prevpage.png" alt="이전 페이지로 이동"></a>
-                    <a href="#"><span class="currentPage pagenum">1</span></a>
-                    <a href="#"><span class="pagenum">2</span></a>
-                    <a href="#"><span class="pagenum">3</span></a>
-                    <a href="#"><span class="pagenum">4</span></a>
-                    <a href="#"><span class="pagenum">5</span></a>
-                    >
-                    <a href="#" class="nextpage pbtn"><img src="./img/btn_nextpage.png" alt="다음 페이지로 이동"></a>
-                    >>
-                    <a href="#" class="lastpage pbtn"><img src="./img/btn_lastpage.png" alt="마지막 페이지로 이동"></a>
-                </div> -->
-            </div>
-			
-		</c:when>
-
-	
-		
-		<c:otherwise>
-		
-		    <!-- Contact Section Begin -->
-		    <section class="contact spad">
-		        <div class="container">
-		            <div class="row">
-		                <div class="col-lg-3 col-md-3 col-sm-6 text-center">
-		                    <div class="contact__widget">
-		                        <span class="icon_phone"></span>
-		                        <h4>Phone</h4>
-		                        <p>+82-1-8888-6868</p>
-		                    </div>
-		                </div>
-		                <div class="col-lg-3 col-md-3 col-sm-6 text-center">
-		                    <div class="contact__widget">
-		                        <span class="icon_pin_alt"></span>
-		                        <h4>Address</h4>
-		                        <p>60-49 Road 11378 Seoul</p>
-		                    </div>
-		                </div>
-		                <div class="col-lg-3 col-md-3 col-sm-6 text-center">
-		                    <div class="contact__widget">
-		                        <span class="icon_clock_alt"></span>
-		                        <h4>Open time</h4>
-		                        <p>10:00 am to 23:00 pm</p>
-		                    </div>
-		                </div>
-		                <div class="col-lg-3 col-md-3 col-sm-6 text-center">
-		                    <div class="contact__widget">
-		                        <span class="icon_mail_alt"></span>
-		                        <h4>Email</h4>
-		                        <p>hello@ogani.com</p>
-		                    </div>
-		                </div>
-		            </div>
-		        </div>
-		    </section>
-		    <!-- Contact Section End -->
-		
-		    <!-- Map Begin -->
-		    <!-- <div class="map">
-		       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50647.46568304649!2d127.03291992056559!3d37.49691167942796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca4235fb589fb%3A0xb331971bc570bb6a!2z7ISc7Jq47Yq567OE7IucIOqwleuCqOq1rA!5e0!3m2!1sko!2skr!4v1640267479844!5m2!1sko!2skr" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-		        <div class="map-inside">
-		            <i class="icon_pin"></i>
-		            <div class="inside-widget">
-		                <h4>GangNam</h4>
-		                <ul>
-		                    <li>Phone: +12-345-6789</li>
-		                    <li>Add: GangNam, Seoul</li>
-		                </ul>
-		            </div>
-		        </div>
-		    </div> -->
-		    <!-- Map End -->
-		
-		    <!-- Contact Form Begin -->
-		    <div class="contact-form spad">
-		        <div class="container">
-		            <div class="row">
-		                <div class="col-lg-12">
-		                    <div class="contact__form__title">
-		                        <h2>Leave Message</h2>
-		                    </div>
-		                </div>
-		            </div>
-		            <form action="contact_insert.con" method="post">
-		                <div class="row">
-		                    <div class="col-lg-6 col-md-6">
-		                        <input type="text" placeholder="Your name" name="msgname">
-		                    </div>
-		                    <div class="col-lg-6 col-md-6">
-		                        <input type="text" placeholder="Your Email" name="msgemail">
-		                    </div>
-		                    <div class="col-lg-12 text-center">
-		                        <textarea placeholder="Your message" name="msgtext"></textarea>
-		                    </div>
-		                </div>               
-		                <button type="submit" class="site-btn">SEND MESSAGE</button>
-		            </form>
-		        </div>
-		    </div>
-		    <!-- Contact Form End -->
-
-		</c:otherwise>
-
-	</c:choose>
-
+    <!-- 본문   -->
+    <!-- 본문 시작 -->
+	<div class="bodytext_area box_inner">
+    <!-- 상품등록폼 시작 -->
+    <form action="product_insert.pro" class="appForm" method="post" enctype="multipart/form-data">
+        <fieldset>
+            <!-- 안보이지만 접근성을 위해 넣는다. -->
+            <legend>상품등록 양식</legend>
+            <ul class="app_list">
+                <!-- 이미지 -->
+                <li class="clear">
+                    <label for="name_lbl" class="tit_lbl">
+                        상품사진
+                    </label>
+                    <div class="app_content ">
+                        <input type="file" class="w100p" id="name_lbl" name="pimg_src" accept=".jpg,.png">
+                    </div>
+                </li>
+                
+                <!-- 분류 -->
+                <li class="clear">
+                    <span class="tit_lbl">분류</span>
+                    <div class="app_content radio_area">
+                    	<input type="radio" name="pcode" value="종합비타민" style="vertical-align:0px" checked>종합비타민
+                    	<input type="radio" name="pcode" value="유산균" style="vertical-align:0px">유산균
+                    	<input type="radio" name="pcode" value="눈건강" style="vertical-align:0px">눈건강
+                    </div>
+                </li>
+                <!-- 브랜드 -->
+                <li class="clear">
+                    <label for="name_lbl" class="tit_lbl">
+                        브랜드
+                    </label>
+                    <div class="app_content ">
+                        <input type="text" class="w30p" id="name_lbl" placeholder="제조사를 입력하세요" name="pbrand" required>
+                    </div>
+                </li>
+                <!-- 상품명 -->
+                <li class="clear">
+                    <label for="name_lbl" class="tit_lbl">
+                        상품명
+                    </label>
+                    <div class="app_content ">
+                        <input type="text" class="w30p" id="name_lbl" placeholder="상품명 입력하세요" name="pname" required>
+                    </div>
+                </li>
+                <!-- 가격 -->
+                <li class="clear">
+                    <label for="name_lbl" class="tit_lbl">
+                        가격
+                    </label>
+                    <div class="app_content ">
+                        <input type="text" class="w30p" id="name_lbl" placeholder="가격을 입력하세요" name="pprice" required>
+                    </div>
+                </li>
+                <!-- 상세정보 -->
+                <li class="clear">
+                    <label for="name_lbl" class="tit_lbl">
+                        상세정보
+                    </label>
+                    <div class="app_content ">
+                    	<textarea rows="10" cols="80" id="name_lbl" placeholder="상세정보를 입력하세요" name="pdetail" style="resize:none" required>
+                    	</textarea>
+                        <!-- <input type="text" class="w100p" id="name_lbl" placeholder="상세정보를 입력하세요" name=""> -->
+                    </div>
+                </li>
+                <!-- 원산지 -->
+                <li class="clear">
+                    <label for="name_lbl" class="tit_lbl">
+                        원산지
+                    </label>
+                    <div class="app_content ">
+                        <input type="text" class="w30p" id="name_lbl" placeholder="원산지를 입력하세요" name="porigin" required>
+                    </div>
+                </li>
+                <!-- 유통기한 -->
+                <li class="clear">
+                    <label for="name_lbl" class="tit_lbl">
+                        유통기한
+                    </label>
+                    <div class="app_content ">
+                        <input type="date" class="w20p" id="name_lbl" placeholder="유통기한을 입력하세요" name="pperiod" required>
+                    </div>
+                </li>
+                <!-- 제조일자 -->
+                <!-- <li class="clear">
+                    <label for="name_lbl" class="tit_lbl">
+                        제조일자
+                    </label>
+                    <div class="app_content ">
+                        <input type="text" class="w100p" id="name_lbl" placeholder="제조일자를 입력하세요" name="">
+                    </div>
+                </li> -->
+                <!-- 판매량 -->
+                <!-- <li class="clear">
+                    <label for="name_lbl" class="tit_lbl">
+                        판매량
+                    </label>
+                    <div class="app_content ">
+                        <input type="text" class="w100p" id="name_lbl" placeholder="0" name="">
+                    </div>
+                </li> -->
+                <!-- 재고량 -->
+                <li class="clear">
+                    <label for="name_lbl" class="tit_lbl">
+                        재고량
+                    </label>
+                    <div class="app_content ">
+                        <input type="text" class="w30p" id="name_lbl" placeholder="재고량을 입력하세요" name="pstock" required>
+                    </div>
+                </li>
+            </ul>
+            <p class="app_content" align="center">
+            	<input type="submit" class="btn_basecolor" value="수정">
+            </p>
+        </fieldset>
+    </form>
+    <!-- 상품등록 끝  -->
+</div>
 
 	<!-- Footer Section Begin -->
 	<jsp:include page="/footer.jsp"/>
     <!-- Footer Section End -->
-
+    
+    
     <!-- Js Plugins -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -382,4 +357,3 @@
 </body>
 
 </html>
-    

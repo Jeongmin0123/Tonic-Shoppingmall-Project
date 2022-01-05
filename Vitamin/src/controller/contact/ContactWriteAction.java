@@ -19,6 +19,7 @@ public class ContactWriteAction implements Action {
 		vo.setMsgname(request.getParameter("msgname"));
 		vo.setMsgemail(request.getParameter("msgemail"));
 		vo.setMsgtext(request.getParameter("msgtext"));
+		System.out.println(request.getParameter("msgtext"));
 		ActionForward forward = null;
 		if(dao.insertContact(vo)) {
 			forward = new ActionForward();

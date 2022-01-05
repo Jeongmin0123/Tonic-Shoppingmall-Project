@@ -14,9 +14,9 @@ CREATE TABLE member (
 	maddr_zipcode VARCHAR(30) NOT NULL,
 	maddr_street  VARCHAR(50) NOT NULL,
 	maddr_detail  VARCHAR(50) NOT NULL,
-	maddr_etc     VARCHAR(50),
-	mtel    VARCHAR(30) UNIQUE NOT  NULL,
-	memail  VARCHAR(50) UNIQUE NOT NULL,
+	maddr_etc     VARCHAR(50) NOT NULL,
+	mtel    VARCHAR(30) NOT NULL,
+	memail  VARCHAR(50) NOT NULL,
 	mrole   VARCHAR(20) DEFAULT 'MEMBER'
 );
 --SQL문
@@ -88,7 +88,7 @@ CREATE SEQUENCE contact_seq;
 
 
 select * from CONTACT;
---DROP TABLE contact;
+DROP TABLE contact;
 CREATE TABLE contact (
 	msgno    NUMBER(2) PRIMARY KEY,
 	msgname  VARCHAR(20) NOT NULL,
@@ -99,6 +99,7 @@ CREATE TABLE contact (
 
 drop table product;
 
+select * from product;
 
 CREATE TABLE product(
 	pno VARCHAR(20) PRIMARY KEY, -- 상품번호 예) 001
@@ -115,9 +116,15 @@ CREATE TABLE product(
 	pstock NUMBER(10) DEFAULT 0  -- 재고량
 );
 
-INSERT INTO product(pno, pcode, pimg_src, pbrand, pname, pprice, pdiscount, porigin, pperiod, psales, pstock) 
-VALUES(1,'종합비타','https://www.uppear.co.kr/data/goods/20/08/32/1000000464/1000000464_main_088.jpg', '브랜드','비타민','10000','30%','미국','20221020','100','100');
+INSERT INTO product(pno, pcode, pimg_src, pbrand, pname, pprice, pdiscount, pdetail, porigin, pperiod, psales, pstock) 
+VALUES(1,'종합비타','https://www.uppear.co.kr/data/goods/20/08/32/1000000464/1000000464_main_088.jpg', '브랜드','비타민','10000','30%','소개설명글','미국','20221020','100','100');
 
+INSERT INTO product(pno, pcode, pimg_src, pbrand, pname, pprice, pdiscount,pdetail,porigin, pperiod, psales, pstock) 
+VALUES(2,'유산균','https://www.uppear.co.kr/data/goods/20/08/32/1000000464/1000000464_main_088.jpg', '브랜드2','비타민2','10000','30%','소개설명글','미국','20221020','100','100');
+
+
+INSERT INTO product(pno, pcode, pimg_src, pbrand, pname, pprice, pdiscount, pdetail,porigin, pperiod, psales, pstock) 
+VALUES(3,'눈건강','https://www.uppear.co.kr/data/goods/20/08/32/1000000464/1000000464_main_088.jpg', '브랜드3','비타민3','10000','30%','소개설명글','미국','20221020','100','100');
 
 
 select * from product;

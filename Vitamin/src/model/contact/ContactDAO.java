@@ -18,7 +18,7 @@ public class ContactDAO {
 	PreparedStatement pstmt;
 	ResultSet rs;
 	
-	private String sql_insertC = "INSERT INTO contact VALUES(LPAD(contact_seq.NEXTVAL, ?, ?, ?)";
+	private String sql_insertC = "INSERT INTO contact VALUES(LPAD(contact_seq.NEXTVAL,2,0), ?, ?, ?)";
 	private String sql_selectAll = "SELECT * FROM contact";
 	private String sql_selectOne = "SELECT * FROM contact WHERE msgno=?";
 	private String sql_deleteC = "DELETE FROM contact WHERE msgno = ?";
