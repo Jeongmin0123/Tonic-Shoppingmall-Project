@@ -13,7 +13,7 @@ public class CrawlVO {
 	private String pimg_src;
 	private String pbrand;
 	private String pnamee;
-	private int pprice;
+	private String pprice;
 	private String pdiscount;
 	private String pdetail;
 	private int psales;
@@ -37,10 +37,11 @@ public class CrawlVO {
 	public void setPnamee(String pnamee) {
 		this.pnamee = pnamee;
 	}
-	public int getPprice() {
+	
+	public String getPprice() {
 		return pprice;
 	}
-	public void setPprice(int pprice) {
+	public void setPprice(String pprice) {
 		this.pprice = pprice;
 	}
 	public String getPdiscount() {

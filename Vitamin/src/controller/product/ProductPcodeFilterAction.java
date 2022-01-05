@@ -17,9 +17,15 @@ public class ProductPcodeFilterAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ProductDAO dao = ProductDAO.getInstance();
 		// View에서 종합비타민, 눈 영양제 등을 누를떄 가져오는 파라미터를 pcode라 함
-		String pcode = request.getParameter("pcode");
+		
+		ProductVO vo = new ProductVO();
+		//ProductVO pdata = dao.selectOne(vo);
+		vo.setPcode(request.getParameter("pcode"));
+		
+		System.out.println("pcodefileter"+request.getParameter("pcode"));
+	
 		// pcode를 통하여 코드에 맞는 상품들을 pdatas로 불러옴
-		ArrayList<ProductVO> pdatas = dao.filterProductCode(pcode);
+		ArrayList<ProductVO> pdatas = dao.filterProductCode(vo);
 		ActionForward forward = null;
 		if(pdatas != null) {
 			// 주어진 데이터를 request의 pdatas에 저장하고 shop_grid.jsp 페이지로 이동한다.

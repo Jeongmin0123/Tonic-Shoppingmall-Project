@@ -112,7 +112,7 @@ public class ProductFrontController extends HttpServlet {
 			}
 		} else if(command.equals("/product_insert.pro")) {		// register.jsp에서 상품등록 버튼을 누르면 상품등록 이후에 다시 register.jsp로 이동 
 			try {
-				forward= new ProductSearchAction().execute(request, response);
+				forward= new ProductInsertAction().execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

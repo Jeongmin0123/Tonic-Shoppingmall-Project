@@ -46,39 +46,16 @@ CREATE TABLE notice (
 );
 
 insert into NOTICE values (notice_seq.NEXTVAL, '결제 관련 공지사항','결제 관련 공지사항입니다.','관리자');
-insert into NOTICE values (notice_seq.NEXTVAL, '제목2','내용2','관리자');
-insert into NOTICE values (notice_seq.NEXTVAL, '제목3','내용3','관리자');
-insert into NOTICE values (notice_seq.NEXTVAL, '제목4','내용4','관리자');
-insert into NOTICE values (notice_seq.NEXTVAL, '제목5','내용5','관리자');
-insert into NOTICE values (notice_seq.NEXTVAL, '제목6','내용6','관리자');
-insert into NOTICE values (notice_seq.NEXTVAL, '제목7','내용7','관리자');
-insert into NOTICE values (notice_seq.NEXTVAL, '제목8','내용8','관리자');
-insert into NOTICE values (notice_seq.NEXTVAL, '제목9','내용9','관리자');
-insert into NOTICE values (notice_seq.NEXTVAL, '제목10','내용10','관리자');
+insert into NOTICE values (notice_seq.NEXTVAL, '판매상품 관련 공지사항','판매상품 관련 공지사항입니다','관리자');
+insert into NOTICE values (notice_seq.NEXTVAL, '이벤트 관련 공지사항','이벤트 관련 공지사항입니다.','관리자');
+insert into NOTICE values (notice_seq.NEXTVAL, '멤버십 관련 공지사항','멤버십 관련 공지사항입니다.','관리자');
+insert into NOTICE values (notice_seq.NEXTVAL, '택배 관련 공지사항','택배 관련 공지사항입니다.','관리자');
+insert into NOTICE values (notice_seq.NEXTVAL, '준비중','준비중입니다.','관리자');
+insert into NOTICE values (notice_seq.NEXTVAL, '준비중','준비중입니다','관리자');
+insert into NOTICE values (notice_seq.NEXTVAL, '준비중','준비중입니다','관리자');
+insert into NOTICE values (notice_seq.NEXTVAL, '준비중','준비중입니다','관리자');
+insert into NOTICE values (notice_seq.NEXTVAL, '준비중','준비중입니다','관리자');
 
-
--- 상품 DB 테이블
-CREATE SEQUENCE prod_seq;
---DROP SEQUENCE prod_seq;
-
-SELECT * FROM PRODUCT;
---DESC PRODUCT;
---DROP TABLE PRODUCT;
-
-CREATE TABLE product(
-	pcode   NUMBER(2) PRIMARY KEY,     -- 상품코드(PK)
-	pclass  VARCHAR(10) NOT NULL,      -- 분류코드(종합비타민[VITA], 유산균[LACT], 눈건강[EYES])
-	pname   VARCHAR(20) NOT NULL,      -- 상품명
-	pprice  NUMBER(10) NOT NULL,       -- 상품가격
-	pdetail VARCHAR(2000) NOT NULL,    -- 상세정보
-	pperiod VARCHAR(10),               -- 유통기한
-	pdate   VARCHAR(10),               -- 제조일자
-	porigin VARCHAR(20),               -- 원산지
-	pmanuf  VARCHAR(20),               -- 제조업체
-	psales  NUMBER NOT NULL DEFAULT 0, -- 판매량
-	pstock  NUMBER NOT NULL            -- 재고량
-	pimage  VARCHAR(200)               -- 이미지 테이블(CLOB || VARCHAR)
-);--이미지 경로, 사이즈(미정) 넣을 칼럼 추가 
 
 
         
@@ -97,23 +74,27 @@ CREATE TABLE contact (
 );
 
 
+CREATE SEQUENCE PROD_SEQ;
+
+drop SEQUENCE PROD_SEQ;
+
 drop table product;
-
+truncate table product;
 select * from product;
-
+SELECT * FROM product WHERE pcode = 'EYES';
 CREATE TABLE product(
 	pno VARCHAR(20) PRIMARY KEY, -- 상품번호 예) 001
-	pcode VARCHAR(20),           -- 상품분류 예) 종합비타민, 유산균, 루테인
+	pcode VARCHAR(50),           -- 상품분류 예) 종합비타민, 유산균, 루테인
 	pimg_src VARCHAR(2000),      -- 이미지 절대경로
 	pbrand VARCHAR(1000),        -- 브랜드
 	pname VARCHAR(1000),         -- 상품이름
-	pprice NUMBER(10),           -- (할인된)가격
-	pdiscount VARCHAR(10),       -- 할인율
+	pprice VARCHAR(50),           -- (할인된)가격
+	pdiscount VARCHAR(50),       -- 할인율
 	pdetail VARCHAR(2000),       -- 세부사항
-	porigin VARCHAR(20),         -- 원산지
-	pperiod VARCHAR(20),         -- 유통기한
-	psales NUMBER(10) DEFAULT 0, -- 판매량
-	pstock NUMBER(10) DEFAULT 0  -- 재고량
+	porigin VARCHAR(50),         -- 원산지
+	pperiod VARCHAR(50),         -- 유통기한
+	psales NUMBER(20) DEFAULT 0, -- 판매량
+	pstock NUMBER(20) DEFAULT 0  -- 재고량
 );
 
 INSERT INTO product(pno, pcode, pimg_src, pbrand, pname, pprice, pdiscount, pdetail, porigin, pperiod, psales, pstock) 

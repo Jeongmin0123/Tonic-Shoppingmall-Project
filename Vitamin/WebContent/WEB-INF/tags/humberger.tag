@@ -1,5 +1,7 @@
 <%@ tag language="java" pageEncoding="UTF-8"%>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="mytag" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
@@ -23,9 +25,9 @@
                 <li><a>Pages</a>
                     <ul class="header__menu__dropdown">
                        <li><a href="product_selectall.pro">전체상품</a></li> 
-                       <li><a href="product_selectall.pro?pcode=VITA">종합비타민</a></li>
-                       <li><a href="product_selectall.pro?pcode=LACT">유산균</a></li>
-                       <li><a href="product_selectall.pro?pcode=EYES">눈건강</a></li>                   
+                        <li><a href="product_filterselect.pro?pcode=VITA">종합비타민</a></li>
+                        <li><a href="product_filterselect.pro?pcode=LACT">유산균</a></li>
+                        <li><a href="product_filterselect.pro?pcode=EYES">눈건강</a></li>                    
                     </ul>
                 </li>
                 <li><a href="notice.not">공지사항</a></li>
