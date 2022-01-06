@@ -63,11 +63,11 @@ public class CrawlDAO {
 		con = JDBCUtil.connect();
 		try {
 			for (int i = 0; i < 3; i++) {
-				Document doc = Jsoup.connect(url[i]).get(); // url의 HTML 코드를 가져온다.
-				Elements ele = doc.select("div.goods_list_cont"); // 그 중 div의 item_cont 클래스 태그로 둘러쌓인 부분을 가져온다. 
-				Iterator<Element> itr_img_src = ele.select("div.item_photo_box > a > img").iterator(); // 정상
-				Iterator<Element> itr_name = ele.select("strong.item_name").iterator(); // 정상
-				Iterator<Element> itr_price = ele.select("strong.item_price").iterator(); // 정상
+				Document doc = Jsoup.connect(url[i]).get(); 
+				Elements ele = doc.select("div.goods_list_cont"); 
+				Iterator<Element> itr_img_src = ele.select("div.item_photo_box > a > img").iterator(); 
+				Iterator<Element> itr_name = ele.select("strong.item_name").iterator(); 
+				Iterator<Element> itr_price = ele.select("strong.item_price").iterator(); 
 				
 				while(itr_name.hasNext()) {
 					pstmt = con.prepareStatement(sql_Insert[i]); // sql_InsertVITA, sql_InsertLACT, sql_InsertEYES
@@ -79,12 +79,12 @@ public class CrawlDAO {
 				}
 			}
 			/* for문 하나로 줄이기
+			// 종합비타민
 			Document doc1 = Jsoup.connect(url1).get(); // url의 HTML 코드를 가져온다.
 			Elements ele1 = doc1.select("div.goods_list_cont"); // 그 중 div의 item_cont 클래스 태그로 둘러쌓인 부분을 가져온다. 
 			Iterator<Element> itr_img_src1 = ele1.select("div.item_photo_box > a > img").iterator(); // 정상
 			Iterator<Element> itr_name1 = ele1.select("strong.item_name").iterator(); // 정상
 			Iterator<Element> itr_price1 = ele1.select("strong.item_price").iterator(); // 정상
-			
 			while(itr_name1.hasNext()) {
 			//  상품별로 순차적으로 sql문을 수정한다.
 				pstmt = con.prepareStatement(sql_InsertVITA); // sql_InsertVITA, sql_InsertLACT, sql_InsertEYES
@@ -96,27 +96,27 @@ public class CrawlDAO {
 //				System.out.println("가격 : " + itr_price.next().text());
 				result += pstmt.executeUpdate();
 			}
-			
-			Document doc2 = Jsoup.connect(url2).get(); // url의 HTML 코드를 가져온다.
-			Elements ele2 = doc1.select("div.goods_list_cont"); // 그 중 div의 item_cont 클래스 태그로 둘러쌓인 부분을 가져온다. 
-			Iterator<Element> itr_img_src2 = ele2.select("div.item_photo_box > a > img").iterator(); // 정상
-			Iterator<Element> itr_name2 = ele2.select("strong.item_name").iterator(); // 정상
-			Iterator<Element> itr_price2 = ele2.select("strong.item_price").iterator(); // 정상
+			// 유산균
+			Document doc2 = Jsoup.connect(url2).get(); 
+			Elements ele2 = doc1.select("div.goods_list_cont"); 
+			Iterator<Element> itr_img_src2 = ele2.select("div.item_photo_box > a > img").iterator(); 
+			Iterator<Element> itr_name2 = ele2.select("strong.item_name").iterator(); 
+			Iterator<Element> itr_price2 = ele2.select("strong.item_price").iterator(); 
 			while(itr_name2.hasNext()) {
-				pstmt = con.prepareStatement(sql_InsertLACT); // sql_InsertVITA, sql_InsertLACT, sql_InsertEYES
+				pstmt = con.prepareStatement(sql_InsertLACT); 
 				pstmt.setString(1, itr_img_src2.next().attr("abs:src"));
 				pstmt.setString(2, itr_name2.next().text());
 				pstmt.setString(3, itr_price2.next().text());
 				result += pstmt.executeUpdate();
 			}
-			
-			Document doc3 = Jsoup.connect(url3).get(); // url의 HTML 코드를 가져온다.
-			Elements ele3 = doc3.select("div.goods_list_cont"); // 그 중 div의 item_cont 클래스 태그로 둘러쌓인 부분을 가져온다. 
-			Iterator<Element> itr_img_src3 = ele3.select("div.item_photo_box > a > img").iterator(); // 정상
-			Iterator<Element> itr_name3 = ele3.select("strong.item_name").iterator(); // 정상
-			Iterator<Element> itr_price3 = ele3.select("strong.item_price").iterator(); // 정상
+			// 눈건강(=루테인)
+			Document doc3 = Jsoup.connect(url3).get(); 
+			Elements ele3 = doc3.select("div.goods_list_cont"); 
+			Iterator<Element> itr_img_src3 = ele3.select("div.item_photo_box > a > img").iterator(); 
+			Iterator<Element> itr_name3 = ele3.select("strong.item_name").iterator(); 
+			Iterator<Element> itr_price3 = ele3.select("strong.item_price").iterator(); 
 			while(itr_name3.hasNext()) {
-				pstmt = con.prepareStatement(sql_InsertEYES); // sql_InsertVITA, sql_InsertLACT, sql_InsertEYES
+				pstmt = con.prepareStatement(sql_InsertEYES); 
 				pstmt.setString(1, itr_img_src3.next().attr("abs:src"));
 				pstmt.setString(2, itr_name3.next().text());
 				pstmt.setString(3, itr_price3.next().text());
