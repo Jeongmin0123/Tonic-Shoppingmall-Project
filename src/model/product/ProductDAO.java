@@ -422,13 +422,13 @@ public class ProductDAO {
 		return plist.isEmpty()? null : plist;
 	}
 // ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
-	public ArrayList<ProductVO> selectTOPPcode(String pcode) {
+	public ArrayList<ProductVO> selectTOPPcode(ProductVO vo) {
 		ArrayList<ProductVO> plist = new ArrayList<>();
 		
 		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_selectTOPPcode);
-			pstmt.setString(1, pcode);
+			pstmt.setString(1, vo.getPcode());
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				ProductVO product = new ProductVO();
@@ -456,13 +456,13 @@ public class ProductDAO {
 		return plist.isEmpty()? null : plist;
 	}
 	
-	public ArrayList<ProductVO> selectAllHPPcode(String pcode) {
+	public ArrayList<ProductVO> selectAllHPPcode(ProductVO vo) {
 		ArrayList<ProductVO> plist = new ArrayList<>();
 		
 		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_selectAllHPPcode);
-			pstmt.setString(1, pcode);
+			pstmt.setString(1, vo.getPcode());
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				ProductVO product = new ProductVO();
@@ -490,13 +490,13 @@ public class ProductDAO {
 		return plist.isEmpty()? null : plist;
 	}
 	
-	public ArrayList<ProductVO> selectAllLPPcode(String pcode) {
+	public ArrayList<ProductVO> selectAllLPPcode(ProductVO vo) {
 		ArrayList<ProductVO> plist = new ArrayList<>();
 		
 		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_selectAllLPPcode);
-			pstmt.setString(1, pcode);
+			pstmt.setString(1, vo.getPcode());
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				ProductVO product = new ProductVO();
@@ -524,13 +524,13 @@ public class ProductDAO {
 		return plist.isEmpty()? null : plist;
 	}
 	
-	public ArrayList<ProductVO> selectAlmostSoldOutPcode(String pcode) {
+	public ArrayList<ProductVO> selectAlmostSoldOutPcode(ProductVO vo) {
 		ArrayList<ProductVO> plist = new ArrayList<>();
 		
 		con = JDBCUtil.connect();
 		try {
 			pstmt = con.prepareStatement(sql_selectAlmostSoldOutPcode);
-			pstmt.setString(1, pcode);
+			pstmt.setString(1, vo.getPcode());
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				ProductVO product = new ProductVO();
