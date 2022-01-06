@@ -134,6 +134,12 @@ public class ProductFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		} else if(command.equals("/product_payment.pro")) {		// 장바구니 이후 결제 페이지에서 결제 버튼을 누르면 결제완료 alert 창 이후에 main.do를 통해 메인페이지로 이동
+			try {
+				forward= new ProductPaymentAction().execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 		if(forward!=null) { 

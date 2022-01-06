@@ -19,11 +19,11 @@ public class ProductUpdateAction implements Action {
 		ProductDAO dao = ProductDAO.getInstance();
 		ActionForward forward = null;
 		// update가 잘 수행되었을 시에 manage.jsp로 안되었을시에는 alert창 이후 전페이지로 이동한다.
-		if(dao.updateProduct(request) ) {
+		if(dao.updateProduct(request) ) {	
 			ArrayList<ProductVO> pdatas = dao.selectAll();
-			request.setAttribute("pdatas", pdatas);			
+			request.setAttribute("pdatas", pdatas);
 			forward = new ActionForward();
-			forward.setPath("product_manage.pro");
+			forward.setPath("manage.jsp");	//product_manage.pro
 			forward.setRedirect(false);
 		} else {
 			response.setContentType("text/html; charset=UTF-8");
