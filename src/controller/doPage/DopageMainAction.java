@@ -22,13 +22,14 @@ public class DopageMainAction implements Action {
 		ArrayList<ProductVO> pdatas_high = dao.selectAllHigh();
 		request.setAttribute("pdatas_high", pdatas_high);
 		
-		ArrayList<ProductVO> pdatas_low = dao.selectAllHigh();
+		ArrayList<ProductVO> pdatas_low = dao.selectAllLow();
 		request.setAttribute("pdatas_low", pdatas_low);
 		
-		ArrayList<ProductVO> pdatas_name = dao.selectAllHigh();
-		request.setAttribute("pdatas_name", pdatas_name);
+		ArrayList<ProductVO> pdatas_soldout = dao.sql_selectAlmostSoldOut();
+		request.setAttribute("pdatas_soldout", pdatas_soldout);
 		
-		// 이 부분에는 가장 잘 파리는 6개의 데이터가 pdatas_fav 형태로 들어올 예정
+		ArrayList<ProductVO> pdatas_top6 = dao.selectAllTOP6();
+		request.setAttribute("pdatas_top6", pdatas_top6);
 		
 		
 		ActionForward forward = new ActionForward();
