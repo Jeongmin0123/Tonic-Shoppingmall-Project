@@ -32,8 +32,12 @@ public class ProductDAO {
 			"VALUES(LPAD(PROD_SEQ.NEXTVAL, 3, 0), ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	private	String sql_updateP = "UPDATE product SET pcode=?, pimg_src=?, pbrand=?, pname=?, pprice=?, pdetail=?, porigin=?, pperiod=?, pstock=? WHERE pno=?"; 
 	private	String sql_selectAll = "SELECT * FROM product ORDER BY pno DESC";
+	private String sql_selectTOP = "SELECT * FROM product ORDER BY psales DESC";
+	private String sql_selectTOP6 = "SELECT * FROM (SELECT * FROM product ORDER BY psales DESC) WHERE ROWNUM <= 6";
 	private	String sql_selectAllHP = "SELECT * FROM product ORDER BY pprice DESC"; // 높은 가격순
+	private	String sql_selectAllHP6 = "SELECT * FROM (SELECT * FROM product ORDER BY pprice DESC) WHERE ROWNUM <=6"; // 높은 가격순
 	private	String sql_selectAllLP = "SELECT * FROM product ORDER BY pprice"; // 낮은 가격순
+	private	String sql_selectAllLP6 = "SELECT * FROM (SELECT * FROM product ORDER BY pprice) WHERE ROWNUM <=6"; // 높은 가격순
 	private	String sql_selectAllN = "SELECT * FROM product ORDER BY pname"; // 이름순
 	private	String sql_selectOne = "SELECT * FROM product WHERE pno = ?";
 	private	String sql_deleteP = "DELETE FROM product WHERE pno = ?";
@@ -124,7 +128,74 @@ public class ProductDAO {
 				product.setPimg_src(rs.getString("pimg_src"));
 				product.setPbrand(rs.getString("pbrand"));
 				product.setPname(rs.getString("pname"));
-				product.setPprice(rs.getString("pprice")); // product.setPprice(rs.getInt("pprice"));
+				product.setPprice(rs.getInt("pprice")); // product.setPprice(rs.getInt("pprice"));
+				product.setPdiscount(rs.getString("pdiscount"));
+				product.setPdetail(rs.getString("pdetail"));
+				product.setPorigin(rs.getString("porigin"));
+				product.setPperiod(rs.getString("pperiod"));
+				product.setPsales(rs.getInt("psales"));
+				product.setPstock(rs.getInt("pstock"));
+				
+				plist.add(product);
+			}
+		} catch(Exception e) {
+			System.out.println("ProductDAO selectAll() : "+ e +" 에러");
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.disconnect(rs, pstmt, con);
+		}
+		return plist.isEmpty()? null : plist;
+	}
+	
+	// 판매량
+	public ArrayList<ProductVO> selectAllTOP() {
+		ArrayList<ProductVO> plist = new ArrayList<>();
+		
+		con = JDBCUtil.connect();
+		try {
+			pstmt = con.prepareStatement(sql_selectTOP); // 수정
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				ProductVO product = new ProductVO();
+				product.setPno(rs.getString("pno"));
+				product.setPcode(rs.getString("pcode"));
+				product.setPimg_src(rs.getString("pimg_src"));
+				product.setPbrand(rs.getString("pbrand"));
+				product.setPname(rs.getString("pname"));
+				product.setPprice(rs.getInt("pprice")); // product.setPprice(rs.getInt("pprice"));
+				product.setPdiscount(rs.getString("pdiscount"));
+				product.setPdetail(rs.getString("pdetail"));
+				product.setPorigin(rs.getString("porigin"));
+				product.setPperiod(rs.getString("pperiod"));
+				product.setPsales(rs.getInt("psales"));
+				product.setPstock(rs.getInt("pstock"));
+				
+				plist.add(product);
+			}
+		} catch(Exception e) {
+			System.out.println("ProductDAO selectAll() : "+ e +" 에러");
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.disconnect(rs, pstmt, con);
+		}
+		return plist.isEmpty()? null : plist;
+	}
+	// 판매량 TOP6
+	public ArrayList<ProductVO> selectAllTOP6() {
+		ArrayList<ProductVO> plist = new ArrayList<>();
+		
+		con = JDBCUtil.connect();
+		try {
+			pstmt = con.prepareStatement(sql_selectTOP6); // 수정
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				ProductVO product = new ProductVO();
+				product.setPno(rs.getString("pno"));
+				product.setPcode(rs.getString("pcode"));
+				product.setPimg_src(rs.getString("pimg_src"));
+				product.setPbrand(rs.getString("pbrand"));
+				product.setPname(rs.getString("pname"));
+				product.setPprice(rs.getInt("pprice")); // product.setPprice(rs.getInt("pprice"));
 				product.setPdiscount(rs.getString("pdiscount"));
 				product.setPdetail(rs.getString("pdetail"));
 				product.setPorigin(rs.getString("porigin"));
@@ -158,7 +229,40 @@ public class ProductDAO {
 				product.setPimg_src(rs.getString("pimg_src"));
 				product.setPbrand(rs.getString("pbrand"));
 				product.setPname(rs.getString("pname"));
-				product.setPprice(rs.getString("pprice"));
+				product.setPprice(rs.getInt("pprice"));
+				product.setPdiscount(rs.getString("pdiscount"));
+				product.setPdetail(rs.getString("pdetail"));
+				product.setPorigin(rs.getString("porigin"));
+				product.setPperiod(rs.getString("pperiod"));
+				product.setPsales(rs.getInt("psales"));
+				product.setPstock(rs.getInt("pstock"));
+				
+				plist.add(product);
+			}
+		} catch(Exception e) {
+			System.out.println("ProductDAO selectAllHigh() : "+ e +" 에러");
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.disconnect(rs, pstmt, con);
+		}
+		return plist.isEmpty()? null : plist;
+	}
+	// 높은 가격순  TOP6
+	public ArrayList<ProductVO> selectAllHigh6() {
+		ArrayList<ProductVO> plist = new ArrayList<>();
+		
+		con = JDBCUtil.connect();
+		try {
+			pstmt = con.prepareStatement(sql_selectAllHP6); // 수정
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				ProductVO product = new ProductVO();
+				product.setPno(rs.getString("pno"));
+				product.setPcode(rs.getString("pcode"));
+				product.setPimg_src(rs.getString("pimg_src"));
+				product.setPbrand(rs.getString("pbrand"));
+				product.setPname(rs.getString("pname"));
+				product.setPprice(rs.getInt("pprice"));
 				product.setPdiscount(rs.getString("pdiscount"));
 				product.setPdetail(rs.getString("pdetail"));
 				product.setPorigin(rs.getString("porigin"));
@@ -192,7 +296,40 @@ public class ProductDAO {
 				product.setPimg_src(rs.getString("pimg_src"));
 				product.setPbrand(rs.getString("pbrand"));
 				product.setPname(rs.getString("pname"));
-				product.setPprice(rs.getString("pprice"));
+				product.setPprice(rs.getInt("pprice"));
+				product.setPdiscount(rs.getString("pdiscount"));
+				product.setPdetail(rs.getString("pdetail"));
+				product.setPorigin(rs.getString("porigin"));
+				product.setPperiod(rs.getString("pperiod"));
+				product.setPsales(rs.getInt("psales"));
+				product.setPstock(rs.getInt("pstock"));
+				
+				plist.add(product);
+			}
+		} catch(Exception e) {
+			System.out.println("ProductDAO selectAllLow() : "+ e +" 에러");
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.disconnect(rs, pstmt, con);
+		}
+		return plist.isEmpty()? null : plist;
+	}
+	// 낮은 가격순 TOP6
+	public ArrayList<ProductVO> selectAllLow6() {
+		ArrayList<ProductVO> plist = new ArrayList<>();
+		
+		con = JDBCUtil.connect();
+		try {
+			pstmt = con.prepareStatement(sql_selectAllLP6); // 수정
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				ProductVO product = new ProductVO();
+				product.setPno(rs.getString("pno"));
+				product.setPcode(rs.getString("pcode"));
+				product.setPimg_src(rs.getString("pimg_src"));
+				product.setPbrand(rs.getString("pbrand"));
+				product.setPname(rs.getString("pname"));
+				product.setPprice(rs.getInt("pprice"));
 				product.setPdiscount(rs.getString("pdiscount"));
 				product.setPdetail(rs.getString("pdetail"));
 				product.setPorigin(rs.getString("porigin"));
@@ -226,7 +363,7 @@ public class ProductDAO {
 				product.setPimg_src(rs.getString("pimg_src"));
 				product.setPbrand(rs.getString("pbrand"));
 				product.setPname(rs.getString("pname"));
-				product.setPprice(rs.getString("pprice"));
+				product.setPprice(rs.getInt("pprice"));
 				product.setPdiscount(rs.getString("pdiscount"));
 				product.setPdetail(rs.getString("pdetail"));
 				product.setPorigin(rs.getString("porigin"));
@@ -260,7 +397,7 @@ public class ProductDAO {
 				product.setPimg_src(rs.getString("pimg_src"));
 				product.setPbrand(rs.getString("pbrand"));
 				product.setPname(rs.getString("pname"));
-				product.setPprice(rs.getString("pprice"));
+				product.setPprice(rs.getInt("pprice"));
 				product.setPdiscount(rs.getString("pdiscount"));
 				product.setPdetail(rs.getString("pdetail"));
 				product.setPorigin(rs.getString("porigin"));
@@ -311,7 +448,7 @@ public class ProductDAO {
 				product.setPimg_src(rs.getString("pimg_src"));
 				product.setPbrand(rs.getString("pbrand"));
 				product.setPname(rs.getString("pname"));
-				product.setPprice(rs.getString("pprice"));
+				product.setPprice(rs.getInt("pprice"));
 				product.setPdiscount(rs.getString("pdiscount"));
 				product.setPdetail(rs.getString("pdetail"));
 				product.setPorigin(rs.getString("porigin"));
@@ -348,7 +485,7 @@ public class ProductDAO {
 				product.setPimg_src(rs.getString("pimg_src"));
 				product.setPbrand(rs.getString("pbrand"));
 				product.setPname(rs.getString("pname"));
-				product.setPprice(rs.getString("pprice"));
+				product.setPprice(rs.getInt("pprice"));
 				product.setPdiscount(rs.getString("pdiscount"));
 				product.setPdetail(rs.getString("pdetail"));
 				product.setPorigin(rs.getString("porigin"));

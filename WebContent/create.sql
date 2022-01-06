@@ -55,7 +55,7 @@ CREATE TABLE product(
 	pimg_src VARCHAR(2000),             -- 이미지 절대경로
 	pbrand VARCHAR(1000),               -- 브랜드
 	pname VARCHAR(1000),                -- 상품이름
-	pprice VARCHAR(100),                -- (할인된)가격, 크롤링 문제로 replace()를 사용해 ,와 '원'을 지워버리거나 타입을 변경하기.
+	pprice NUMBER(20),                -- (할인된)가격, 크롤링 문제로 replace()를 사용해 ,와 '원'을 지워버리거나 타입을 변경하기.
 	pdiscount VARCHAR(10) DEFAULT '0%', -- 할인율
 	pdetail VARCHAR(2000),              -- 세부사항
 	porigin VARCHAR(20),                -- 원산지
@@ -63,6 +63,7 @@ CREATE TABLE product(
 	psales NUMBER(10) DEFAULT 0,        -- 판매량
 	pstock NUMBER(10) DEFAULT 0         -- 재고량
 );
+-- pprice VARCHAR(100),                -- (할인된)가격, 크롤링 문제로 replace()를 사용해 ,와 '원'을 지워버리거나 타입을 변경하기.
 -- DROP TABLE product;
 SELECT * FROM product;
 
