@@ -88,31 +88,31 @@ public class ProductFrontController extends HttpServlet {
 			}
 		} else if(command.equals("/product_selectallhigh.pro")) {		// shop_grid 페이지에서 높은가격순을 누르면 높은가격순서대로 상품을 pdatas로 저장한 후에 이 데이터들을 가지고 shop_grid.jsp로 이동한다.
 			try {
-				forward= new ProductSearchAction().execute(request, response);
+				forward= new ProductSelectAllHighAction().execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		} else if(command.equals("/product_selectalllow.pro")) {		// shop_grid 페이지에서 낮은가격순을 누르면 낮은가격순서대로 상품을 pdatas로 저장한 후에 이 데이터들을 가지고 shop_grid.jsp로 이동한다.
 			try {
-				forward= new ProductSearchAction().execute(request, response);
+				forward= new ProductSelectAllLowAction().execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		} else if(command.equals("/product_selectallname.pro")) {		// shop_grid 페이지에서 이름순을 누르면 이름순서대로 상품을 pdatas로 저장한 후에 이 데이터들을 가지고 shop_grid.jsp로 이동한다.
 			try {
-				forward= new ProductSearchAction().execute(request, response);
+				forward= new ProductSelectAllNameAction().execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		} else if(command.equals("/product_update.pro")) {		// product_modi.jsp 페이지에서 상품 수정이라는 버튼을 누를 시에 DB의 내용이 수정되는 부분. product_mamage.pro 를 통해 다시 manage.jsp 로 이동
 			try {
-				forward= new ProductSearchAction().execute(request, response);
+				forward= new ProductUpdateAction().execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		} else if(command.equals("/product_insert.pro")) {		// register.jsp에서 상품등록 버튼을 누르면 상품등록 이후에 다시 register.jsp로 이동 
 			try {
-				forward= new ProductSearchAction().execute(request, response);
+				forward= new ProductInsertAction().execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -124,7 +124,7 @@ public class ProductFrontController extends HttpServlet {
 			}
 		} else if(command.equals("/product_modi.pro")) {		// manage.jsp 페이지에서 상품 수정을 위해서 수정 버튼을 누르면 데이터를 가지고 상품수정을 위한 product_modi.jsp 페이지로 이동
 			try {
-				forward= new ProductCartInAction().execute(request, response);
+				forward= new ProductModipageAction().execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
