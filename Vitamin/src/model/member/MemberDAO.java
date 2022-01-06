@@ -26,7 +26,7 @@ public class MemberDAO {
 	private String sql_loginM = "SELECT * FROM member WHERE mid=?"; 
 	private String sql_selectM = "SELECT * FROM member WHERE mid=?"; 
 	private String sql_findIDbyTel = "SELECT mid FROM member WHERE mtel=?"; 
-	private String sql_updateM = "UPDATE member SET mname=nvl(?, mname), mbirth = nvl(?, mbirth), maddr_zipcode=nvl(?, maddr_zipcode), maddr_street=nvl(?, maddr_street) , maddr_detail=nvl(?, maddr_detail), maddr_etc=nvl(?, maddr_etc), memail=nvl(?, memail) WHERE mid = ?"; 
+	private String sql_updateM = "UPDATE member SET mname=nvl(?, mname), mgender=nvl(?, mgender), mbirth = nvl(?, mbirth), maddr_zipcode=nvl(?, maddr_zipcode), maddr_street=nvl(?, maddr_street) , maddr_detail=nvl(?, maddr_detail), maddr_etc=nvl(?, maddr_etc), mtel=nvl(?, mtel) ,memail=nvl(?, memail) WHERE mid = ?"; 
 	private String sql_getMemberList = "SELECT * FROM member"; 
 	private String sql_isExistID = "SELECT * FROM member WHERE mid=?";
 	private String sql_selectPW = "SELECT mpw FROM member WHERE mid=?";      
@@ -144,31 +144,31 @@ public class MemberDAO {
 	
 //	update(회원정보)
 //  수정내용: WHERE절 id
-	public boolean updateMember(MemberVO member) {
-		int result = 0;
-		
-		con = JDBCUtil.connect();
-		try {
-			pstmt = con.prepareStatement(sql_updateM);
-			pstmt.setString(1, member.getMname());
-            pstmt.setString(2, member.getMbirth());
-//          pstmt.setString(3, member.getMaddr_zipcode()+" "
-//          		+member.getMaddr_street()+" "+member.getMaddr_detail());
-            pstmt.setString(3, member.getMaddr_zipcode());
-            pstmt.setString(4, member.getMaddr_street());
-            pstmt.setString(5, member.getMaddr_detail());
-            pstmt.setString(6, member.getMaddr_etc());
-            pstmt.setString(7, member.getMemail());
-            pstmt.setString(8, member.getMid());
+	public boolean updateMember(MemberVO vo) {
+      int result = 0;
+      
+      con = JDBCUtil.connect();
+      try {
+    	  	pstmt = con.prepareStatement(sql_updateM);
+         	pstmt.setString(1, vo.getMname());
+         	pstmt.setString(2, vo.getMgender());
+         	pstmt.setString(3, vo.getMbirth());
+        	pstmt.setString(4, vo.getMaddr_zipcode());
+        	pstmt.setString(5, vo.getMaddr_street());
+        	pstmt.setString(6, vo.getMaddr_detail());
+        	pstmt.setString(7, vo.getMaddr_etc());
+        	pstmt.setString(8, vo.getMtel());
+        	pstmt.setString(9, vo.getMemail());
+        	pstmt.setString(10, vo.getMid());
             result = pstmt.executeUpdate(); 
-		} catch(Exception e) {
-			System.out.println("MemberDAO updateMember(): "+ e +" 에러");
-			e.printStackTrace();
-		} finally {
-			JDBCUtil.disconnect(pstmt, con);
-		}
-		return result == 1;
-	}
+      } catch(Exception e) {
+         System.out.println("MemberDAO updateMember(): "+ e +" 에러");
+         e.printStackTrace();
+      } finally {
+         JDBCUtil.disconnect(pstmt, con);
+      }
+      return result == 1;
+   }
 	
 //  관리자가 회원정보 가져오기 메서드(), 계정은 관리자, 아직 페이지 구현X
 	public ArrayList<MemberVO> getMemberList() {

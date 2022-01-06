@@ -24,11 +24,13 @@ public class MemberUpdateAction implements Action {
 		
 		// 수정하거나 입력된 값들을 받아오기
 		vo.setMname(request.getParameter("mname"));
+		vo.setMgender(request.getParameter("mgender"));
 		vo.setMbirth(request.getParameter("mbirth"));
 		vo.setMaddr_zipcode(request.getParameter("maddr_zipcode"));
 		vo.setMaddr_street(request.getParameter("maddr_street"));
 		vo.setMaddr_detail(request.getParameter("maddr_detail"));
 		vo.setMaddr_etc(request.getParameter("maddr_etc"));
+		vo.setMtel(request.getParameter("mtel"));
 		vo.setMemail(request.getParameter("memail"));
 		
 		ActionForward forward = null;

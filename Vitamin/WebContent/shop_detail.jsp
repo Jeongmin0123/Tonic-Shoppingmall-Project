@@ -95,7 +95,7 @@
                             <i class="fa fa-star-half-o"></i>
                             <span>(18 reviews)</span> -->
                         </div>
-                        <div class="product__details__price">가격&nbsp;&nbsp;${pdata.pprice}</div>
+                        <div class="product__details__price">가격&nbsp;&nbsp;${pdata.pprice}원</div>
                         <p>
                             상세 정보 :  ${pdata.pdetail}</p>
                         <div class="product__details__quantity">

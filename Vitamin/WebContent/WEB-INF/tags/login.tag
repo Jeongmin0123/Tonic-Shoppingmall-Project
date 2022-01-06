@@ -9,6 +9,7 @@
 	<c:otherwise>
 		${mname} 님, 안녕하세요 :D <br>
 		<a href="member_mypage.mem?mid=${mid}">마이페이지</a>
+		<a href="shopping_cart.jsp">&nbsp;&nbsp;장바구니</a>
 		<a href="member_logout.mem">&nbsp;&nbsp;로그아웃</a>
 	</c:otherwise>
 </c:choose>

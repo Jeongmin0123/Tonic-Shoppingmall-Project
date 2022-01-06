@@ -26,18 +26,31 @@ public class ProductSelectAllTopAction implements Action {
 		ProductVO vo = new ProductVO();
 		vo.setPcode(request.getParameter("pcode"));
 		
-
-		if(request.getParameter("pcode") == null) {
-			ArrayList<ProductVO> pdatas = dao.selectAllTOP();
-			request.setAttribute("pdatas", pdatas);
-			request.setAttribute("pcode", request.getParameter("pcode"));
-		} else {
+		
+		
+		if(request.getParameter("pcode") != null) {
 			ArrayList<ProductVO> pdatas = dao.selectTOPPcode(vo);
 			request.setAttribute("pdatas", pdatas);
 			request.setAttribute("pcode", request.getParameter("pcode"));
+		} else {
+			ArrayList<ProductVO> pdatas = dao.selectAllTOP();
+			request.setAttribute("pdatas", pdatas);
+			request.setAttribute("pcode", request.getParameter("pcode"));
 		}
-
 		
+		
+//
+//		if(request.getParameter("pcode") == null) {
+//			ArrayList<ProductVO> pdatas = dao.selectAllTOP();
+//			request.setAttribute("pdatas", pdatas);
+//			request.setAttribute("pcode", request.getParameter("pcode"));
+//		} else {
+//			ArrayList<ProductVO> pdatas = dao.selectTOPPcode(vo);
+//			request.setAttribute("pdatas", pdatas);
+//			request.setAttribute("pcode", request.getParameter("pcode"));
+//		}
+//
+//		
 		
 				
 		// shop_grid.jsp에서 가격순으로 보기를 누른 경우 정렬된 데이터들 가지고 바로 shop_grid 페이지로 이동
