@@ -430,7 +430,7 @@ public class ProductDAO {
 			pstmt = con.prepareStatement(sql_selectTOPPcode);
 			pstmt.setString(1, vo.getPcode());
 			rs = pstmt.executeQuery();
-			if(rs.next()) {
+			while(rs.next()) {
 				ProductVO product = new ProductVO();
 				product.setPno(rs.getString("pno"));
 				product.setPcode(rs.getString("pcode"));
@@ -464,7 +464,7 @@ public class ProductDAO {
 			pstmt = con.prepareStatement(sql_selectAllHPPcode);
 			pstmt.setString(1, vo.getPcode());
 			rs = pstmt.executeQuery();
-			if(rs.next()) {
+			while(rs.next()) {
 				ProductVO product = new ProductVO();
 				product.setPno(rs.getString("pno"));
 				product.setPcode(rs.getString("pcode"));
@@ -498,7 +498,7 @@ public class ProductDAO {
 			pstmt = con.prepareStatement(sql_selectAllLPPcode);
 			pstmt.setString(1, vo.getPcode());
 			rs = pstmt.executeQuery();
-			if(rs.next()) {
+			while(rs.next()) {
 				ProductVO product = new ProductVO();
 				product.setPno(rs.getString("pno"));
 				product.setPcode(rs.getString("pcode"));
@@ -532,7 +532,7 @@ public class ProductDAO {
 			pstmt = con.prepareStatement(sql_selectAlmostSoldOutPcode);
 			pstmt.setString(1, vo.getPcode());
 			rs = pstmt.executeQuery();
-			if(rs.next()) {
+			while(rs.next()) {
 				ProductVO product = new ProductVO();
 				product.setPno(rs.getString("pno"));
 				product.setPcode(rs.getString("pcode"));
