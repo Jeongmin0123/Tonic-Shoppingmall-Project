@@ -88,17 +88,6 @@
                     <span class="tit_lbl">분류</span>
                     <div class="app_content radio_area">
                     	<input type="text" class="w30p" id="name_lbl" name="pcode" value="${pdata.pcode}" placeholder="VITA , LACT , EYES" required>
-                    	<%-- <c:choose>
-                    		<c:when test="${pdata.pcode == 'VITA'}">
-                    			<input type="radio" name="pcode" value="VITA" style="vertical-align:0px" checked>종합비타민
-                    		</c:when>
-                    		<c:when test="${pdata.pcode == 'LACT'}">
-                    			<input type="radio" name="pcode" value="LACT" style="vertical-align:0px">유산균
-                    		</c:when>
-                    		<c:otherwise>
-                    			<input type="radio" name="pcode" value="EYES" style="vertical-align:0px">눈건강
-                    		</c:otherwise>
-                    	</c:choose> --%>
                     </div>
                 </li>
                 <!-- 브랜드 -->
@@ -158,24 +147,6 @@
                         <input type="text" class="w20p" id="name_lbl" name="pperiod" value="${pdata.pperiod}" required>
                     </div>
                 </li>
-                <!-- 제조일자 -->
-                <!-- <li class="clear">
-                    <label for="name_lbl" class="tit_lbl">
-                        제조일자
-                    </label>
-                    <div class="app_content ">
-                        <input type="text" class="w100p" id="name_lbl" placeholder="제조일자를 입력하세요" name="">
-                    </div>
-                </li> -->
-                <!-- 판매량 -->
-                <!-- <li class="clear">
-                    <label for="name_lbl" class="tit_lbl">
-                        판매량
-                    </label>
-                    <div class="app_content ">
-                        <input type="text" class="w100p" id="name_lbl" placeholder="0" name="">
-                    </div>
-                </li> -->
                 <!-- 재고량 -->
                 <li class="clear">
                     <label for="name_lbl" class="tit_lbl">

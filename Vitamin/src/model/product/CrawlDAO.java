@@ -30,7 +30,7 @@ public class CrawlDAO {
             + "?,"
             + "'0%'," + 
             "DECODE(ROUND(DBMS_RANDOM.VALUE(1, 7)),1, '국내산', 2, '중국산', 3, '미국산', 4, '대만산', 5, '일본산', 6, '독일산', 7, '파푸아뉴기니산')," + 
-            "DECODE(ROUND(DBMS_RANDOM.VALUE(1, 7)),1,'2022년 4월',2,'2022년 9월',3,'2022년 12월',4,'2023년 5월',5,'2023년 7월',6,'2023년 11월',7,'이미 썩었음')," + 
+            "DECODE(ROUND(DBMS_RANDOM.VALUE(1, 7)),1,'2022년 4월',2,'2022년 9월',3,'2022년 12월',4,'2023년 5월',5,'2023년 7월',6,'2023년 11월',7,'유통기한만료')," + 
             "ROUND(DBMS_RANDOM.VALUE(1, 200)), ROUND(DBMS_RANDOM.VALUE(1, 200)))";
       String sql_InsertLACT = "INSERT INTO product(pno, pcode, pimg_src, pbrand, pname, pprice, pdiscount, porigin, pperiod, psales, pstock) " + 
             "VALUES(LPAD(PROD_SEQ.NEXTVAL, 3, 0), 'LACT', "
@@ -40,7 +40,7 @@ public class CrawlDAO {
             + "?, "
             + "'0%'," + 
             "DECODE(ROUND(DBMS_RANDOM.VALUE(1, 7)),1, '국내산', 2, '중국산', 3, '미국산', 4, '대만산', 5, '일본산', 6, '독일산', 7, '파푸아뉴기니산')," + 
-            "DECODE(ROUND(DBMS_RANDOM.VALUE(1, 7)),1,'2022년 4월',2,'2022년 9월',3,'2022년 12월',4,'2023년 5월',5,'2023년 7월',6,'2023년 11월',7,'이미 썩었음')," + 
+            "DECODE(ROUND(DBMS_RANDOM.VALUE(1, 7)),1,'2022년 4월',2,'2022년 9월',3,'2022년 12월',4,'2023년 5월',5,'2023년 7월',6,'2023년 11월',7,'유통기한만료')," + 
             "ROUND(DBMS_RANDOM.VALUE(1, 200)), ROUND(DBMS_RANDOM.VALUE(1, 200)))";
       String sql_InsertEYES = "INSERT INTO product(pno, pcode, pimg_src, pbrand, pname, pprice, pdiscount, porigin, pperiod, psales, pstock) " + 
             "VALUES(LPAD(PROD_SEQ.NEXTVAL, 3, 0), 'EYES', "
@@ -50,7 +50,7 @@ public class CrawlDAO {
             + "?, "
             + "'0%'," + 
             "DECODE(ROUND(DBMS_RANDOM.VALUE(1, 7)),1, '국내산', 2, '중국산', 3, '미국산', 4, '대만산', 5, '일본산', 6, '독일산', 7, '파푸아뉴기니산')," + 
-            "DECODE(ROUND(DBMS_RANDOM.VALUE(1, 7)),1,'2022년 4월',2,'2022년 9월',3,'2022년 12월',4,'2023년 5월',5,'2023년 7월',6,'2023년 11월',7,'이미 썩었음')," + 
+            "DECODE(ROUND(DBMS_RANDOM.VALUE(1, 7)),1,'2022년 4월',2,'2022년 9월',3,'2022년 12월',4,'2023년 5월',5,'2023년 7월',6,'2023년 11월',7,'유통기한만료')," + 
             "ROUND(DBMS_RANDOM.VALUE(1, 200)), ROUND(DBMS_RANDOM.VALUE(1, 200)))";
       // 상품별로 순차적으로 url을 수정한다.
       String url1 = "https://www.uppear.co.kr/goods/goods_list.php?page=1&cateCd=003005&sort=&pageNum=40"; // 종합비타민
@@ -79,50 +79,7 @@ public class CrawlDAO {
                result += pstmt.executeUpdate();
             }
          }
-         /* for문이면 필요없는 문장들
-         Document doc1 = Jsoup.connect(url1).get(); // url의 HTML 코드를 가져온다.
-         Elements ele1 = doc1.select("div.goods_list_cont"); // 그 중 div의 item_cont 클래스 태그로 둘러쌓인 부분을 가져온다. 
-         Iterator<Element> itr_img_src1 = ele1.select("div.item_photo_box > a > img").iterator(); // 정상
-         Iterator<Element> itr_name1 = ele1.select("strong.item_name").iterator(); // 정상
-         Iterator<Element> itr_price1 = ele1.select("strong.item_price").iterator(); // 정상
          
-         while(itr_name1.hasNext()) {
-            // 상품별로 순차적으로 sql문을 수정한다.
-            pstmt = con.prepareStatement(sql_InsertVITA); // sql_InsertVITA, sql_InsertLACT, sql_InsertEYES
-            pstmt.setString(1, itr_img_src1.next().attr("abs:src"));
-            pstmt.setString(2, itr_name1.next().text());
-            pstmt.setString(3, itr_price1.next().text());
-//            System.out.println("이미지 : " + itr_img_src.next().attr("abs:src")); // src 상대 경로? | abs:src = src의 절대 경로
-//            System.out.println("상품명 : " + itr_name.next().text()); 
-//            System.out.println("가격 : " + itr_price.next().text());
-            result += pstmt.executeUpdate();
-         }
-         
-         Document doc2 = Jsoup.connect(url2).get(); // url의 HTML 코드를 가져온다.
-         Elements ele2 = doc1.select("div.goods_list_cont"); // 그 중 div의 item_cont 클래스 태그로 둘러쌓인 부분을 가져온다. 
-         Iterator<Element> itr_img_src2 = ele2.select("div.item_photo_box > a > img").iterator(); // 정상
-         Iterator<Element> itr_name2 = ele2.select("strong.item_name").iterator(); // 정상
-         Iterator<Element> itr_price2 = ele2.select("strong.item_price").iterator(); // 정상
-         while(itr_name2.hasNext()) {
-            pstmt = con.prepareStatement(sql_InsertLACT); // sql_InsertVITA, sql_InsertLACT, sql_InsertEYES
-            pstmt.setString(1, itr_img_src2.next().attr("abs:src"));
-            pstmt.setString(2, itr_name2.next().text());
-            pstmt.setString(3, itr_price2.next().text());
-            result += pstmt.executeUpdate();
-         }
-         
-         Document doc3 = Jsoup.connect(url3).get(); // url의 HTML 코드를 가져온다.
-         Elements ele3 = doc3.select("div.goods_list_cont"); // 그 중 div의 item_cont 클래스 태그로 둘러쌓인 부분을 가져온다. 
-         Iterator<Element> itr_img_src3 = ele3.select("div.item_photo_box > a > img").iterator(); // 정상
-         Iterator<Element> itr_name3 = ele3.select("strong.item_name").iterator(); // 정상
-         Iterator<Element> itr_price3 = ele3.select("strong.item_price").iterator(); // 정상
-         while(itr_name3.hasNext()) {
-            pstmt = con.prepareStatement(sql_InsertEYES); // sql_InsertVITA, sql_InsertLACT, sql_InsertEYES
-            pstmt.setString(1, itr_img_src3.next().attr("abs:src"));
-            pstmt.setString(2, itr_name3.next().text());
-            pstmt.setString(3, itr_price3.next().text());
-            result += pstmt.executeUpdate();
-         } */
       } catch (Exception e) {
          e.printStackTrace();
       } finally {
@@ -130,9 +87,6 @@ public class CrawlDAO {
          JDBCUtil.disconnect(pstmt, con); 
       }
    }
-   
-   
-   
    
    
    public static void deleteVITA() {

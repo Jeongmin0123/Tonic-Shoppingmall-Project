@@ -6,6 +6,10 @@
 		<a href="login.jsp"><i class="fa fa-user"></i> Login</a>
 		<a href="new.jsp">&nbsp;&nbsp;회원가입</a>
 	</c:when>
+	<c:when test="${mid == 'admin'}">
+		${mname} 님, 안녕하세요 :D <br>
+		<a href="member_logout.mem">&nbsp;&nbsp;로그아웃</a>
+	</c:when>
 	<c:otherwise>
 		${mname} 님, 안녕하세요 :D <br>
 		<a href="member_mypage.mem?mid=${mid}">마이페이지</a>

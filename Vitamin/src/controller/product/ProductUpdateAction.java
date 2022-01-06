@@ -20,7 +20,7 @@ public class ProductUpdateAction implements Action {
 		if(dao.updateProduct(request) ) {
 			forward = new ActionForward();
 			forward.setPath("product_manage.pro");
-			forward.setRedirect(false);
+			forward.setRedirect(true);
 		} else {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
