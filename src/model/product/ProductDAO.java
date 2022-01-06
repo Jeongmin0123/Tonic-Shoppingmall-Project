@@ -181,7 +181,7 @@ public class ProductDAO {
 				plist.add(product);
 			}
 		} catch(Exception e) {
-			System.out.println("ProductDAO selectAll() : "+ e +" 에러");
+			System.out.println("ProductDAO selectAllTOP() : "+ e +" 에러");
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(rs, pstmt, con);
@@ -256,7 +256,7 @@ public class ProductDAO {
 	}
 
 	// 매진임박순
-	public ArrayList<ProductVO> sql_selectAlmostSoldOut() {
+	public ArrayList<ProductVO> selectAlmostSoldOut() {
 		ArrayList<ProductVO> plist = new ArrayList<>();
 		
 		con = JDBCUtil.connect();
@@ -281,7 +281,7 @@ public class ProductDAO {
 				plist.add(product);
 			}
 		} catch(Exception e) {
-			System.out.println("ProductDAO selectAllName() : "+ e +" 에러");
+			System.out.println("ProductDAO selectAlmostSoldOut() : "+ e +" 에러");
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(rs, pstmt, con);
@@ -315,7 +315,7 @@ public class ProductDAO {
 				plist.add(product);
 			}
 		} catch(Exception e) {
-			System.out.println("ProductDAO selectAll() : "+ e +" 에러");
+			System.out.println("ProductDAO selectAllTOP6() : "+ e +" 에러");
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(rs, pstmt, con);
@@ -348,7 +348,7 @@ public class ProductDAO {
 				plist.add(product);
 			}
 		} catch(Exception e) {
-			System.out.println("ProductDAO selectAllHigh() : "+ e +" 에러");
+			System.out.println("ProductDAO selectAllHigh6() : "+ e +" 에러");
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(rs, pstmt, con);
@@ -381,7 +381,7 @@ public class ProductDAO {
 				plist.add(product);
 			}
 		} catch(Exception e) {
-			System.out.println("ProductDAO selectAllLow() : "+ e +" 에러");
+			System.out.println("ProductDAO selectAllLow6() : "+ e +" 에러");
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(rs, pstmt, con);
@@ -389,7 +389,7 @@ public class ProductDAO {
 		return plist.isEmpty()? null : plist;
 	}
 	// 매진임박순 TOP6
-	public ArrayList<ProductVO> sql_selectAlmostSoldOut6() {
+	public ArrayList<ProductVO> selectAlmostSoldOut6() {
 		ArrayList<ProductVO> plist = new ArrayList<>();
 		
 		con = JDBCUtil.connect();
@@ -414,7 +414,7 @@ public class ProductDAO {
 				plist.add(product);
 			}
 		} catch(Exception e) {
-			System.out.println("ProductDAO selectAllName() : "+ e +" 에러");
+			System.out.println("ProductDAO selectAlmostSoldOut6() : "+ e +" 에러");
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(rs, pstmt, con);
@@ -430,7 +430,7 @@ public class ProductDAO {
 			pstmt = con.prepareStatement(sql_selectTOPPcode);
 			pstmt.setString(1, vo.getPcode());
 			rs = pstmt.executeQuery();
-			if(rs.next()) {
+			while(rs.next()) {
 				ProductVO product = new ProductVO();
 				product.setPno(rs.getString("pno"));
 				product.setPcode(rs.getString("pcode"));
@@ -448,7 +448,7 @@ public class ProductDAO {
 				plist.add(product);
 			}
 		} catch(Exception e) {
-			System.out.println("ProductDAO selectOne() : "+ e +" 에러");
+			System.out.println("ProductDAO selectTOPPcode() : "+ e +" 에러");
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(rs, pstmt, con);
@@ -464,7 +464,7 @@ public class ProductDAO {
 			pstmt = con.prepareStatement(sql_selectAllHPPcode);
 			pstmt.setString(1, vo.getPcode());
 			rs = pstmt.executeQuery();
-			if(rs.next()) {
+			while(rs.next()) {
 				ProductVO product = new ProductVO();
 				product.setPno(rs.getString("pno"));
 				product.setPcode(rs.getString("pcode"));
@@ -482,7 +482,7 @@ public class ProductDAO {
 				plist.add(product);
 			}
 		} catch(Exception e) {
-			System.out.println("ProductDAO selectOne() : "+ e +" 에러");
+			System.out.println("ProductDAO selectAllHPPcode() : "+ e +" 에러");
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(rs, pstmt, con);
@@ -498,7 +498,7 @@ public class ProductDAO {
 			pstmt = con.prepareStatement(sql_selectAllLPPcode);
 			pstmt.setString(1, vo.getPcode());
 			rs = pstmt.executeQuery();
-			if(rs.next()) {
+			while(rs.next()) {
 				ProductVO product = new ProductVO();
 				product.setPno(rs.getString("pno"));
 				product.setPcode(rs.getString("pcode"));
@@ -516,7 +516,7 @@ public class ProductDAO {
 				plist.add(product);
 			}
 		} catch(Exception e) {
-			System.out.println("ProductDAO selectOne() : "+ e +" 에러");
+			System.out.println("ProductDAO selectAllLPPcode() : "+ e +" 에러");
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(rs, pstmt, con);
@@ -532,7 +532,7 @@ public class ProductDAO {
 			pstmt = con.prepareStatement(sql_selectAlmostSoldOutPcode);
 			pstmt.setString(1, vo.getPcode());
 			rs = pstmt.executeQuery();
-			if(rs.next()) {
+			while(rs.next()) {
 				ProductVO product = new ProductVO();
 				product.setPno(rs.getString("pno"));
 				product.setPcode(rs.getString("pcode"));
@@ -550,7 +550,7 @@ public class ProductDAO {
 				plist.add(product);
 			}
 		} catch(Exception e) {
-			System.out.println("ProductDAO selectOne() : "+ e +" 에러");
+			System.out.println("ProductDAO selectAlmostSoldOutPcode() : "+ e +" 에러");
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.disconnect(rs, pstmt, con);

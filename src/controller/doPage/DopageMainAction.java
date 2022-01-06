@@ -25,7 +25,7 @@ public class DopageMainAction implements Action {
 		ArrayList<ProductVO> pdatas_low = dao.selectAllLow();
 		request.setAttribute("pdatas_low", pdatas_low);
 		
-		ArrayList<ProductVO> pdatas_soldout = dao.sql_selectAlmostSoldOut();
+		ArrayList<ProductVO> pdatas_soldout = dao.selectAlmostSoldOut();
 		request.setAttribute("pdatas_soldout", pdatas_soldout);
 		
 		ArrayList<ProductVO> pdatas_top6 = dao.selectAllTOP6();

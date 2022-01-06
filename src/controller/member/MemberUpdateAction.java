@@ -30,6 +30,8 @@ public class MemberUpdateAction implements Action {
 		vo.setMaddr_detail(request.getParameter("maddr_detail"));
 		vo.setMaddr_etc(request.getParameter("maddr_etc"));
 		vo.setMemail(request.getParameter("memail"));
+		vo.setMgender(request.getParameter("mgender"));
+		vo.setMtel(request.getParameter("mtel"));
 		
 		ActionForward forward = null;
 		if(dao.updateMember(vo)) {

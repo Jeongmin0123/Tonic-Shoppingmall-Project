@@ -21,14 +21,11 @@ public class ProductSelectAllTopAction implements Action {
 		if(request.getParameter("pcode") != null) {
 			ArrayList<ProductVO> pdatas = dao.selectTOPPcode(vo);
 			request.setAttribute("pdatas", pdatas);
-			ActionForward forward = new ActionForward();
-			forward.setPath("shop_grid.jsp");
-			forward.setRedirect(false);
-			return forward;
+		} else {
+			ArrayList<ProductVO> pdatas = dao.selectAllTOP();
+			request.setAttribute("pdatas", pdatas);			
 		}
 		
-		ArrayList<ProductVO> pdatas = dao.selectAllTOP();
-		request.setAttribute("pdatas", pdatas);
 
 		// shop_grid.jsp에서 판매량순으로 보기를 누른 경우 정렬된 데이터들 가지고 바로 shop_grid 페이지로 이동
 		ActionForward forward = new ActionForward();

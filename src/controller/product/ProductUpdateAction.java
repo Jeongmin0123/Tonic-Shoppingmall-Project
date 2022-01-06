@@ -1,6 +1,7 @@
 package controller.product;
 
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import controller.common.Action;
 import controller.common.ActionForward;
 import model.product.ProductDAO;
+import model.product.ProductVO;
 
 public class ProductUpdateAction implements Action {
 
@@ -18,6 +20,8 @@ public class ProductUpdateAction implements Action {
 		ActionForward forward = null;
 		// update가 잘 수행되었을 시에 manage.jsp로 안되었을시에는 alert창 이후 전페이지로 이동한다.
 		if(dao.updateProduct(request) ) {
+			ArrayList<ProductVO> pdatas = dao.selectAll();
+			request.setAttribute("pdatas", pdatas);			
 			forward = new ActionForward();
 			forward.setPath("product_manage.pro");
 			forward.setRedirect(false);
