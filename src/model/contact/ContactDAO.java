@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import model.common.JDBCUtil;
-import model.notice.NoticeVO;
 
 public class ContactDAO {
 	private ContactDAO(){}
