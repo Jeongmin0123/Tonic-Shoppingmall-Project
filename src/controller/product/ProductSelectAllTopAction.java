@@ -18,11 +18,11 @@ public class ProductSelectAllTopAction implements Action {
 		ProductDAO dao = ProductDAO.getInstance();
 		ProductVO vo = new ProductVO();
 		vo.setPcode(request.getParameter("pcode"));
-		if(request.getParameter("pcode") == null) {
-			ArrayList<ProductVO> pdatas = dao.selectAllTOP();
+		if(request.getParameter("pcode") != null) {
+			ArrayList<ProductVO> pdatas = dao.selectTOPPcode(vo);
 			request.setAttribute("pdatas", pdatas);
 		} else {
-			ArrayList<ProductVO> pdatas = dao.selectTOPPcode(vo);
+			ArrayList<ProductVO> pdatas = dao.selectAllTOP();
 			request.setAttribute("pdatas", pdatas);
 		}
 
