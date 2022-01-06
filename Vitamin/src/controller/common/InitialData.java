@@ -31,7 +31,7 @@ public class InitialData implements ServletContextListener {
      * @see ServletContextListener#contextInitialized(ServletContextEvent)
      */
     public void contextInitialized(ServletContextEvent sce)  { 
-    	CrawlDAO.insertVITA();
+    	CrawlDAO.insertCrawlDB();
     }
 	
 }

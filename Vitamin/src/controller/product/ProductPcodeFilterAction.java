@@ -26,10 +26,11 @@ public class ProductPcodeFilterAction implements Action {
 	
 		// pcode를 통하여 코드에 맞는 상품들을 pdatas로 불러옴
 		ArrayList<ProductVO> pdatas = dao.filterProductCode(vo);
+		System.out.println("찾은 결과"+pdatas);
+		request.setAttribute("pdatas", pdatas);
 		ActionForward forward = null;
 		if(pdatas != null) {
 			// 주어진 데이터를 request의 pdatas에 저장하고 shop_grid.jsp 페이지로 이동한다.
-			request.setAttribute("pdatas", pdatas);
 			forward = new ActionForward();
 			forward.setPath("shop_grid.jsp");
 			forward.setRedirect(false);

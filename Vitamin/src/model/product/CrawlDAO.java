@@ -18,7 +18,7 @@ public class CrawlDAO {
    ResultSet rs;
    
    // 비타민
-   public static void insertVITA() {
+   public static void insertCrawlDB() {
       Connection con = null;
       PreparedStatement pstmt = null;
        
@@ -74,7 +74,8 @@ public class CrawlDAO {
                pstmt = con.prepareStatement(sql_Insert[i]); // sql_InsertVITA, sql_InsertLACT, sql_InsertEYES
                pstmt.setString(1, itr_img_src1.next().attr("abs:src"));
                pstmt.setString(2, itr_name1.next().text());
-               pstmt.setString(3, itr_price1.next().text());
+               //pstmt.setString(3, itr_price1.next().text());
+               pstmt.setInt(3, Integer.parseInt(itr_price1.next().text().replaceAll("[,원]", "")));
                result += pstmt.executeUpdate();
             }
          }

@@ -88,7 +88,7 @@ CREATE TABLE product(
 	pimg_src VARCHAR(2000),      -- 이미지 절대경로
 	pbrand VARCHAR(1000),        -- 브랜드
 	pname VARCHAR(1000),         -- 상품이름
-	pprice VARCHAR(50),           -- (할인된)가격
+	pprice NUMBER(30),           -- (할인된)가격
 	pdiscount VARCHAR(50),       -- 할인율
 	pdetail VARCHAR(2000),       -- 세부사항
 	porigin VARCHAR(50),         -- 원산지
@@ -96,6 +96,13 @@ CREATE TABLE product(
 	psales NUMBER(20) DEFAULT 0, -- 판매량
 	pstock NUMBER(20) DEFAULT 0  -- 재고량
 );
+
+SELECT * FROM (SELECT * FROM product ORDER BY psales DESC) WHERE ROWNUM <= 6;
+SELECT * FROM product ORDER BY pprice DESC;
+SELECT * FROM product ORDER BY pprice;
+SELECT * FROM product ORDER BY pname;
+
+SELECT * FROM (SELECT * FROM product ORDER BY pstock) WHERE ROWNUM <=6;
 
 INSERT INTO product(pno, pcode, pimg_src, pbrand, pname, pprice, pdiscount, pdetail, porigin, pperiod, psales, pstock) 
 VALUES(1,'종합비타','https://www.uppear.co.kr/data/goods/20/08/32/1000000464/1000000464_main_088.jpg', '브랜드','비타민','10000','30%','소개설명글','미국','20221020','100','100');

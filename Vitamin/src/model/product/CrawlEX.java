@@ -4,6 +4,6 @@ import model.product.CrawlDAO;
 
 public class CrawlEX {
 	public static void main(String[] args) {
-		CrawlDAO.insertVITA();
+		CrawlDAO.insertCrawlDB();
 	}
 }

@@ -78,7 +78,7 @@
                             </ul>
                         </div>
                         <div class="sidebar__item">
-                            <h4>Price</h4>
+                            <!-- <h4>Price</h4>
                             <div class="price-range-wrap">
                                 <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content" data-min="10" data-max="540">
                                     <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
@@ -91,7 +91,7 @@
                                         <input type="text" id="maxamount">
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="sidebar__item sidebar__item__color--option">
                             <!-- <h4>Colors</h4>

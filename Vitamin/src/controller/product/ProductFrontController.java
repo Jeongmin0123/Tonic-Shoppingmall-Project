@@ -88,25 +88,25 @@ public class ProductFrontController extends HttpServlet {
 			}
 		} else if(command.equals("/product_selectallhigh.pro")) {		// shop_grid 페이지에서 높은가격순을 누르면 높은가격순서대로 상품을 pdatas로 저장한 후에 이 데이터들을 가지고 shop_grid.jsp로 이동한다.
 			try {
-				forward= new ProductSearchAction().execute(request, response);
+				forward= new ProductSelectAllHighAction().execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		} else if(command.equals("/product_selectalllow.pro")) {		// shop_grid 페이지에서 낮은가격순을 누르면 낮은가격순서대로 상품을 pdatas로 저장한 후에 이 데이터들을 가지고 shop_grid.jsp로 이동한다.
 			try {
-				forward= new ProductSearchAction().execute(request, response);
+				forward= new ProductSelectAllLowAction().execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		} else if(command.equals("/product_selectallname.pro")) {		// shop_grid 페이지에서 이름순을 누르면 이름순서대로 상품을 pdatas로 저장한 후에 이 데이터들을 가지고 shop_grid.jsp로 이동한다.
 			try {
-				forward= new ProductSearchAction().execute(request, response);
+				forward= new ProductSelectAllNameAction().execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		} else if(command.equals("/product_update.pro")) {		// 아직 페이지가 구현되지 않아 구현되면 설명 적어놓겠습니다.
 			try {
-				forward= new ProductSearchAction().execute(request, response);
+				forward= new ProductUpdateAction().execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -122,7 +122,15 @@ public class ProductFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		} else if(command.equals("/product_modi.pro")) {		// manage.jsp 페이지에서 상품 수정을 위해서 수정 버튼을 누르면 데이터를 가지고 상품수정을 위한 product_modi.jsp 페이지로 이동
+			try {
+				forward= new ProductModipageAction().execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
+		
+		
 		
 		if(forward!=null) { 
 			if(forward.isRedirect()) { 

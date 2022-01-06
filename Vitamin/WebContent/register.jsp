@@ -87,9 +87,9 @@
                 <li class="clear">
                     <span class="tit_lbl">분류</span>
                     <div class="app_content radio_area">
-                    	<input type="radio" name="pcode" value="종합비타민" style="vertical-align:0px" checked>종합비타민
-                    	<input type="radio" name="pcode" value="유산균" style="vertical-align:0px">유산균
-                    	<input type="radio" name="pcode" value="눈건강" style="vertical-align:0px">눈건강
+                    	<input type="radio" name="pcode" value="VITA" style="vertical-align:0px" checked>종합비타민
+                    	<input type="radio" name="pcode" value="LACT" style="vertical-align:0px">유산균
+                    	<input type="radio" name="pcode" value="EYES" style="vertical-align:0px">눈건강
                     </div>
                 </li>
                 <!-- 브랜드 -->
@@ -145,7 +145,7 @@
                         유통기한
                     </label>
                     <div class="app_content ">
-                        <input type="date" class="w20p" id="name_lbl" placeholder="유통기한을 입력하세요" name="pperiod" required>
+                        <input type="text" class="w20p" id="name_lbl" placeholder="유통기한을 입력하세요" name="pperiod" required>
                     </div>
                 </li>
                 <!-- 제조일자 -->

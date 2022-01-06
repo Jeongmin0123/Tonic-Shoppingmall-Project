@@ -22,7 +22,7 @@ public class ProductVO {
 	   private String pimg_src;
 	   private String pbrand;
 	   private String pname;
-	   private String pprice;
+	   private int pprice;
 	   private String pdiscount;
 	   private String pdetail;
 	   private String porigin;
@@ -60,15 +60,18 @@ public class ProductVO {
 	   public void setPname(String pname) {
 	      this.pname = pname;
 	   }
-	   public String getPprice() {
-	      return pprice;
-	   }
-	   public void setPprice(String pprice) {
-	      this.pprice = pprice;
-	   }
-	   public String getPdiscount() {
-	      return pdiscount;
-	   }
+	   
+	   
+	   
+	   public int getPprice() {
+		return pprice;
+		}
+		public void setPprice(int pprice) {
+			this.pprice = pprice;
+		}
+		public String getPdiscount() {
+		      return pdiscount;
+		   }
 	   public void setPdiscount(String pdiscount) {
 	      this.pdiscount = pdiscount;
 	   }

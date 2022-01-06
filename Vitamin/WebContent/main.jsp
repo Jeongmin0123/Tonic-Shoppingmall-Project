@@ -125,18 +125,18 @@
                     <div class="featured__controls">
                         <ul>
                             <li class="active" data-filter="*">All</li>
-                            <li data-filter=".pdatas_name">이름순</li>
-                            <li data-filter=".pdatas_fav">인기순</li>
+                            <li data-filter=".pdatas_fav">판매량순</li>
                             <li data-filter=".pdatas_low">낮은 가격순</li>
                             <li data-filter=".pdatas_high">높은 가격순</li>
+                            <li data-filter=".pdatas_soldout">매진임박순</li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="row featured__filter">
             
-            	<c:forEach var="v" items="${pdatas_name}">
-            		<div class="col-lg-3 col-md-4 col-sm-6 mix pdatas_name fresh-meat">
+            	<c:forEach var="v" items="${pdatas_soldout}">
+            		<div class="col-lg-3 col-md-4 col-sm-6 mix pdatas_soldout fresh-meat">
 	                    <div class="featured__item">
 	                        <div class="featured__item__pic set-bg" data-setbg="${v.pimg_src}">
 	                            <!-- <ul class="featured__item__pic__hover">
@@ -147,13 +147,13 @@
 	                        </div>
 	                        <div class="featured__item__text">
 	                            <h6><a href="product_detail.pro?pno=${v.pno}">${v.pname}</a></h6>
-	                            <h5>${v.pprice}</h5>
+	                            <h5>${v.pprice} 원</h5>
 	                        </div>
 	                    </div>
 	                </div>
                	</c:forEach>
             
-            	<c:forEach var="v" items="${pdatas_fav}">
+            	<c:forEach var="v" items="${pdatas}">
 	            	<div class="col-lg-3 col-md-4 col-sm-6 mix pdatas_fav fresh-meat">
 	                    <div class="featured__item">
 	                        <div class="featured__item__pic set-bg" data-setbg="${v.pimg_src}">
@@ -165,7 +165,7 @@
 	                        </div>
 	                        <div class="featured__item__text">
 	                            <h6><a href="product_detail.pro?pno=${v.pno}">${v.pname}</a></h6>
-	                            <h5>${v.pprice}</h5>
+	                            <h5>${v.pprice} 원</h5>
 	                        </div>
 	                    </div>
                 	</div>
@@ -183,7 +183,7 @@
 	                        </div>
 	                        <div class="featured__item__text">
 	                            <h6><a href="product_detail.pro?pno=${v.pno}">${v.pname}</a></h6>
-	                            <h5>${v.pprice}</h5>
+	                            <h5>${v.pprice} 원</h5>
 	                        </div>
 	                    </div>
                 	</div>
@@ -201,7 +201,7 @@
 	                        </div>
 	                        <div class="featured__item__text">
 	                            <h6><a href="product_detail.pro?pno=${v.pno}">${v.pname}</a></h6>
-	                            <h5>${v.pprice}</h5>
+	                            <h5>${v.pprice} 원</h5>
 	                        </div>
 	                    </div>
                 	</div>

@@ -52,7 +52,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>modification</h2>
+                        <h2>상품 수정</h2>
                         <div class="breadcrumb__option">                           
                         </div>
                     </div>
@@ -79,7 +79,7 @@
                         상품사진
                     </label>
                     <div class="app_content ">
-                        <input type="file" class="w100p" id="name_lbl" name="pimg_src" accept=".jpg,.png">
+                        <input type="file" class="w100p" id="name_lbl" name="pimg_src" accept=".jpg,.png" value="${pdata.pimg_src}">
                     </div>
                 </li>
                 
@@ -87,9 +87,18 @@
                 <li class="clear">
                     <span class="tit_lbl">분류</span>
                     <div class="app_content radio_area">
-                    	<input type="radio" name="pcode" value="종합비타민" style="vertical-align:0px" checked>종합비타민
-                    	<input type="radio" name="pcode" value="유산균" style="vertical-align:0px">유산균
-                    	<input type="radio" name="pcode" value="눈건강" style="vertical-align:0px">눈건강
+                    	<input type="text" class="w30p" id="name_lbl" name="pcode" value="${pdata.pcode}" placeholder="VITA , LACT , EYES" required>
+                    	<%-- <c:choose>
+                    		<c:when test="${pdata.pcode == 'VITA'}">
+                    			<input type="radio" name="pcode" value="VITA" style="vertical-align:0px" checked>종합비타민
+                    		</c:when>
+                    		<c:when test="${pdata.pcode == 'LACT'}">
+                    			<input type="radio" name="pcode" value="LACT" style="vertical-align:0px">유산균
+                    		</c:when>
+                    		<c:otherwise>
+                    			<input type="radio" name="pcode" value="EYES" style="vertical-align:0px">눈건강
+                    		</c:otherwise>
+                    	</c:choose> --%>
                     </div>
                 </li>
                 <!-- 브랜드 -->
@@ -98,7 +107,7 @@
                         브랜드
                     </label>
                     <div class="app_content ">
-                        <input type="text" class="w30p" id="name_lbl" placeholder="제조사를 입력하세요" name="pbrand" required>
+                        <input type="text" class="w30p" id="name_lbl" name="pbrand" value="${pdata.pbrand}" required>
                     </div>
                 </li>
                 <!-- 상품명 -->
@@ -107,7 +116,7 @@
                         상품명
                     </label>
                     <div class="app_content ">
-                        <input type="text" class="w30p" id="name_lbl" placeholder="상품명 입력하세요" name="pname" required>
+                        <input type="text" class="w60p" id="name_lbl" name="pname" value="${pdata.pname}" required>
                     </div>
                 </li>
                 <!-- 가격 -->
@@ -116,7 +125,7 @@
                         가격
                     </label>
                     <div class="app_content ">
-                        <input type="text" class="w30p" id="name_lbl" placeholder="가격을 입력하세요" name="pprice" required>
+                        <input type="text" class="w30p" id="name_lbl" name="pprice" value="${pdata.pprice}" required>
                     </div>
                 </li>
                 <!-- 상세정보 -->
@@ -125,7 +134,8 @@
                         상세정보
                     </label>
                     <div class="app_content ">
-                    	<textarea rows="10" cols="80" id="name_lbl" placeholder="상세정보를 입력하세요" name="pdetail" style="resize:none" required>
+                    	<textarea rows="10" cols="80" id="name_lbl" name="pdetail" style="resize:none" required>
+                    		${pdata.pdetail}
                     	</textarea>
                         <!-- <input type="text" class="w100p" id="name_lbl" placeholder="상세정보를 입력하세요" name=""> -->
                     </div>
@@ -136,7 +146,7 @@
                         원산지
                     </label>
                     <div class="app_content ">
-                        <input type="text" class="w30p" id="name_lbl" placeholder="원산지를 입력하세요" name="porigin" required>
+                        <input type="text" class="w30p" id="name_lbl" name="porigin" value="${pdata.porigin}" required>
                     </div>
                 </li>
                 <!-- 유통기한 -->
@@ -145,7 +155,7 @@
                         유통기한
                     </label>
                     <div class="app_content ">
-                        <input type="date" class="w20p" id="name_lbl" placeholder="유통기한을 입력하세요" name="pperiod" required>
+                        <input type="text" class="w20p" id="name_lbl" name="pperiod" value="${pdata.pperiod}" required>
                     </div>
                 </li>
                 <!-- 제조일자 -->
@@ -172,7 +182,7 @@
                         재고량
                     </label>
                     <div class="app_content ">
-                        <input type="text" class="w30p" id="name_lbl" placeholder="재고량을 입력하세요" name="pstock" required>
+                        <input type="text" class="w30p" id="name_lbl" name="pstock" value="${pdata.pstock}" required>
                     </div>
                 </li>
             </ul>
