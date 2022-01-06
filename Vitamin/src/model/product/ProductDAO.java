@@ -31,23 +31,34 @@ public class ProductDAO {
 	private	String sql_insertP = "INSERT INTO product(pno, pcode, pimg_src, pbrand, pname, pprice, pdetail, porigin, pperiod, pstock) " + 
 			"VALUES(LPAD(PROD_SEQ.NEXTVAL, 3, 0), ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	private	String sql_updateP = "UPDATE product SET pcode=?, pimg_src=?, pbrand=?, pname=?, pprice=?, pdetail=?, porigin=?, pperiod=?, pstock=? WHERE pno=?"; 
-	private	String sql_selectAll = "SELECT * FROM product ORDER BY pno DESC";    
-	private String sql_selectTOP = "SELECT * FROM product ORDER BY psales DESC"; // 판매인기순 
-	private String sql_selectTOP6 = "SELECT * FROM (SELECT * FROM product ORDER BY psales DESC) WHERE ROWNUM <= 6"; // 판매인기순 TOP6
-	private	String sql_selectAllHP = "SELECT * FROM product ORDER BY pprice DESC"; // 높은 가격순
-	private	String sql_selectAllHP6 = "SELECT * FROM (SELECT * FROM product ORDER BY pprice DESC) WHERE ROWNUM <=6"; // 높은 가격순 TOP6
-	private	String sql_selectAllLP = "SELECT * FROM product ORDER BY pprice"; // 낮은 가격순
-	private	String sql_selectAllLP6 = "SELECT * FROM (SELECT * FROM product ORDER BY pprice) WHERE ROWNUM <=6"; // 낮은 가격순 TOP6
-	private	String sql_selectAlmostSoldOut = "SELECT * FROM product ORDER BY pstock"; // 매진임박순
-	private	String sql_selectAlmostSoldOut6 = "SELECT * FROM (SELECT * FROM product ORDER BY pstock) WHERE ROWNUM <=6"; // 매진임박순 TOP6
-	private	String sql_selectOne = "SELECT * FROM product WHERE pno = ?";
 	private	String sql_deleteP = "DELETE FROM product WHERE pno = ?";
+	
+	private	String sql_selectOne = "SELECT * FROM product WHERE pno = ?";
+	private	String sql_selectAll = "SELECT * FROM product ORDER BY pno DESC";    
+	private String sql_selectTOP = "SELECT * FROM product ORDER BY psales DESC"; // 판매인기순
+	private	String sql_selectAllHP = "SELECT * FROM product ORDER BY pprice DESC"; // 높은 가격순
+	private	String sql_selectAllLP = "SELECT * FROM product ORDER BY pprice"; // 낮은 가격순
+	private	String sql_selectAlmostSoldOut = "SELECT * FROM product ORDER BY pstock"; // 매진임박순
+	
 	private String sql_filterPcode = "SELECT * FROM product WHERE pcode = ?"; // 상품분류 기반 필터 {VITA, LACT, EYES}
 	private String sql_searchPname = "SELECT * FROM product WHERE pname LIKE '%'||?||'%'"; // 상품명 기반 검색 쿼리
+	
+	private String sql_selectTOP6 = "SELECT * FROM (SELECT * FROM product ORDER BY psales DESC) WHERE ROWNUM <= 6"; // 판매인기순 TOP6
+	private	String sql_selectAllHP6 = "SELECT * FROM (SELECT * FROM product ORDER BY pprice DESC) WHERE ROWNUM <=6"; // 높은 가격순 TOP6
+	private	String sql_selectAllLP6 = "SELECT * FROM (SELECT * FROM product ORDER BY pprice) WHERE ROWNUM <=6"; // 낮은 가격순 TOP6
+	private	String sql_selectAlmostSoldOut6 = "SELECT * FROM (SELECT * FROM product ORDER BY pstock) WHERE ROWNUM <=6"; // 매진임박순 TOP6
 
+	
+	private String sql_selectTOPPcode = "SELECT * FROM product WHERE pcode = ? ORDER BY psales DESC"; // 판매인기순 
+	private	String sql_selectAllHPPcode = "SELECT * FROM product WHERE pcode = ? ORDER BY pprice DESC"; // 높은 가격순
+	private	String sql_selectAllLPPcode = "SELECT * FROM product WHERE pcode = ? ORDER BY pprice"; // 낮은 가격순
+	private	String sql_selectAlmostSoldOutPcode = "SELECT * FROM product WHERE pcode = ? ORDER BY pstock"; // 매진임박순
+	
+	
 //	상품등록 폼 파일 업로드 구현 -> MultipartRequest 라이브러리를 설치할 필요 有
 //	MultipartRequest multi = new MultipartRequest(request, savePath, sizeLimit, "UTF-8", new DefaultFileRenamePolicy());
 //	MultipartRequest(객체, 저장될 서버 경로, 파일 최대 크기, 인코딩 방식, 같은 이름의 파일명 방지 처리)
+	
 	// 상품등록
 	public boolean insertProduct(HttpServletRequest request) throws IOException { 
 		int result = 0;
@@ -181,6 +192,7 @@ public class ProductDAO {
 		}
 		return plist.isEmpty()? null : plist;
 	}
+	
 	// 판매량 TOP6
 	public ArrayList<ProductVO> selectAllTOP6() {
 		ArrayList<ProductVO> plist = new ArrayList<>();
@@ -248,6 +260,7 @@ public class ProductDAO {
 		}
 		return plist.isEmpty()? null : plist;
 	}
+	
 	// 높은 가격순  TOP6
 	public ArrayList<ProductVO> selectAllHigh6() {
 		ArrayList<ProductVO> plist = new ArrayList<>();
@@ -315,6 +328,7 @@ public class ProductDAO {
 		}
 		return plist.isEmpty()? null : plist;
 	}
+	
 	// 낮은 가격순 TOP6
 	public ArrayList<ProductVO> selectAllLow6() {
 		ArrayList<ProductVO> plist = new ArrayList<>();
@@ -382,6 +396,7 @@ public class ProductDAO {
 		}
 		return plist.isEmpty()? null : plist;
 	}
+	
 	// 매진임박순 TOP6
 	public ArrayList<ProductVO> sql_selectAlmostSoldOut6() {
 		ArrayList<ProductVO> plist = new ArrayList<>();
@@ -537,4 +552,156 @@ public class ProductDAO {
 		}
 		return plist.isEmpty()? null : plist;
 	}
+
+
+
+	
+	
+	// pcode 분류
+	public ArrayList<ProductVO> selectTOPPcode(ProductVO vo) {
+		ArrayList<ProductVO> plist = new ArrayList<>();
+		
+		con = JDBCUtil.connect();
+		try {
+			pstmt = con.prepareStatement(sql_selectTOPPcode);
+			pstmt.setString(1, vo.getPcode());
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				ProductVO product = new ProductVO();
+				product.setPno(rs.getString("pno"));
+				product.setPcode(rs.getString("pcode"));
+				product.setPimg_src(rs.getString("pimg_src"));
+				product.setPbrand(rs.getString("pbrand"));
+				product.setPname(rs.getString("pname"));
+				product.setPprice(rs.getInt("pprice"));
+				product.setPdiscount(rs.getString("pdiscount"));
+				product.setPdetail(rs.getString("pdetail"));
+				product.setPorigin(rs.getString("porigin"));
+				product.setPperiod(rs.getString("pperiod"));
+				product.setPsales(rs.getInt("psales"));
+				product.setPstock(rs.getInt("pstock"));
+				
+				plist.add(product);
+			}
+		} catch(Exception e) {
+			System.out.println("ProductDAO selectOne() : "+ e +" 에러");
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.disconnect(rs, pstmt, con);
+		}
+		return plist.isEmpty()? null : plist;
+	}
+	
+	
+	
+	
+	public ArrayList<ProductVO> selectAllHPPcode(ProductVO vo) {
+		ArrayList<ProductVO> plist = new ArrayList<>();
+		
+		con = JDBCUtil.connect();
+		try {
+			pstmt = con.prepareStatement(sql_selectAllHPPcode);
+			pstmt.setString(1, vo.getPcode());
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				ProductVO product = new ProductVO();
+				product.setPno(rs.getString("pno"));
+				product.setPcode(rs.getString("pcode"));
+				product.setPimg_src(rs.getString("pimg_src"));
+				product.setPbrand(rs.getString("pbrand"));
+				product.setPname(rs.getString("pname"));
+				product.setPprice(rs.getInt("pprice"));
+				product.setPdiscount(rs.getString("pdiscount"));
+				product.setPdetail(rs.getString("pdetail"));
+				product.setPorigin(rs.getString("porigin"));
+				product.setPperiod(rs.getString("pperiod"));
+				product.setPsales(rs.getInt("psales"));
+				product.setPstock(rs.getInt("pstock"));
+				
+				plist.add(product);
+			}
+		} catch(Exception e) {
+			System.out.println("ProductDAO selectOne() : "+ e +" 에러");
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.disconnect(rs, pstmt, con);
+		}
+		return plist.isEmpty()? null : plist;
+	}
+	
+	
+	
+	
+	public ArrayList<ProductVO> selectAllLPPcode(ProductVO vo) {
+		ArrayList<ProductVO> plist = new ArrayList<>();
+		
+		con = JDBCUtil.connect();
+		try {
+			pstmt = con.prepareStatement(sql_selectAllLPPcode);
+			pstmt.setString(1, vo.getPcode());
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				ProductVO product = new ProductVO();
+				product.setPno(rs.getString("pno"));
+				product.setPcode(rs.getString("pcode"));
+				product.setPimg_src(rs.getString("pimg_src"));
+				product.setPbrand(rs.getString("pbrand"));
+				product.setPname(rs.getString("pname"));
+				product.setPprice(rs.getInt("pprice"));
+				product.setPdiscount(rs.getString("pdiscount"));
+				product.setPdetail(rs.getString("pdetail"));
+				product.setPorigin(rs.getString("porigin"));
+				product.setPperiod(rs.getString("pperiod"));
+				product.setPsales(rs.getInt("psales"));
+				product.setPstock(rs.getInt("pstock"));
+				
+				plist.add(product);
+			}
+		} catch(Exception e) {
+			System.out.println("ProductDAO selectOne() : "+ e +" 에러");
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.disconnect(rs, pstmt, con);
+		}
+		return plist.isEmpty()? null : plist;
+	}
+	
+	
+	public ArrayList<ProductVO> selectAlmostSoldOutPcode(ProductVO vo) {
+		ArrayList<ProductVO> plist = new ArrayList<>();
+
+		
+		con = JDBCUtil.connect();
+		try {
+			pstmt = con.prepareStatement(sql_selectAlmostSoldOutPcode);
+			pstmt.setString(1, vo.getPcode());
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				ProductVO product = new ProductVO();
+				product.setPno(rs.getString("pno"));
+				product.setPcode(rs.getString("pcode"));
+				product.setPimg_src(rs.getString("pimg_src"));
+				product.setPbrand(rs.getString("pbrand"));
+				product.setPname(rs.getString("pname"));
+				product.setPprice(rs.getInt("pprice"));
+				product.setPdiscount(rs.getString("pdiscount"));
+				product.setPdetail(rs.getString("pdetail"));
+				product.setPorigin(rs.getString("porigin"));
+				product.setPperiod(rs.getString("pperiod"));
+				product.setPsales(rs.getInt("psales"));
+				product.setPstock(rs.getInt("pstock"));
+				
+				plist.add(product);
+			}
+		} catch(Exception e) {
+			System.out.println("ProductDAO selectOne() : "+ e +" 에러");
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.disconnect(rs, pstmt, con);
+		}
+		System.out.println("매진임ㅂ가순"+plist);
+		return plist.isEmpty()? null : plist;
+	}
+	
+	
 }

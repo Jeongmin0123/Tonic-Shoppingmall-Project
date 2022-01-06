@@ -27,6 +27,7 @@ public class ProductPcodeFilterAction implements Action {
 		// pcode를 통하여 코드에 맞는 상품들을 pdatas로 불러옴
 		ArrayList<ProductVO> pdatas = dao.filterProductCode(vo);
 		System.out.println("찾은 결과"+pdatas);
+		request.setAttribute("pcode", request.getParameter("pcode"));
 		request.setAttribute("pdatas", pdatas);
 		ActionForward forward = null;
 		if(pdatas != null) {

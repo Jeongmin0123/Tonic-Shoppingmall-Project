@@ -104,15 +104,5 @@ SELECT * FROM product ORDER BY pname;
 
 SELECT * FROM (SELECT * FROM product ORDER BY pstock) WHERE ROWNUM <=6;
 
-INSERT INTO product(pno, pcode, pimg_src, pbrand, pname, pprice, pdiscount, pdetail, porigin, pperiod, psales, pstock) 
-VALUES(1,'종합비타','https://www.uppear.co.kr/data/goods/20/08/32/1000000464/1000000464_main_088.jpg', '브랜드','비타민','10000','30%','소개설명글','미국','20221020','100','100');
-
-INSERT INTO product(pno, pcode, pimg_src, pbrand, pname, pprice, pdiscount,pdetail,porigin, pperiod, psales, pstock) 
-VALUES(2,'유산균','https://www.uppear.co.kr/data/goods/20/08/32/1000000464/1000000464_main_088.jpg', '브랜드2','비타민2','10000','30%','소개설명글','미국','20221020','100','100');
-
-
-INSERT INTO product(pno, pcode, pimg_src, pbrand, pname, pprice, pdiscount, pdetail,porigin, pperiod, psales, pstock) 
-VALUES(3,'눈건강','https://www.uppear.co.kr/data/goods/20/08/32/1000000464/1000000464_main_088.jpg', '브랜드3','비타민3','10000','30%','소개설명글','미국','20221020','100','100');
-
-
+SELECT * FROM product WHERE pcode = ? ORDER BY pstock;
 select * from product;

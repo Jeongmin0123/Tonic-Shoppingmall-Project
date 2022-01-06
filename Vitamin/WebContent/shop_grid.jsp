@@ -204,11 +204,11 @@
                                 </div> -->
                                <div class="featured__controls">
 			                        <ul>
-			                            <li><a href="product_selectall.pro">All</a></li>
-			                            <li><a href="product_selectalltop.pro">판매량순</a></li>
-			                            <li><a href="product_selectalllow.pro">낮은가격순</a></li>
-			                            <li><a href="product_selectallhigh.pro">높은가격순</a></li>
-			                            <li><a href="product_selectsoldout.pro">매진임박순</a></li>
+			                            <li><a href="product_filterselect.pro?pcode=${pcode}">All</a></li>
+			                            <li><a href="product_selectalltop.pro?pcode=${pcode}">판매량순</a></li>
+			                            <li><a href="product_selectalllow.pro?pcode=${pcode}">낮은가격순</a></li>
+			                            <li><a href="product_selectallhigh.pro?pcode=${pcode}">높은가격순</a></li>
+			                            <li><a href="product_selectsoldout.pro?pcode=${pcode}">매진임박순</a></li>
 			                        </ul>
 			                    </div>
                             </div>
