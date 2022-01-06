@@ -37,7 +37,7 @@ public class MemberDAO {
 //			+ "memail=? WHERE EXISTS (SELECT * FROM member WHERE mid = ?"; 
 	private String sql_updateM = "UPDATE member SET mname=nvl(?, mname), mgender=nvl(?, mgender), "
 			+ "mbirth=nvl(?, mbirth), maddr_zipcode=nvl(?, maddr_zipcode), maddr_street=nvl(?, maddr_street), "
-			+ "maddr_detail=nvl(?, maddr_detail), maddr_etc=nvl(?, maddr_etc), mtel = nvl(?, mtel), "
+			+ "maddr_detail=nvl(?, maddr_detail), maddr_etc=nvl(?, maddr_etc), mtel=nvl(?, mtel), "
 			+ "memail=nvl(?, memail) WHERE mid = ?";
 	private String sql_getMemberList = "SELECT * FROM member"; 
 	private String sql_isExistID = "SELECT * FROM member WHERE mid=?";
