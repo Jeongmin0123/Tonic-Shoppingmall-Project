@@ -14,12 +14,19 @@ public class ProductSelectAllTopAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// 상품 데이터를 판매량 순으로 정렬한다.
+		// pcode가 존재시 pcode에 해당하는 상품들만, 없을시 모든 상품 데이터들을 판매량순으로 pdatas 라는 이름으로 저장
 		ProductDAO dao = ProductDAO.getInstance();
-		ArrayList<ProductVO> pdatas = dao.selectAllTOP();
-		request.setAttribute("pdatas", pdatas);
+		ProductVO vo = new ProductVO();
+		vo.setPcode(request.getParameter("pcode"));
+		if(request.getParameter("pcode") == null) {
+			ArrayList<ProductVO> pdatas = dao.selectAllTOP();
+			request.setAttribute("pdatas", pdatas);
+		} else {
+			ArrayList<ProductVO> pdatas = dao.selectTOPPcode(vo);
+			request.setAttribute("pdatas", pdatas);
+		}
 
-		// shop_grid.jsp에서 가격순으로 보기를 누른 경우 정렬된 데이터들 가지고 바로 shop_grid 페이지로 이동
+		// shop_grid.jsp에서 판매량순으로 보기를 누른 경우 정렬된 데이터들 가지고 바로 shop_grid 페이지로 이동
 		ActionForward forward = new ActionForward();
 		forward.setPath("shop_grid.jsp");
 		forward.setRedirect(false);
