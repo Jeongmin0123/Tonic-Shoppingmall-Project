@@ -78,7 +78,7 @@ public class ProductDAO {
 				{ pstmt.setString(2, multi.getFilesystemName("pimg_src")); }
 			pstmt.setString(3, multi.getParameter("pbrand"));
 			pstmt.setString(4, multi.getParameter("pname"));
-			pstmt.setString(5, multi.getParameter("pprice"));
+			pstmt.setInt(5, Integer.parseInt(multi.getParameter("pprice")));
 			pstmt.setString(6, multi.getParameter("pdetail"));
 			pstmt.setString(7, multi.getParameter("porigin"));
 			pstmt.setString(8, multi.getParameter("pperiod"));
@@ -97,7 +97,8 @@ public class ProductDAO {
 	public boolean updateProduct(HttpServletRequest request) throws IOException {
 		int result = 0;
 		
-		String dir = "C:\\Users\\totls\\git\\Tonic-Shoppingmall-Project\\WebContent\\getImg"; 
+		//String dir = "C:\\Users\\totls\\git\\Tonic-Shoppingmall-Project\\WebContent\\getImg";
+		String dir = request.getServletContext().getRealPath("/getImg"); 
 		int Size = 100*1024*1024; // 받아올 파일용량 제한 : 100MB
 		MultipartRequest multi = new MultipartRequest(request, dir, Size, "UTF-8", new DefaultFileRenamePolicy());
 		
@@ -109,12 +110,12 @@ public class ProductDAO {
 				{ pstmt.setString(2, multi.getFilesystemName("pimg_src")); }
 			pstmt.setString(3, multi.getParameter("pbrand"));
 			pstmt.setString(4, multi.getParameter("pname"));
-			pstmt.setString(5, multi.getParameter("pprice"));
+			pstmt.setInt(5, Integer.parseInt(multi.getParameter("pprice")));
 			pstmt.setString(6, multi.getParameter("pdetail"));
-			pstmt.setString(6, multi.getParameter("porigin"));
-			pstmt.setString(7, multi.getParameter("pperiod"));
-			pstmt.setString(8, multi.getParameter("pstock"));
-			pstmt.setString(9, multi.getParameter("pno")); // 음...
+			pstmt.setString(7, multi.getParameter("porigin"));
+			pstmt.setString(8, multi.getParameter("pperiod"));
+			pstmt.setString(9, multi.getParameter("pstock"));
+			pstmt.setString(10, multi.getParameter("pno")); // 음...
 			result = pstmt.executeUpdate();
 		} catch(Exception e) {
 			System.out.println("ProductDAO updateProduct(): "+ e +" 에러");

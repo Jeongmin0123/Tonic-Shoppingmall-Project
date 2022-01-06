@@ -68,7 +68,7 @@
     <!-- 본문 시작 -->
 	<div class="bodytext_area box_inner">
     <!-- 상품등록폼 시작 -->
-    <form action="product_insert.pro" class="appForm" method="post" enctype="multipart/form-data">
+    <form action="product_update.pro" class="appForm" method="post" enctype="multipart/form-data">
         <fieldset>
             <!-- 안보이지만 접근성을 위해 넣는다. -->
             <legend>상품등록 양식</legend>
