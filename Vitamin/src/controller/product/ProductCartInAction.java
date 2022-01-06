@@ -26,6 +26,9 @@ public class ProductCartInAction implements Action {
 		HttpSession session=request.getSession();		
 		ArrayList<ProductVO> cart_datas = (ArrayList<ProductVO>) session.getAttribute("cart_datas");
 		
+		
+		System.out.println(cart_datas);
+		
 		// 만약 장바구니에 아무 정보가 없을 시에 장바구니를 새로 생성
 		if(session.getAttribute("cart_datas") == null) {
 			cart_datas = new ArrayList<ProductVO>();

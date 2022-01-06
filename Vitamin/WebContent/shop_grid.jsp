@@ -191,26 +191,38 @@
                     </div> -->
                     <div class="filter__item">
                         <div class="row">
-                            <div class="col-lg-4 col-md-5">
-                                <div class="filter__sort">
+                            <div class="col-lg-8 col-md-5">
+                                <!-- <div class="filter__sort">
                                     <span>Sort By</span>
-                                    <select>
-                                        <option value="0">Default</option>
-                                        <option value="0">Default</option>
+                                    <select id="filterselect">
+                                    	<option value="pdatas">All</option>
+                                        <option value="pdatas_fav">판매량순</option>
+                                        <option value="pdatas_low">낮은 가격순</option>
+                                        <option value="pdatas_high">높은 가격순</option>
+                                        <option value="pdatas_soldout">매진임박순</option>
                                     </select>
-                                </div>
+                                </div> -->
+                               <div class="featured__controls">
+			                        <ul>
+			                            <li><a href="product_selectall.pro">All</a></li>
+			                            <li><a href="product_selectalltop.pro">판매량순</a></li>
+			                            <li><a href="product_selectalllow.pro">낮은가격순</a></li>
+			                            <li><a href="product_selectallhigh.pro">높은가격순</a></li>
+			                            <li><a href="product_selectsoldout.pro">매진임박순</a></li>
+			                        </ul>
+			                    </div>
                             </div>
-                            <div class="col-lg-4 col-md-4">
+                           <!--  <div class="col-lg-4 col-md-4">
                                 <div class="filter__found">
                                     <h6><span></span> Products found</h6>
                                 </div>
-                            </div>
-                            <div class="col-lg-4 col-md-3">
-                                <!-- <div class="filter__option">
+                            </div> -->
+                            <!-- <div class="col-lg-4 col-md-3">
+                                <div class="filter__option">
                                     <span class="icon_grid-2x2"></span>
                                     <span class="icon_ul"></span>
-                                </div> -->
-                            </div>
+                                </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="row">
@@ -226,7 +238,7 @@
 	                                </div>
 	                                <div class="product__item__text">
 	                                    <h6><a href="product_detail.pro?pno=${v.pno}">${v.pname}</a></h6>
-	                                    <h5>${v.pprice}</h5>
+	                                    <h5>${v.pprice} 원</h5>
 	                                </div>
 	                            </div>
 	                        </div>
@@ -257,8 +269,6 @@
     <script src="js/mixitup.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
-
-
 
 </body>
 

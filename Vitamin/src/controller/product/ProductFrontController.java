@@ -98,9 +98,15 @@ public class ProductFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if(command.equals("/product_selectallname.pro")) {		// shop_grid 페이지에서 이름순을 누르면 이름순서대로 상품을 pdatas로 저장한 후에 이 데이터들을 가지고 shop_grid.jsp로 이동한다.
+		} else if(command.equals("/product_selectsoldout.pro")) {		// shop_grid 페이지에서 매진임박순을 누르면 매진임박순서대로 상품을 pdatas로 저장한 후에 이 데이터들을 가지고 shop_grid.jsp로 이동한다.
 			try {
-				forward= new ProductSelectAllNameAction().execute(request, response);
+				forward= new ProductSelectAlmostSoldOutAction().execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/product_selectalltop.pro")) {		
+			try {
+				forward= new ProductSelectAllTopAction().execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -129,8 +135,6 @@ public class ProductFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		
-		
 		
 		if(forward!=null) { 
 			if(forward.isRedirect()) { 

@@ -126,8 +126,8 @@
                         <ul>
                             <li class="active" data-filter="*">All</li>
                             <li data-filter=".pdatas_fav">판매량순</li>
-                            <li data-filter=".pdatas_low">낮은 가격순</li>
-                            <li data-filter=".pdatas_high">높은 가격순</li>
+                            <li data-filter=".pdatas_low">낮은가격순</li>
+                            <li data-filter=".pdatas_high">높은가격순</li>
                             <li data-filter=".pdatas_soldout">매진임박순</li>
                         </ul>
                     </div>
