@@ -24,14 +24,14 @@ public class InitialData implements ServletContextListener {
      * @see ServletContextListener#contextDestroyed(ServletContextEvent)
      */
     public void contextDestroyed(ServletContextEvent sce)  { 
-        CrawlDAO.deleteVITA(); // deleteCrawlDB(); 
+//        CrawlDAO.deleteVITA(); // deleteCrawlDB();   
     }
 
 	/**
      * @see ServletContextListener#contextInitialized(ServletContextEvent)
      */
     public void contextInitialized(ServletContextEvent sce)  { 
-    	CrawlDAO.insertCrawlDB();
+//    	CrawlDAO.insertCrawlDB();
     }
 	
 }
