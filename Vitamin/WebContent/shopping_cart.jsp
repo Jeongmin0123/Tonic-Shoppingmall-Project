@@ -72,8 +72,8 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th class="shoping__product">Products</th>
-                                    <th>Price</th>
+                                    <th class="shoping__product">Products 상품명</th>
+                                    <th></th>
                                     <th></th>
                                     <th>Total</th>
                                     <th></th>
@@ -135,7 +135,7 @@
                             <li>Subtotal <span>$454.98</span></li>
                             <li>Total <span>$454.98</span></li>
                         </ul>
-                        <a href="#" class="primary-btn">PROCEED TO CHECKOUT</a>
+                        <a href="product_payment.pro" class="primary-btn">PROCEED TO CHECKOUT</a>
                     </div>
                 </div>
             </div>
