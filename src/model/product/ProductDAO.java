@@ -94,7 +94,7 @@ public class ProductDAO {
 	public boolean updateProduct(HttpServletRequest request) throws IOException {
 		int result = 0;
 		
-		String dir = "C:\\Users\\totls\\git\\Tonic-Shoppingmall-Project\\WebContent\\getImg"; 
+		String dir = request.getServletContext().getRealPath("/getImg"); // 실제경로를 가져온다.
 		int Size = 100*1024*1024; // 받아올 파일용량 제한 : 100MB
 		MultipartRequest multi = new MultipartRequest(request, dir, Size, "UTF-8", new DefaultFileRenamePolicy());
 		
@@ -127,7 +127,7 @@ public class ProductDAO {
 		
 		con = JDBCUtil.connect();
 		try {
-			pstmt = con.prepareStatement(sql_selectAll); // 수정
+			pstmt = con.prepareStatement(sql_selectAll); 
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				ProductVO product = new ProductVO();
@@ -136,7 +136,7 @@ public class ProductDAO {
 				product.setPimg_src(rs.getString("pimg_src"));
 				product.setPbrand(rs.getString("pbrand"));
 				product.setPname(rs.getString("pname"));
-				product.setPprice(rs.getInt("pprice")); // product.setPprice(rs.getInt("pprice"));
+				product.setPprice(rs.getInt("pprice")); 
 				product.setPdiscount(rs.getString("pdiscount"));
 				product.setPdetail(rs.getString("pdetail"));
 				product.setPorigin(rs.getString("porigin"));
@@ -161,7 +161,7 @@ public class ProductDAO {
 		
 		con = JDBCUtil.connect();
 		try {
-			pstmt = con.prepareStatement(sql_selectTOP); // 수정
+			pstmt = con.prepareStatement(sql_selectTOP); 
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				ProductVO product = new ProductVO();
@@ -170,7 +170,7 @@ public class ProductDAO {
 				product.setPimg_src(rs.getString("pimg_src"));
 				product.setPbrand(rs.getString("pbrand"));
 				product.setPname(rs.getString("pname"));
-				product.setPprice(rs.getInt("pprice")); // product.setPprice(rs.getInt("pprice"));
+				product.setPprice(rs.getInt("pprice")); 
 				product.setPdiscount(rs.getString("pdiscount"));
 				product.setPdetail(rs.getString("pdetail"));
 				product.setPorigin(rs.getString("porigin"));
@@ -194,7 +194,7 @@ public class ProductDAO {
 		
 		con = JDBCUtil.connect();
 		try {
-			pstmt = con.prepareStatement(sql_selectAllHP); // 수정
+			pstmt = con.prepareStatement(sql_selectAllHP); 
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				ProductVO product = new ProductVO();
@@ -227,7 +227,7 @@ public class ProductDAO {
 		
 		con = JDBCUtil.connect();
 		try {
-			pstmt = con.prepareStatement(sql_selectAllLP); // 수정
+			pstmt = con.prepareStatement(sql_selectAllLP); 
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				ProductVO product = new ProductVO();
@@ -261,7 +261,7 @@ public class ProductDAO {
 		
 		con = JDBCUtil.connect();
 		try {
-			pstmt = con.prepareStatement(sql_selectAlmostSoldOut); // 수정
+			pstmt = con.prepareStatement(sql_selectAlmostSoldOut);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				ProductVO product = new ProductVO();
@@ -295,7 +295,7 @@ public class ProductDAO {
 		
 		con = JDBCUtil.connect();
 		try {
-			pstmt = con.prepareStatement(sql_selectTOP6); // 수정
+			pstmt = con.prepareStatement(sql_selectTOP6); 
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				ProductVO product = new ProductVO();
@@ -304,7 +304,7 @@ public class ProductDAO {
 				product.setPimg_src(rs.getString("pimg_src"));
 				product.setPbrand(rs.getString("pbrand"));
 				product.setPname(rs.getString("pname"));
-				product.setPprice(rs.getInt("pprice")); // product.setPprice(rs.getInt("pprice"));
+				product.setPprice(rs.getInt("pprice")); 
 				product.setPdiscount(rs.getString("pdiscount"));
 				product.setPdetail(rs.getString("pdetail"));
 				product.setPorigin(rs.getString("porigin"));
@@ -328,7 +328,7 @@ public class ProductDAO {
 		
 		con = JDBCUtil.connect();
 		try {
-			pstmt = con.prepareStatement(sql_selectAllHP6); // 수정
+			pstmt = con.prepareStatement(sql_selectAllHP6); 
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				ProductVO product = new ProductVO();
@@ -361,7 +361,7 @@ public class ProductDAO {
 		
 		con = JDBCUtil.connect();
 		try {
-			pstmt = con.prepareStatement(sql_selectAllLP6); // 수정
+			pstmt = con.prepareStatement(sql_selectAllLP6); 
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				ProductVO product = new ProductVO();
@@ -394,7 +394,7 @@ public class ProductDAO {
 		
 		con = JDBCUtil.connect();
 		try {
-			pstmt = con.prepareStatement(sql_selectAlmostSoldOut6); // 수정
+			pstmt = con.prepareStatement(sql_selectAlmostSoldOut6); 
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				ProductVO product = new ProductVO();
