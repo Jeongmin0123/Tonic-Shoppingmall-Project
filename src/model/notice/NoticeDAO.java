@@ -34,7 +34,7 @@ public class NoticeDAO {
 			pstmt = con.prepareStatement(sql_insertN);
 			pstmt.setString(1, vo.getNtitle());
 			pstmt.setString(2, vo.getNcont());
-			pstmt.setString(3, vo.getWriter()); // 작성자에 관리자를 어떻게 넣어야 되나.
+			pstmt.setString(3, vo.getWriter()); 
 			result = pstmt.executeUpdate();
 		} catch(SQLException e) {
 			System.out.println("NoticeDAO insertNotice(): "+ e +" 에러");
@@ -47,8 +47,6 @@ public class NoticeDAO {
 	}
 
 	// 공지사항 가져오기
-	// sql_selectAll = "SELECT * FROM notice";
-	// 수정내용: 뷰단에서 구분하기 쉽도록 nlist, notice 변수명 변경, 인자값 삭제
 	public ArrayList<NoticeVO> selectAll() {
 		ArrayList<NoticeVO> nlist = new ArrayList<NoticeVO>();
 		NoticeVO notice = null;
@@ -75,8 +73,7 @@ public class NoticeDAO {
 		return nlist.isEmpty()? null : nlist;
 	}
 	
-	// 공지사항 본문, 필요한 메서드인 걸 어필한다!
-	// sql_selectOne = "SELECT * FROM notice WHERE nidx=?";
+	// 공지사항 본문
 	public NoticeVO selectOne(NoticeVO vo) {
 		NoticeVO notice = null;
 		
@@ -101,8 +98,7 @@ public class NoticeDAO {
 		return notice;
 	}
 	
-	// 공지사항 수정
-	// sql_updateN = "UPDATE notice SET ntitle=?, ncont=? WHERE nidx=?";
+	// 공지사항 수정()
 	public boolean updateNotice(NoticeVO vo) {
 		int result = 0;
 		
@@ -122,8 +118,7 @@ public class NoticeDAO {
 		return result == 1;
 	}
 	
-	// 관리자인지 확인하고 삭제를 허용한다. 수정 중	
-	// sql_deleteN = "DELETE FROM notice WHERE nidx = ?"; 
+	// 관리자인지 확인하고 삭제를 허용한다. 
 	public boolean deleteNotice(NoticeVO vo) {
 		int result = 0;
 		
@@ -141,8 +136,7 @@ public class NoticeDAO {
 		return result == 1;
 	}
 	
-	// 검색 메서드, SQL문 작성
-	// sql_searchN = "SELECT * FROM board WHERE ntitle LIKE '%' || ? || '%'";
+	// 검색()
 	public ArrayList<NoticeVO> searchNotice(String searchTitle) { // 인자로 뭘 받을 것인가
 		ArrayList<NoticeVO> nlist = new ArrayList<>();
 		NoticeVO notice = null;

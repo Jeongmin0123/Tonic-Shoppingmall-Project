@@ -26,15 +26,6 @@ public class MemberDAO {
 	private String sql_loginM = "SELECT * FROM member WHERE mid=?"; 
 	private String sql_selectM = "SELECT * FROM member WHERE mid=?"; 
 	private String sql_findIDbyTel = "SELECT mid FROM member WHERE mtel=?"; 
-//	private String sql_updateM1 = "UPDATE member SET mname=?, mbirth=?,"
-//			+ "maddr_zipcode=?, maddr_street=?, maddr_detail=?, maddr_etc=?,"
-//			+ "memail=? WHERE mid=?"; 
-//	private String sql_updateM2 = "UPDATE member a SET mname=?, mbirth=?,"
-//			+ "maddr_zipcode=?, maddr_street=?, maddr_detail=?, maddr_etc=?,"
-//			+ "memail=? WHERE EXISTS (SELECT 1 FROM member b WHERE a.mno = b.mno AND a.mid = ?"; 
-//	private String sql_updateM3 = "UPDATE member a SET mname=?, mbirth=?,"
-//			+ "maddr_zipcode=?, maddr_street=?, maddr_detail=?, maddr_etc=?,"
-//			+ "memail=? WHERE EXISTS (SELECT * FROM member WHERE mid = ?"; 
 	private String sql_updateM = "UPDATE member SET mname=nvl(?, mname), mgender=nvl(?, mgender), "
 			+ "mbirth=nvl(?, mbirth), maddr_zipcode=nvl(?, maddr_zipcode), maddr_street=nvl(?, maddr_street), "
 			+ "maddr_detail=nvl(?, maddr_detail), maddr_etc=nvl(?, maddr_etc), mtel=nvl(?, mtel), "
@@ -71,8 +62,6 @@ public class MemberDAO {
 		return result == 1;
 	}
 
-//  로그인 성공여부()
-//  boolean->int->로 변환, 경우의 수 3가지
 	public boolean loginMember(MemberVO vo) {
 		int result = 0;
 		
@@ -94,13 +83,9 @@ public class MemberDAO {
 		} finally {
 			JDBCUtil.disconnect(rs, pstmt, con); 
 		}
-		return result == 1; // result가 1이 아니라면 false 반환.
+		return result == 1; 
 	}
 	
-//  모델에서 멤버DAO랑 관리자DAO에서 selectOne 메서드 로그인 성공여부를 받는 게 아니라 
-//	객체를 받아야함(그래야지 객체를 들고 돌아다니기 가능)
-//  String sql_selectM = "SELECT * FROM member WHERE id=?";
-//  수정내용: loginfo 테이블 삭제, 쿼리문에 "and pw=?" 추가 -> 다시 삭제
 	public MemberVO selectMember(MemberVO vo) {
 		MemberVO member = null;
 		
@@ -133,7 +118,7 @@ public class MemberDAO {
 		return member;
 	}
 	
-	// 전화번호로 ID 찾기
+	// 전화번호로 ID 찾기()
 	public String findIDbyTel(String tel) { 
 		String findID = null;
 		
@@ -154,8 +139,7 @@ public class MemberDAO {
 		return findID;
 	}
 	
-//	update(회원정보)
-//  수정내용: WHERE절 id
+	// 회원정보수정()
 	public boolean updateMember(MemberVO vo) {
 		int result = 0;
 		
@@ -182,7 +166,7 @@ public class MemberDAO {
 		return result == 1;
 	}
 	
-//  관리자가 회원정보 가져오기 메서드(), 계정은 관리자, 아직 페이지 구현X
+	// 관리자가 회원정보 가져오기 메서드(), 계정은 관리자, 페이지 구현X
 	public ArrayList<MemberVO> getMemberList() {
 		ArrayList<MemberVO> mlist = new ArrayList<MemberVO>();
 		MemberVO member = null; 
@@ -228,7 +212,7 @@ public class MemberDAO {
 		return mlist.isEmpty()? null : mlist;
 	}	
 	
-//  ID 중복확인() 
+	// 아이디 중복확인() 
 	public boolean isExistID(String id) {
 		int result = 0;
 		
@@ -246,9 +230,7 @@ public class MemberDAO {
 		return result == 1;
 	}
 	
-//  삭제()
-//	String sql_selectPW = "SELECT pw FROM member WHERE id=?";    
-//	String sql_deleteM = "DELETE FROM member WHERE id=? AND pw=?"; 
+	// 회원삭제()
 	public boolean deleteMember(MemberVO vo) {
 		String MemberPW = null; 
 		int result = 0; 
