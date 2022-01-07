@@ -111,7 +111,7 @@ public class ProductDAO {
 			pstmt.setString(7, multi.getParameter("porigin"));
 			pstmt.setString(8, multi.getParameter("pperiod"));
 			pstmt.setString(9, multi.getParameter("pstock"));
-			pstmt.setString(10, multi.getParameter("pno")); // 음...
+			pstmt.setString(10, multi.getParameter("pno")); 
 			result = pstmt.executeUpdate();
 		} catch(Exception e) {
 			System.out.println("ProductDAO updateProduct(): "+ e +" 에러");
