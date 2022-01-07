@@ -35,182 +35,15 @@
     </div>
 
     <!-- Humberger Begin -->
-    <div class="humberger__menu__overlay"></div>
-    <div class="humberger__menu__wrapper">
-        <div class="humberger__menu__logo">
-            <a href="main.do"><img src="img/logo.png" alt=""></a>
-        </div>
-        <div class="humberger__menu__widget">
-            <div class="header__top__right__language">
-                <img src="img/korea.png" alt="">
-                <div>한국어</div>
-                <!-- <span class="arrow_carrot-down"></span>
-                <ul>
-                    <li><a href="#">Spanis</a></li>
-                    <li><a href="#">English</a></li>
-                </ul> -->
-            </div>
-            <div class="header__top__right__auth">
-               <!--  <a href="login.do"><i class="fa fa-user"></i> Login</a> -->
-               <mytag:login/>
-            </div>
-        </div>
-        <nav class="humberger__menu__nav mobile-menu">
-            <ul>
-                <li class="active"><a href="main.do">Home</a></li>
-                <li><a href="shop_grid.do">Shop</a></li>
-                <li><a href="#">Pages</a>
-                    <ul class="header__menu__dropdown">
-                        <li><a href="shop_grid.do">전체상품</a></li> 
-                        <li><a href="shop_grid.do">종합비타민</a></li>
-                        <li><a href="shop_grid.do">유산균</a></li>
-                        <li><a href="shop_grid.do">눈건강</a></li>                        
-                    </ul>
-                </li>
-                <li><a href="notice.not">공지사항</a></li>
-                <li><a href="contact.con">고객센터</a></li>
-                <c:if test="${mid == 'admin'}">
-              		<li><a href="register.jsp">상품등록</a></li>
-              	</c:if>
-            </ul>
-        </nav>
-        <div id="mobile-menu-wrap"></div>
-        <div class="header__top__right__social">
-            <a><i class="fa fa-facebook"></i></a>
-            <a><i class="fa fa-twitter"></i></a>
-            <a><i class="fa fa-linkedin"></i></a>
-            <a><i class="fa fa-pinterest-p"></i></a>
-        </div>
-        <div class="humberger__menu__contact">
-            <ul>
-                <!-- <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                <li>Free Shipping for all Order of $99</li> -->
-            </ul>
-        </div>
-    </div>
+    <mytag:humberger/>
     <!-- Humberger End -->
 
     <!-- Header Section Begin -->
-    <header class="header">
-        <div class="header__top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6">
-                        <div class="header__top__left">
-                            <ul>
-                                <!-- <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                                <li>Free Shipping for all Order of $99</li> -->
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="header__top__right">
-                            <div class="header__top__right__social">
-                                <a><i class="fa fa-facebook"></i></a>
-                                <a><i class="fa fa-twitter"></i></a>
-                                <a><i class="fa fa-linkedin"></i></a>
-                                <a><i class="fa fa-pinterest-p"></i></a>
-                            </div>
-                            <div class="header__top__right__language">
-                                <img src="img/korea.png" alt="">
-                                <div>한국어</div>
-                                <!-- <span class="arrow_carrot-down"></span>
-                                <ul>
-                                    <li><a href="#">Spanis</a></li>
-                                    <li><a href="#">English</a></li>
-                                </ul> -->
-                            </div>
-                            <div class="header__top__right__auth">
-                                <!-- <a href="login.jsp"><i class="fa fa-user"></i> Login</a>
-                                <a href="new.jsp">&nbsp;&nbsp;회원가입</a> -->
-                                <mytag:login/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="header__logo">
-                        <a href="main.do"><img src="img/logo.png" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <nav class="header__menu">
-                        <ul>
-                            <li class="active"><a href="main.do">Home</a></li>
-                            <!-- <li><a href="./shop-grid.html">Shop</a></li> -->
-                            <li><a href="shop-grid.do">Shop</a>
-                                <ul class="header__menu__dropdown">
-                                    <li><a href="shop_grid.do">전체상품</a></li>
-                                    <li><a href="shop_grid.do">종합비타민</a></li>
-                                    <li><a href="shop_grid.do">유산균</a></li>
-                                    <li><a href="shop_grid.do">눈건강</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="notice.not">공지사항</a></li>
-                            <li><a href="contact.con">고객센터</a></li>
-                            <c:if test="${mid == 'admin'}">
-			              		<li><a href="register.jsp">상품등록</a></li>
-			              	</c:if>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-            <div class="humberger__open">
-                <i class="fa fa-bars"></i>
-            </div>
-        </div>
-    </header>
+    <mytag:header/>
     <!-- Header Section End -->
 
     <!-- Hero Section Begin -->
-    <section class="hero">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="hero__categories">
-                        <div class="hero__categories__all">
-                            <i class="fa fa-bars"></i>
-                            <span>Shop</span>
-                        </div>
-                        <ul>
-                            <li><a href="shop_grid.do">전체상품</a></li>
-                            <li><a href="shop_grid.do">종합비타민</a></li>
-                            <li><a href="shop_grid.do">유산균</a></li>
-                            <li><a href="shop_grid.do">눈건강</a></li>
-
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-9">
-                    <div class="hero__search">
-                        <div class="hero__search__form">
-                            <form action="#">
-                                <div class="hero__search__categories">
-                                    All Categories
-                                    <span class="arrow_carrot-down"></span>
-                                </div>
-                                <input type="text" placeholder="What do yo u need?">
-                                <button type="submit" class="site-btn">SEARCH</button>
-                            </form>
-                        </div>
-                        <div class="hero__search__phone">
-                            <div class="hero__search__phone__icon">
-                                <i class="fa fa-phone"></i>
-                            </div>
-                            <div class="hero__search__phone__text">
-                                <h5>+65 11.188.888</h5>
-                                <span>support 24/7 time</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <mytag:herosection/>
     <!-- Hero Section End -->
 
  	<!-- Breadcrumb Section Begin -->
@@ -248,9 +81,8 @@
                         </label>
                         <div class="app_content ">
                             <input type="text" class="w40p input_id" id="id_lbl" name="mid" placeholder="아이디를 입력하세요" required>
-                            <font id="checkId" size="2"></font>
-                            <!-- 중복확인 처리 필요 	ajax로 하기  -->
-	                        <input type="button" value="중복확인" onclick="checkID()">
+	                        <input type="button" id="btnEmpnoCheck" value="중복체크" />
+   							<p id="notice"></p>
                         </div>
                     </li>
                     
@@ -261,7 +93,6 @@
                         </label>
                         <div class="app_content ">
                             <input type="password" name="mpw" class="w40p pw" id="pwd_lbl" placeholder="비밀번호를 입력하세요" required>
-	                        <!-- <input type="button" id="showpw" value="표시" onclick="document.getElementById('pwd_lbl').type='text';document.getElementById('showpw').value='가리기'" > -->
 	                        <input type="button" value="비밀번호 표시" name="passwordsee" onclick="change()">
                         </div>
                     </li>
@@ -273,16 +104,11 @@
                         </label>
                         <div class="app_content ">
                             <input type="password" name="mpw2" class="w40p pw" id="pwd2_lbl" placeholder="비밀번호 확인을 입력하세요" required>
-		                    <p class="alert alert-success w20p" id="alert-success" align="center">비밀번호 일치</p>
-		                    <p class="alert alert-danger w20p" id="alert-danger" align="center">비밀번호 불일치</p>
+                            <span class="alert alert-success w20p" id="alert-success" align="center">비밀번호 일치</span>
+                            <span class="alert alert-danger w20p" id="alert-danger" align="center">비밀번호 불일치</span>
                         </div>
                     </li>
-                    <!-- <li>
-                    	<p class="alert alert-success w20p" id="alert-success" align="center">비밀번호 일치</p>
-		                <p class="alert alert-danger w20p" id="alert-danger" align="center">비밀번호 불일치</p>
-                    </li> -->
 
-                    
                     
                     <!-- 이름 -->
                     <li class="clear">
@@ -342,7 +168,7 @@
                             이메일
                         </label>
                         <div class="app_content email_area">
-                            <input type="text" class="w40p" id="email_lbl" placeholder="이매일을 입력하세요" name="memail" required>
+                            <input type="text" class="w40p" id="email_lbl" placeholder="이메일을 입력하세요" name="memail" required>
                         </div>
                     </li>
                     
@@ -355,73 +181,8 @@
         <!-- 회원가입폼  -->
     </div>
 
-
-    <!-- Footer Section Begin -->
-    <footer class="footer spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="footer__about">
-                        <div class="footer__about__logo">
-                            <a href="main.do"><img src="img/logo.png" alt=""></a>
-                        </div>
-                        <ul>
-                            <li>Address: 60-49 Road 11378 New York</li>
-                            <li>Tel: +65 11.188.888</li>
-                            <li>Email: hello@colorlib.com</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
-                    <div class="footer__widget">
-                        <br>
-                        <h4>판매자 정보</h4> <br>
-                        <ul>
-                            <li>
-                                <bold>회사명 : </bold>&nbsp;&nbsp;World 3lass <br>
-                                <bold>판매자 : </bold>&nbsp;&nbsp;이상헌 <br>
-                                <bold>phone : </bold>&nbsp;&nbsp;010-1234-1234 <br>
-                                <bold>사업자번호 : </bold>&nbsp;&nbsp;123-45-67
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-12">
-                    <div class="footer__widget">
-                        <h6>Join Our Newsletter Now</h6>
-                        <p>Get E-mail updates about our latest shop and special offers.</p>
-                        <form action="#">
-                            <input type="text" placeholder="Enter your mail">
-                            <button type="submit" class="site-btn">Subscribe</button>
-                        </form>
-                        <div class="footer__widget__social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-pinterest"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="footer__copyright">
-                        <div class="footer__copyright__text">
-                            <p>
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                Copyright &copy;<script>
-                                    document.write(new Date().getFullYear());
-
-                                </script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            </p>
-                        </div>
-                        <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+	<!-- Footer Section Begin -->
+	<jsp:include page="/footer.jsp"/>
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->
@@ -480,33 +241,28 @@
 	}
 
 	</script>
-
-	<script src = "js/jquery-3.6.0.min.js"></script>
+	
 	<script>
-		$('.input_id').focusout(function(){
-			let userId.$('.input_id').val();
-			
-			$.ajax({
-				url : "IdCheckService",
-				type : "post",
-				data : {userId: userId},
-				dataType : 'json',
-				success : function(result){
-					if(result == 0){
-						$('#checkId').html('사용할 수 없는 아이디입니다.');
-						$('#checkId').attr('color','red');
-					} else{
-						$('#checkId').html('사용할 수 있는 아이디입니다.');
-						$('#checkId').attr('color','green');
-					}
-				},
-				error : function(){
-					alert("서버요청실패");
-				}
-			})
-		})
+	   $(document).ready(function (){   
+		   $("#btnEmpnoCheck").on("click", function(event) {
+		   var params = $("form").serialize(); 
+		   		$.ajax({
+		   			url:"isExistId.mem"
+		   			,dataType:"json"
+		   			,type:"get"
+		   			,data:params
+		   			,cache:false
+		   			,success:function(data){
+		   				if(data==1){
+		   					$("#notice").css("color","blue").text("사용 가능한 ID입니다.");
+		   				}else{
+		   					$("#notice").css("color","red").text("이미 사용 중인 ID입니다.");
+		   				}
+		   			}
+		   		});
+		   });
+	   });
 	</script>
-
 
 </body>
 
