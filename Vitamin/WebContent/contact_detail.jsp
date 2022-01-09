@@ -68,17 +68,6 @@
              	<p class="app_content" align="center">
                 	<input type="button" class="btn_basecolor" onclick="contactdel()" value="삭제">
                </p>
-                <!-- <p class="btn_line txt_right">
-                    <a href="./notice_list.html" class="btn_bbs">목록</a>
-                </p> -->
-                <!-- <ul class="near_list mt20">
-                    <li>
-                        <h4 class="prev">이전글</h4><a href="#">공지사항1</a>
-                    </li>
-                    <li>
-                        <h4 class="next">다음글</h4><a href="#">공지사항2</a>
-                    </li>
-                </ul> -->
             </div>
             <!-- 본문 끝 -->
         </div>

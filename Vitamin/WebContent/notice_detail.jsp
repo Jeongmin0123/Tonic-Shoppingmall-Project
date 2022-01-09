@@ -72,9 +72,6 @@
                             	<input type="submit" class="btn_basecolor" value="수정">
 	                            <input type="button" class="btn_basecolor" onclick="noticedel()" value="삭제">
                             </p>
-		               		
-		             		<%-- <li><a href="notice_update.not?nidx=${ndata.nidx}">수정</a></li>
-		             		<li><a href="notice_delete.not?nidx=${ndata.nidx}">삭제</a></li> --%>
 	             		</form>
 	             	</c:when>
              	
@@ -92,17 +89,6 @@
                 	</c:otherwise>
              	</c:choose>
              	
-                <!-- <p class="btn_line txt_right">
-                    <a href="./notice_list.html" class="btn_bbs">목록</a>
-                </p> -->
-                <!-- <ul class="near_list mt20">
-                    <li>
-                        <h4 class="prev">이전글</h4><a href="#">공지사항1</a>
-                    </li>
-                    <li>
-                        <h4 class="next">다음글</h4><a href="#">공지사항2</a>
-                    </li>
-                </ul> -->
             </div>
             <!-- 본문 끝 -->
         </div>

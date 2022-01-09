@@ -27,12 +27,6 @@
     <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 
-<!-- <script type="text/javascript">
-   function showdetails(){
-      window.open('notice_detail.not?nidx=${v.nidx}','새창으로 회원가입','width=1000, height=500, menubar=no, status=no,toolbar=no');
-   }
-</script>
- -->
 
 <body>
     <!-- Page Preloder -->
@@ -102,12 +96,10 @@
                            <tr>
                                <td>${v.nidx}</td>
                                <td class="tit_notice"><a href="notice_detail.not?nidx=${v.nidx}">${v.ntitle}</a></td>
-                               <%-- <td class="tit_notice"><a href="javascript:showdetails()">${v.ntitle}</a></td> --%>
                                <td>${v.writer}</td>
                            </tr>
                         
                         </c:forEach>
-                               <!-- <td class="tit_notice"><a href="javascript:showdetails()">test(테스트 후 지우는 부분)</a></td> -->
                     </tbody>
                 </table>
                     <c:if test="${mrole == 'ADMIN'}">

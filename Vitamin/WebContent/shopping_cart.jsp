@@ -130,11 +130,11 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="shoping__checkout">
-                        <h5>Cart Total</h5>
+                        <!-- <h5>Cart Total</h5>
                         <ul>
                             <li>Subtotal <span>$454.98</span></li>
                             <li>Total <span>$454.98</span></li>
-                        </ul>
+                        </ul> -->
                         <a href="product_payment.pro" class="primary-btn">PROCEED TO CHECKOUT</a>
                     </div>
                 </div>

@@ -75,7 +75,6 @@
                         <legend>검색</legend>
                         <input type="text" class="tbox" name="noticsearch" placeholder="검색어를 입력하세요">
                         <input type="submit" class="btn_basecolor btn_srch" value="검색">                        
-                        <!-- <a href="/notice_search.not" class="btn_srch">검색</a> -->
                     </fieldset>
                 </form>
                 <!-- summary : 접근성을 위한 속성 -->
@@ -101,7 +100,6 @@
                        
                            <tr>
                                <td>${v.pno}</td>
-                               <%-- <td class="tit_notice"><a href="notice_detail.not?nidx=${v.nidx}">${v.ntitle}</a></td> --%>
                                <td>${v.pcode}</td>
                                <td>${v.pbrand}</td>
                                <td>${v.pname}</td>
@@ -112,7 +110,6 @@
                                <td>	
                                		<a href="product_modi.pro?pno=${v.pno}">수정</a>
                                		<a href="product_delete.pro?pno=${v.pno}">삭제</a>
-                               	<!-- <input type="button" class="btn_basecolor" onclick="productedel()" value="삭제"> -->
                                </td>
                            </tr>
                         
