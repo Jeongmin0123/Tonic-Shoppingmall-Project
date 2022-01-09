@@ -24,7 +24,7 @@ public class ProductSelectAlmostSoldOutAction implements Action {
 		ProductVO vo = new ProductVO();
 		vo.setPcode(request.getParameter("pcode"));
 		if(request.getParameter("pcode") == null) {
-			ArrayList<ProductVO> pdatas = dao.sql_selectAlmostSoldOut();
+			ArrayList<ProductVO> pdatas = dao.selectAlmostSoldOut();
 			request.setAttribute("pdatas", pdatas);
 			request.setAttribute("pcode", request.getParameter("pcode"));
 		} else {

@@ -365,7 +365,7 @@ public class ProductDAO {
 	}
 	
 	// 매진임박순
-	public ArrayList<ProductVO> sql_selectAlmostSoldOut() {
+	public ArrayList<ProductVO> selectAlmostSoldOut() {
 		ArrayList<ProductVO> plist = new ArrayList<>();
 		
 		con = JDBCUtil.connect();
@@ -399,7 +399,7 @@ public class ProductDAO {
 	}
 	
 	// 매진임박순 TOP6
-	public ArrayList<ProductVO> sql_selectAlmostSoldOut6() {
+	public ArrayList<ProductVO> selectAlmostSoldOut6() {
 		ArrayList<ProductVO> plist = new ArrayList<>();
 		
 		con = JDBCUtil.connect();

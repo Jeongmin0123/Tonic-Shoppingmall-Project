@@ -84,16 +84,16 @@
                     <caption class="hdd">고객문의 목록</caption>
                     <thead>
                         <tr>
-                            <th scope="col">번호</th>
-                            <th scope="col">내용</th>
-                            <th scope="col">이메일</th>
+                            <th scope="col" style="width:8%">번호</th>
+                            <th scope="col" style="width:50%">작성자</th>
+                            <th scope="col" style="width:50%">이메일</th>
                         </tr>
                     </thead>
                     <tbody>
                     	<c:forEach var="v" items="${cdatas}">
 	                        <tr>
 	                            <td>${v.msgno}</td>
-	                            <td class="tit_notice"><a href="contact_detail.con?msgno=${v.msgno}">${v.msgtext}</a></td>
+	                            <td class="tit_notice"><a href="contact_detail.con?msgno=${v.msgno}">${v.msgname}</a></td>
 	                            <td>${v.msgemail}</td>
 	                        </tr>
                         </c:forEach>
