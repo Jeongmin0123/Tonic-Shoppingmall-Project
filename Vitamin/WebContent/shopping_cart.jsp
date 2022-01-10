@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="mytag" %>
 <!DOCTYPE html>
 <html lang="zxx">
@@ -72,35 +73,38 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th class="shoping__product">Products 상품명</th>
-                                    <th></th>
-                                    <th></th>
+                                    <th class="shoping__product">Products</th>
+                                    <th>상품명</th>
+                                    <!-- <th></th> -->
                                     <th>Total</th>
-                                    <th></th>
+                                    <!-- <th></th> -->
                                 </tr>
                             </thead>
                             <tbody>
-                            	<c:forEach var="v" items="${cart_datas}">
+                            	<c:set var="total" value="0"/>
+                            	<c:forEach var="v" items="${cart_datas}">	
 	                                <tr>
-	                                    <td class="shoping__cart__item">
+	                                    <td class="shoping__cart__item" width="20%">
+	                                    	<a href="product_detail.pro?pno=${v.pno}">
 	                                        <img src="${v.pimg_src}" alt="" height="200" width="180">
+	                                        </a>
+	                                    </td>
+	                                    <td class="shoping__cart__price" width="70%">
 	                                        <h5>${v.pname}</h5>
 	                                    </td>
-	                                    <td class="shoping__cart__price">
-	                                        
-	                                    </td>
-	                                    <td class="shoping__cart__quantity">
-	                                        <!-- <div class="quantity">
+	                                    <!-- <td class="shoping__cart__quantity">
+	                                        <div class="quantity">
 	                                            <div class="pro-qty">
 	                                                <input type="text" value="1">
 	                                            </div>
-	                                        </div> -->
-	                                    </td>
-	                                    <td class="shoping__cart__total">
-	                                        ${v.pprice}원
+	                                        </div>
 	                                    </td>
 	                                    <td class="shoping__cart__item__close">
-	                                        <!-- <span class="icon_close"></span> -->
+	                                        <span class="icon_close"></span>
+	                                    </td> -->
+	                                    <td class="shoping__cart__total" width="10%">
+	                                        <fmt:formatNumber value="${v.pprice}" pattern="#,###" />원
+	                                        <c:set var="total" value="${total+v.pprice}"/>
 	                                    </td>
 	                                </tr>
                                 </c:forEach>
@@ -130,11 +134,11 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="shoping__checkout">
-                        <!-- <h5>Cart Total</h5>
+                        <h5>Cart Total</h5>
                         <ul>
-                            <li>Subtotal <span>$454.98</span></li>
-                            <li>Total <span>$454.98</span></li>
-                        </ul> -->
+                            <!-- <li>Subtotal <span>$454.98</span></li> -->
+                            <li>Total <span><fmt:formatNumber value="${total}" pattern="#,###" />원</span></li>
+                        </ul>
                         <a href="product_payment.pro" class="primary-btn">PROCEED TO CHECKOUT</a>
                     </div>
                 </div>

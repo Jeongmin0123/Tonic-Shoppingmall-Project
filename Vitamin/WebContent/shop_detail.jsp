@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="mytag" %>
 <!DOCTYPE html>
 <html lang="zxx">
@@ -95,7 +96,7 @@
                             <i class="fa fa-star-half-o"></i>
                             <span>(18 reviews)</span> -->
                         </div>
-                        <div class="product__details__price">가격&nbsp;&nbsp;${pdata.pprice}원</div>
+                        <div class="product__details__price">가격&nbsp;&nbsp;<fmt:formatNumber value="${pdata.pprice}" pattern="#,###" />원</div>
                         <p>
                             상세 정보 :  ${pdata.pdetail}</p>
                         <div class="product__details__quantity">

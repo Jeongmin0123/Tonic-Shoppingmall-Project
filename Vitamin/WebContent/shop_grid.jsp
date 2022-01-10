@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="mytag" %>
 <!DOCTYPE html>
 <html lang="zxx">
@@ -246,7 +247,7 @@
 	                                </div>
 	                                <div class="product__item__text">
 	                                    <h6><a href="product_detail.pro?pno=${v.pno}">${v.pname}</a></h6>
-	                                    <h5>${v.pprice} 원</h5>
+	                                    <h5><fmt:formatNumber value="${v.pprice}" pattern="#,###" />원</h5>
 	                                </div>
 	                            </div>
 	                        </div>
