@@ -83,7 +83,7 @@
                             	<c:forEach var="v" items="${cart_datas}">
 	                                <tr>
 	                                    <td class="shoping__cart__item">
-	                                        <img src="${v.pimg_src}" alt="">
+	                                        <img src="${v.pimg_src}" alt="" height="200" width="180">
 	                                        <h5>${v.pname}</h5>
 	                                    </td>
 	                                    <td class="shoping__cart__price">

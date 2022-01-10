@@ -36,6 +36,7 @@ public class MemberUpdateAction implements Action {
 		ActionForward forward = null;
 		if(dao.updateMember(vo)) {
 			// 회원정보 수정이 성공하면 main.jsp 페이지로 이동하기 위해서 main.do 실행
+			session.setAttribute("mname", vo.getMname());
 			forward = new ActionForward();
 			forward.setPath("main.do");
 			forward.setRedirect(false);

@@ -56,7 +56,7 @@
 	            		
                 <ul class="bbsview_list">
                     <li class="bbs_title">${cdata.msgname}</p></li>
-                    <li class="bbs_date">번호<span>${cdata.msgno}</span></li>
+                    <li class="bbs_date">번호&nbsp;&nbsp;<span>${cdata.msgno}</span></li>
                     <li class="bbs_hit">${cdata.msgemail}</li>
                     <li class="bbs_content">
                         <div class="editor_content">

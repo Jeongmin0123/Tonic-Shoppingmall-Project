@@ -124,10 +124,7 @@
                         상세정보
                     </label>
                     <div class="app_content ">
-                    	<textarea rows="10" cols="80" id="name_lbl" name="pdetail" style="resize:none" required>
-                    		${pdata.pdetail}
-                    	</textarea>
-                        <!-- <input type="text" class="w100p" id="name_lbl" placeholder="상세정보를 입력하세요" name=""> -->
+                    	<textarea rows="10" cols="80" id="name_lbl" name="pdetail" style="resize:none" required>${pdata.pdetail}</textarea>
                     </div>
                 </li>
                 <!-- 원산지 -->

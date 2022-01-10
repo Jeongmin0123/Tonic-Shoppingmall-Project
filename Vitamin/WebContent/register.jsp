@@ -89,7 +89,7 @@
                     <div class="app_content radio_area">
                     	<input type="radio" name="pcode" value="VITA" style="vertical-align:0px" checked>종합비타민
                     	<input type="radio" name="pcode" value="LACT" style="vertical-align:0px">유산균
-                    	<input type="radio" name="pcode" value="EYES" style="vertical-align:0px">눈건강
+                    	<input type="radio" name="pcode" value="EYES" style="vertical-align:0px">루테인
                     </div>
                 </li>
                 <!-- 브랜드 -->
@@ -125,9 +125,7 @@
                         상세정보
                     </label>
                     <div class="app_content ">
-                    	<textarea rows="10" cols="80" id="name_lbl" placeholder="상세정보를 입력하세요" name="pdetail" style="resize:none" required>
-                    	</textarea>
-                        <!-- <input type="text" class="w100p" id="name_lbl" placeholder="상세정보를 입력하세요" name=""> -->
+                    	<textarea rows="10" cols="80" id="name_lbl" placeholder="상세정보를 입력하세요" name="pdetail" style="resize:none" required></textarea>
                     </div>
                 </li>
                 <!-- 원산지 -->

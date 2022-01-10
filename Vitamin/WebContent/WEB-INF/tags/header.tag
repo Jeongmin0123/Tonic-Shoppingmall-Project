@@ -51,7 +51,7 @@
                                 	<li><a href="product_selectall.pro">전체상품</a></li> 
 			                        <li><a href="product_filterselect.pro?pcode=VITA">종합비타민</a></li>
 			                        <li><a href="product_filterselect.pro?pcode=LACT">유산균</a></li>
-			                        <li><a href="product_filterselect.pro?pcode=EYES">눈건강</a></li>    
+			                        <li><a href="product_filterselect.pro?pcode=EYES">루테인</a></li>    
                                 </ul>
                             </li>
                             <li><a href="notice.not">공지사항</a></li>
