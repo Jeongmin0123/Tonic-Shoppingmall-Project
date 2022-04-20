@@ -1,5 +1,7 @@
 <%@ tag language="java" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="mytag" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 
 <header class="header">
         <div class="header__top">
@@ -24,11 +26,6 @@
                             <div class="header__top__right__language">
                                 <img src="img/korea.png" alt="">
                                 <div>한국어</div>
-                                <!-- <span class="arrow_carrot-down"></span>
-                                <ul>
-                                    <li><a href="#">Spanis</a></li>
-                                    <li><a href="#">English</a></li>
-                                </ul> -->
                             </div>
                             <div class="header__top__right__auth">
                             	<mytag:login/>
@@ -48,22 +45,20 @@
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
-                            <li class="active"><a href="main.do">Home</a></li>
-                            <li><a href="shop-grid.do">Shop</a>
+                            <li class="active"><a href="intro.jsp">Intro</a></li>
+                            <li><a>Shop</a>
                                 <ul class="header__menu__dropdown">
-                                    <li><a href="shop-grid.do">전체상품</a></li> 
-                                    <li><a href="shop-grid.do">종합비타민</a></li>
-                                    <li><a href="shop-grid.do">유산균</a></li>
-                                    <li><a href="shop-grid.do">눈건강</a></li>
+                                	<li><a href="product_selectall.pro">전체상품</a></li> 
+			                        <li><a href="product_filterselect.pro?pcode=VITA">종합비타민</a></li>
+			                        <li><a href="product_filterselect.pro?pcode=LACT">유산균</a></li>
+			                        <li><a href="product_filterselect.pro?pcode=EYES">루테인</a></li>    
                                 </ul>
                             </li>
                             <li><a href="notice.not">공지사항</a></li>
                             <li><a href="contact.con">고객센터</a></li>
-                           
-                           	<c:if test="${mrole == 'ADMIN'}">
-                           		<li><a href="register.jsp">상품등록</a></li>
-                           	</c:if>
-                           
+                            <c:if test="${mrole == 'ADMIN'}">
+			              		<li><a href="product_manage.pro">상품관리</a></li>
+			              	</c:if>
                         </ul>
                     </nav>
                 </div>

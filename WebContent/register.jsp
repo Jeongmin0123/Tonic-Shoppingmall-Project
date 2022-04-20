@@ -29,182 +29,21 @@
 </head>
 
 <body>
-        <!-- Page Preloder -->
+    <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
     </div>
 
     <!-- Humberger Begin -->
-    <div class="humberger__menu__overlay"></div>
-    <div class="humberger__menu__wrapper">
-        <div class="humberger__menu__logo">
-            <a href="#"><img src="img/logo.png" alt=""></a>
-        </div>
-        <div class="humberger__menu__widget">
-            <div class="header__top__right__language">
-                <img src="img/korea.png" alt="">
-                <div>한국어</div>
-                <!-- <span class="arrow_carrot-down"></span>
-                <ul>
-                    <li><a href="#">Spanis</a></li>
-                    <li><a href="#">English</a></li>
-                </ul> -->
-            </div>
-            <div class="header__top__right__auth">
-                <mytag:login/>
-            </div>
-        </div>
-        <nav class="humberger__menu__nav mobile-menu">
-            <ul>
-                <li class="active"><a href="intro.jsp">Intro</a></li>
-                <li><a href="./shop-grid.html">Shop</a></li>
-                <li><a href="#">Pages</a>
-                    <ul class="header__menu__dropdown">
-                        <li><a href="./shop-grid.html">전체상품</a></li> 
-                        <li><a href="./shop-grid.html">종합비타민</a></li>
-                        <li><a href="./shop-grid.html">유산균</a></li>
-                        <li><a href="./shop-grid.html">눈건강</a></li>
-                        
-                    </ul>
-                </li>
-                <li><a href="./blog.html">Blog</a></li>
-                <li><a href="./contact.html">Contact</a></li>
-            </ul>
-        </nav>
-        <div id="mobile-menu-wrap"></div>
-        <div class="header__top__right__social">
-            <a><i class="fa fa-facebook"></i></a>
-            <a><i class="fa fa-twitter"></i></a>
-            <a><i class="fa fa-linkedin"></i></a>
-            <a><i class="fa fa-pinterest-p"></i></a>
-        </div>
-        <div class="humberger__menu__contact">
-            <ul>
-                <!-- <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                <li>Free Shipping for all Order of $99</li> -->
-            </ul>
-        </div>
-    </div>
+    <mytag:humberger/>
     <!-- Humberger End -->
 
     <!-- Header Section Begin -->
-    <header class="header">
-        <div class="header__top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6">
-                        <div class="header__top__left">
-                            <ul>
-                                <!-- <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                                <li>Free Shipping for all Order of $99</li> -->
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="header__top__right">
-                            <div class="header__top__right__social">
-                                <a><i class="fa fa-facebook"></i></a>
-                                <a><i class="fa fa-twitter"></i></a>
-                                <a><i class="fa fa-linkedin"></i></a>
-                                <a><i class="fa fa-pinterest-p"></i></a>
-                            </div>
-                            <div class="header__top__right__language">
-                                <img src="img/korea.png" alt="">
-                                <div>한국어</div>
-                                <!-- <span class="arrow_carrot-down"></span>
-                                <ul>
-                                    <li><a href="#">Spanis</a></li>
-                                    <li><a href="#">English</a></li>
-                                </ul> -->
-                            </div>
-                            <div class="header__top__right__auth">
-                                <mytag:login/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="header__logo">
-                        <a href="./index.html"><img src="img/logo.png" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <nav class="header__menu">
-                        <ul>
-                            <li class="active"><a href="intro.jsp">Intro</a></li>
-                            <li><a href="#">Shop</a>
-                                <ul class="header__menu__dropdown">
-                                    <li><a href="./shop-grid.html">전체상품</a></li> 
-                                    <li><a href="./shop-grid.html">종합비타민</a></li>
-                                    <li><a href="./shop-grid.html">유산균</a></li>
-                                    <li><a href="./shop-grid.html">눈건강</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="notice.not">공지사항</a></li>
-                            <li><a href="contact.con">고객센터</a></li>
-                            <c:if test="${mid == 'admin'}">
-			              		<li><a href="register.jsp">상품등록</a></li>
-			              	</c:if>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-            <div class="humberger__open">
-                <i class="fa fa-bars"></i>
-            </div>
-        </div>
-    </header>
+    <mytag:header/>
     <!-- Header Section End -->
 
     <!-- Hero Section Begin -->
-    <section class="hero">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="hero__categories">
-                        <div class="hero__categories__all">
-                            <i class="fa fa-bars"></i>
-                            <span>Shop</span>
-                        </div>
-                        <ul>
-                            <li><a href="./shop-grid.html">전체상품</a></li>
-                            <li><a href="./shop-grid.html">종합비타민</a></li>
-                            <li><a href="./shop-grid.html">유산균</a></li>
-                            <li><a href="./shop-grid.html">눈건강</a></li>
-                
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-9">
-                    <div class="hero__search">
-                        <div class="hero__search__form">
-                            <form action="#">
-                                <div class="hero__search__categories">
-                                    All Categories
-                                    <span class="arrow_carrot-down"></span>
-                                </div>
-                                <input type="text" placeholder="What do yo u need?">
-                                <button type="submit" class="site-btn">SEARCH</button>
-                            </form>
-                        </div>
-                        <div class="hero__search__phone">
-                            <div class="hero__search__phone__icon">
-                                <i class="fa fa-phone"></i>
-                            </div>
-                            <div class="hero__search__phone__text">
-                                <h5>+65 11.188.888</h5>
-                                <span>support 24/7 time</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <mytag:herosection/>
     <!-- Hero Section End -->
 
  	<!-- Breadcrumb Section Begin -->
@@ -229,11 +68,10 @@
     <!-- 본문 시작 -->
 	<div class="bodytext_area box_inner">
     <!-- 상품등록폼 시작 -->
-    <form action="#" class="appForm" method="post">
+    <form action="product_insert.pro" class="appForm" method="post" enctype="multipart/form-data">
         <fieldset>
             <!-- 안보이지만 접근성을 위해 넣는다. -->
             <legend>상품등록 양식</legend>
-            <!-- <p class="info_pilsoo pilsoo_item">필수입력</p> -->
             <ul class="app_list">
                 <!-- 이미지 -->
                 <li class="clear">
@@ -241,17 +79,35 @@
                         상품사진
                     </label>
                     <div class="app_content ">
-                        <input type="file" class="w100p" id="name_lbl" name="">
+                        <input type="file" class="w100p" id="name_lbl" name="pimg_src" accept=".jpg,.png">
                     </div>
                 </li>
                 
+                <!-- 분류 -->
+                <li class="clear">
+                    <span class="tit_lbl">분류</span>
+                    <div class="app_content radio_area">
+                    	<input type="radio" name="pcode" value="VITA" style="vertical-align:0px" checked>종합비타민
+                    	<input type="radio" name="pcode" value="LACT" style="vertical-align:0px">유산균
+                    	<input type="radio" name="pcode" value="EYES" style="vertical-align:0px">루테인
+                    </div>
+                </li>
+                <!-- 브랜드 -->
+                <li class="clear">
+                    <label for="name_lbl" class="tit_lbl">
+                        브랜드
+                    </label>
+                    <div class="app_content ">
+                        <input type="text" class="w30p" id="name_lbl" placeholder="제조사를 입력하세요" name="pbrand" required>
+                    </div>
+                </li>
                 <!-- 상품명 -->
                 <li class="clear">
                     <label for="name_lbl" class="tit_lbl">
                         상품명
                     </label>
                     <div class="app_content ">
-                        <input type="text" class="w100p" id="name_lbl" placeholder="상품명 입력하세요" name="">
+                        <input type="text" class="w30p" id="name_lbl" placeholder="상품명 입력하세요" name="pname" required>
                     </div>
                 </li>
                 <!-- 가격 -->
@@ -260,7 +116,7 @@
                         가격
                     </label>
                     <div class="app_content ">
-                        <input type="text" class="w100p" id="name_lbl" placeholder="가격을 입력하세요" name="">
+                        <input type="text" class="w30p" id="name_lbl" placeholder="가격을 입력하세요" name="pprice" required>
                     </div>
                 </li>
                 <!-- 상세정보 -->
@@ -269,25 +125,7 @@
                         상세정보
                     </label>
                     <div class="app_content ">
-                        <input type="text" class="w100p" id="name_lbl" placeholder="상세정보를 입력하세요" name="">
-                    </div>
-                </li>
-                <!-- 유통기한 -->
-                <li class="clear">
-                    <label for="name_lbl" class="tit_lbl">
-                        유통기한
-                    </label>
-                    <div class="app_content ">
-                        <input type="text" class="w100p" id="name_lbl" placeholder="유통기한을 입력하세요" name="">
-                    </div>
-                </li>
-                <!-- 제조일자 -->
-                <li class="clear">
-                    <label for="name_lbl" class="tit_lbl">
-                        제조일자
-                    </label>
-                    <div class="app_content ">
-                        <input type="text" class="w100p" id="name_lbl" placeholder="제조일자를 입력하세요" name="">
+                    	<textarea rows="10" cols="80" id="name_lbl" placeholder="상세정보를 입력하세요" name="pdetail" style="resize:none" required></textarea>
                     </div>
                 </li>
                 <!-- 원산지 -->
@@ -296,57 +134,49 @@
                         원산지
                     </label>
                     <div class="app_content ">
-                        <input type="text" class="w100p" id="name_lbl" placeholder="원산지를 입력하세요" name="">
+                        <input type="text" class="w30p" id="name_lbl" placeholder="원산지를 입력하세요" name="porigin" required>
                     </div>
                 </li>
-                <!-- 제조사 -->
+                <!-- 유통기한 -->
                 <li class="clear">
                     <label for="name_lbl" class="tit_lbl">
-                        제조사
+                        유통기한
                     </label>
                     <div class="app_content ">
-                        <input type="text" class="w100p" id="name_lbl" placeholder="제조사를 입력하세요" name="">
+                        <input type="text" class="w20p" id="name_lbl" placeholder="유통기한을 입력하세요" name="pperiod" required>
                     </div>
                 </li>
-                
+                <!-- 제조일자 -->
+                <!-- <li class="clear">
+                    <label for="name_lbl" class="tit_lbl">
+                        제조일자
+                    </label>
+                    <div class="app_content ">
+                        <input type="text" class="w100p" id="name_lbl" placeholder="제조일자를 입력하세요" name="">
+                    </div>
+                </li> -->
                 <!-- 판매량 -->
-                <li class="clear">
+                <!-- <li class="clear">
                     <label for="name_lbl" class="tit_lbl">
                         판매량
                     </label>
                     <div class="app_content ">
                         <input type="text" class="w100p" id="name_lbl" placeholder="0" name="">
                     </div>
-                </li>
-
+                </li> -->
                 <!-- 재고량 -->
                 <li class="clear">
                     <label for="name_lbl" class="tit_lbl">
                         재고량
                     </label>
                     <div class="app_content ">
-                        <input type="text" class="w100p" id="name_lbl" placeholder="재고량을 입력하세요" name="">
+                        <input type="text" class="w30p" id="name_lbl" placeholder="재고량을 입력하세요" name="pstock" required>
                     </div>
                 </li>
-
-                <!-- 분류 -->
-                <li class="clear">
-                    <span class="tit_lbl">분류</span>
-                    <div class="app_content radio_area">
-                        <input type="radio" class="css-radio" id="mmm_lbl" name="type" value="종합비타민"> 
-                        <label for="mmm_lbl">종합비타민</label>
-
-                        <input type="radio" class="css-radio" id="www_lbl" name="type" value="유산균"> 
-                        <label for="www_lbl">유산균</label>
-                        <!-- 오류 미해결 -->
-                        <input type="radio" class="css-radio" id="www_lbl" name="type" value="눈건강"> 
-                        <label for="www_lbl">눈건강</label>
-                    </div>
-                </li>
-
-        
             </ul>
-            <p class="btn_line"><a href="#" class="btn_basecolor">등록</a></p>
+            <p class="app_content" align="center">
+            	<input type="submit" class="btn_basecolor" value="등록">
+            </p>
         </fieldset>
     </form>
     <!-- 상품등록 끝  -->

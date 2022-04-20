@@ -33,6 +33,9 @@ public class MemberLoginAction implements Action {
 			session.setAttribute("mid", vo.getMid());
 			session.setAttribute("mname", vo.getMname());
 			session.setAttribute("mrole", vo.getMrole());
+		
+			System.out.println(vo.getMrole());
+			
 			forward = new ActionForward();
 			forward.setPath("main.do");
 			forward.setRedirect(false);

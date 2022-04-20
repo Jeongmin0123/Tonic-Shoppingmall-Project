@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
   <context-param>
     <param-name>encoding</param-name>
     <param-value>UTF-8</param-value>
   </context-param>
+  
   <servlet>
     <servlet-name>fc_mem</servlet-name>
     <servlet-class>controller.member.MemberFrontController</servlet-class>
@@ -12,6 +14,7 @@
     <servlet-name>fc_mem</servlet-name>
     <url-pattern>*.mem</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <servlet-name>fc_not</servlet-name>
     <servlet-class>controller.notice.NoticeFrontController</servlet-class>
@@ -20,6 +23,7 @@
     <servlet-name>fc_not</servlet-name>
     <url-pattern>*.not</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <servlet-name>fc_do</servlet-name>
     <servlet-class>controller.doPage.DopageFrontController</servlet-class>
@@ -28,14 +32,16 @@
     <servlet-name>fc_do</servlet-name>
     <url-pattern>*.do</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <servlet-name>fc_con</servlet-name>
-    <servlet-class>controller.product.ProductFrontController</servlet-class>
+    <servlet-class>controller.contact.ContactFrontController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>fc_con</servlet-name>
     <url-pattern>*.con</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <servlet-name>fc_pro</servlet-name>
     <servlet-class>controller.product.ProductFrontController</servlet-class>

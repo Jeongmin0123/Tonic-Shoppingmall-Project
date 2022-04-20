@@ -20,8 +20,8 @@ public class ProductInsertAction implements Action {
 		// insert가 잘 수행되면 register.jsp로 안되면 alert창 이후 전페이지로 이동
 		if(dao.insertProduct(request)) {
 			forward = new ActionForward();
-			forward.setPath("register.jsp");
-			forward.setRedirect(false);
+			forward.setPath("product_manage.pro");
+			forward.setRedirect(true);
 		} else {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();

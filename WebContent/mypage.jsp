@@ -38,179 +38,15 @@
     </div>
 
     <!-- Humberger Begin -->
-    <div class="humberger__menu__overlay"></div>
-    <div class="humberger__menu__wrapper">
-        <div class="humberger__menu__logo">
-            <a href="main.do"><img src="img/logo.png" alt=""></a>
-        </div>
-        <div class="humberger__menu__widget">
-            <div class="header__top__right__language">
-                <img src="img/korea.png" alt="">
-                <div>한국어</div>
-                <!-- <span class="arrow_carrot-down"></span>
-                <ul>
-                    <li><a href="#">Spanis</a></li>
-                    <li><a href="#">English</a></li>
-                </ul> -->
-            </div>
-            <div class="header__top__right__auth">
-                <!-- <a href="login.do"><i class="fa fa-user"></i> Login</a> -->
-                <mytag:login/>
-            </div>
-        </div>
-        <nav class="humberger__menu__nav mobile-menu">
-            <ul>
-                <li class="active"><a href="intro.jsp">Intro</a></li>
-                <li><a href="shop_grid.do">Shop</a></li>
-                <li><a href="#">Pages</a>
-                    <ul class="header__menu__dropdown">
-                        <li><a href="shop_grid.do">전체상품</a></li> 
-                        <li><a href="shop_grid.do">종합비타민</a></li>
-                        <li><a href="shop_grid.do">유산균</a></li>
-                        <li><a href="shop_grid.do">눈건강</a></li>                        
-                    </ul>
-                </li>
-                <li><a href="notice.not">공지사항</a></li>
-                <li><a href="contact.con">고객센터</a></li>
-                <c:if test="${mrole == 'ADMIN'}">
-              		<li><a href="register.jsp">상품등록</a></li>
-              	</c:if>
-            </ul>
-        </nav>
-        <div id="mobile-menu-wrap"></div>
-        <div class="header__top__right__social">
-            <a><i class="fa fa-facebook"></i></a>
-            <a><i class="fa fa-twitter"></i></a>
-            <a><i class="fa fa-linkedin"></i></a>
-            <a><i class="fa fa-pinterest-p"></i></a>
-        </div>
-        
-    </div>
+    <mytag:humberger/>
     <!-- Humberger End -->
 
     <!-- Header Section Begin -->
-    <header class="header">
-        <div class="header__top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6">
-                        <div class="header__top__left">
-                            <ul>
-                                <!-- <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                                <li>Free Shipping for all Order of $99</li> -->
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="header__top__right">
-                            <div class="header__top__right__social">
-                                <a><i class="fa fa-facebook"></i></a>
-                                <a><i class="fa fa-twitter"></i></a>
-                                <a><i class="fa fa-linkedin"></i></a>
-                                <a><i class="fa fa-pinterest-p"></i></a>
-                            </div>
-                            <div class="header__top__right__language">
-                                <img src="img/korea.png" alt="">
-                                <div>한국어</div>
-                                <!-- <span class="arrow_carrot-down"></span>
-                                <ul>
-                                    <li><a href="#">Spanis</a></li>
-                                    <li><a href="#">English</a></li>
-                                </ul> -->
-                            </div>
-                            <div class="header__top__right__auth">
-                            	<!-- mdata.mid? mid? mid 세션에 저장하는 변수명에 따라 달라질 예정 -->
-                            	<%-- <c:if test="${mid == null}">
-	                                <a href="login.do"><i class="fa fa-user"></i> Login</a>
-	                                <a href="new.do">&nbsp;&nbsp;회원가입</a>
-                            	</c:if> --%>
-                            	<mytag:login/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="header__logo">
-                        <a href="main.do"><img src="img/logo.png" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <nav class="header__menu">
-                        <ul>
-                            <li class="active"><a href="intro.jsp">Intro</a></li>
-                            <li><a href="shop_grid.do">Shop</a>
-                                <ul class="header__menu__dropdown">
-                                	<li><a href="shop_grid.do">전체상품</a></li>
-                                    <li><a href="shop_grid.do">종합비타민</a></li>
-                                    <li><a href="shop_grid.do">유산균</a></li>
-                                    <li><a href="shop_grid.do">눈건강</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="notice.not">공지사항</a></li>
-                            <li><a href="contact.con">고객센터</a></li>
-                            <c:if test="${mrole == 'ADMIN'}">
-			              		<li><a href="register.jsp">상품등록</a></li>
-			              	</c:if>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-            <div class="humberger__open">
-                <i class="fa fa-bars"></i>
-            </div>
-        </div>
-    </header>
+    <mytag:header/>
     <!-- Header Section End -->
 
     <!-- Hero Section Begin -->
-    <section class="hero">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="hero__categories">
-                        <div class="hero__categories__all">
-                            <i class="fa fa-bars"></i>
-                            <span>Shop</span>
-                        </div>
-                        <ul>
-                        	<li><a href="shop_grid.do">전체상품</a></li>
-                            <li><a href="shop_grid.do">종합비타민</a></li>
-                            <li><a href="shop_grid.do">유산균</a></li>
-                            <li><a href="shop_grid.do">눈건강</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-9">
-                    <div class="hero__search">
-                        <div class="hero__search__form">
-                            <form action="#">
-                                <div class="hero__search__categories">
-                                    All Categories
-                                    <span class="arrow_carrot-down"></span>
-                                </div>
-                                <input type="text" placeholder="What do yo u need?">
-                                <button type="submit" class="site-btn">SEARCH</button>
-                            </form>
-                        </div>
-                        <div class="hero__search__phone">
-                            <div class="hero__search__phone__icon">
-                                <i class="fa fa-phone"></i>
-                            </div>
-                            <div class="hero__search__phone__text">
-                                <h5>+65 11.188.888</h5>
-                                <span>support 24/7 time</span>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
+    <mytag:herosection/>
     <!-- Hero Section End -->
     
     <!-- Breadcrumb Section Begin -->
@@ -319,8 +155,6 @@
 		ans=confirm("정말 회원탈퇴하시겠습니까?");
 		if(ans==true){
 			mpw = prompt("비밀번호를 입력해주세요.");
-			
-			
 			location.href="member_delete.mem?mid=${mid}&mpw="+mpw;
 		}
 		else{

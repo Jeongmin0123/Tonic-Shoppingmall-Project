@@ -20,6 +20,8 @@ public class ContactDetailAction implements Action {
 		ContactVO cdata = dao.selectOne(vo);
 		ActionForward forward = null;
 		
+		System.out.println(cdata);
+		
 		if(cdata != null) {
 			request.setAttribute("cdata", cdata);
 			forward = new ActionForward();

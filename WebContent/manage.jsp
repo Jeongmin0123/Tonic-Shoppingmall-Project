@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="mytag" %>
 <!DOCTYPE html>
 <html lang="zxx">
@@ -75,7 +76,6 @@
                         <legend>검색</legend>
                         <input type="text" class="tbox" name="noticsearch" placeholder="검색어를 입력하세요">
                         <input type="submit" class="btn_basecolor btn_srch" value="검색">                        
-                        <!-- <a href="/notice_search.not" class="btn_srch">검색</a> -->
                     </fieldset>
                 </form>
                 <!-- summary : 접근성을 위한 속성 -->
@@ -101,18 +101,16 @@
                        
                            <tr>
                                <td>${v.pno}</td>
-                               <%-- <td class="tit_notice"><a href="notice_detail.not?nidx=${v.nidx}">${v.ntitle}</a></td> --%>
                                <td>${v.pcode}</td>
                                <td>${v.pbrand}</td>
                                <td>${v.pname}</td>
-                               <td>${v.pprice}</td>
+                               <td><fmt:formatNumber value="${v.pprice}" pattern="#,###" />원</td>
                                <td>${v.porigin}</td>
                                <td>${v.psales}</td>
                                <td>${v.pstock}</td>
                                <td>	
                                		<a href="product_modi.pro?pno=${v.pno}">수정</a>
                                		<a href="product_delete.pro?pno=${v.pno}">삭제</a>
-                               	<!-- <input type="button" class="btn_basecolor" onclick="productedel()" value="삭제"> -->
                                </td>
                            </tr>
                         

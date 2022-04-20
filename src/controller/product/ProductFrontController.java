@@ -104,7 +104,13 @@ public class ProductFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if(command.equals("/product_update.pro")) {		// product_modi.jsp 페이지에서 상품 수정이라는 버튼을 누를 시에 DB의 내용이 수정되는 부분. product_mamage.pro 를 통해 다시 manage.jsp 로 이동
+		} else if(command.equals("/product_selectalltop.pro")) {		
+			try {
+				forward= new ProductSelectAllTopAction().execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/product_update.pro")) {		// 아직 페이지가 구현되지 않아 구현되면 설명 적어놓겠습니다.
 			try {
 				forward= new ProductUpdateAction().execute(request, response);
 			} catch (Exception e) {
@@ -128,13 +134,7 @@ public class ProductFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if(command.equals("/product_selectalltop.pro")) {		// shop_grid 페이지에서 판매링순을 누르면 판매량순서대로 상품을 pdatas로 저장한 후에 이 데이터들을 가지고 shop_grid.jsp로 이동한다.
-			try {
-				forward= new ProductSelectAllTopAction().execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} else if(command.equals("/product_payment.pro")) {		// 장바구니 이후 결제 페이지에서 결제 버튼을 누르면 결제완료 alert 창 이후에 main.do를 통해 메인페이지로 이동
+		}  else if(command.equals("/product_payment.pro")) {		// 장바구니 이후 결제 페이지에서 결제 버튼을 누르면 결제완료 alert 창 이후에 main.do를 통해 메인페이지로 이동
 			try {
 				forward= new ProductPaymentAction().execute(request, response);
 			} catch (Exception e) {

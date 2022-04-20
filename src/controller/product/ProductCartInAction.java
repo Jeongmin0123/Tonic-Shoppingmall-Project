@@ -13,10 +13,8 @@ import model.product.ProductDAO;
 import model.product.ProductVO;
 
 public class ProductCartInAction implements Action {
-
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		
 		// 먼저 장바구니에 들어갈 데이터를 dao.selectOne으로 준비
 		ProductDAO dao = ProductDAO.getInstance();
 		ProductVO vo = new ProductVO();
@@ -37,8 +35,17 @@ public class ProductCartInAction implements Action {
 		if(session.getAttribute("mid") != null) {
 			cart_datas.add(cart_data);
 			session.setAttribute("cart_datas", cart_datas);
-			out.println("<script>alert('장바구니에 상품이 추가되었습니다!');history.go(-1);</script>");	
+			
+			out.println("<script>alert('장바구니에 상품이 추가되었습니다!');</script>");
+			
+			String pno = request.getParameter("pno");
+			request.setAttribute("pno", pno);
+			forward = new ActionForward();
+			forward.setPath("product_detail.pro");
+			forward.setRedirect(false);
 		} else {
+//			PrintWriter out = response.getWriter();
+			out.println("<script>alert('로그인 후에 장바구니 서비스 이용가능합니다!');</script>");
 			forward = new ActionForward();
 			forward.setPath("login.jsp");
 			forward.setRedirect(false);
@@ -46,5 +53,4 @@ public class ProductCartInAction implements Action {
 		 
 		return forward;
 	}
-
 }

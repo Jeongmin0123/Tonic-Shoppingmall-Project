@@ -11,6 +11,7 @@ public class NoticeVO {
 	private String ntitle;
 	private String ncont;
 	private String writer;
+	private String rownum;
 	
 	public int getNidx() {
 		return nidx;

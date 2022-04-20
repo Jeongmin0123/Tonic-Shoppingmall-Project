@@ -22,8 +22,8 @@ public class ProductDeleteAction implements Action {
 		// 상품 삭제 성공시 삭제 후 다시 manage.jsp 페이지로 이동, 실패시 alert 창 이후 전페이지로 이동
 		if(dao.deleteProduct(vo)) {
 			forward = new ActionForward();
-			forward.setPath("manage.jsp");
-			forward.setRedirect(false);
+			forward.setPath("product_manage.pro");
+			forward.setRedirect(true);
 		} else {
 			response.setContentType("text/html; charset=UTF-8"); 
 			PrintWriter out = response.getWriter();

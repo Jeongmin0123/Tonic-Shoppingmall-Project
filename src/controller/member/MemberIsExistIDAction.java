@@ -14,6 +14,7 @@ public class MemberIsExistIDAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// 이 부분은 보시고 피드백 해주세요!
+		System.out.println("여기까지 들어오는지");
 		String mid = request.getParameter("mid");
 		MemberDAO dao = MemberDAO.getInstance();
 		PrintWriter out = response.getWriter();

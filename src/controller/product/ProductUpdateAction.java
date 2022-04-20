@@ -18,6 +18,9 @@ public class ProductUpdateAction implements Action {
 		// 입력받는 인자가 request이므로 따로 필요한 객체가 없음
 		ProductDAO dao = ProductDAO.getInstance();
 		ActionForward forward = null;
+		
+		System.out.println(request.getParameter("pno"));
+		
 		// update가 잘 수행되었을 시에 manage.jsp로 안되었을시에는 alert창 이후 전페이지로 이동한다.
 		if(dao.updateProduct(request) ) {	
 			ArrayList<ProductVO> pdatas = dao.selectAll();

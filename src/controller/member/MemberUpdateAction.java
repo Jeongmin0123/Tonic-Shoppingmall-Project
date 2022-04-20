@@ -24,18 +24,19 @@ public class MemberUpdateAction implements Action {
 		
 		// 수정하거나 입력된 값들을 받아오기
 		vo.setMname(request.getParameter("mname"));
+		vo.setMgender(request.getParameter("mgender"));
 		vo.setMbirth(request.getParameter("mbirth"));
 		vo.setMaddr_zipcode(request.getParameter("maddr_zipcode"));
 		vo.setMaddr_street(request.getParameter("maddr_street"));
 		vo.setMaddr_detail(request.getParameter("maddr_detail"));
 		vo.setMaddr_etc(request.getParameter("maddr_etc"));
-		vo.setMemail(request.getParameter("memail"));
-		vo.setMgender(request.getParameter("mgender"));
 		vo.setMtel(request.getParameter("mtel"));
+		vo.setMemail(request.getParameter("memail"));
 		
 		ActionForward forward = null;
 		if(dao.updateMember(vo)) {
 			// 회원정보 수정이 성공하면 main.jsp 페이지로 이동하기 위해서 main.do 실행
+			session.setAttribute("mname", vo.getMname());
 			forward = new ActionForward();
 			forward.setPath("main.do");
 			forward.setRedirect(false);
